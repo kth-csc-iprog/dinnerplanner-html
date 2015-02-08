@@ -8,19 +8,62 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
-
+    <!-- Custom CSS -->
+	<link rel="stylesheet" href="style.css">
   </head>
   <body>
+  	<div id="page-background"></div>
 	<div class="container">
-		<h1>Dinner planner</h1>
-		<div id="exampleView">
-			<div>
-				Number of guests: <span id="numberOfGuests"></span>
-			</div>
-			<div>
-          <button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
-				<button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
-			</div>
+		<h1>Homelette <small>from the best chefs in the world directly to your chicken</small></h1>
+		<!-- Home -->
+		<div id="pageHome" class="page">
+			<!-- h2 class="page-header">Home</h2 -->
+			<div class="row">
+				<div class="col-md-6">				
+					<div class="background"></div>
+					<h3>A Home Dinner Service</h3>
+					<hr/>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+					<br>
+					<p>start quickly</p>
+					<p>
+						<button id="toPageHome" class="page-switch-button">Create new dinner</button>
+					</p>
+					<br>
+				</div>	
+				<div class="col-md-1"></div>
+				<div class="col-md-5">
+					<div class="background"></div>
+					<h3>Test page switching</h3>
+					<hr/>
+					<ul class="test-buttons">
+						<li><button id="toPageSelectDish" class="page-switch-button">To Select Dish Page</button></li>
+						<li><button id="toPageDishDetail" class="page-switch-button">To Dish Detail Page</button></li>
+						<li><button id="toPageDinnerOverview" class="page-switch-button">To Dinner Overview Page</button></li>
+						<li><button id="toPagePreparation" class="page-switch-button">To Dinner Preparation Page</button></li>
+					</ul>
+				</div>
+			</div>			
+		</div>
+		<!-- Select Dish -->
+		<div id="pageSelectDish" class="page">
+			<h2 class="page-header">Select Dish</h2>
+			<button id="toPageHome" class="page-switch-button">Back Home</button>
+		</div>
+		<!-- Dish Detail -->
+		<div id="pageDishDetail" class="page">
+			<h2 class="page-header">Dish Detail</h2>
+			<button id="toPageHome" class="page-switch-button">Back Home</button>
+		</div>
+		<!-- Dinner Overview -->
+		<div id="pageDinnerOverview" class="page">
+			<h2 class="page-header">Dinner Overview</h2>
+			<button id="toPageHome" class="page-switch-button">Back Home</button>
+		</div>
+		<!-- Dinner Preparation -->
+		<div id="pagePreparation" class="page">
+			<h2 class="page-header">Dinner Preparation</h2>
+			<button id="toPageHome" class="page-switch-button">Back Home</button>
 		</div>
 	</div>
 
@@ -32,7 +75,10 @@
 	<!-- The application JavaScript code -->
 	<script src="js/app.js"></script>
 	<script src="js/model/dinnerModel.js"></script>
+	<script src="js/view/homeView.js"></script>
+<!--	
 	<script src="js/view/exampleView.js"></script>
 	<script src="js/view/exampleViewController.js"></script>
+-->
   </body>
 </html>
