@@ -44,7 +44,7 @@ h1, h2 {
 }
 
 h3, h4, h5, h6,
-p, ul li, input {
+p, ul li, input, button {
 	font-family: 'Segoe UI';
 }
 
@@ -61,8 +61,15 @@ ul.test-buttons li {
 }
 
 button {
+	border: 1px solid #ca5000;
+	color: #ca5000;
 	background-color: transparent;
-	border: 1px solid #626c78;
+	outline: none;
+	font-weight: 500;
+}
+button:hover {
+	border: 1px solid #ca0000;
+	color: #ca0000;
 }
 
 /* home page */
