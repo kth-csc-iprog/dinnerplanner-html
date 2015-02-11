@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dinner planner</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/main.css">
+
+  </head>
+  
+  
+  <body>
+  <div id="header">
+  <h1>HOMELETTE</h1><h4>From the best chefs in the world directly into your kitchen</h4>
+  </div>
+
+  
+	<div class="row">
+		<div class="col-md-3">
+			<div>MY DINNER</div>
+			<div class="container">
+				<h1>Dinner planner</h1>
+				<div id="exampleView">
+					<div>
+						Number of guests: <span id="numberOfGuests"></span>
+					</div>
+					<div>
+						<button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
+						<button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
+					</div>
+					<div>
+						PUT THE PRICE CALULATION HERE
+					</div>
+					<div>
+						<button id="plusGuest" class="btn"><span class="confirm dinner">Confirm Dinner</span></button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-9">
+			<div>Hello</div>
+			<div>
+			<div>select dish</div>
+				<div>
+				<form class="navbar-form navbar-left" role="search">
+						<div class="form-group">
+						<input type="text" class="form-control" placeholder="Search">
+						</div>
+					<button type="submit" class="btn btn-default">Search</button>
+						<select class="form-control">
+							<option>Starter</option>
+							<option>Main</option>
+							<option>3</option>
+							<option>4</option>
+							<option>5</option>
+						</select>
+				</form>
+				</div>	
+			</div>
+		</div>
+		<div>DISHES TO CHOOSE FROM AND THUMBNAILS</div>
+		<div><img src="C:\Master\Period 3\Interaction Programming\DinnerPlanner-Project\dinnerplanner-html\images\icecream" alt="Responsive image" class="img-circle"></div>
+	</div>
+	
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+
+	<!-- The application JavaScript code -->
+	<script src="js/app.js"></script>
+	<script src="js/model/dinnerModel.js"></script>
+	<script src="js/view/exampleView.js"></script>
+	<script src="js/view/exampleViewController.js"></script>
+  </body>
+</html>
