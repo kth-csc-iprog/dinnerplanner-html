@@ -1,10 +1,26 @@
 #header{
 	height: 100px;
-	padding-left: 30px;
+    padding-left: 30px;
 }
 
+div.jumbotron {
+    font-size: 15px;
+}
 
-
-.row{
+.Header {
+    border-style: solid;
+    border-width: 12px;
+    font-size: 40px;
 	
+}
+.Header p{
+	 font-size: 30px
+}
+
+.jumbotron {
+font-size: 40px;
+padding: 30px 15px;
+margin-bottom: 15px;
+color: inherit;
+background-color: #D7E46B;
 }
