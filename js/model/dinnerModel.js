@@ -3,46 +3,135 @@ var DinnerModel = function() {
  
 	//TODO Lab 2 implement the data structure that will hold number of guest
 	// and selected dinner options for dinner menu
-
+	var numberofguests = 0;
+	var menu = [{
+	'id':1,
+		'name':'French toast',
+		'type':'starter',
+		'image':'toast.jpg',
+		'description':"In a large mixing bowl, beat the eggs. Add the milk, brown sugar and nutmeg; stir well to combine. Soak bread slices in the egg mixture until saturated. Heat a lightly oiled griddle or frying pan over medium high heat. Brown slices on both sides, sprinkle with cinnamon and serve hot.",
+		'ingredients':[{ 
+			'name':'eggs',
+			'quantity':0.5,
+			'unit':'',
+			'price':10
+			},{
+			'name':'milk',
+			'quantity':30,
+			'unit':'ml',
+			'price':6
+			},{
+			'name':'brown sugar',
+			'quantity':7,
+			'unit':'g',
+			'price':1
+			},{
+			'name':'ground nutmeg',
+			'quantity':0.5,
+			'unit':'g',
+			'price':12
+			},{
+			'name':'white bread',
+			'quantity':2,
+			'unit':'slices',
+			'price':2
+			}]
+		},{
+		'id':2,
+		'name':'Sourdough Starter',
+		'type':'starter',
+		'image':'sourdough.jpg',
+		'description':"Here is how you make it... Lore ipsum...",
+		'ingredients':[{ 
+			'name':'active dry yeast',
+			'quantity':0.5,
+			'unit':'g',
+			'price':4
+			},{
+			'name':'warm water',
+			'quantity':30,
+			'unit':'ml',
+			'price':0
+			},{
+			'name':'all-purpose flour',
+			'quantity':15,
+			'unit':'g',
+			'price':2
+			}]
+		}
+	];
+	
 
 	this.setNumberOfGuests = function(num) {
-		//TODO Lab 2
+		numberofguests = num;
 	}
 
 	// should return 
 	this.getNumberOfGuests = function() {
-		//TODO Lab 2
+		return numberofguests;
 	}
 
-	//Returns the dish that is on the menu for selected type 
+	//Returns the dishes that is on the menu for selected type 
 	this.getSelectedDish = function(type) {
-		//TODO Lab 2
+		var toReturn = [];
+		$(menu).each(function( index, dish ) {  //each-function goes through a list and does an action for every fitting element
+			if (dish.type === type){			//here we compare the type with the type of the already selected type
+												//"we get the list of all the starters or main or... available"
+				toReturn.push(dish);
+			}
+		});
+		return toReturn; 
 	}
 
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
-		//TODO Lab 2
+		return menu;
 	}
 
 	//Returns all ingredients for all the dishes on the menu.
 	this.getAllIngredients = function() {
-		//TODO Lab 2
+				var toReturn = [];  
+		$(menu).each(function( index, dish ) {
+				toReturn.push(dish.ingredients);
+		});
+		return  toReturn;
 	}
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	this.getTotalMenuPrice = function() {
-		//TODO Lab 2
+		var totalPrice = 0;  
+		$(menu).each(function( index, dish ) {
+				$(dish.ingredients).each(function( index, ingredients ) {   //this is two loops encapsulated, since the price is in the igeredients
+																			//have a look at getSelectedDish for the loop explanation
+					totalPrice = totalPrice + ingredient.price;
+				});
+		});
+		return  toReturn;
 	}
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
-		//TODO Lab 2 
+		$(dishes).each(function(index, dish) {
+			if(dish.id ===id){
+				$(menu).each(function(indexInMenu, dishInMenu){
+					if(dishInMenu.type === dish.type){
+						menu.splice(indexInMenu, 1)
+					}
+				});
+				menu.push(dish);
+				return;
+			}
+		});
 	}
 
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {
-		//TODO Lab 2
+		$(menu).each(function( index, dish ){
+			if(dish.id === id){
+				menu.splice(index, 1)
+			}
+		});
 	}
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
