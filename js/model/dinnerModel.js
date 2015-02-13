@@ -1,8 +1,5 @@
 //DinnerModel Object constructor
 var DinnerModel = function() {
- 
-	
-	
 
 		var NumberOfGuests =0;
 		var Menu = [];
