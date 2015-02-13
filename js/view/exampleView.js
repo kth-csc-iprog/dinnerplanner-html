@@ -94,6 +94,7 @@ var ingredientsTable = function (container, model) {
 	
 	container.find("#tableTitle").html("Ingredients for"+numOfPeople+" people")
 	var thisDish = model.getDish(id);
+	var total = 0;
 	for(var i=0; i<thisDish.ingredients.length; i++){
 		var newRow = document.createElement("tr");
 			newRow.setAttribute('id','id'+i);
@@ -117,28 +118,20 @@ var ingredientsTable = function (container, model) {
 			container.find("#id"+i).append(ingQuant);
 			Quant = document.createTextNode(("SEK "+thisDish.ingredients[i].price));
 			ingQuant.appendChild(Quant);
+		total += thisDish.ingredients[i].price;
 	}
+	var dishDesc = document.createElement("a");
+	dishDesc.setAttribute('class', 'btn btn-default btn');
+	var Desc = document.createTextNode("confirm dish");
+	dishDesc.appendChild(Desc);
+	container.find("#tableConfirm").append(dishDesc);
 	
-	/*var newDish = document.createElement("div");
-	newDish.setAttribute('class', 'dishDetail');
-	
-	var dishName = document.createElement("div");
-	dishName.setAttribute('class', 'DishDetailName');
-	var Name = document.createTextNode(thisDish.name);
-	dishName.appendChild(Name);
-	newDish.appendChild(dishName);
-	
-	var dishImage = document.createElement("img");
-	dishImage.setAttribute('class', 'DishDetailImage');
-	dishImage.setAttribute('src', 'images/'+thisDish.image);
-	newDish.appendChild(dishImage);
+	console.log(total);
 	
 	var dishDesc = document.createElement("div");
-	dishDesc.setAttribute('class', 'DishDetailDesc');
-	var Desc = document.createTextNode(thisDish.description);
+	dishDesc.setAttribute('class', 'detailTotal');
+	var Desc = document.createTextNode(("SEK "+total));
 	dishDesc.appendChild(Desc);
-	newDish.appendChild(dishDesc);
-	
-	container.append(newDish);*/
+	container.find("#tableConfirm").append(dishDesc);
 	
 }	  
