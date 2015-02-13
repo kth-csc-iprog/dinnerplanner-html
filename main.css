@@ -9,10 +9,18 @@ body {
 	font-family: 'Georgia', sans-serif;
 }
 
-.dish{
- 	width: 200px;	
-	background-color:red;
+.dish {
+	padding: 15px;
+	margin: 15px;
+	margin-left:7px;
+	margin-right: 7px;
+ 	width: 230px;
+	background-color:#e0e0e0;
 	display: inline-block;
+}
+
+.dishName {
+	font-weight: bold;
 }
 
 #top {

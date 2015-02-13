@@ -11,8 +11,13 @@ var ExampleView = function (container, model) {
 	this.numberOfGuests.html("Hello World");
 	var allDishes = model.getAllDishes('main dish','');
 	for(var i=0; i<allDishes.length; i++){
+	
+		var newLink = document.createElement("a");
+		newLink.setAttribute('href', '#');
+	
 		var newDish = document.createElement("div");
 		newDish.setAttribute('class', 'dish');
+		newLink.appendChild(newDish);
 		
 		var dishName = document.createElement("div");
 		dishName.setAttribute('class', 'DishName');
@@ -31,7 +36,7 @@ var ExampleView = function (container, model) {
 		dishDesc.appendChild(Desc);
 		newDish.appendChild(dishDesc);
 		
-		container.append(newDish);
+		container.append(newLink);
     }
 	
 }
