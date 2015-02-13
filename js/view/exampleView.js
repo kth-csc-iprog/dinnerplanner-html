@@ -64,23 +64,29 @@ var dishDetails = function (container, model) {
 	dishImage.setAttribute('src', 'images/'+thisDish.image);
 	newDish.appendChild(dishImage);
 	
-	var dishDesc = document.createElement("a");
-	dishDesc.setAttribute('class', 'btn btn-default btn');
-	var Desc = document.createTextNode("Back to select dish");
-	dishDesc.appendChild(Desc);
-	newDish.appendChild(dishDesc);
-	
-	var dishDesc = document.createElement("div");
-	dishDesc.setAttribute('class', 'prepTitle');
-	var Desc = document.createTextNode("PREPARATION");
-	dishDesc.appendChild(Desc);
-	newDish.appendChild(dishDesc);
-	
 	var dishDesc = document.createElement("div");
 	dishDesc.setAttribute('class', 'DishDetailDesc');
 	var Desc = document.createTextNode(thisDish.description);
 	dishDesc.appendChild(Desc);
 	newDish.appendChild(dishDesc);
+	
+	var dishBackButton = document.createElement("a");
+	dishBackButton.setAttribute('class', 'btn btn-default btn');
+	var Desc = document.createTextNode("Back to select dish");
+	dishBackButton.appendChild(Desc);
+	newDish.appendChild(dishBackButton);
+	
+	var prepTitle = document.createElement("div");
+	prepTitle.setAttribute('class', 'prepTitle');
+	var Desc = document.createTextNode("PREPARATION");
+	prepTitle.appendChild(Desc);
+	newDish.appendChild(prepTitle);
+	
+	var prepText = document.createElement("div");
+	prepText.setAttribute('class', 'DishDetailDesc');
+	var Desc = document.createTextNode(thisDish.description);
+	prepText.appendChild(Desc);
+	newDish.appendChild(prepText);
 	
 	container.append(newDish);
 	

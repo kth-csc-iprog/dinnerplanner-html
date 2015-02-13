@@ -84,3 +84,12 @@ body {
 #content-row {
 	height:100vh;
 }
+
+.DishDetailName {
+	font-size: 150%;
+	font-weight: bold;
+}
+
+.prepTitle {
+	font-weight: bold;
+}
