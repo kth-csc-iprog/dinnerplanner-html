@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Select dish</title>
+
+    <!--Switch bootstrap.css to bootstap.min.css when publishing - which minimizes the file but is not human readable-->
+
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="css/basestyles.css" type="text/css" />
+
+</head>
+	<body>
+		<div id="header" class="container-fluid" style="background:#D3D3D3">
+		<h1>Homelette <small>From the best chefs in the world directly into your kitchen</small></h1>
+		</div>
+		
+		<div id="sidebar">
+			<h4>My dinner</h4>
+			<p>People 
+				<select name="People">
+					<option name="People" value="3">3</option>
+				</select> 
+			</p>
+			
+			<p>
+			<table style="width:100%">
+				<tr style="background:#D3D3D3;border:1px solid black">
+					<td>Dish name</td>
+					<td>Cost</td>
+				</tr>
+				<tr><td>    </td></tr>
+				<tr>
+					<td>Pending</td>
+					<td>0.00</td>
+				</tr>
+			</table>
+			</p>
+			<button class="btn btn-default">Confirm dinner</button>
+		</div>
+
+		<div id="content" class="container" style="background:#FFE680">
+			<div class="container-fluid" style="display:inline">
+				<h4 style="margin-left:10px">Select Dish</h4>
+				<hr>
+				<input type="text" size="32" />
+				<input type="submit" value="Search" />
+				<select name="Course" style="min-width:30%; margin-left:20px">
+					<option name="Course">Starter</option>
+					<option name="Course">Main</option>
+					<option name="Course">Dessert</option>
+				</select> 
+			</div>
+		</div>
+		
+		<div id="content" class="container-fluid">
+			<div class="container" style="width:auto;float:left;margin:0.5cm;margin-top:1cm">
+				<img src="http://goo.gl/ztLO4Q" alt="Lasanga" style="width:150px;height:128px;border:3px solid black">
+				<p style="border:3px solid black;border-top:0px;background:#D3D3D3;float:top">Lasange</p>
+				<p style="width:150px;font-size:80%">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc iaculis feugiat eleifend.</p>
+			</div>
+			
+			<div class="container" style="width:auto;float:left;margin:0.5cm;margin-top:1cm">
+				<img src="http://goo.gl/gWZdqo" alt="Pizza" style="width:150px;height:128px;border:3px solid black"">
+				<p style="border:3px solid black;border-top:0px;background:#D3D3D3;float:top">Pizza</p>
+				<p style="width:150px;font-size:80%">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc iaculis feugiat eleifend.</p>
+			</div>
+			
+			<div class="container" style="width:auto;float:left;margin:0.5cm;margin-top:1cm">
+				<img src="http://goo.gl/WV0CRk" alt="Mushrooms" style="width:150px;height:128px;border:3px solid black"">
+				<p style="border:3px solid black;border-top:0px;background:#D3D3D3;float:top">Mushrooms</p>
+				<p style="width:150px;font-size:80%">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc iaculis feugiat eleifend.</p>
+			</div>
+			
+			<div class="container" style="width:auto;float:left;margin:0.5cm;margin-top:1cm">
+				<img src="http://goo.gl/xSqn8L" alt="Florentina" style="width:150px;height:128px;border:3px solid black"">
+				<p style="border:3px solid black;border-top:0px;background:#D3D3D3;float:top">Florentina</p>
+				<p style="width:150px;font-size:80%">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc iaculis feugiat eleifend.</p>
+			</div>
+			
+			<div class="container" style="width:auto;float:left;margin:0.5cm;margin-top:1cm">
+				<img src="http://goo.gl/0FYuNZ" alt="Boiled Cod" style="width:150px;height:128px;border:3px solid black"">
+				<p style="border:3px solid black;border-top:0px;background:#D3D3D3;float:top">Boiled Cod</p>
+				<p style="width:150px;font-size:80%">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc iaculis feugiat eleifend.</p>
+			</div>
+		</div>	
+		
+
+  </body>
+</html>
