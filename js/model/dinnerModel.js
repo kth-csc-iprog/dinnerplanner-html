@@ -1,48 +1,78 @@
 //DinnerModel Object constructor
 var DinnerModel = function() {
  
-	//TODO Lab 2 implement the data structure that will hold number of guest
-	// and selected dinner options for dinner menu
+	
+	
 
-
+		var NumberOfGuests =0;
+		var Menu = [];
+	
 	this.setNumberOfGuests = function(num) {
-		//TODO Lab 2
+		
+		NumberOfGuests = num;
 	}
 
 	// should return 
 	this.getNumberOfGuests = function() {
-		//TODO Lab 2
+		
+		return myDinner.NumberOfGuests;
 	}
 
 	//Returns the dish that is on the menu for selected type 
 	this.getSelectedDish = function(type) {
-		//TODO Lab 2
+		Menu[type];
 	}
 
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
-		//TODO Lab 2
+		var fullMenu = [];
+		for(key in Menu) {
+			fullMenu.push(this.getDish(menu[key]));
+		}
+		return fullMenu;
 	}
 
 	//Returns all ingredients for all the dishes on the menu.
 	this.getAllIngredients = function() {
-		//TODO Lab 2
+		var ingredients = [];
+		for(key in Menu) {
+			var dish = this.getDish(Menu[key]);
+			ingredients.push(dish.ingredients);
+		}
+		return ingredients;
 	}
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	this.getTotalMenuPrice = function() {
-		//TODO Lab 2
+		val allIngredients = this.getAllIngredients();
+		var Total = 0;
+		for(key in allIngredients){
+			Total += +allIngredients[key].price;
+		}
+		return Total;
 	}
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
-		//TODO Lab 2 
+		var dishType = '';
+		for(key in dishes){
+			if (dishes[key].id == id){
+				dishType = dishes[key].type;
+			}
+		}
+		Menu['dishType'] = id;
 	}
 
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {
-		//TODO Lab 2
+		var dishType = '';
+		for(key in dishes){
+			if (dishes[key].id == id){
+				dishType = dishes[key].type;
+			}
+		}
+		Menu['dishType'] = '';
 	}
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
