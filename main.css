@@ -9,6 +9,12 @@ body {
 	font-family: 'Georgia', sans-serif;
 }
 
+.dish{
+ 	width: 200px;	
+	background-color:red;
+	display: inline-block;
+}
+
 #top {
 	background-color: #f0f0f0;
 }
