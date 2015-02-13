@@ -44,7 +44,7 @@ var DinnerModel = function() {
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	this.getTotalMenuPrice = function() {
-		val allIngredients = this.getAllIngredients();
+		var allIngredients = this.getAllIngredients();
 		var Total = 0;
 		for(key in allIngredients){
 			Total += +allIngredients[key].price;

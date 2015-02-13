@@ -9,19 +9,25 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="main.css">
   </head>
   
   <body>
-	<div class="container">
-		<h1>Dinner planner</h1>
-		<div id="exampleView">
-			<div>
-				Test test.
-				Number of guests: <span id="numberOfGuests"></span>
-			</div>
-			<div>
-          <button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
-				<button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
+ 
+    <div class="top">
+      <div class="container">
+        <ul class="pull-left">
+          <li id="title">HOMELETTE</li>
+		  <li id="description">From the best chefs in the world directly into your kitchen</li>
+        </ul>
+      </div>
+    </div>
+	<div class="jumbotron">
+		<div class="container">
+			<div id="box">
+				<h3>A Home Dinner Service</h1>
+				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+				<a class="btn btn-default btn-lg" href="./selectDish.html">Create new Dinner</a>
 			</div>
 		</div>
 	</div>
