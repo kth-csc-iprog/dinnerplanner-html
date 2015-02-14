@@ -13,7 +13,7 @@ var ExampleView = function (container, model) {
 	for(var i=0; i<allDishes.length; i++){
 	
 		var newLink = document.createElement("a");
-		newLink.setAttribute('href', '#');
+		newLink.setAttribute('href', 'dishDetails.html');
 	
 		var newDish = document.createElement("div");
 		newDish.setAttribute('class', 'dish');
@@ -74,6 +74,7 @@ var dishDetails = function (container, model) {
 	dishBackButton.setAttribute('class', 'btn btn-default btn');
 	var Desc = document.createTextNode("Back to select dish");
 	dishBackButton.appendChild(Desc);
+	dishBackButton.setAttribute('href', 'selectDish.html');
 	newDish.appendChild(dishBackButton);
 	
 	var prepTitle = document.createElement("div");
@@ -98,7 +99,7 @@ var ingredientsTable = function (container, model) {
 	var numOfPeople = 4;
 	var thisDish = model.getDish(id);
 	
-	container.find("#tableTitle").html("Ingredients for"+numOfPeople+" people")
+	container.find("#tableTitle").html("Ingredients for "+numOfPeople+" people")
 	var thisDish = model.getDish(id);
 	var total = 0;
 	for(var i=0; i<thisDish.ingredients.length; i++){
@@ -122,22 +123,22 @@ var ingredientsTable = function (container, model) {
 		
 		ingQuant = document.createElement("td");
 			container.find("#id"+i).append(ingQuant);
-			Quant = document.createTextNode(("SEK "+thisDish.ingredients[i].price));
+			Quant = document.createTextNode(thisDish.ingredients[i].price+" SEK");
 			ingQuant.appendChild(Quant);
 		total += thisDish.ingredients[i].price;
 	}
-	var dishDesc = document.createElement("a");
-	dishDesc.setAttribute('class', 'btn btn-default btn');
-	var Desc = document.createTextNode("confirm dish");
-	dishDesc.appendChild(Desc);
-	container.find("#tableConfirm").append(dishDesc);
+	var confirmBtn = document.createElement("a");
+	confirmBtn.setAttribute('class', 'btn btn-default btn');
+	var btnText = document.createTextNode("confirm dish");
+	confirmBtn.appendChild(btnText);
+	container.find("#tableConfirm-Left").append(confirmBtn);
 	
 	console.log(total);
 	
-	var dishDesc = document.createElement("div");
-	dishDesc.setAttribute('class', 'detailTotal');
-	var Desc = document.createTextNode(("SEK "+total));
-	dishDesc.appendChild(Desc);
-	container.find("#tableConfirm").append(dishDesc);
+	var dishPrice = document.createElement("div");
+	dishPrice.setAttribute('class', 'detailTotal');
+	var Desc = document.createTextNode((total+" SEK"));
+	dishPrice.appendChild(Desc);
+	container.find("#tableConfirm-Right").append(dishPrice);
 	
 }	  

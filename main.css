@@ -5,6 +5,15 @@
   background-size: cover;
 }
 
+hr {
+  border: 0;
+  clear:both;
+  display:block;
+  width: 96%;               
+  background-color:#000000;
+  height: 1px;
+}
+
 body {
 	font-family: 'Georgia', sans-serif;
 }
@@ -48,27 +57,9 @@ body {
 	height:350px;
 	margin:30px 50px;
 	margin-top: 50px;
-	background-color: #ffffff;
-	opacity:.5;
+	background-color: rgba( 255, 255, 255, 0.5);
+	color: #000000;
 	z-index:1;
-}
-
-#box h3 {
-	position: relative;
-	opacity:1;
-	z-index:2;
-}
-
-#box p {
-	position: relative;
-	opacity:1;
-	z-index:2;
-}
-
-#box a {
-	position: relative;
-	opacity:1;
-	z-index:2;
 }
 
 #people {
@@ -92,4 +83,20 @@ body {
 
 .prepTitle {
 	font-weight: bold;
+}
+
+#tableTitle {
+	font.weight: bold;
+	font-size: 150%;
+	text-align: center;
+}
+
+#ingredientsTable {
+	background-color: #f0f0f0;
+	padding: 20px;
+	border: 1px solid black;
+}
+
+#ingredientTable {
+	width: 100%;
 }
