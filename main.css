@@ -70,6 +70,7 @@ body {
 	height: 100%;
 	background-color: #e0e0e0;
 	font-weight: bold;
+	padding: 20px;
 }
 
 #content-row {
@@ -99,4 +100,9 @@ body {
 
 #ingredientTable {
 	width: 100%;
+}
+
+#filterBar {
+	background-color: #e0e0e0;
+	padding: 20px;
 }
