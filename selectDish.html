@@ -11,54 +11,57 @@
 		<link rel="stylesheet" href="main.css">
 	</head>
 	<body>
-		<div class="row">
-			<div class="col-md-12" id="top">
-				<div class="container">
-					<ul class="pull-left">
-					  <li id="title">HOMELETTE</li>
-					  <li id="description">From the best chefs in the world directly into your kitchen</li>
-					</ul>
-				</div>
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="container">
+				<a class="navbar-brand" href="index.html">HOMELETTE</a>
+				<p class="navbar-text">From the best chefs in the world directly into your kitchen</p>
 			</div>
-		</div>
-		<div class="row" id="content-row">
-			<div class="col-md-2" id="sidebar">
-				<h5>My Dinner</h5>
-				<div>
+		</nav>
+		
+		<div class="container-fluid">
+			<div class="col-md-2 sidebar text-center">
+				<h4 class="text-left">My Dinner</h4>
+				<div class="text-left">
 					People: 
 					<form id="people"><input id="peopleInput" value="0" type="number" name="quantity" min="0" max="99"></form>
 				</div>
-				<h5>Dish Name</h5>
-				<div>Food 0 Sek</div>
+				<h5>Insert table here</h5>
+				<hr/>
+				<div class="text-right">Food 0 Sek</div>
+				<hr/>
 				<a class="btn btn-default btn" href="./dinnerOverview.html">Confirm Dinner</a>
 			</div>
-			<div class="col-md-10">
+			
+			<div class="col-md-9 col-md-offset-2 main">
 				<div class="row" id="filterBar">
+					<h4>Select Dish</h4>
+					<hr>
 					<div class="row">
-						<h4>Select dish</h4>
-						<hr>
-					</div>
-					<div class="row">
-						<form action="#" class="col-md-3">
-							<input type="text" name="FirstName" value="Enter keywords">
-							<input type="submit" value="Search">
-						</form>
-						<select class="categories col-md-3" id="dropdownMenu">
-							<option value="all">All Dishes</option>
-							<option value="starter">Starter</option>
-							<option value="main">Main Course</option>
-							<option value="dessert">Dessert</option>
-						</select>
 						<div class="col-md-6">
+							<div class="input-group">
+								<input type="text" class="form-control" placeholder="Search" name="q"/>
+								<div class="input-group-btn">
+									<button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+								</div>
+							</div>
+						</div>
+						
+						<div class="col-md-2">
+							<select class="form-control">
+								<option value="all">All Dishes</option>
+								<option value="starter">Starters</option>
+								<option value="main">Main Course</option>
+								<option value="desert">Desserts</option>
+							</select>
 						</div>
 					</div>
 				</div>
+				
 				<div class="row">
 					<div class="col-md-12" id="dishContent"/>
 				</div>
 			</div>
 		</div>
-		
 	<!-- jQuery -->
     <script src="https://code.jquery.com/jquery.js"></script>
     <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
