@@ -110,6 +110,7 @@ body {
 
 #filterBar {
     margin-top: 70px;
+	margin-left: 0px;
 	background-color: #e0e0e0;
 	padding: 20px;
 	width: 100%;
