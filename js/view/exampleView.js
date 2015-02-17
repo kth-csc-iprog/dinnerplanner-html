@@ -45,14 +45,13 @@ var ExampleView = function (container, model) {
 var dishDetails = function (container, model) {
 	container.html('');
 	var id = 1;
-	
+
 	// Get all the relevant elements of the view (ones that show data
   	// and/or ones that responed to interaction)
 	var thisDish = model.getDish(id);
 	
 	var newDish = document.createElement("div");
 	newDish.setAttribute('class', 'dishDetail');
-	
 	var dishName = document.createElement("div");
 	dishName.setAttribute('class', 'DishDetailName');
 	var Name = document.createTextNode(thisDish.name);
@@ -98,7 +97,7 @@ var ingredientsTable = function (container, model) {
 	var id = 1;
 	var numOfPeople = 4;
 	var thisDish = model.getDish(id);
-	
+	//model.addDishToMenu(1);
 	container.find("#tableTitle").html("Ingredients for "+numOfPeople+" people")
 	var thisDish = model.getDish(id);
 	var total = 0;
@@ -123,22 +122,57 @@ var ingredientsTable = function (container, model) {
 		
 		ingQuant = document.createElement("td");
 			container.find("#id"+i).append(ingQuant);
-			Quant = document.createTextNode(thisDish.ingredients[i].price+" SEK");
+			Quant = document.createTextNode((numOfPeople*thisDish.ingredients[i].price)+" SEK");
 			ingQuant.appendChild(Quant);
-		total += thisDish.ingredients[i].price;
+		total += numOfPeople*thisDish.ingredients[i].price;
 	}
+	model.Pending = total;
 	var confirmBtn = document.createElement("a");
 	confirmBtn.setAttribute('class', 'btn btn-default btn');
 	var btnText = document.createTextNode("confirm dish");
 	confirmBtn.appendChild(btnText);
 	container.find("#tableConfirm-Left").append(confirmBtn);
-	
-	console.log(total);
-	
 	var dishPrice = document.createElement("div");
 	dishPrice.setAttribute('class', 'detailTotal');
 	var Desc = document.createTextNode((total+" SEK"));
 	dishPrice.appendChild(Desc);
 	container.find("#tableConfirm-Right").append(dishPrice);
 	
-}	  
+}	
+
+var pendingMenu = function (container, model) {
+	var id = 1;
+	var numOfPeople = 4;
+	var theMenu = model.getFullMenu();
+	for(key in theMenu){
+		var newRow = document.createElement("tr");
+			newRow.setAttribute('id','menuId'+key);
+			container.find("#pendingMenuTable").append(newRow);
+		var menuItem = document.createElement("td");
+			container.find("#menuId"+key).append(menuItem);
+			var content = document.createTextNode(theMenu[key].name);
+			menuItem.appendChild(content);
+		menuItem = document.createElement("td");
+			container.find("#menuId"+key).append(menuItem);
+			content = document.createTextNode(model.priceOfDish(theMenu[key].id, numOfPeople));
+			menuItem.appendChild(content);
+	}
+	newRow = document.createElement("tr");
+			newRow.setAttribute('id','pendingElement');
+			container.find("#pendingMenuTable").append(newRow);
+	menuItem = document.createElement("td");
+		container.find("#pendingElement").append(menuItem);
+		var content = document.createTextNode("Pending");
+		menuItem.appendChild(content);
+	menuItem = document.createElement("td");
+		container.find("#pendingElement").append(menuItem);
+		content = document.createTextNode(model.Pending);
+		menuItem.appendChild(content);
+	
+	var total = numOfPeople*(model.getTotalMenuPrice());
+	total += model.Pending;
+	content = document.createTextNode("Total: SEK " +total);
+	container.find("#totalPending").append(content);
+	
+	
+}  
