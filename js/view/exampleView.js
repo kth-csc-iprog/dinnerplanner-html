@@ -177,3 +177,83 @@ var pendingMenu = function (container, model) {
 	
 	
 }  
+
+
+var dinnerOverview = function (container, model) {
+	var numOfPeople = 4;
+	var theMenu = model.getFullMenu();
+	var total = 0;
+	for(key in theMenu){
+		var newDish = document.createElement("div");
+		newDish.setAttribute('class', 'dish');
+		
+		var dishName = document.createElement("div");
+		dishName.setAttribute('class', 'DishName');
+		var Name = document.createTextNode(theMenu[key].name);
+		dishName.appendChild(Name);
+		newDish.appendChild(dishName);
+		
+		var dishImage = document.createElement("img");
+		dishImage.setAttribute('class', 'DishImage');
+		dishImage.setAttribute('src', 'images/'+theMenu[key].image);
+		newDish.appendChild(dishImage);
+		
+		var dishPrice = model.priceOfDish(theMenu[key].id, 4);
+		var dishDesc = document.createElement("div");
+		total += dishPrice;
+		
+		dishDesc.setAttribute('class', 'DishDesc');
+		var Desc = document.createTextNode("SEK "+dishPrice);
+		dishDesc.appendChild(Desc);
+		newDish.appendChild(dishDesc);
+		container.append(newDish);
+	}
+	var dinnerTotal = document.createElement("div");
+	var totalText = document.createTextNode("Total: SEK "+total);
+	dinnerTotal.appendChild(totalText);
+	container.append(dinnerTotal);
+	
+}
+
+
+
+var dinnerRecipies = function (container, model) {
+	var numOfPeople = 4;
+	var theMenu = model.getFullMenu();
+	for(key in theMenu){
+		var newRecipe = document.createElement("div");
+		newRecipe.setAttribute('class', 'recipe');
+		
+		var dishImage = document.createElement("img");
+		dishImage.setAttribute('class', 'DishImage');
+		dishImage.setAttribute('src', 'images/'+theMenu[key].image);
+		newRecipe.appendChild(dishImage);
+		
+		var dishDesc = document.createElement("div");
+		dishDesc.setAttribute('class', 'DishDesc');
+			var descHeader = document.createElement("h4");
+				var descName = document.createTextNode(theMenu[key].name);
+				descHeader.appendChild(descName);
+			dishDesc.appendChild(descHeader);
+			var descCont = document.createElement("p");
+				var content = document.createTextNode(theMenu[key].description);
+				descCont.appendChild(content);
+			dishDesc.appendChild(descCont);
+		newRecipe.appendChild(dishDesc);
+		
+		var dishPrep = document.createElement("div");
+		dishPrep.setAttribute('class', 'DishPrep');
+			var prepHeader = document.createElement("h4");
+				var prepName = document.createTextNode("Preparation");
+				prepHeader.appendChild(prepName);
+			dishPrep.appendChild(prepHeader);
+			var prepCont = document.createElement("p");
+				var contentp = document.createTextNode(theMenu[key].description);
+				prepCont.appendChild(contentp);
+			dishPrep.appendChild(prepCont);
+		newRecipe.appendChild(dishPrep);
+		
+		container.append(newRecipe);
+	}
+	
+}
