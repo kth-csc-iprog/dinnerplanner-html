@@ -9,8 +9,8 @@ var ExampleView = function (container, model) {
 	this.minusButton = container.find("#minusGuest");
 	
 	this.numberOfGuests.html("Hello World");
-	var allDishes = model.getAllDishes('main dish','');
-	for(var i=0; i<allDishes.length; i++){
+	var allDishes = model.getAllDishes('main dish', '');
+	for (var i = 0; i < allDishes.length; i++) {
 	
 		var newLink = document.createElement("a");
 		newLink.setAttribute('href', 'dishDetails.html');
@@ -99,29 +99,28 @@ var ingredientsTable = function (container, model) {
 	var thisDish = model.getDish(id);
 	//model.addDishToMenu(1);
 	container.find("#tableTitle").html("Ingredients for "+numOfPeople+" people")
-	var thisDish = model.getDish(id);
 	var total = 0;
-	for(var i=0; i<thisDish.ingredients.length; i++){
+	for(var i=0; i<thisDish.ingredients.length; i++) {
 		var newRow = document.createElement("tr");
-			newRow.setAttribute('id','id'+i);
+			newRow.setAttribute('id', 'id' + i);
 			container.find("#ingredientTable").append(newRow);
 		var ingQuant = document.createElement("td");
-			container.find("#id"+i).append(ingQuant);
+			container.find("#id" + i).append(ingQuant);
 			var Quant = document.createTextNode(numOfPeople*(thisDish.ingredients[i].quantity));
 			ingQuant.appendChild(Quant);
 		
 		ingQuant = document.createElement("td");
-			container.find("#id"+i).append(ingQuant);
+			container.find("#id" + i).append(ingQuant);
 			Quant = document.createTextNode(thisDish.ingredients[i].unit);
 			ingQuant.appendChild(Quant);
 		
 		ingQuant = document.createElement("td");
-			container.find("#id"+i).append(ingQuant);
+			container.find("#id" + i).append(ingQuant);
 			Quant = document.createTextNode(thisDish.ingredients[i].name);
 			ingQuant.appendChild(Quant);
 		
 		ingQuant = document.createElement("td");
-			container.find("#id"+i).append(ingQuant);
+			container.find("#id" + i).append(ingQuant);
 			Quant = document.createTextNode((numOfPeople*thisDish.ingredients[i].price)+" SEK");
 			ingQuant.appendChild(Quant);
 		total += numOfPeople*thisDish.ingredients[i].price;
@@ -134,7 +133,7 @@ var ingredientsTable = function (container, model) {
 	container.find("#tableConfirm-Left").append(confirmBtn);
 	var dishPrice = document.createElement("div");
 	dishPrice.setAttribute('class', 'detailTotal');
-	var Desc = document.createTextNode((total+" SEK"));
+	var Desc = document.createTextNode((total + " SEK"));
 	dishPrice.appendChild(Desc);
 	container.find("#tableConfirm-Right").append(dishPrice);
 	
@@ -146,14 +145,14 @@ var pendingMenu = function (container, model) {
 	var theMenu = model.getFullMenu();
 	for(key in theMenu){
 		var newRow = document.createElement("tr");
-			newRow.setAttribute('id','menuId'+key);
+			newRow.setAttribute('id','menuId' + key);
 			container.find("#pendingMenuTable").append(newRow);
 		var menuItem = document.createElement("td");
-			container.find("#menuId"+key).append(menuItem);
+			container.find("#menuId" + key).append(menuItem);
 			var content = document.createTextNode(theMenu[key].name);
 			menuItem.appendChild(content);
 		menuItem = document.createElement("td");
-			container.find("#menuId"+key).append(menuItem);
+			container.find("#menuId" +key).append(menuItem);
 			content = document.createTextNode(model.priceOfDish(theMenu[key].id, numOfPeople));
 			menuItem.appendChild(content);
 	}
