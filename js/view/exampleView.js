@@ -7,8 +7,10 @@ var ExampleView = function (container, model) {
 	this.numberOfGuests = container.find("#numberOfGuests");
 	this.plusButton = container.find("#plusGuest");
 	this.minusButton = container.find("#minusGuest");
-	
 	this.numberOfGuests.html("Hello World");
+	
+	model.Pending = 0;
+	
 	var allDishes = model.getAllDishes('main dish', '');
 	for (var i = 0; i < allDishes.length; i++) {
 	
