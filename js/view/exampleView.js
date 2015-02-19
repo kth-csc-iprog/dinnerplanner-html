@@ -227,15 +227,15 @@ var dinnerRecipies = function (container, model) {
 	var theMenu = model.getFullMenu();
 	for (var key in theMenu) {
 		var newRecipe = document.createElement("div");
-		newRecipe.setAttribute('class', 'recipe');
+		newRecipe.setAttribute('class', 'row recipe');
 		
 		var dishImage = document.createElement("img");
-		dishImage.setAttribute('class', 'DishImage');
+		dishImage.setAttribute('class', 'col-md-2 DishImage');
 		dishImage.setAttribute('src', 'images/' + theMenu[key].image);
 		newRecipe.appendChild(dishImage);
 		
 		var dishDesc = document.createElement("div");
-		dishDesc.setAttribute('class', 'DishDesc');
+		dishDesc.setAttribute('class', 'col-md-5 text-left DishDesc');
 		var descHeader = document.createElement("h4");
 		var descName = document.createTextNode(theMenu[key].name);
 		descHeader.appendChild(descName);
@@ -248,7 +248,7 @@ var dinnerRecipies = function (container, model) {
 		newRecipe.appendChild(dishDesc);
 		
 		var dishPrep = document.createElement("div");
-		dishPrep.setAttribute('class', 'DishPrep');
+		dishPrep.setAttribute('class', 'col-md-5 text-left DishPrep');
 		var prepHeader = document.createElement("h4");
 		var prepName = document.createTextNode("Preparation");
 		prepHeader.appendChild(prepName);
