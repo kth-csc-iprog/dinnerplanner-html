@@ -40,7 +40,6 @@ var dishContentView = function (container, model) {
 		
 		container.append(newLink);
     }
-	
 };
  
 
@@ -91,6 +90,8 @@ var dishDetails = function (container, model) {
 	newDish.appendChild(prepText);
 	
 	container.append(newDish);
+	
+	model.addObserver(this);
 };
 
 var ingredientsTable = function (container, model) {

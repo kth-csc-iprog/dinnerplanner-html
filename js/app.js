@@ -9,5 +9,9 @@ $(function () {
 	var pendingMenuView = new pendingMenu($("#pendingMenu"), model);
 	var dinnerOverviewView = new dinnerOverview($("#dinnerOverview"), model);
 	var dinnerRecipiesView = new dinnerRecipies($("#dinnerRecipies"), model);
-
+	
+	$("#selectDishView").hide();
+	$("#dishDetailsView").hide();
+	$("#dinnerOverviewPage").hide();
+	$("#dinnerPreparationPage").hide();
 });
