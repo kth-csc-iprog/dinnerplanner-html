@@ -3,9 +3,28 @@ var DinnerModel = function() {
 
 		var NumberOfGuests =0;
 		var Menu = [];
+		var observers = [];
 		var Pending = 0;
 		Menu['dessert']=202;
 		Menu['main dish']=100;
+		
+	
+	//***********OBSERVER STUFF!!*************
+	
+	this.addObserver = function(observer) 
+	{
+		observers.push(observer);
+	}
+
+	var notifyObservers = function(arg) 
+	{
+		for(var i=0; i<observers.length; i++) 
+		{
+			observers[i].update(arg);
+		}	
+	}
+	
+	
 	
 	this.setNumberOfGuests = function(num) {
 		

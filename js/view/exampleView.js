@@ -1,5 +1,5 @@
 //ExampleView Object constructor
-var ExampleView = function (container, model) {
+var dishContentView = function (container, model) {
 	container.html('');
 	
 	// Get all the relevant elements of the view (ones that show data
