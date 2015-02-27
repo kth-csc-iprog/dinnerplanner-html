@@ -1,12 +1,13 @@
 //DinnerModel Object constructor
 var DinnerModel = function() {
 
-		var NumberOfGuests =0;
+		var NumberOfGuests =1;
 		var Menu = [];
 		var observers = [];
 		var Pending = 0;
-		Menu['dessert']=202;
-		Menu['main dish']=100;
+		var dishDetailID = 1;
+		//Menu['dessert']=202;
+		//Menu['main dish']=100;
 		
 	
 	//***********OBSERVER STUFF!!*************
@@ -29,13 +30,36 @@ var DinnerModel = function() {
 	this.setNumberOfGuests = function(num) {
 		
 		NumberOfGuests = num;
+		notifyObservers("numOfGuests");
 	}
 
-	// should return 
 	this.getNumberOfGuests = function() {
 		
-		return myDinner.NumberOfGuests;
+		return NumberOfGuests;
 	}
+
+	this.setPending = function(num) {
+		
+		Pending = num;
+		notifyObservers("Pending");
+	}
+
+	this.getPending = function() {
+		
+		return Pending;
+	}
+	
+	this.setDishDetailID = function(num) {
+		
+		dishDetailID = num;
+		notifyObservers("dishDetailID");
+	}
+	
+	this.getDishDetailID = function() {
+		
+		return dishDetailID;
+	}
+	
 
 	//Returns the dish that is on the menu for selected type 
 	this.getSelectedDish = function(type) {
@@ -59,7 +83,6 @@ var DinnerModel = function() {
 			var dish = this.getDish(Menu[key]);
 			allIngredients = allIngredients.concat(dish.ingredients);
 		}
-		console.log(allIngredients);
 		return allIngredients;
 		
 	}
@@ -78,18 +101,20 @@ var DinnerModel = function() {
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
 		var dishType = '';
+		var selectedDish = this.getDish(id);
 		for(key in dishes){
 			if (dishes[key].id == id){
 				dishType = dishes[key].type;
 			}
 		}
 		Menu[dishType] = id;
+		notifyObservers("addedDish");
 	}
 
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {
 		var dishType = '';
-		for(key in dishes){
+		for(key in Menu){
 			if (dishes[key].id == id){
 				dishType = dishes[key].type;
 			}

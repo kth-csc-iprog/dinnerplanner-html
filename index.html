@@ -29,30 +29,28 @@
 					<hr/>
 					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
 					<h5>Get started: </h5>
-					<a class="btn btn-default btn-lg" href="./selectDish.html">Create new Dinner</a>
+					<a class="btn btn-default btn-lg" id="new-dinner">Create new Dinner</a>
 				</div>
 			</div>
 		</div>
-		
-		<div class="container-fluid" id="selectDishView">
-			<div class="col-md-2 sidebar text-center">
+		<div class="col-md-2 sidebar text-center" id="leftPendingMenu">
 				<h4 class="text-left">My Dinner</h4>
 				<div class="text-left">
 					People: 
-					<form id="people"><input id="peopleInput" value="0" type="number" name="quantity" min="0" max="99"></form>
+					<form id="people"><input id="peopleInput" value="1" type="number" name="quantity" min="1" max="99"></form>
 				</div>
 				<div id="pendingMenu"><table id="pendingMenuTable"></table>
 				<hr/>
 				<div class="text-right" id="totalPending"></div>
 				</div>
 				<hr/>
-				<a class="btn btn-default btn" href="./dinnerOverview.html">Confirm Dinner</a>
-			</div>
-			
+				<a class="btn btn-default btn" id="callDinnerOverview" href="#">Confirm Dinner</a>
+		</div>
+		
+		<div class="container-fluid" id="selectDishView">
 			<div class="col-md-9 col-md-offset-2 main">
 				<div class="row" id="filterBar">
 					<h4>Select Dish</h4>
-					<hr>
 					<div class="row">
 						<div class="col-md-6">
 							<div class="input-group">
@@ -64,41 +62,31 @@
 						</div>
 						
 						<div class="col-md-2">
-							<select class="form-control">
-								<option value="all">All Dishes</option>
+							<select class="form-control" id="filter">
+								<option value="">All Dishes</option>
 								<option value="starter">Starters</option>
-								<option value="main">Main Course</option>
-								<option value="desert">Desserts</option>
+								<option value="main dish">Main Course</option>
+								<option value="dessert">Desserts</option>
 							</select>
 						</div>
 					</div>
 				</div>
 				
 				<div class="row">
-					<div class="col-md-12" id="dishContent"/>
+					<div class="col-md-12" id="dishContent"></div>
 				</div>
 			</div>
 		</div>
 		
 		<div class="container-fluid" id="dishDetailsView">
-			<div class="col-md-2 sidebar text-center">
-				<h4 class="text-left">My Dinner</h4>
-				<div class="text-left">
-					People: 
-					<form id="people"><input id="peopleInput" value="0" type="number" name="quantity" min="0" max="99"></form>
-				</div>
-				<div id="pendingMenu"><table id="pendingMenuTable"></table>
-				<hr/>
-				<div class="text-right" id="totalPending"></div>
-				</div>
-				<hr/>
-				<a class="btn btn-default btn" href="./dinnerOverview.html">Confirm Dinner</a>
-			</div>
+			
 			
 			<div class="col-md-7 col-md-offset-2" id="dishDescription">
 			</div>
 			
-			<div class="col-md-3" id="ingredientsTable">
+			
+		</div>
+		<div class="col-md-3" id="ingredientsTable">
 				<div class="row-fluid" id="tableTitle">
 				</div>
 				<hr/>
@@ -110,18 +98,17 @@
 				<div class="row-fluid"id="b">
 					<div class="col-md-9" id="tableConfirm-Left">
 					</div>
-					<div class="col-md-3" id="tableConfirm-Right"/>
+					<div class="col-md-3" id="tableConfirm-Right">
+					</div>
 				</div>
 			</div>
-		</div>
-		
 		<div class="container-fluid" id="dinnerOverviewPage">
 			<div class="row" id="filterBar">
 				<div class="col-md-9">
 					<h4>My Dinner: <text id="peopleNr"></text> People</h4>
 				</div>
 				<div class="col-md-3">
-					<a class="btn btn-default btn" href="./selectDish.html">Go Back and Edit Dinner</a>
+					<a class="btn btn-default btn" id="backFromOverview" href="#">Go Back and Edit Dinner</a>
 				</div>
 			</div>
 			
@@ -131,8 +118,7 @@
 			</div>
 			<div class="row">
 				<div class="col-md-12 text-center">
-					<hr>
-					<a class="btn btn-default btn" href="./dinnerPreparation.html">Print Full Recipe</a>
+					<a class="btn btn-default btn" id="callDinnerPreparationPage" href="#">Print Full Recipe</a>
 				</div>
 			</div>
 		</div>
@@ -140,10 +126,10 @@
 		<div class="container-fluid" id="dinnerPreparationPage">
 			<div class="row" id="filterBar">
 				<div class="col-md-9">
-					<h4>My Dinner: <text id="peopleNr"></text> People</h4>
+					<h4>My Dinner: <text id="peopleNrRec"></text> People</h4>
 				</div>
 				<div class="col-md-3">
-					<a class="btn btn-default btn" href="./selectDish.html">Go Back and Edit Dinner</a>
+					<a class="btn btn-default btn" id="backFromRecipes" href="#">Go Back and Edit Dinner</a>
 				</div>
 			</div>
 			
@@ -162,6 +148,7 @@
 	<script src="js/app.js"></script>
 	<script src="js/model/dinnerModel.js"></script>
 	<script src="js/view/exampleView.js"></script>
+	<script src="js/controller/dinnerController.js"></script>
 	<!-- <script src="js/view/exampleViewController.js"></script> -->
   </body>
 </html>
