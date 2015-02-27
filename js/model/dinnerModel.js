@@ -6,6 +6,8 @@ var DinnerModel = function() {
 		var observers = [];
 		var Pending = 0;
 		var dishDetailID = 1;
+		var Filter = '';
+		var TypeSelected = '';
 		//Menu['dessert']=202;
 		//Menu['main dish']=100;
 		
@@ -36,6 +38,28 @@ var DinnerModel = function() {
 	this.getNumberOfGuests = function() {
 		
 		return NumberOfGuests;
+	}
+
+	this.setFilter = function(num) {
+		
+		Filter = num;
+		notifyObservers("filter");
+	}
+
+	this.getFilter = function() {
+		
+		return Filter;
+	}
+
+	this.setType = function(num) {
+		
+		TypeSelected = num;
+		notifyObservers("type");
+	}
+
+	this.getType = function() {
+		
+		return TypeSelected;
 	}
 
 	this.setPending = function(num) {
@@ -131,11 +155,11 @@ var DinnerModel = function() {
 		if(filter){
 			found = false;
 			$.each(dish.ingredients,function(index,ingredient) {
-				if(ingredient.name.indexOf(filter)!=-1) {
+				if(ingredient.name.toLowerCase().indexOf(filter.toLowerCase())!=-1) {
 					found = true;
 				}
 			});
-			if(dish.name.indexOf(filter) != -1)
+			if(dish.name.toLowerCase().indexOf(filter) != -1)
 			{
 				found = true;
 			}

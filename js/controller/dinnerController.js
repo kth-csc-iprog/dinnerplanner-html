@@ -10,7 +10,13 @@ $(document).on('click', '#new-dinner', function(){
 
 var SelectDishController = function(view, model) {
 	
-	$(document).on('click', '.callDishDetails', function() {
+	$(document).on('change','#filter', function(){
+      model.setType($("#filter").val());
+  });
+  $('#selectDishView').keyup(function(){
+      model.setFilter($("#search").val());
+  });
+  $(document).on('click', '.callDishDetails', function() {
   		var dishID = $(this).data("id");
   		model.setDishDetailID(dishID);
   		//console.log(dishID);

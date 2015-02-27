@@ -1,9 +1,11 @@
 //ExampleView Object constructor
 var dishContentView = function (container, model) {
-	$(document).on('change', '#filter', function() {
+	var dishContentViewUpdate = function() {
 		container.html('');
-		var currentFilter = $("#filter").val();
-		var allDishes = model.getAllDishes(currentFilter, '');
+		//var currentType = $("#filter").val();
+		var currentType = model.getType();
+		var currentFilter = model.getFilter();
+		var allDishes = model.getAllDishes(currentType, currentFilter);
 		for (var i = 0; i < allDishes.length; i++) {
 	
 			var newLink = document.createElement("a");
@@ -34,8 +36,19 @@ var dishContentView = function (container, model) {
 		
 			container.append(newLink);
 		}
-	});
+	}
     //model.addObserver(this);
+    model.addObserver(this);
+	this.update = function(arg){
+		switch(arg){
+			case "filter":
+				dishContentViewUpdate();
+			break;
+			case "type":
+				dishContentViewUpdate();
+			break;
+		}
+	};
 };
  
 
