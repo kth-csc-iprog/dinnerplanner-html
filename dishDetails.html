@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Dinner planner</title>
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="main.css">
+	</head>
+	<body>
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="container">
+				<a class="navbar-brand" href="index.html">HOMELETTE</a>
+				<p class="navbar-text">From the best chefs in the world directly into your kitchen</p>
+			</div>
+		</nav>
+		
+		<div class="container-fluid">
+			<div class="col-md-2 sidebar text-center">
+				<h4 class="text-left">My Dinner</h4>
+				<div class="text-left">
+					People: 
+					<form id="people"><input id="peopleInput" value="0" type="number" name="quantity" min="0" max="99"></form>
+				</div>
+				<div id="pendingMenu"><table id="pendingMenuTable"></table>
+				<hr/>
+				<div class="text-right" id="totalPending"></div>
+				</div>
+				<hr/>
+				<a class="btn btn-default btn" href="./dinnerOverview.html">Confirm Dinner</a>
+			</div>
+			
+			<div class="col-md-7 col-md-offset-2" id="dishDescription">
+			</div>
+			
+			<div class="col-md-3" id="ingredientsTable">
+				<div class="row-fluid" id="tableTitle">
+				</div>
+				<hr/>
+				<div class="row-fluid" id="a">
+					<table class="col-md-12" id="ingredientTable">
+					</table>
+				</div>
+				<hr/>
+				<div class="row-fluid"id="b">
+					<div class="col-md-9" id="tableConfirm-Left">
+					</div>
+					<div class="col-md-3" id="tableConfirm-Right"/>
+				</div>
+			</div>
+		</div>
+		
+	<!-- jQuery -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+	<!-- The application JavaScript code -->
+	<script src="js/app.js"></script>
+	<script src="js/model/dinnerModel.js"></script>
+	<script src="js/view/exampleView.js"></script>
+	<!-- <script src="js/view/exampleViewController.js"></script> -->
+	</body>
+</html>

@@ -1,28 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Dinner planner</title>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Dinner planner</title>
 
-  </head>
-  <body>
-	<div class="container">
-		<h1>Dinner planner</h1>
-		<div id="exampleView">
-			<div>
-				Number of guests: <span id="numberOfGuests"></span>
-			</div>
-			<div>
-          <button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
-				<button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="main.css">
+	</head>
+  
+	<body>
+		<div id="titleBar">
+			<nav class="navbar navbar-default navbar-fixed-top">
+				<div class="container">
+					<a class="navbar-brand" href="index.html">HOMELETTE</a>
+					<p class="navbar-text">From the best chefs in the world directly into your kitchen</p>
+				</div>
+			</nav>
+		</div>
+		
+		<div id="startPage">
+			<div class="jumbotron">
+				<div class="container" id="box">
+					<h3>A Home Dinner Service</h3>
+					<hr/>
+					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+					<h5>Get started: </h5>
+					<a class="btn btn-default btn-lg" id="new-dinner">Create new Dinner</a>
+				</div>
 			</div>
 		</div>
-	</div>
+		<div class="col-md-2 sidebar text-center" id="leftPendingMenu">
+				<h4 class="text-left">My Dinner</h4>
+				<div class="text-left">
+					People: 
+					<form id="people"><input id="peopleInput" value="1" type="number" name="quantity" min="1" max="99"></form>
+				</div>
+				<div id="pendingMenu"><table id="pendingMenuTable"></table>
+				<hr/>
+				<div class="text-right" id="totalPending"></div>
+				</div>
+				<hr/>
+				<a class="btn btn-default btn" id="callDinnerOverview" href="#">Confirm Dinner</a>
+		</div>
+		
+		<div class="container-fluid" id="selectDishView">
+			<div class="col-md-9 col-md-offset-2 main">
+				<div class="row" id="filterBar">
+					<h4>Select Dish</h4>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="input-group">
+								<input type="text" class="form-control" id="search" placeholder="Search" name="q"/>
+								<div class="input-group-btn">
+									<button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+								</div>
+							</div>
+						</div>
+						
+						<div class="col-md-2">
+							<select class="form-control" id="filter">
+								<option value="">All Dishes</option>
+								<option value="starter">Starters</option>
+								<option value="main dish">Main Course</option>
+								<option value="dessert">Desserts</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-md-12" id="dishContent"></div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="container-fluid" id="dishDetailsView">
+			
+			
+			<div class="col-md-7 col-md-offset-2" id="dishDescription">
+			</div>
+			
+			
+		</div>
+		<div class="col-md-3" id="ingredientsTable">
+				<div class="row-fluid" id="tableTitle">
+				</div>
+				<hr/>
+				<div class="row-fluid" id="a">
+					<table class="col-md-12" id="ingredientTable">
+					</table>
+				</div>
+				<hr/>
+				<div class="row-fluid"id="b">
+					<div class="col-md-9" id="tableConfirm-Left">
+					</div>
+					<div class="col-md-3" id="tableConfirm-Right">
+					</div>
+				</div>
+			</div>
+		<div class="container-fluid" id="dinnerOverviewPage">
+			<div class="row" id="filterBar">
+				<div class="col-md-9">
+					<h4>My Dinner: <text id="peopleNr"></text> People</h4>
+				</div>
+				<div class="col-md-3">
+					<a class="btn btn-default btn" id="backFromOverview" href="#">Go Back and Edit Dinner</a>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-12 text-center" id="dinnerOverview">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<a class="btn btn-default btn" id="callDinnerPreparationPage" href="#">Print Full Recipe</a>
+				</div>
+			</div>
+		</div>
+		
+		<div class="container-fluid" id="dinnerPreparationPage">
+			<div class="row" id="filterBar">
+				<div class="col-md-9">
+					<h4>My Dinner: <text id="peopleNrRec"></text> People</h4>
+				</div>
+				<div class="col-md-3">
+					<a class="btn btn-default btn" id="backFromRecipes" href="#">Go Back and Edit Dinner</a>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-12 text-center" id="dinnerRecipies">
+				</div>
+			</div>
+		</div>
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery.js"></script>
@@ -33,6 +148,7 @@
 	<script src="js/app.js"></script>
 	<script src="js/model/dinnerModel.js"></script>
 	<script src="js/view/exampleView.js"></script>
-	<script src="js/view/exampleViewController.js"></script>
+	<script src="js/controller/dinnerController.js"></script>
+	<!-- <script src="js/view/exampleViewController.js"></script> -->
   </body>
 </html>
