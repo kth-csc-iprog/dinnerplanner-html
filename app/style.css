@@ -1,0 +1,143 @@
+	#gif {
+		vertical-align: center;
+	}
+	#header {
+	position:absolute;
+	left:0; right:0;
+	top: 0px;
+	height: 92px;
+	background-color: lightblue;
+	}
+
+	#startView {
+	top: 92px;
+	position: absolute;
+	left: 400px;
+	width: 300px;
+	}
+	#sidebar {
+	position:absolute;
+	left:0; top:92px; bottom: 0;
+	width: 250px;
+	border-style: solid;
+	border-width: 5px;
+	overflow:scroll;
+	}
+
+
+	#menuView {
+	position: absolute;
+	left:250px; top:92px; right:0; bottom:0;
+	border-style: solid;
+	border-width: 5px;
+	overflow: scroll;
+	}
+	#dishView {
+	position: absolute;
+	left:250px; top:92px; bottom:0; right:0;
+	border-style: solid;
+	border-width: 5px;
+	background-color: white;
+	overflow: scroll;
+	}
+
+	#bild {
+		width: 30%;
+		left: 10px;
+		position: absolute;
+	}
+
+	#ingview {
+	left: 500px; top: 50px;
+	width: 400px;
+	border-style: solid;
+	border-width: 3px;
+	background-color: beige;
+	position: absolute;
+	}
+
+
+	#search {
+	left:0; top:0; right:0;
+	height: 100px;
+	position: absolute;
+	border-style: solid;
+	border-width: 5px;
+	}
+	#dropdown {
+	left:50px; top:30px; right:0;
+	height: 100px;
+	position: absolute;}
+
+	#searchText {
+	position: absolute; 
+	left: 300px; top:30px; right:0;
+	height: 100px;}
+
+
+	#exampleView {
+	background:lightblue;
+	line-height:30px;
+	background-color:#eeeeee;
+	}
+
+	body {
+	background:white;
+	margin:0; 
+	padding:0; 
+	height:100%;
+	}
+	hr {
+	display: block;
+	position: relative;
+	padding: 0;
+	margin: 8px auto;
+	width: 100%;
+	clear: both;
+	border: none;
+	border-top: 1px solid #AAA;
+	border-bottom: 1px solid #FFF;
+	font-size: 1px;
+	line-height: 0;
+	overflow: visible;
+	}
+	.dish {
+	width: 300px;
+	padding: 25px;
+	border: 10px solid navy;
+	margin: 25px;
+	height: 240px;
+	}
+	.menu {
+	position:absolute;
+	top:100px;	
+	}
+	.dropdownBtn{
+	width:100%;
+	}
+	#finalView {
+	position: absolute;
+	left:0px;right:0px; top:92px; bottom:0px;
+	border-style: solid;
+	border-width: 5px;
+	}
+	#finalViewHeader {
+	background-color:lightblue;
+	position:absolute;
+	width:100%;
+	left:0px; top:0; right:0 ;height:100px;
+	border-style: solid;
+	border-width: 2px; 
+	}
+	#summaryPage {
+	position: absolute;
+	left:0px; top:150px; right:0; bottom:0;		
+	}
+	#printView {
+	position: absolute;
+	left:0px; top:200px; right:0; bottom:0;
+	overflow:scroll;
+	}
+	#printRecipe {
+	left:40%;right:60%;bottom:50%;
+	}
