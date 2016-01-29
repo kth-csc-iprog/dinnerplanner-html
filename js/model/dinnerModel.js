@@ -6,6 +6,8 @@ var DinnerModel = function() {
 
 
 	this.setNumberOfGuests = function(num) {
+		var totalnum;
+		//gagga
 		//TODO Lab 2
 	}
 
