@@ -1,9 +1,9 @@
+//http://t4t5.github.io/sweetalert/ -- homepage for sweetalert
+
 //DinnerModel Object constructor
 var DinnerModel = function() {
- 
 	//TODO Lab 2 implement the data structure that will hold number of guest
 	// and selected dinner options for dinner menu
-
 
 	this.setNumberOfGuests = function(num) {
 		var totalnum;
@@ -11,10 +11,18 @@ var DinnerModel = function() {
 		//TODO Lab 2
 	}
 
+
+
 	// should return 
 	this.getNumberOfGuests = function() {
+		swal('work it!');
+		//instead of writing "alert('work it')" you can wrote swal('work it') to make it prettier
 		//TODO Lab 2
 	}
+	var work = this.getNumberOfGuests();
+	//alert(work);
+
+
 
 	//Returns the dish that is on the menu for selected type 
 	this.getSelectedDish = function(type) {
