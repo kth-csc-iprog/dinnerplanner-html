@@ -46,7 +46,14 @@ var DinnerModel = function() {
 		}
 		return all;
 	}
-
+	this.getDishPrice = function(id){
+		var cost = 0;
+		var dish = this.getDish(id);
+		for(i = 0; i< dish.ingredients.length; i++){
+			cost+=dish.ingredients[i].price;
+		}
+		return cost;
+	}
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	this.getTotalMenuPrice = function() {
 		var cost = 0;
@@ -86,6 +93,10 @@ var DinnerModel = function() {
 		else if(dish.type === "dessert"){
 			this.selectedMenu[2]= 0;
 		}
+	}
+	this.getDishImage = function() {
+		var exdish = this.getDish(1);
+		return exdish.image;
 	}
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
