@@ -15,15 +15,20 @@
 	<div class="header1">
 	  <h1>HOMELETTE <small>From the best chefs in the world directly into your kitchen</small></h1> 
 	</div>
+	<div class="container" id="loadingDiv">
 	<div class="textBox">
 		<h3>A Home Diner Service</h3>
 		<hr/>
 		<p>some text here, some text here, some text here, some text here, some text here, some text here, some text here, some text here, some text here, some text here, some text here, some text here</p>
 		<br/><br/>
 		<p>start quickly</p>
-		<button type="button" class="btn btn-default btn-md"> Create new dinner</button>
+		<button type="button" class="btn btn-default btn-md" onclick="selectDish()"> Create new dinner</button>
 	</div>
-
+	</div>
+	
+	
+	<!-- ************************** Sakshyam ********************************************-->
+	
 <!-- 	<div class="container">
 		<h1>Dinner planner</h1>
 		<div id="exampleView">
@@ -46,6 +51,27 @@
 	<script src="js/app.js"></script>
 	<script src="js/model/dinnerModel.js"></script>
 	<script src="js/view/exampleView.js"></script>
-	<script src="js/view/exampleViewController.js"></script>
+	<!-- <script src="js/view/exampleViewController.js"></script> -->
+	<script scr="js/jquery.min.js"></script>
+	
+	<script>
+		function selectDish()
+		{
+			alert("deleting");
+			$('loadingDiv').empty();
+			alert("deleted");
+			//$('loadingDiv').load('views/view1.html');
+		
+		
+		
+		
+		}
+	
+	
+	</script>
+	
+	
+	
+	
   </body>
 </html>
