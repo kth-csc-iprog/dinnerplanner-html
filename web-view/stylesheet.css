@@ -43,8 +43,8 @@ h5{
 	margin-top: 2px;
 	margin-left: 10px;
 	border-bottom: 2px solid;
-	
 }
+
 p { 
 	font-family: "Comic Sans MS", cursive, sans-serif;
 	margin-top: 0.6%;
@@ -112,4 +112,33 @@ p {
 #v7 {
 	border: 2px solid black;
 	background-color: yellow;
+}
+
+
+
+
+
+
+
+.ingred {
+	border: 2px solid black;
+	background-color: yellow;
+}
+
+.no-pad{
+	padding: 0;
+	overflow: auto;
+}
+
+.bord-bot {
+	border-bottom: 2px solid black;
+}
+
+.rad {
+	display: flex;
+	align-items: stretch;
+}
+
+.col {
+	margin: 10px;
 }
