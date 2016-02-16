@@ -64,45 +64,32 @@
 			</div>
 		</div>
 		<div class="col-md-10 no-pad bord">
-			<div class="row no-pad">
-				<div class="select-dish">
-				<h5>SELECT DISH</h5>
-					<div class = "row">
-						<div class="col-md-6">
-							<form role="form">
-								<div class="form-group">
-									<div class="col-xs-4">
-										<label for="TextSrc">Enter Key Words</label>
-										<input type="text" class="form-control" id="TextSrc">
-									</div>
-								</div>
-							</form>
-						</div>
-						<div class="col-md-6">
-							<form role="form">
-								<div class="form-group">
-									<div class="col-xs-3">
-										<select class="form-control" id="Type">
-											<option>Starter</option>
-											<option>Main</option>
-											<option>Dessert</option>
-										</select>
-									</div>
-								</div>
-							</form>
+			<div id="exampleView">
+				<div class="row no-pad">
+					<div class="col-md-6">
+						<div class="row"><span id="name"></span></div>
+						<div class="row"><span id="pic"></span></div>
+						<div class="row">SUPERDUPER NAJS MAT</div>
+						<div class="row">
+							<button type="button" class="btn btn-default">Confirm Dish</button>
 						</div>
 					</div>
-				<h4><span id="dishID"></span></h4>
-			</div>
-				<div id="v3">
-					<div id="exampleView">
-						<div>
-							<span id ="dishBox"></span>
+					<div class="col-md-6 ingred">
+						<div class="row bord-bot"><h3>INGREDIENTS FOR <span id="numberOfGuests"></span> PEOPLE</h3></div>
+						<div class="row" id="bord-bot">
+							<span id="output"></span>
+						</div>
+						<div class="row">
+							<button type="button" class="btn btn-default">Confirm Dish</button>
 						</div>
 					</div>
+				</div>
+				<div class="row">
+					<h2>PREPARATIONS</h2>
+					<span id="desc"></span>
+				</div>
 			</div>
 		</div>
-	</div>
 	</div>
 
     <!-- jQuery -->

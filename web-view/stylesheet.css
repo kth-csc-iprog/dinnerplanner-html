@@ -71,7 +71,6 @@ p {
 }
 
 #side-bar{
-	border: 2px solid black;
 	width: 100%;
 }
 
@@ -109,7 +108,7 @@ p {
 	margin-top: 10px;
 }
 
-#v7 {
+.v7 {
 	border: 2px solid black;
 	background-color: yellow;
 }
@@ -170,4 +169,8 @@ p {
 
 .col {
 	margin: 10px;
+}
+
+.bord {
+	border: 2px solid black;
 }
