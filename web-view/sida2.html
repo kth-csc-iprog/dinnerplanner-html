@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dinner planner</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+	<link type="text/css" rel="stylesheet" href="stylesheet.css"/>
+
+  </head>
+  <body>
+	 <div class="header">
+		<h1 id="head">HOMELETTE</h1>
+			<p id="head">From the best chefs in the world directly into your kitchen</p>
+	</div>
+	<div class="row no-pad">
+		<div class="col-md-2 no-pad">
+			<div id="side-bar">
+				<div>
+					<h4>My Dinner</h4>
+					<div id="My-Dinner">
+						<div class="form-group">
+							<label for="sel1">People</label>
+							<select class="form-control" id="sel1">
+								<option>1</option>
+								<option>2</option>
+								<option>3</option>
+								<option>4</option>
+								<option>5</option>
+								<option>6</option>
+								<option>7</option>
+								<option>8</option>
+								<option>9</option>
+								<option>10</option>
+								<option>11</option>
+								<option>12</option>
+								<option>13</option>
+								<option>14</option>
+								<option>15</option>
+								<option>16</option>
+								<option>17</option>
+								<option>18</option>
+								<option>19</option>
+								<option>20</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="row" id="grey-bar">
+					<div class="col-md-6"><p align="left">Dish Name</p></div>
+					<div class="col-md-6"><p align="right">Cost</p></div>
+				</div>
+					<div class="row" style="border-bottom: 2px solid black;">
+						<div class="col-md-6"><p>Pending</p></div>
+						<div class="col-md-6"><p align="right">0.00</p></div>
+					</div>
+					<div class="row">
+						<div class="col-md-12"><p align="right">SEK 0.00</p></div>
+					</div>
+					<button type="button" class="btn btn-default" id="conf-btn">Confirm Dinner</button>
+			</div>
+		</div>
+		<div class="col-md-10 no-pad">
+			<div class="row no-pad">
+				<div class="select-dish">
+				<h5>SELECT DISH</h5>
+					<div class = "row">
+						<div class="col-md-6">
+							<form role="form">
+								<div class="form-group">
+									<div class="col-xs-4">
+										<label for="TextSrc">Enter Key Words</label>
+										<input type="text" class="form-control" id="TextSrc">
+									</div>
+								</div>
+							</form>
+						</div>
+						<div class="col-md-6">
+							<form role="form">
+								<div class="form-group">
+									<div class="col-xs-3">
+										<select class="form-control" id="Type">
+											<option>Starter</option>
+											<option>Main</option>
+											<option>Dessert</option>
+										</select>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				<h4><span id="dishID"></span></h4>
+			</div>
+		</div>
+	</div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+	<!-- The application JavaScript code -->
+	<script src="js/app.js"></script>
+	<script src="js/model/dinnerModel.js"></script>
+	<script src="js/view/exampleView.js"></script>
+	<script src="js/view/exampleViewController.js"></script>
+  </body>
+</html>
