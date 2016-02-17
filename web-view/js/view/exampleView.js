@@ -71,7 +71,7 @@ var ExampleView = function (container, model) {
 	this.dish.html(model.getDish(1));
 	
 	//Maträtt, bild och beskrivning
-	var imgSrc = "<img src='images/" + model.getDish(1).image + "'>";
+	var imgSrc = "<img src='images/" + model.getDish(1).image + "'alt=`food` width='100%' height='100%'/>";
 	
 	this.name.html(model.getDish(1).name);
 	this.pic.html(imgSrc);
