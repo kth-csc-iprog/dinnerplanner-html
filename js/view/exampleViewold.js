@@ -14,7 +14,6 @@ var ExampleView = function (container, model) {
 	this.getTitleName1 = container.find(".titlename1");
 	this.getDescription = container.find(".desc")
 	this.getBigImg = container.find("#picspace");
-	this.getTable = container.find("#ingritable");
 
 
 	//View 2&3 där småkvadraterna raddas upp för main, starter lr dessert!
@@ -24,6 +23,11 @@ var ExampleView = function (container, model) {
 		dish +="<div class='kvadrat'><img src='images/" + kategori[i].image + "' class='bild'><div class='dishname'>" + kategori[i].name + "</div>Lorem ispum dolor</div>";
 		this.getDish.html(dish);
 	}
+	
+	//Lägger till rätter på menyn
+	model.addDishToMenu(1);
+	model.addDishToMenu(100);
+	model.addDishToMenu(202);
 
 	//view 2,4 där en specifik rätt visas med stor bild
 	var bigDish = model.getDish(1);
@@ -31,13 +35,6 @@ var ExampleView = function (container, model) {
 	bigImg += "<img src='images/" + bigDish.image + "' class='storbild'>";
 	this.getTitleName.html(bigDish.name);
 	this.getBigImg.html(bigImg);
-
-	var dishIngri = bigDish.ingredients;
-	var tabledata = "";
-	for (var i=0; i<dishIngri.length; i++){
-		tabledata += "<tr class='table'><td>" + dishIngri[i].quantity + "</td><td>"+ dishIngri[i].name + "</td><td>SEK</td><td>" + dishIngri[i].price + "</td> </tr>";
-		this.getTable.html(tabledata);
-	}
 
 
 	//view5 med menyn men tre bilder; förrätt, main o dessert

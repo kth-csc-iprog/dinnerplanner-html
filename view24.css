@@ -1,0 +1,254 @@
+/* HEADERN */
+#header{
+	border-color: black;
+	border-style: solid;
+	background-color: rgb(238,238,238);
+	height: 20vh;
+	overflow: hidden;
+}
+
+.banner {
+	color: black;
+	font-family: "Comic Sans MS";
+	line-height: 9vh;
+}
+
+#title {
+	margin-left: 5vh;
+	font-weight: bold;
+}
+
+#slogan{
+	margin-top: 10%;
+	margin-left: 5vh;
+	font-style: italic;
+	font-size: 40%;
+}
+
+/* BODYN */
+#bodyn{
+	width: 100%
+}
+
+.regular{
+	font-family: "Arial";
+	font-weight: bold;
+	color:black;
+
+}
+
+#line{
+	border-bottom-style: solid;
+	border-bottom-color:black;
+	margin-right:5%;
+}
+
+#right{
+	float:right;
+	padding-right:2%;
+}
+
+#bigger{
+	font-size:160%;
+}
+
+/* VÄNSTERSPALT */
+
+.vansterspalt {
+	background-color: white;
+	height:100vh;
+	width: 24%;
+	border-style: solid;
+	border-color: black;
+	border-top: 1px;
+	float:left;
+	position:absolute;
+
+}
+
+#line1{
+	border-bottom-style: solid;
+	border-bottom-color:black;
+	margin-right:5%;
+	padding-top:5%;
+}
+
+#guests {
+	background-color: white;
+	height:23%;
+	width:100%;
+	border-bottom-style: solid;
+	border-bottom-color: black;
+	padding-left:3%;
+	padding-top:5%;
+}
+
+#dishname{
+	background-color: #D8D8D8;
+	height:5%;
+	width: 100%;
+	border-bottom-style: solid;
+	border-bottom-color: black;
+	padding-left:3%;
+}
+
+#cash{
+	background-color: white;
+	width: 100%;
+	padding-left:3%;
+	color:#900000 ;
+	padding-top:3%;
+}
+
+.box{
+	background-color: white;
+	width:13%;
+	height:5.4%;
+	border-color: black;
+	border-style: solid;
+	position:absolute;
+	z-index: 10;
+	text-align: center;
+	font-color: black;
+	top:0;
+	padding-top: 2.5%;
+	margin-top: 16.5%;
+	margin-left:23%;
+}
+
+.rekt{
+	background-color: white;
+	width:13%;
+	height:3%;
+	margin-left:36%;
+	border-color: black;
+	position:absolute;
+	z-index: 10;
+	text-align: center;
+	font-color: black;
+	top:0;
+	border-left:1px;
+	font-size:12px;
+}
+
+#rek1{
+	border-top-style: solid;
+	border-right-style: solid;
+	margin-top: 16.5%;
+}
+
+#rek2{
+	border-bottom-style: solid;
+	border-right-style:solid;
+	margin-top: 21.75%;
+}
+
+/*KNAPPEN */
+#create_new {
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    background-color: rgb(246,178,107); 
+    border-radius: 4px;
+    border-style: solid;
+    border-color: black;
+    color: black;
+    text-align: center;
+    padding: 4px 16px;
+    font-weight: bold;
+    margin-top: 25px;
+    margin-left: 35px;
+}
+#create_new:active {
+  background-color: rgb(246,178,107);
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+
+/* STORRUTA */
+.center_left {
+	height: 82vh;
+	width: 58vw;
+	float:left;
+	padding-left: 26vw;	
+}
+
+/*Bilden*/
+.storbild {
+	width: 32vw;
+	height: 55vh;
+}
+
+#description {
+	max-width: 40vw;
+	overflow: auto;
+}
+
+#back_button {
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    background-color: rgb(246,178,107); 
+    border-radius: 60% 15% 15% 60%;
+    border-style: solid;
+    border-color: black;
+    color: black;
+    text-align: center;
+    padding: 4px 16px;
+    font-weight: bold;
+}
+
+#back_button:active {
+  background-color: rgb(246,178,107);
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+#prep {
+	font-weight: bold;
+}
+
+.center_right {
+	height: 85vh;
+	margin-top: -1vh;
+	margin-left: 60vw;
+	background-color: rgb(255,229,153);
+}
+
+.center_right h4 {
+	margin-left: 1vw;
+	margin-right: 1vw;
+	padding-top: 5vh;
+	border-bottom-style: solid;
+	border-bottom-color: black;
+}
+
+#ingredients {
+	border-top: none !important;
+	margin-left: 2vw;
+	max-width: 35vw;
+	border-bottom-style: solid;
+	border-bottom-color: black;
+}
+
+
+.table td, .table th {
+	border-top: none !important; 
+
+	padding-left: 6vw;
+}
+
+#confirm_button {
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    background-color: rgb(246,178,107); 
+    border-radius: 4px;
+    border-style: solid;
+    border-color: black;
+    color: black;
+    text-align: center;
+    padding: 4px 16px;
+    font-weight: bold;
+    margin-left: 2vw;
+}
+#confirm_button:active {
+  background-color: rgb(246,178,107);
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
