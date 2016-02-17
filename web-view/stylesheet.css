@@ -118,10 +118,7 @@ p {
     width: 100%;
     border: 2px solid ;
 }
-.imageSize{
-	width: 60%;
-	height: 40%;
-}
+
 #v3{
 	margin-top: 4px;
 	align-items: center;
@@ -180,6 +177,11 @@ p {
 	margin: 10px;
 }
 
-.bord {
+.bordTop {
 	border: 2px solid black;
+}
+
+.imgSize {
+	width: 100%;
+	height: 100%;
 }
