@@ -40,7 +40,7 @@ var ExampleView = function (container, model) {
 	var dishOutput = "";
 	for(i = 0; i < dishList.length; i ++){
 		console.log(i);
-		dishOutput += "<div class='col-md-2'><div id ='box'>"+"<div class='stretch'>"+"<img src = 'images/" +dishList[i].image +"'>"+"</div>"+"<div >"+dishList[i].name+"</div></div><div style='width: 100%'>"+"Super duper najs mat"+"</div></div>";
+		dishOutput += "<div class='col-md-2'><div id ='box'>"+"<div>"+"<img src = 'images/" +dishList[i].image +"' class='imgSize'>"+"</div>"+"<div class='imgSize'>"+dishList[i].name+"</div></div><div style='width: 100%'>"+"Super duper najs mat"+"</div></div>";
 	}
 	this.dishBox.html(dishOutput);
 	model.addDishToMenu(1);
