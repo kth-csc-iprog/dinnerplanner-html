@@ -112,7 +112,9 @@ p {
 	border: 2px solid black;
 	background-color: yellow;
 }
-
+.borderLeft{
+	border-left: 2px solid black;
+}
 #box{
 	text-align:center;
     width: 100%;
@@ -150,7 +152,10 @@ p {
 	margin-top:12.5%;
 }
 
-
+.placeLeft{
+	display:flex;
+	align-items: left;
+}
 
 
 

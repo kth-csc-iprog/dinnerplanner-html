@@ -36,7 +36,6 @@ var ExampleView = function (container, model) {
 	this.numberOfGuests.html(model.getNumberOfGuests());
 	this.dish.html(model.getDish(1).name);
 	var dishList = model.getAllDishes("main dish");
-	console.log(model.getDishPrice(1));
 	var dishOutput = "";
 	for(i = 0; i < dishList.length; i ++){
 		console.log(i);
@@ -48,7 +47,6 @@ var ExampleView = function (container, model) {
 	model.addDishToMenu(202);
 	var imgDesc = "";
 	var menuList = model.getFullMenu();
-	console.log(menuList);
 	imgDesc = "<img src='images/"+menuList[0].image+"'>";
 	this.starterImage.html(imgDesc);
 	this.starterDescription.html(menuList[0].description);
