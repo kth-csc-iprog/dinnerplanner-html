@@ -139,6 +139,11 @@ p {
 #v6{
 	overflow:auto;
 }
+#v6rubrik{
+	margin-left: 4px;
+	font-size: 150%;
+	font-weight: bold;
+}
 .low{
 	float:left;
 	margin-top:12.5%;
