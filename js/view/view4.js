@@ -4,6 +4,12 @@ var View4 = function (container, model) {
 	this.getBigImg = container.find("#picspace");
 	this.getTable = container.find("#ingritable");
 
+	model.addObserver(this);
+
+	this.update = function(obj) {
+
+	}
+
 	var bigDish = model.getDish(1);
 			var bigImg = "";
 			bigImg += "<img src='images/" + bigDish.image + "' class='storbild'>";
@@ -18,5 +24,4 @@ var View4 = function (container, model) {
 			this.getTable.html(tabledata);
 		}
 			this.numberOfGuests.html(model.getNumberOfGuests());
-			this.totalMenuPrice.html(model.getTotalMenuPrice());
 }

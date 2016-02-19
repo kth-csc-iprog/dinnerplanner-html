@@ -3,20 +3,31 @@ var DinnerModel = function() {
  
 	//TODO Lab 2 implement the data structure that will hold number of guest
 	// and selected dinner options for dinner menu
-	this.guest = 4; 		//attribut till klassen som har värdet gäster
+	this.guests = 4; 		//attribut till klassen som har värdet gäster
 	this.selectedMenu = []; //lista med valda rätter
+	var obsArray = [];
+
+	this.addObserver = function(observer) {
+		obsArray.push(observer);
+		return obsArray;
+	}
+
+	var notifyObservers = function(Object) {
+		for (i in obsArray) {
+			obsArray[i].update(Object);
+		}
+	}
 
 	this.setNumberOfGuests = function(num) {
 		//TODO Lab 2. 
-		this.guest = num; //ändrar värdet på guest till indatan.
-
+		this.guests = num; //ändrar värdet på guest till indatan.
+		notifyObservers(Object);
 	}
 
 	// should return 
 	this.getNumberOfGuests = function() {
 		//TODO Lab 2
-		return this.guest; //returnerar värdet gäster
-
+		return this.guests; //returnerar värdet gäster
 	}
 
 	//Returns the dish that is on the menu for selected type 
@@ -77,6 +88,7 @@ var DinnerModel = function() {
 			}
 		}
 		menuDishes.push(chosenDish);
+		notifyObservers(Object);
 	}
 
 	//Removes dish from menu
@@ -86,6 +98,7 @@ var DinnerModel = function() {
 		for(i in menuDishes){
 			if(menuDishes[i].id == id) {
 				menuDishes.splice(i);
+				notifyObservers(menuDishes[i]);
 			}
 		}
 	}

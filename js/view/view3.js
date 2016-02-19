@@ -2,6 +2,12 @@
 var View3 = function (container, model) {
 	this.getDish = container.find(".mat");
 
+	model.addObserver(this);
+
+	this.update = function(obj) {
+
+	}
+
 	//View 3 där småkvadraterna raddas upp för main, starter lr dessert!
 		var kategori = model.getAllDishes("starter");
 		var dish = "";

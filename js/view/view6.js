@@ -4,6 +4,11 @@ var View6 = function (container, model) {
 	this.getTitleName1 = container.find(".titlename1");
 	this.getDescription = container.find(".desc");
 
+	model.addObserver(this);
+
+	this.update = function(obj) {
+			}
+
 	//view 6 med bilder till vänster 
 	var choice1 = model.getFullMenu();
 	var choicie = "";
