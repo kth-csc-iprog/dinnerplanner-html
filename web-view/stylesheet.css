@@ -168,6 +168,10 @@ p {
 	overflow: auto;
 }
 
+.no-pad {
+	padding: 0;
+}
+
 .bord-bot {
 	border-bottom: 2px solid black;
 }
