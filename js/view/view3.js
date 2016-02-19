@@ -1,18 +1,26 @@
 
 var View3 = function (container, model) {
 	this.getDish = container.find(".mat");
+	this.search = container.find("#search_create_new");
+	this.valStarter = container.find("#valStarter");
+	this.valMain = container.find("#valMain");
+	this.valDessert = container.find("#valDessert");
 
 	model.addObserver(this);
+
 
 	this.update = function(obj) {
 
 	}
 
 	//View 3 där småkvadraterna raddas upp för main, starter lr dessert!
-		var kategori = model.getAllDishes("starter");
+	this.showDishes = function(type) {
+
+		var kategori = model.getAllDishes(type);
 		var dish = "";
 		for (var i=0; i<kategori.length; i++){
 			dish +="<div class='kvadrat'><img src='images/" + kategori[i].image + "' class='bild'><div class='dishname'>" + kategori[i].name + "</div>Lorem ispum dolor</div>";
 			this.getDish.html(dish);
 			}
+	}
 }
