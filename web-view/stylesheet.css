@@ -94,7 +94,6 @@ p {
 }
 
 .row{
-	padding: 0.5%;
 	margin: 0;
 }
 
@@ -164,8 +163,8 @@ p {
 	background-color: yellow;
 }
 
-.no-pad{
-	padding: 0;
+.pad{
+	padding: 1%;
 	overflow: auto;
 }
 
