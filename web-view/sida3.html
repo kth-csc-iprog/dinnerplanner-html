@@ -16,9 +16,9 @@
 		<h1 id="head">HOMELETTE</h1>
 			<p id="head">From the best chefs in the world directly into your kitchen</p>
 	</div>
-	<div class="row">
-		<div class="col-md-2 no-pad">
-			<div id="side-bar">
+	<div class="row" >
+		<div class="col-md-2 no-pad" id ="view6">
+			<div class ="side-bar">
 				<div>
 					<h4>My Dinner</h4>
 					<div id="My-Dinner">
@@ -58,39 +58,41 @@
 						<div class="col-md-6"><p align="right">0.00</p></div>
 					</div>
 					<div class="row">
-						<div class="col-md-12"><p align="right">SEK 0.00</p></div>
+						<div class="col-md-12"><p align="right">SEK <span id ="menuPrice"></span></p></div>
 					</div>
 					<button type="button" class="btn btn-default" id="conf-btn">Confirm Dinner</button>
 			</div>
 		</div>
-		<div class="col-md-10 no-pad bord">
-			<div class="borderLeft" id="view3">
-				<div class="row">
-					<div class="col-md-6">
-						<div class="row"><span id="name"></span></div>
-						<div class="row imageSize"><span id="pic"></span></div>
-						<div class="row">SUPERDUPER NAJS MAT</div>
-						<div class="row">
-							<button type="button" class="btn btn-default">Back to Select Dish</button>
-						</div>
-					</div>
-					<div class="col-md-6 ingred">
-						<div class="row bord-bot"><h3>INGREDIENTS FOR <span id="numberOfGuests"></span> PEOPLE</h3></div>
-						<div class="row" id="bord-bot">
-							<span id="output"></span>
-						</div>
-						<div class="row" id ="v5topline">
-							<button type="button" class="btn btn-default">Confirm Dish</button>
-						</div>
+	
+	
+	<div class="col-md-10 no-pad bord">
+		<div class="borderLeft" id="view3">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="row"><span id="name"></span></div>
+					<div class="row imageSize"><span id="pic"></span></div>
+					<div class="row">SUPERDUPER NAJS MAT</div>
+					<div class="row">
+						<button type="button" class="btn btn-default">Back to Select Dish</button>
 					</div>
 				</div>
-				<div class="row">
-					<h2>PREPARATIONS</h2>
-					<span id="desc"></span>
+				<div class="col-md-6 ingred">
+					<div class="row bord-bot"><h3>INGREDIENTS FOR <span id="numberOfGuests"></span> PEOPLE</h3></div>
+					<div class="row" id="bord-bot">
+						<span id="output"></span>
+					</div>
+					<div class="row" id ="v5topline">
+						<button type="button" class="btn btn-default">Confirm Dish</button>
+					</div>
 				</div>
+			</div>
+			<div class="row">
+				<h2>PREPARATIONS</h2>
+				<span id="desc"></span>
 			</div>
 		</div>
 	</div>
+</div>
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery.js"></script>

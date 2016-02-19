@@ -12,7 +12,7 @@ var ExampleView = function (container, model) {
 	this.pic = container.find("#pic");
 	this.desc = container.find("#desc");
 	
-	this.dish = container.find("#dishID");
+	this.dishID = container.find("#dishID");
 	this.dishBox = container.find("#dishBox");
 	this.menuPrice = container.find("#menuPrice");
 	
@@ -34,7 +34,7 @@ var ExampleView = function (container, model) {
 	
 	
 	this.numberOfGuests.html(model.getNumberOfGuests());
-	this.dish.html(model.getDish(1).name);
+	this.dishID.html(model.getDish(1).name);
 	var dishList = model.getAllDishes("main dish");
 	var dishOutput = "";
 	for(i = 0; i < dishList.length; i ++){
@@ -54,7 +54,7 @@ var ExampleView = function (container, model) {
 	this.starterPrice.html(model.getDishPrice(menuList[0].id));
 	imgDesc = "<img src='images/"+menuList[1].image+"'>";
 	this.mainDishImage.html(imgDesc)
-	this.mainDishName.html(menuList[1].name);;
+	this.mainDishName.html(menuList[1].name);
 	this.mainDishDescription.html(menuList[1].description);
 	this.mainDishPrice.html(model.getDishPrice(menuList[1].id));
 	imgDesc = "<img src='images/"+menuList[2].image+"'>";
