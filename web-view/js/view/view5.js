@@ -17,10 +17,6 @@ var View5 = function (container, model){
 
 	
 	var dishList = model.getAllDishes("main dish");
-	
-	model.addDishToMenu(1);
-	model.addDishToMenu(100);
-	model.addDishToMenu(202);
 	var imgDesc = "";
 	var menuList = model.getFullMenu();
 	imgDesc = "<img src='images/"+menuList[0].image+"'>";

@@ -4,7 +4,7 @@ var DinnerModel = function() {
 	//TODO Lab 2 implement the data structure that will hold number of guest
 	// and selected dinner options for dinner menu
 	
-	this.guests = 5;
+	this.guests = 2;
 	this.selectedMenu = [0,0,0];
 	this.observers = [];
 
@@ -12,9 +12,12 @@ var DinnerModel = function() {
 		this.observers.push(observer);
 	}
 
-	this.notifyObservers = function(obj){
-		for (observer in this.observers){
-			observer.update(obj);
+	this.notifyObservers = function(Object){
+		for (obs in this.observers){
+			if(this.observers[obs]){
+				console.log(this.observers[obs]);
+				this.observers[obs].update();
+			}
 		}
 	}
 
@@ -60,23 +63,26 @@ var DinnerModel = function() {
 	}
 	this.getDishPrice = function(id){
 		var cost = 0;
+
 		var dish = this.getDish(id);
-		for(i = 0; i< dish.ingredients.length; i++){
-			cost+=dish.ingredients[i].price;
+		if(dish){
+			for(i = 0; i< dish.ingredients.length; i++){
+				cost+=dish.ingredients[i].price;
+			}
 		}
 		return cost;
 	}
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	this.getTotalMenuPrice = function() {
 		var cost = 0;
-		for(dish in this.selectedMenu){
-			if(this.selectedMenu[dish]!= 0){
-				for(ingred in this.selectedMenu[dish].ingredients){
-					cost += dishes[dish].ingredients[ingred].price;
+		for(i = 0; i< this.selectedMenu.length; i++){
+			if(this.selectedMenu[i]!= 0){
+				for(ingred in this.selectedMenu[i].ingredients){
+					cost += this.selectedMenu[i].ingredients[ingred].price;
 				}
 			}
-		return cost*this.getNumberOfGuests();
 		}
+	return cost*this.getNumberOfGuests();
 	}
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
@@ -373,7 +379,7 @@ var DinnerModel = function() {
 		'id':201,
 		'name':'Vanilla Ice cream',
 		'type':'dessert',
-		'image':'icecream.jpg',
+		'image':'vanillaicecream.jpg',
 		'description':"Here is how you make it... Lore ipsum...",
 		'ingredients':[{ 
 			'name':'ice cream',
@@ -385,7 +391,7 @@ var DinnerModel = function() {
 		'id':202,
 		'name':'Strawberry',
 		'type':'dessert',
-		'image':'icecream.jpg',
+		'image':'strawberry.jpg',
 		'description':"Here is how you make it... Lore ipsum...",
 		'ingredients':[{ 
 			'name':'ice cream',

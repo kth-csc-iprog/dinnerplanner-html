@@ -15,6 +15,7 @@ var View3 = function (container, model){
 	this.name.html(model.getDish(1).name);
 	this.pic.html(imgSrc);
 	this.desc.html(model.getDish(1).description);
+	
 		//Listar Ingredienserna
 	var len = model.getDish(1).ingredients.length;
 	var ingName = [];
@@ -41,7 +42,7 @@ var View3 = function (container, model){
 	//Nytt försök
 	var output = "";
 	for (i = 0; i < len; i++){
-		output += "<div class='row rad'>" + "<div class='col-md-3'>" + ingQ[i] + "</div>" + "<div class='col-md-3'>" + ingUnit[i] + "</div>" + "<div class='col-md-3'>" + ingName[i] + "</div>" + "SEK" +  "<div class='col-md-3'>" + ingPrice[i] + "</div>" + "</div>";
+		output += "<div class='row rad'>" + "<div class='col-md-4'>" + ingQ[i]*model.getNumberOfGuests() +" "+ ingUnit[i] + "</div>" + "<div class='col-md-4'>" + ingName[i] + "</div>" + "SEK" +  "<div class='col-md-4'>" + ingPrice[i]*model.getNumberOfGuests() + "</div>" + "</div>";
 	}
 	this.output.html(output);
 }

@@ -22,30 +22,17 @@
 				<div>
 					<h4>My Dinner</h4>
 					<div id="My-Dinner">
-						<div class="form-group">
-							<label for="sel1">People</label>
-							<select class="form-control" id="sel1">
-								<option>1</option>
-								<option>2</option>
-								<option>3</option>
-								<option>4</option>
-								<option>5</option>
-								<option>6</option>
-								<option>7</option>
-								<option>8</option>
-								<option>9</option>
-								<option>10</option>
-								<option>11</option>
-								<option>12</option>
-								<option>13</option>
-								<option>14</option>
-								<option>15</option>
-								<option>16</option>
-								<option>17</option>
-								<option>18</option>
-								<option>19</option>
-								<option>20</option>
-							</select>
+						<div class="row">
+							<div class="input-group">
+								People 
+								<span class="input-group-button">
+									<button class="btn btn-default" type="button"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button>
+								</span>
+								<span class="frame" id="numberOfGuests"></span>
+								<span class="input-group-button">
+									<button class="btn btn-small" type="button"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+								</span>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -53,14 +40,26 @@
 					<div class="col-md-6"><p align="left">Dish Name</p></div>
 					<div class="col-md-6"><p align="right">Cost</p></div>
 				</div>
-					<div class="row" style="border-bottom: 2px solid black;">
+				<div class="row">
+						<div class="col-md-6"><p><span id ="starterName"></span></p></div>
+						<div class="col-md-6"><p align="right"><span id ="starterPrice"></span></p></div>
+				</div>
+				<div class="row">
+						<div class="col-md-6"><p><span id ="mainDishName"></span></p></div>
+						<div class="col-md-6"><p align="right"><span id ="mainDishPrice"></span></p></div>
+				</div>
+				<div class="row">
+						<div class="col-md-6"><p><span id ="dessertName"></span></p></div>
+						<div class="col-md-6"><p align="right"><span id ="dessertPrice"></span></p></div>
+				</div>
+					<div class="row" style="border-bottom: 2px solid black; border-top: 2px solid black">
 						<div class="col-md-6"><p>Pending</p></div>
 						<div class="col-md-6"><p align="right">0.00</p></div>
 					</div>
 					<div class="row">
 						<div class="col-md-12"><p align="right">SEK <span id ="menuPrice"></span></p></div>
 					</div>
-					<button type="button" class="btn btn-default" id="conf-btn">Confirm Dinner</button>
+					<button type="button" class="btn" id="conf-btn">Confirm Dinner</button>
 			</div>
 		</div>
 		<div class="col-md-10 no-pad bord">
@@ -73,7 +72,7 @@
 								<div class="form-group">
 									<div class="col-md-12 placeLeft">
 										<div>
-										<input type="text" class="form-control" id="TextSrc" value ="Enter Key Words">
+										<input type="text" class="form-control" id="TextSrc" placeholder="Enter Key Words">
 										</div>
 										<div>
 										<input type="submit" value="Search">
@@ -117,6 +116,5 @@
 	<script src="js/view/view4.js"></script>
 	<script src="js/view/view5.js"></script>
 	<script src="js/view/view6.js"></script>
-	<!--<script src="js/view/exampleView.js"></script>-->
   </body>
 </html>
