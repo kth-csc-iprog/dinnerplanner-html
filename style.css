@@ -1,0 +1,704 @@
+/* ---------------------------------------VIEW 1 START------------------------------------------ */
+/* HEADERN */
+#header{
+	border-color: black;
+	border-style: solid;
+	background-color: #D8D8D8;
+	height: 20vh;
+	width: 100vw;
+	overflow: hidden;
+}
+
+#startheader{
+	border-color: black;
+	border-style: solid;
+	background-color: rgba(255,238,178,0.6);
+	height: 20vh;
+	width: 100vw;
+	overflow: hidden;
+}
+
+.banner {
+	color: black;
+	font-family: "Comic Sans MS";
+	line-height: 9vh;
+}
+
+#title {
+	margin-left: 5vh;
+	font-weight: bold;
+}
+
+#slogan{
+	margin-top: 10%;
+	margin-left: 5vh;
+	font-style: italic;
+	font-size: 40%
+}
+
+
+/* Välkomstsidan */
+#welcome_img {
+	position: absolute;
+	z-index: -1;
+	height: 100vh;
+	width: 100vw;
+}
+
+#welcome_box {
+	margin-top: 6.5%;
+	width: 47vw;
+	height: 52vh;
+	background-color: rgba(255,255,255,0.6);
+	overflow: auto;
+}
+.welcome_text {
+	margin-top: 2%;
+	margin-left: 4%;
+	margin-right: 3%;
+}
+
+#welcome_title {
+	border-bottom-style: solid;
+	border-bottom-color: black; 
+}
+
+/*Create new-knappen*/
+#create_new {
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    background-color: rgb(246,178,107); 
+    border-radius: 1px;
+    border-style: solid;
+    border-color: black;
+    color: black;
+    text-align: center;
+    padding: 4px 16px;
+    margin-bottom: 4%;
+    font-weight: bold;
+}
+#create_new:active {
+  background-color: rgb(246,178,107);
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+/* ---------------------------------------VIEW 1 SLUT------------------------------------------- */
+
+/* ---------------------------------------VIEW 2 START------------------------------------------ */
+
+/* BODYN */
+#bodyn{
+	width: 100%
+}
+
+.regular{
+	font-family: "Arial";
+	font-weight: bold;
+	color:black;
+
+}
+
+.ri{
+	text-align:right;
+
+}
+
+#v2right{
+	float:right;
+	padding-right:2%;
+}
+
+#bigger{
+	font-size:160%;
+}
+
+/* VÄNSTERSPALT */
+
+.vansterspalt {
+	background-color: white;
+	height:100vh;
+	width: 24%;
+	border-style: solid;
+	border-color: black;
+	border-top: 1px;
+	float:left;
+	position:absolute;
+
+}
+
+#line1{
+	border-bottom-style: solid;
+	border-bottom-color:black;
+	margin-right:5%;
+	padding-top:5%;
+}
+
+#guests {
+	background-color: white;
+	height:23%;
+	width:100%;
+	border-bottom-style: solid;
+	border-bottom-color: black;
+	padding-left:3%;
+	padding-top:5%;
+}
+
+#dishname{
+	background-color: #D8D8D8;
+	height:5%;
+	width: 100%;
+	border-bottom-style: solid;
+	border-bottom-color: black;
+	padding-left:3%;
+}
+
+.titta {
+	padding-left: 2vw;
+}
+
+#cash{
+	background-color: white;
+	width: 100%;
+	padding-left:3%;
+	color:#900000 ;
+	padding-top:3%;
+}
+
+.box{
+	background-color: white;
+	width:13%;
+	height:5.4%;
+	border-color: black;
+	border-style: solid;
+	position:absolute;
+	z-index: 10;
+	text-align: center;
+	font-color: black;
+	top:0;
+	padding-top: 2.5%;
+	margin-top: 16.5%;
+	margin-left:23%;
+}
+
+.rekt{
+	background-color: white;
+	width:13%;
+	height:3%;
+	margin-left:36%;
+	border-color: black;
+	position:absolute;
+	z-index: 10;
+	text-align: center;
+	font-color: black;
+	top:0;
+	border-left:1px;
+	font-size:12px;
+}
+
+#rek1{
+	border-top-style: solid;
+	border-right-style: solid;
+	margin-top: 16.5%;
+}
+
+#rek2{
+	border-bottom-style: solid;
+	border-right-style:solid;
+	margin-top: 21.5%;
+}
+
+/*KNAPPEN */
+#confirm_dinner {
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    background-color: rgb(246,178,107); 
+    border-radius: 4px;
+    border-style: solid;
+    border-color: black;
+    color: black;
+    text-align: center;
+    padding: 4px 16px;
+    font-weight: bold;
+    margin-top: 25px;
+    margin-left: 35px;
+}
+#confirm_dinner:active {
+  background-color: rgb(246,178,107);
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+/*-------------------------VIEW 2 SLUT --------------------------*/
+
+
+
+
+/* ---------------------------------------VIEW 3 START------------------------------------------ 
+
+/* STORRUTA */
+.storruta {
+	background-color: white;
+	height: 100vh;
+	width: 76%;
+	overflow: hidden;
+	float:right;
+	border-style: solid;
+	border-color: black;
+	border-top: 1px;
+	border-left: 1px;	
+
+}
+
+#select {
+	background-color:#ffeeb2;
+	width:100%;
+	height:25%;
+	border-bottom-style: solid;
+	border-bottom-color: black;
+	color: black;
+	padding-left:5%;
+	padding-top:3%;
+
+}
+
+
+
+.bredrekt{
+	background-color:white;
+	width:40%;
+	height:20%;
+	border-style: solid;
+	border-color: black;
+	color:black;
+	padding-left:2%;
+	display:inline-block;
+}
+
+
+#search_create_new {
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    background-color: rgb(246,178,107); 
+    border-radius: 2px;
+    border-style: solid;
+    border-color: black;
+    color: black;
+    text-align: center;
+    padding: 1px 10px;
+    font-weight: bold;
+    margin-right: 2%;
+}
+
+#search_create_new:active {
+  background-color: rgb(246,178,107);
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+#nedknapp{
+	background-color: white;
+	border-style: solid;
+	border-color: black;
+	height: 20%;
+	width:3%;
+	color:black;
+	margin-top:2%;
+	display: inline-block;
+	margin-left: 2%;
+}
+
+
+/* DISHES; SMÅBILDERNA MED ALLA MATRÄTTER */ 
+#dishes{
+	background-color:white;
+	width:100%;
+	height: 50%;
+	overflow-y: scroll;
+	margin-left: 5vw;
+}
+
+.kvadrat{
+	background-color: white;
+	width: 10vw;
+	height: 23vh;
+	border-style: solid;
+	border-color: black;
+	margin-top:20vh;	
+	margin-left: 3vw;
+}
+
+.mat {
+	display: flex;
+	align-items: center;
+}
+
+#grid {
+	display: inline-block;
+}
+
+#Vkvad{
+	margin-left:20vh;
+	display: inline-block;
+	position: relative;
+}
+
+.bild{
+	width:9.6vw;
+	height:15vh;
+	border-bottom-color: black;
+	border-bottom-style: solid;
+}
+
+.dishname{
+	width:9.6vw;
+	height:7vh;
+	background-color: #D8D8D8;
+	border-top-style: solid;
+	border-top-color: black;
+	text-align: center;
+	padding-top:0.8vh;
+	font-weight: bold;
+	display: flex;
+	align-items: center;
+	text-align: auto;
+}
+
+.undertext{
+	width:9.6vw;
+	height:100vh;
+	display:inline-block;
+	margin-right:7px;
+}
+
+#Vunder{
+  margin-left:20vh;
+}
+
+#line2{
+	border-bottom-style: solid;
+	border-bottom-color:black;
+	margin-right:5%;
+}
+
+/* ---------------------------------------VIEW 3 SLUT------------------------------------------- */
+
+/* ---------------------------------------VIEW 4 START------------------------------------------ */
+
+
+
+/* STORRUTA */
+.center_left {
+	height: 82vh;
+	width: 58vw;
+	float:left;
+	padding-left: 26vw;	
+
+}
+
+/*Bilden*/
+.storbild {
+	width: 32vw;
+	height: 55vh;
+}
+
+#description {
+	max-width: 40vw;
+	overflow: auto;
+}
+
+#back_button {
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    background-color: rgb(246,178,107); 
+    border-radius: 60% 15% 15% 60%;
+    border-style: solid;
+    border-color: black;
+    color: black;
+    text-align: center;
+    padding: 4px 16px;
+    font-weight: bold;
+}
+
+#back_button:active {
+  background-color: rgb(246,178,107);
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+#prep {
+	font-weight: bold;
+}
+
+.center_right {
+	height: 85vh;
+	margin-top: -1vh;
+	margin-left: 60vw;
+	background-color: rgb(255,229,153);
+}
+
+.center_right h4 {
+	margin-left: 1vw;
+	margin-right: 1vw;
+	padding-top: 5vh;
+	border-bottom-style: solid;
+	border-bottom-color: black;
+}
+
+#ingredients {
+	border-top: none !important;
+	margin-left: 2vw;
+	max-width: 35vw;
+	border-bottom-style: solid;
+	border-bottom-color: black;
+}
+
+
+.table td, .table th {
+	border-top: none !important; 
+
+	padding-left: 6vw;
+}
+
+#confirm_button {
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    background-color: rgb(246,178,107); 
+    border-radius: 4px;
+    border-style: solid;
+    border-color: black;
+    color: black;
+    text-align: center;
+    padding: 4px 16px;
+    font-weight: bold;
+    margin-left: 2vw;
+}
+#confirm_button:active {
+  background-color: rgb(246,178,107);
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+
+
+/* ---------------------------------------VIEW 4 SLUT------------------------------------------- */
+
+/* ---------------------------------------VIEW 5 START------------------------------------------ 
+
+/* banner 2 dvs Your dinner: */
+
+#urDin{
+	background-color:orange;
+	width: 100vw;
+	height: 15vh;
+	border-style: solid;
+	border-color: black;
+	border-top:1px;
+	padding-left:16vw;
+	padding-top:1vh;
+	font-size: 180%;
+	font-weight: bold;
+}
+
+/* knappen */
+
+#create_new {
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    background-color: rgb(246,178,107); 
+    border-radius: 4px;
+    border-style: solid;
+    border-color: black;
+    color: black;
+    text-align: center;
+    padding: 4px 16px;
+    font-weight: bold;
+    margin-top: 25px;
+    margin-left: 35px;
+}
+#create_new:active {
+  background-color: rgb(246,178,107);
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+/* stor underruta */
+
+#underruta{
+	background-color: white;
+	width: 100vw;
+	height: 100vh;
+	border-style: solid;
+	border-color: black;
+	border-top: 1px;
+}
+
+#capture {
+	display: flex;
+	align-items: center;
+}
+
+.kvadrat{
+	background-color: white;
+	width: 10vw;
+	height: 23vh;
+	border-style: solid;
+	border-color: black;
+	margin-top:20vh;	
+	margin-left: 3vw;
+}
+
+
+.titta2 {
+	padding-left: 20vw;
+	display: flex;
+	align-items: center;
+}
+
+#Vkvad{
+	margin-left:30vw;
+	border: none;
+}
+
+.bild{
+	width:9.6vw;
+	height:15vh;
+	border-bottom-color: black;
+	border-bottom-style: solid;
+}
+
+.dishname5{
+	width:9.6vw;
+	height:7vh;
+	background-color: #D8D8D8;
+	border-top-style: solid;
+	border-top-color: black;
+	text-align: center;
+	padding-top:0.8vh;
+	font-weight: bold;
+	display: flex;
+	align-items: center;
+	text-align: auto;
+}
+.undertext{
+	width:12.3vw;
+	height:10vh;
+	display:inline-block;
+	margin-right:7px;
+	color:red;
+	text-align: right;
+}
+
+#Vunder{
+  margin-left:20.5vw;
+}
+
+#totalt{
+	color:black;
+	font-weight: bold;
+	padding-top:17vh; 
+	text-align: left;
+}
+
+
+#sista{
+	width: 10vw;
+	height: 23vh;
+	border-left-style: solid;
+	border-left-color: black;
+	margin-top: 19vh;
+	margin-left: 5vw;
+}
+
+#summan{
+	text-align: center;
+}
+
+#streck{
+	border-bottom-style: solid;
+	margin-left: 22vw;
+	width: 50vw;
+}
+
+#knepp{
+	margin-left: 40vw;
+}
+
+
+/* ---------------------------------------VIEW 5 SLUT------------------------------------------- */
+
+/* ---------------------------------------VIEW 6 START------------------------------------------ */
+
+#underruta2{
+	background-color: white;
+	width: 100vw;
+	height: 100vh;
+	border-style: solid;
+	border-color: black;
+	border-top: 1px;
+	overflow-y:scroll;
+}
+
+#big{
+	padding-top:1vh;
+}
+
+#titel{
+	display: inline-block;
+
+}
+
+.text{
+	width:23vw;
+	height:50vh;
+	float: right;
+	margin-top: -5vh;
+
+}
+
+
+#left{
+	width:50vw;
+	height: 100vh;
+	background-color: white;
+	float:left;
+	display: flex;
+	align-items: center;
+	margin-top: 32vh;
+}
+
+
+#right{
+	width:45vw;
+	height: 100vh;
+	background-color: white;
+	float:right;
+}
+
+.kvadrat1{
+	background-color: white;
+	width: 10vw;
+	height: 20vh;
+	border-style: solid;
+	border-color: black;
+	display: inline-block;
+	margin-left: 5vw;
+	margin-bottom: 10vh;
+}
+
+.bild1{
+	width:13vw;
+	height:23vh;
+	border-style: solid;
+	border-radius: 2px;
+	border-color: black;
+	margin-bottom: 34vh;
+	margin-left:1vw;
+}
+
+
+.rutor{
+	width:49.6vw;
+	height: 48vh;
+	background-color: white;
+	padding-right:10vw;
+	margin-top: 5vh;
+}
+
+
+
+/* ---------------------------------------VIEW 6 SLUT------------------------------------------- */

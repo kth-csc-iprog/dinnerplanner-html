@@ -121,6 +121,15 @@ var DinnerModel = function() {
 		}
 	}
 
+	//Returns the price of the dish (all the ingredients multiplied by number of guests).
+	this.getDishPrice = function(id) {
+		var chosenDish = this.getDish(id);
+		var dishCost = 0;
+		for (i in chosenDish.ingredients) { //itererar genom alla ingredienser på rätte (objekt), och adderar priset till totalCost
+			dishCost += chosenDish.ingredients[i].price;
+			} 
+		return dishCost;
+	}
 
 	// the dishes variable contains an array of all the 
 	// dishes in the database. each dish has id, name, type,

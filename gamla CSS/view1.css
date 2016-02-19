@@ -76,6 +76,8 @@
 /* ---------------------------------------VIEW 1 SLUT------------------------------------------- */
 
 /* ---------------------------------------VIEW 2 START------------------------------------------ */
+
+/* BODYN */
 #bodyn{
 	width: 100%
 }
@@ -87,14 +89,8 @@
 
 }
 
-#line{
-	border-bottom-style: solid;
-	border-bottom-color:black;
-	margin-right:5%;
-	margin-top: 10%;
-}
 
-#right{
+#v2right{
 	float:right;
 	padding-right:2%;
 }
@@ -117,9 +113,16 @@
 
 }
 
+#line1{
+	border-bottom-style: solid;
+	border-bottom-color:black;
+	margin-right:5%;
+	padding-top:5%;
+}
+
 #guests {
 	background-color: white;
-	height:13%;
+	height:23%;
 	width:100%;
 	border-bottom-style: solid;
 	border-bottom-color: black;
@@ -134,7 +137,10 @@
 	border-bottom-style: solid;
 	border-bottom-color: black;
 	padding-left:3%;
-	padding-top:1.5%;
+}
+
+.titta {
+	padding-left: 2vw;
 }
 
 #cash{
@@ -148,7 +154,7 @@
 .box{
 	background-color: white;
 	width:13%;
-	height:6%;
+	height:5.4%;
 	border-color: black;
 	border-style: solid;
 	position:absolute;
@@ -185,7 +191,7 @@
 #rek2{
 	border-bottom-style: solid;
 	border-right-style:solid;
-	margin-top: 24.25%;
+	margin-top: 21.5%;
 }
 
 /*KNAPPEN */
@@ -207,9 +213,14 @@
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
-/* ---------------------------------------VIEW 2 SLUT------------------------------------------- */
 
-/* ---------------------------------------VIEW 3 START------------------------------------------ */
+/*-------------------------VIEW 2 SLUT --------------------------*/
+
+
+
+
+/* ---------------------------------------VIEW 3 START------------------------------------------ 
+
 /* STORRUTA */
 .storruta {
 	background-color: white;
@@ -224,11 +235,10 @@
 
 }
 
-/*Select-titel*/
 #select {
 	background-color:#ffeeb2;
 	width:100%;
-	height:22%;
+	height:25%;
 	border-bottom-style: solid;
 	border-bottom-color: black;
 	color: black;
@@ -236,6 +246,8 @@
 	padding-top:3%;
 
 }
+
+
 
 .bredrekt{
 	background-color:white;
@@ -246,11 +258,9 @@
 	color:black;
 	padding-left:2%;
 	display:inline-block;
-	margin-right:-5%;
-	margin-top:3%;
 }
 
-/*Sök-knapp*/
+
 #search_create_new {
 	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
     background-color: rgb(246,178,107); 
@@ -270,7 +280,6 @@
   transform: translateY(4px);
 }
 
-/*Dropdown-knapp*/
 #nedknapp{
 	background-color: white;
 	border-style: solid;
@@ -284,48 +293,59 @@
 }
 
 
-/* DISHES; Rätter av någon vald kategori*/ 
+/* DISHES; SMÅBILDERNA MED ALLA MATRÄTTER */ 
 #dishes{
 	background-color:white;
 	width:100%;
-	height: 88%;
+	height: 50%;
 	overflow-y: scroll;
+	margin-left: 5vw;
 }
 
 .kvadrat{
 	background-color: white;
 	width: 10vw;
-	height: 20vh;
+	height: 23vh;
 	border-style: solid;
 	border-color: black;
-	display: inline-block;
-	margin-top:20vh;
+	margin-top:20vh;	
+	margin-left: 3vw;
+}
 
+.mat {
+	display: flex;
+	align-items: center;
+}
+
+#grid {
+	display: inline-block;
 }
 
 #Vkvad{
 	margin-left:20vh;
+	display: inline-block;
+	position: relative;
 }
 
 .bild{
 	width:9.6vw;
 	height:15vh;
-	position: relative;
 	border-bottom-color: black;
 	border-bottom-style: solid;
 }
 
 .dishname{
 	width:9.6vw;
-	height:4vh;
+	height:7vh;
 	background-color: #D8D8D8;
-	position:relative;
 	border-top-style: solid;
 	border-top-color: black;
 	text-align: center;
 	padding-top:0.8vh;
 	font-weight: bold;
-
+	display: flex;
+	align-items: center;
+	text-align: auto;
 }
 
 .undertext{
@@ -335,23 +355,34 @@
 	margin-right:7px;
 }
 
-#Vunderright{
+#Vunder{
   margin-left:20vh;
 }
+
+#line2{
+	border-bottom-style: solid;
+	border-bottom-color:black;
+	margin-right:5%;
+}
+
 /* ---------------------------------------VIEW 3 SLUT------------------------------------------- */
 
 /* ---------------------------------------VIEW 4 START------------------------------------------ */
-/* Mitten-vänster-rutan */
+
+
+
+/* STORRUTA */
 .center_left {
 	height: 82vh;
-	width: 60vw;
+	width: 58vw;
 	float:left;
-	padding-left: 18vw;	
+	padding-left: 26vw;	
+
 }
 
 /*Bilden*/
-#chosen_dish {
-	width: 40vw;
+.storbild {
+	width: 32vw;
 	height: 55vh;
 }
 
@@ -382,10 +413,9 @@
 	font-weight: bold;
 }
 
-/*Mitten-höger-rutan*/
 .center_right {
 	height: 85vh;
-	margin-top: -2vh;
+	margin-top: -1vh;
 	margin-left: 60vw;
 	background-color: rgb(255,229,153);
 }
@@ -406,8 +436,11 @@
 	border-bottom-color: black;
 }
 
+
 .table td, .table th {
 	border-top: none !important; 
+
+	padding-left: 6vw;
 }
 
 #confirm_button {
@@ -427,9 +460,15 @@
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
+
+
+
 /* ---------------------------------------VIEW 4 SLUT------------------------------------------- */
 
-/* ---------------------------------------VIEW 5 START------------------------------------------ */
+/* ---------------------------------------VIEW 5 START------------------------------------------ 
+
+/* banner 2 dvs Your dinner: */
+
 #urDin{
 	background-color:orange;
 	width: 100vw;
@@ -443,7 +482,29 @@
 	font-weight: bold;
 }
 
+/* knappen */
+
+#create_new {
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    background-color: rgb(246,178,107); 
+    border-radius: 4px;
+    border-style: solid;
+    border-color: black;
+    color: black;
+    text-align: center;
+    padding: 4px 16px;
+    font-weight: bold;
+    margin-top: 25px;
+    margin-left: 35px;
+}
+#create_new:active {
+  background-color: rgb(246,178,107);
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
 /* stor underruta */
+
 #underruta{
 	background-color: white;
 	width: 100vw;
@@ -453,30 +514,55 @@
 	border-top: 1px;
 }
 
+#capture {
+	display: flex;
+	align-items: center;
+}
+
 .kvadrat{
 	background-color: white;
 	width: 10vw;
-	height: 20vh;
+	height: 23vh;
 	border-style: solid;
 	border-color: black;
-	display: inline-block;
-	margin-top:20vh;
+	margin-top:20vh;	
+	margin-left: 3vw;
+}
+
+
+.titta2 {
+	padding-left: 20vw;
+	display: flex;
+	align-items: center;
 }
 
 #Vkvad{
 	margin-left:30vw;
+	border: none;
 }
 
 .bild{
 	width:9.6vw;
 	height:15vh;
-	position: relative;
 	border-bottom-color: black;
 	border-bottom-style: solid;
 }
 
-.undertext{
+.dishname5{
 	width:9.6vw;
+	height:7vh;
+	background-color: #D8D8D8;
+	border-top-style: solid;
+	border-top-color: black;
+	text-align: center;
+	padding-top:0.8vh;
+	font-weight: bold;
+	display: flex;
+	align-items: center;
+	text-align: auto;
+}
+.undertext{
+	width:12.3vw;
 	height:10vh;
 	display:inline-block;
 	margin-right:7px;
@@ -484,8 +570,8 @@
 	text-align: right;
 }
 
-#Vunderleft{
-  margin-left:30vw;
+#Vunder{
+  margin-left:20.5vw;
 }
 
 #totalt{
@@ -495,14 +581,14 @@
 	text-align: left;
 }
 
+
 #sista{
-	background-color: white;
 	width: 10vw;
-	height: 20vh;
+	height: 23vh;
 	border-left-style: solid;
 	border-left-color: black;
-	display: inline-block;
-	margin-top:20vh;
+	margin-top: 19vh;
+	margin-left: 5vw;
 }
 
 #summan{
@@ -518,23 +604,37 @@
 #knepp{
 	margin-left: 40vw;
 }
+
+
 /* ---------------------------------------VIEW 5 SLUT------------------------------------------- */
 
 /* ---------------------------------------VIEW 6 START------------------------------------------ */
+
+#underruta2{
+	background-color: white;
+	width: 100vw;
+	height: 100vh;
+	border-style: solid;
+	border-color: black;
+	border-top: 1px;
+	overflow-y:scroll;
+}
+
 #big{
-	padding-top:10vh;
+	padding-top:1vh;
 }
 
 #titel{
 	display: inline-block;
+
 }
 
 .text{
 	width:23vw;
 	height:50vh;
-	background-color: white;
-	display: inline-block;
-	margin-left: 1vw;
+	float: right;
+	margin-top: -5vh;
+
 }
 
 
@@ -543,11 +643,14 @@
 	height: 100vh;
 	background-color: white;
 	float:left;
+	display: flex;
+	align-items: center;
+	margin-top: 32vh;
 }
 
 
 #right{
-	width:49.55vw;
+	width:45vw;
 	height: 100vh;
 	background-color: white;
 	float:right;
@@ -580,6 +683,9 @@
 	height: 48vh;
 	background-color: white;
 	padding-right:10vw;
+	margin-top: 5vh;
 }
+
+
 
 /* ---------------------------------------VIEW 6 SLUT------------------------------------------- */

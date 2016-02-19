@@ -1,6 +1,5 @@
-var ExampleView = function (container, model) {
+var View6 = function (container, model) {
 	this.numberOfGuests = container.find(".numberOfGuests");
-	this.fullMenu = container.find(".titta");
 	this.totalMenuPrice = container.find("#totalMenuPrice");
 	this.getTitleName1 = container.find(".titlename1");
 	this.getDescription = container.find(".desc");
