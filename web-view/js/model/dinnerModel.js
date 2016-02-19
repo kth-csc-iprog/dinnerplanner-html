@@ -6,9 +6,21 @@ var DinnerModel = function() {
 	
 	this.guests = 5;
 	this.selectedMenu = [0,0,0];
+	this.observers = [];
+
+	this.addObserver = function(observer){
+		this.observers.push(observer);
+	}
+
+	this.notifyObservers = function(obj){
+		for (observer in this.observers){
+			observer.update(obj);
+		}
+	}
 
 	this.setNumberOfGuests = function(num) {
 		this.guests = num;
+		this.notifyObservers();
 	}
 
 	// should return 
@@ -79,6 +91,7 @@ var DinnerModel = function() {
 		else if(dish.type === "dessert"){
 			this.selectedMenu[2]= dish;
 		}
+		this.notifyObservers();
 	}
 
 	//Removes dish from menu
@@ -93,6 +106,7 @@ var DinnerModel = function() {
 		else if(dish.type === "dessert"){
 			this.selectedMenu[2]= 0;
 		}
+		this.notifyObservers();
 	}
 	this.getDishImage = function() {
 		var exdish = this.getDish(1);
