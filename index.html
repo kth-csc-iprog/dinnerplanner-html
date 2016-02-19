@@ -49,8 +49,8 @@
           <p class="regular" id="bigger">My Dinner</p>
             <p class="regular">People </p>
               <div class="box"><span class="numberOfGuests"></span></div>
-              <div class="rekt" id="rek1">▲</div>
-              <div class="rekt" id="rek2">▼</div>
+              <button class="rekt" id="rek1">▲</button>
+              <button class="rekt" id="rek2">▼</button>
         </div>
         <div id="dishname">
           <p class="regular">Dish Name<span id="v2right">Cost</span></p>
@@ -73,10 +73,13 @@
     <div class="storruta">
       <div id="select">
         <p class="regular" id="line2">SELECT DISH</p>
-        <div class="bredrekt"><p class="regular">Enter key words</p></div>
+        <input class="bredrekt" type=“text”/>
          <button class="welcome_text" id="search_create_new">Search</button>
-         <div class="bredrekt"><p class="regular">Starters</p></div>
-         <div id="nedknapp">▼</div>
+         <select class="bredrekt">
+            <option id="valStarter" value="starters">Starters</option>
+            <option id="valMain" value="main">Main Dishes</option>
+            <option id="valDessert" value="dessert">Desserts</option>
+        </select>
       </div>
       <div id="dishes">   
         <span class="mat"></span> 

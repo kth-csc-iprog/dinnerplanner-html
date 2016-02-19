@@ -232,7 +232,8 @@
 
 
 
-/* ---------------------------------------VIEW 3 START------------------------------------------ 
+/* ---------------------------------------VIEW 3 START------------------------------------------ */
+
 
 /* STORRUTA */
 .storruta {
@@ -285,6 +286,7 @@
     padding: 1px 10px;
     font-weight: bold;
     margin-right: 2%;
+    margin-left: -7px;
 }
 
 #search_create_new:active {
