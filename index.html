@@ -18,9 +18,11 @@
 
     <div id="header">
       
-      <h1 class= "banner" id="title">
-        HOMELETTE<small class="banner" id="slogan"> From the best chefs in the world directly into your kithen</small>
+      <h1 class= "banner"><button id="title">HOMELETTE</button>
+        <small class="banner" id="slogan"> From the best chefs in the world directly into your kithen</small>
       </h1>
+      <script src="js/view/viewHeader.js"></script>
+      <script src="js/view/HeaderController.js"></script>
     </div>
 
   <!--____________________________________________________VIEW 1________________________________________________-->
@@ -56,9 +58,9 @@
           <p class="regular">Dish Name<span id="v2right">Cost</span></p>
         </div>
         <div id="cash">
-          <span class="titta">Pending</span>
+          <p class="titta"></p>
           <p id="line1"></p>
-          <p id="v2right">SEK <span id="totalMenuPrice">0.00</span></p>
+          <p id="v2right">SEK <span id="totalMenuPrice"></span></p>
           <button class="welcome_text" id="confirm_dinner">Confirm Dinner</button>
         </div>
       </div>
@@ -112,7 +114,7 @@
         <table class="table" id="sum">
           <tbody>
             <tr>
-              <td><button class="welcome_text" id="confirm_button">Confirm Dish</button></td><td> </td><td>SEK</td><td>124</td>
+              <td><button class="welcome_text" id="confirm_button">Confirm Dish</button></td><td> </td><td>SEK</td><td id="dish_price"></td>
             </tr>
           </tbody>
         </table>
@@ -124,7 +126,7 @@
   <!--____________________________________________________VIEW 5__________________________________________________-->
 
   <div id="view5">
-    <div id="urDin">My dinner: <span class="numberOfGuests"></span> people <button class="welcome_text" id="create_new">Go back and change</button></div>
+    <div id="urDin">My dinner: <span class="numberOfGuests"></span> people <button class="welcome_text" id="go_back">Go back and change</button></div>
     <div id ="underruta">
         <div id="capture"><span class="titta2"></span> 
           <div id="sista">
@@ -136,7 +138,7 @@
         <div class="undertext">24kr</div>
         <div class="undertext" id="summan"><span id="totalMenuPrice"></span>kr</div>
         <div id="streck"></div>
-    <div id="knepp"> <button class="welcome_text" id="create_new">Print full recipe</button></div>
+    <div id="knepp"> <button class="welcome_text" id="print">Print full recipe</button></div>
     </div>
     <script src="js/view/view5.js"></script>
     <script src="js/view/controller5.js"></script>
@@ -145,7 +147,7 @@
   <!--____________________________________________________VIEW 6__________________________________________________-->
 
   <div id="view6">
-    <div id="urDin">My dinner: <span class="numberOfGuests"></span> people <button class="welcome_text" id="create_new">Go back and change</button></div>
+    <div id="urDin">My dinner: <span class="numberOfGuests"></span> people <button class="welcome_text" id="go_back">Go back and change</button></div>
     <div id ="underruta2">
       <div id="left">
         <span class="titlename1"></span>

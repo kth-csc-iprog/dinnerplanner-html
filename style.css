@@ -27,6 +27,8 @@
 #title {
 	margin-left: 5vh;
 	font-weight: bold;
+	border: none;
+	background-color: none;	
 }
 
 #slogan{
@@ -76,6 +78,7 @@
     margin-bottom: 4%;
     font-weight: bold;
 }
+
 #create_new:active {
   background-color: rgb(246,178,107);
   box-shadow: 0 5px #666;
@@ -455,7 +458,7 @@
 .table td, .table th {
 	border-top: none !important; 
 
-	padding-left: 6vw;
+	padding-left: 4.4vw;
 }
 
 #confirm_button {
@@ -497,9 +500,8 @@
 	font-weight: bold;
 }
 
-/* knappen */
-
-#create_new {
+/* knapparna */
+#go_back {
 	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
     background-color: rgb(246,178,107); 
     border-radius: 4px;
@@ -512,7 +514,26 @@
     margin-top: 25px;
     margin-left: 35px;
 }
-#create_new:active {
+#go_back:active {
+  background-color: rgb(246,178,107);
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+#print {
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    background-color: rgb(246,178,107); 
+    border-radius: 4px;
+    border-style: solid;
+    border-color: black;
+    color: black;
+    text-align: center;
+    padding: 4px 16px;
+    font-weight: bold;
+    margin-top: 25px;
+    margin-left: 35px;
+}
+#print:active {
   background-color: rgb(246,178,107);
   box-shadow: 0 5px #666;
   transform: translateY(4px);

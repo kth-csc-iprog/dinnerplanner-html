@@ -1,4 +1,6 @@
 var View5 = function (container, model) {
+	this.goBackButton = container.find("#go_back");
+	this.printButton = container.find("#print");
 	this.numberOfGuests = container.find(".numberOfGuests");
 	this.fullMenu = container.find(".titta2");
 	this.totalMenuPrice = container.find("#totalMenuPrice");
@@ -6,7 +8,7 @@ var View5 = function (container, model) {
 	model.addObserver(this);
 
 	this.update = function(obj) {
-
+		this.numberOfGuests.html(model.getNumberOfGuests());
 	}
 
 	//view5 med menyn men tre bilder; förrätt, main o dessert

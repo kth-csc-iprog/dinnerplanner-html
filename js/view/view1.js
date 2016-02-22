@@ -3,6 +3,7 @@ var View1 = function (container, model) {
 
 	model.addObserver(this);
 
-	this.update = function(obj) {
+	this.update = function(Object) {
+		return;
 	}
 }
