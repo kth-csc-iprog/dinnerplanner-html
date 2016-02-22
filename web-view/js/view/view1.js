@@ -1,5 +1,9 @@
-var View6 = function (container, model){
+var View1 = function (container, model){
 	model.addObserver(this);
+
+	this.minusButton = container.find("#minusGuest");
+	this.plusButton = container.find("#plusGuest");
+	this.confirmButton = container.find("#confirm-btn");
 
 	this.numberOfGuests = container.find("#numberOfGuests");
 	this.dishID = container.find("#dishID");
@@ -33,8 +37,8 @@ var View6 = function (container, model){
 	var menuList = model.getFullMenu();
 	this.numberOfGuests.html(model.getNumberOfGuests());
 	this.dishID.html(model.getDish(1).name);// fixa med input osv
-	//model.addDishToMenu(1);
-	//model.addDishToMenu(100);
+	model.addDishToMenu(1);
+	model.addDishToMenu(101);
 	model.addDishToMenu(202);
 	if(menuList[0]!=0){
 		this.starterName.html(menuList[0].name);

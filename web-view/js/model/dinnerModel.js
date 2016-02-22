@@ -15,7 +15,6 @@ var DinnerModel = function() {
 	this.notifyObservers = function(Object){
 		for (obs in this.observers){
 			if(this.observers[obs]){
-				console.log(this.observers[obs]);
 				this.observers[obs].update();
 			}
 		}
@@ -299,22 +298,22 @@ var DinnerModel = function() {
 			}]
 		},{
 		'id':101,
-		'name':'MD 2',
+		'name':'Fish Sticks',
 		'type':'main dish',
-		'image':'bakedbrie.jpg',
-		'description':"Here is how you make it... Lore ipsum...",
+		'image':'FishSticks.jpg',
+		'description':"Here is how you make Felix TM Fish Sticks; first you turn on the oven. Then when the time is right, you put the Felix TM Fish Sticks int there. When the time is right once again, you take them out and put them in your mouth.",
 		'ingredients':[{ 
-			'name':'ingredient 1',
+			'name':'Classified ingredient 1',
 			'quantity':1,
 			'unit':'pieces',
 			'price':8
 			},{
-			'name':'ingredient 2',
+			'name':'Classified ingredient 2',
 			'quantity':15,
 			'unit':'g',
 			'price':7
 			},{
-			'name':'ingredient 3',
+			'name':'Classified ingredient 3',
 			'quantity':10,
 			'unit':'ml',
 			'price':4
