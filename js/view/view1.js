@@ -3,12 +3,7 @@ var View1 = function (container, model) {
 
 	model.addObserver(this);
 
-<<<<<<< Updated upstream
 	this.update = function(Object) {
 		return;
-=======
-	this.update = function(obj) {
-		
->>>>>>> Stashed changes
 	}
 }

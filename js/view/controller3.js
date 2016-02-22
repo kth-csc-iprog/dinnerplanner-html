@@ -1,7 +1,4 @@
 var Controller3 = function(view, model ) {
-	view.showDishes("starter");
-
-
 	view.valStarter.click(function(){
 		view.showDishes("starter");
 	});
@@ -15,5 +12,14 @@ var Controller3 = function(view, model ) {
 	});
 
 
+	view.straw.click(function(){
+		view.showDishes("starters");
+	});
+
+	view.chosenDish.click(function(){
+		console.log("HJGJG");
+		$("#view3").hide();
+		$("#view4").show();
+	});
 
 }

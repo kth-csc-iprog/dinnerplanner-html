@@ -12,7 +12,7 @@ $("#view6").hide();
 	$("#view1").hide();
 	$("#header").show();
 	$("#view2").show();
-	$("#view4").show();
+	$("#view3").show();
   });
 
 }

@@ -278,7 +278,7 @@
 }
 
 
-#search_create_new {
+.search_create_new {
 	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
     background-color: rgb(246,178,107); 
     border-radius: 2px;
@@ -292,7 +292,7 @@
     margin-left: -7px;
 }
 
-#search_create_new:active {
+.search_create_new:active {
   background-color: rgb(246,178,107);
   box-shadow: 0 5px #666;
   transform: translateY(4px);
@@ -309,6 +309,27 @@
 	display: inline-block;
 	margin-left: 2%;
 }
+
+.toShowDishes{
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    background-color: rgb(236,85,110); 
+    border-radius: 2px;
+    border-style: solid;
+    border-color: black;
+    color: black;
+    text-align: center;
+    padding: 1px 10px;
+    font-weight: bold;
+    margin-right: 2%;
+    margin-left: -7px;
+}
+
+.toShowDishes:active {
+  background-color: rgb(246,178,107);
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
 
 
 /* DISHES; SMÅBILDERNA MED ALLA MATRÄTTER */ 
