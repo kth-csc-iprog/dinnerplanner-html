@@ -3,46 +3,119 @@ var DinnerModel = function() {
  
 	//TODO Lab 2 implement the data structure that will hold number of guest
 	// and selected dinner options for dinner menu
+	
+	this.guests = 2;
+	this.selectedMenu = [0,0,0];
+	this.observers = [];
 
+	this.addObserver = function(observer){
+		this.observers.push(observer);
+	}
+
+	this.notifyObservers = function(Object){
+		for (obs in this.observers){
+			if(this.observers[obs]){
+				this.observers[obs].update();
+			}
+		}
+	}
 
 	this.setNumberOfGuests = function(num) {
-		//TODO Lab 2
+		this.guests = num;
+		this.notifyObservers();
 	}
 
 	// should return 
 	this.getNumberOfGuests = function() {
-		//TODO Lab 2
+		return this.guests;
 	}
 
 	//Returns the dish that is on the menu for selected type 
 	this.getSelectedDish = function(type) {
-		//TODO Lab 2
+		if (type == "starter"){
+			return this.selectedMenu[0];
+		}
+		else if (type == "main"){
+			return this.selectedMenu[1];
+		}
+		else if (type == "dessert"){
+			return this.selectedMenu[2];
+		}
 	}
 
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
-		//TODO Lab 2
+		return this.selectedMenu;
 	}
 
 	//Returns all ingredients for all the dishes on the menu.
 	this.getAllIngredients = function() {
-		//TODO Lab 2
+		var all = [];
+		for(dish in this.selectedMenu){
+			if(this.selectedMenu[dish]!= 0){
+				for(ingred in this.selectedMenu[dish].ingredients){
+					all.push(dishes[dish].ingredients[ingred]);
+				}
+			}
+		}
+		return all;
 	}
+	this.getDishPrice = function(id){
+		var cost = 0;
 
+		var dish = this.getDish(id);
+		if(dish){
+			for(i = 0; i< dish.ingredients.length; i++){
+				cost+=dish.ingredients[i].price;
+			}
+		}
+		return cost;
+	}
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	this.getTotalMenuPrice = function() {
-		//TODO Lab 2
+		var cost = 0;
+		for(i = 0; i< this.selectedMenu.length; i++){
+			if(this.selectedMenu[i]!= 0){
+				for(ingred in this.selectedMenu[i].ingredients){
+					cost += this.selectedMenu[i].ingredients[ingred].price;
+				}
+			}
+		}
+	return cost*this.getNumberOfGuests();
 	}
-
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
-		//TODO Lab 2 
+		var dish = this.getDish(id);
+		if(dish.type === "starter"){
+			this.selectedMenu[0]= dish;
+		}
+		else if(dish.type === "main dish"){
+			this.selectedMenu[1]= dish;
+		}
+		else if(dish.type === "dessert"){
+			this.selectedMenu[2]= dish;
+		}
+		this.notifyObservers();
 	}
 
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {
-		//TODO Lab 2
+		var dish = this.getDish(id);
+		if(dish.type === "starter"){
+			this.selectedMenu[0]= 0;
+		}
+		else if(dish.type === "main dish"){
+			this.selectedMenu[1]= 0;
+		}
+		else if(dish.type === "dessert"){
+			this.selectedMenu[2]= 0;
+		}
+		this.notifyObservers();
+	}
+	this.getDishImage = function() {
+		var exdish = this.getDish(1);
+		return exdish.image;
 	}
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
@@ -225,22 +298,22 @@ var DinnerModel = function() {
 			}]
 		},{
 		'id':101,
-		'name':'MD 2',
+		'name':'Fish Sticks',
 		'type':'main dish',
-		'image':'bakedbrie.jpg',
-		'description':"Here is how you make it... Lore ipsum...",
+		'image':'FishSticks.jpg',
+		'description':"Here is how you make Felix TM Fish Sticks; first you turn on the oven. Then when the time is right, you put the Felix TM Fish Sticks int there. When the time is right once again, you take them out and put them in your mouth.",
 		'ingredients':[{ 
-			'name':'ingredient 1',
+			'name':'Classified ingredient 1',
 			'quantity':1,
 			'unit':'pieces',
 			'price':8
 			},{
-			'name':'ingredient 2',
+			'name':'Classified ingredient 2',
 			'quantity':15,
 			'unit':'g',
 			'price':7
 			},{
-			'name':'ingredient 3',
+			'name':'Classified ingredient 3',
 			'quantity':10,
 			'unit':'ml',
 			'price':4
@@ -305,7 +378,7 @@ var DinnerModel = function() {
 		'id':201,
 		'name':'Vanilla Ice cream',
 		'type':'dessert',
-		'image':'icecream.jpg',
+		'image':'vanillaicecream.jpg',
 		'description':"Here is how you make it... Lore ipsum...",
 		'ingredients':[{ 
 			'name':'ice cream',
@@ -317,7 +390,7 @@ var DinnerModel = function() {
 		'id':202,
 		'name':'Strawberry',
 		'type':'dessert',
-		'image':'icecream.jpg',
+		'image':'strawberry.jpg',
 		'description':"Here is how you make it... Lore ipsum...",
 		'ingredients':[{ 
 			'name':'ice cream',

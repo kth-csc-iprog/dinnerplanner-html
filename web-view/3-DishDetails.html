@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dinner planner</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+	<link type="text/css" rel="stylesheet" href="stylesheet.css"/>
+
+  </head>
+  <body>
+	 <div class="header">
+		<h1 id="head">HOMELETTE</h1>
+			<p id="head">From the best chefs in the world directly into your kitchen</p>
+	</div>
+	<div class="row" >
+		<div class="col-md-2 no-pad" id ="view1">
+			<div id="side-bar">
+				<div>
+					<h4>My Dinner</h4>
+					<div id="My-Dinner">
+						<div class="row">
+							<div class="input-group">
+								People 
+								<span class="input-group-button">
+									<button id="minusGuest" class="btn btn-default" type="button"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button>
+								</span>
+								<span class="frame" id="numberOfGuests"></span>
+								<span class="input-group-button">
+									<button id="plusGuest" class="btn btn-default" type="button"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row" id="grey-bar">
+					<div class="col-md-6"><p align="left">Dish Name</p></div>
+					<div class="col-md-6"><p align="right">Cost</p></div>
+				</div>
+				<div class="row">
+						<div class="col-md-6"><p><span id ="starterName"></span></p></div>
+						<div class="col-md-6"><p align="right"><span id ="starterPrice"></span></p></div>
+				</div>
+				<div class="row">
+						<div class="col-md-6"><p><span id ="mainDishName"></span></p></div>
+						<div class="col-md-6"><p align="right"><span id ="mainDishPrice"></span></p></div>
+				</div>
+				<div class="row">
+						<div class="col-md-6"><p><span id ="dessertName"></span></p></div>
+						<div class="col-md-6"><p align="right"><span id ="dessertPrice"></span></p></div>
+				</div>
+					<div class="row" style="border-bottom: 2px solid black; border-top: 2px solid black">
+						<div class="col-md-6"><p>Pending</p></div>
+						<div class="col-md-6"><p align="right">0.00</p></div>
+					</div>
+					<div class="row">
+						<div class="col-md-12"><p align="right">SEK <span id ="menuPrice"></span></p></div>
+					</div>
+					<button id="confirm-btn" type="button" class="btn conf-btn">Confirm Dinner</button>
+			</div>
+		</div>
+	
+	
+	<div class="col-md-10 no-pad bord">
+		<div class="borderLeft" id="view3">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="row"><span id="name"></span></div>
+					<div class="row imageSize"><span id="pic"></span></div>
+					<div class="row">SUPERDUPER NAJS MAT</div>
+					<div class="row">
+						<button type="button" class="btn my-btn">Back to Select Dish</button>
+					</div>
+				</div>
+				<div class="col-md-6 ingred">
+					<div class="row bord-bot"><h3>INGREDIENTS FOR <span id="numberOfGuests"></span> PEOPLE</h3></div>
+					<div class="row" id="bord-bot">
+						<span id="output"></span>
+					</div>
+					<div class="row" id ="v5topline">
+						<button type="button" class="btn my-btn">Confirm Dish</button>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<h2>PREPARATIONS</h2>
+				<span id="desc"></span>
+			</div>
+		</div>
+	</div>
+</div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+	<!-- The application JavaScript code -->
+	<script src="js/app.js"></script>
+	<script src="js/model/dinnerModel.js"></script>
+	<script src="js/view/view1.js"></script>
+	<script src="js/view/view2.js"></script>
+	<script src="js/view/view3.js"></script>
+	<script src="js/view/view4.js"></script>
+	<script src="js/view/view5.js"></script>
+	<script src="js/controll/controller1.js"></script>
+	
+	<!--<script src="js/view/exampleView.js"></script>-->
+  </body>
+</html>
