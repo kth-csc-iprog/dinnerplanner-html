@@ -1,25 +1,24 @@
 var Controller3 = function(view, model ) {
-	view.valStarter.click(function(){
-		view.showDishes("starter");
+
+	$('select').change(function(){
+		this.list = view.showDishes($('select').val());  
+
+		for (var i = 0; i<this.list.length; i++){
+
+			console.log(this.list[i]);
+			var idDish = this.list[i];
+
+			view.chosenDish = view.container.find("#" + idDish);
+			view.chosenDish.click(function(){
+				$("#view3").hide();
+				$("#view4").show();
+				
+			});
+		}
+
 	});
 
-	view.valDessert.click(function(){
-		view.showDishes("dessert");
-	});
-
-	view.valMain.click(function(){
-		view.showDishes("main dish");
-	});
 
 
-	view.straw.click(function(){
-		view.showDishes("starters");
-	});
-
-	view.chosenDish.click(function(){
-		console.log("HJGJG");
-		$("#view3").hide();
-		$("#view4").show();
-	});
 
 }
