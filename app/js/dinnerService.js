@@ -154,7 +154,8 @@ dinnerPlannerApp.factory('Dinner',function ($resource) {
   //function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
   //you can use the filter argument to filter out the dish by name or ingredient (use for search)
   //if you don't pass any filter all the dishes will be returned
-  this.getAllDishes = function (type,filter) {
+  this.getAllDishes = function (filter) {
+    console.log('get dish');
     return $(dishes).filter(function(index,dish) {
     var found = true;
     if(filter){
@@ -169,7 +170,7 @@ dinnerPlannerApp.factory('Dinner',function ($resource) {
         found = true;
       }
     }
-      return dish.type == type && found;
+      return  found;
     }); 
   }
 
@@ -178,8 +179,6 @@ dinnerPlannerApp.factory('Dinner',function ($resource) {
   //you can use the filter argument to filter out the dish by name or ingredient (use for search)
   //if you don't pass any filter all the dishes will be returned
   this.getAllDishesRest = function (type,filter) {
-
-    var recipeID = 196149;
 
     $.ajax({
       url: 'http://api.bigoven.com/recipes',
@@ -201,27 +200,8 @@ dinnerPlannerApp.factory('Dinner',function ($resource) {
     .always(function() {
       console.log("complete");
     });
-
-
-   //  return $(dishes).filter(function(index,dish) {
-    // var found = true;
-    // if(filter){
-    //  found = false;
-    //  $.each(dish.ingredients,function(index,ingredient) {
-    //    if(ingredient.name.indexOf(filter)!=-1) {
-    //      found = true;
-    //    }
-    //  });
-    //  if(dish.name.indexOf(filter) != -1)
-    //  {
-    //    found = true;
-    //  }
-    // }
-   //   return dish.type == type && found;
-   //  });  
   }
 
-  //this.getAllDishesRest("","Cookies");
 
   //function that returns a dish of specific ID
   this.getDish = function (id) {
