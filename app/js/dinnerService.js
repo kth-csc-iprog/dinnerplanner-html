@@ -16,9 +16,9 @@ dinnerPlannerApp.factory('Dinner',function ($resource) {
     // If num is an integer
     if (num === parseInt(num,10)) {
       if (num <= 0) {
-        nbGuest = 0;
+        numberOfGuest = 0;
       } else {
-        nbGuest = num;
+        numberOfGuest = num;
       }
     };
   }

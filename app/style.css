@@ -1,0 +1,253 @@
+html{
+	height: 100%;
+	margin: 0;
+	min-height: 100%;
+
+}
+body{
+	height: 100%;
+	background-color:#eeeeee;
+}
+/*Added the styling for landing page*/
+#landingPage h2 { 
+	color: white;
+   position: absolute; 
+   top: 200px; 
+   left: 0; 
+   width: 100%; 
+   text-shadow: 4px 4px 8px #000000;
+}
+
+#landingPage .button {
+position: absolute;
+text-shadow: 2px 2px 8px #000000;
+color: white;
+}
+
+#landingPage .text-land{
+
+	font-size: 15px;
+	border: 2px;
+	text-shadow: 2px 2px 8px #000000;
+}
+
+#sidebar {
+    line-height:20px;
+    background-color:#eeeeee;
+    height:100%;
+    float:left;
+    padding:20px;
+    display: table-cell;
+
+
+}
+
+#sidebarItems{
+	width: 100%;
+}
+
+.sidebarName{
+	width: 70%;
+}
+
+.sidebarCost{
+	width: 20%;
+}
+
+.remove-btn{
+	color : #ea6153;
+	font-size: 1.5em;
+	transition: color 0.4s ease-in-out;
+	cursor: pointer;
+}
+
+.remove-btn:hover{
+	color : #c0392b;
+	font-size: 1.5em;
+}
+
+.sidebarItemsFinal{
+	border-top: 1px solid black;
+}
+
+#plusGuest.btn,#minusGuest.btn{
+	padding: 6px;
+}
+
+#search-dish {
+    width:350px;
+    float:left;
+    padding:10px; 
+
+}
+
+.main{
+	padding: 0;
+	background-color: #FFF;
+	min-height: 100%;
+}
+
+/* View 4 : Preparation */
+
+.detailsText{
+	margin-top: 10px;
+}
+
+.ingredients{
+	background-color: #F9F098;
+	border: solid 2px black;
+	
+}
+
+.ingredients-title{
+	font-size: 1.5em;
+	text-transform: uppercase;
+	border-bottom: solid 1px black;
+}
+
+.ingredient-price p{
+	float: right;
+}
+
+/*View 6 : Final menu*/
+
+.menuHeader{
+	width: 100%;
+	background-color: #F9F098;
+	padding-bottom: 20px;
+	padding-top: 20px;
+	margin: 0;
+}
+
+.dinnerTitle{
+	float: left;
+	margin-left:20px;
+	font-size: 22px;
+}
+
+.goBackButton{
+	float: right;
+	margin-right: 20px;
+	font-size: 14px;
+	background-color: #F5BA23;
+	border: solid 2px black;
+}
+
+.dish{
+	cursor: pointer;
+}
+
+.dishCol{
+	padding: 30px 0px 30px 0px;
+	text-align: justify;
+}
+
+.dishImg{
+	border : solid 2px black;
+}
+
+.dishImg img{
+	height: 140px;
+	width: 100%;
+
+}
+
+.dishPic{
+	border: solid 2px black;
+}
+
+
+.titleDishThumb{
+	text-align: center;
+	width: 100%;
+	padding: 5px;
+	border-top : solid 2px black;
+	background-color: #DDDDDD;
+	margin: 0;
+}
+
+.printRecipe{
+	margin-top: 15px;
+	border-top: solid 1px black;
+
+}
+
+.printRecipe .goBackButton{
+	float: none;
+	margin-right: 0;
+	margin-top: 20px;
+	display:flex;
+	justify-content:center;
+	text-align:center;
+	width: 100%;
+
+}
+
+
+.goBackButton:hover 
+{ background-color: yellow; }
+
+.price{
+	font-style: bold;
+	text-align: right;
+	color: #820414;
+}
+
+.FinalMenuListTotal{
+	position: relative;
+	height: 100%;
+	border-left: solid 1px black;
+}
+
+.totalPrice{
+	margin-top: 140px;
+	padding-top: 10px;
+	margin-left: 10px;
+	padding-bottom: 10px;
+	height: 100%;
+	bottom: 0;
+}
+
+.margtop{
+	margin-top: 30px;
+}
+.dishTitle{
+	margin-top: 0;
+}
+
+.nopad{
+	padding: 0;
+}
+
+.nomarg{
+	margin: 0;
+}
+
+.full-height{
+	height: 100%;
+}
+
+.txt-center{
+	text-align: center;
+}
+
+.txt-right{
+	text-align: right;
+}
+
+.left{
+	float: left;
+}
+
+.right{
+	float: right;
+}
+
+@media (min-width: 768px) {
+
+	#plusGuest.btn,#minusGuest.btn{
+		padding: 6px 12px;
+	}
+
+}
+

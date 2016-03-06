@@ -3,3 +3,36 @@
 
 <!-- TODO in Lab 5: Display the input box for search (you can ignore the type dropdown since BigOven does
 not support it in free version) and list all the dishes that match the search. -->
+<div class="main col-xs-9">
+	<div id="dishContainer">
+		<div class="row menuHeader">
+			<div class="dinnerTitle col-xs-12">Select Dish :</div>
+			<div class="col-xs-12">
+				<div class="col-xs-6">
+					<div class="input-group">
+				      <input type="text" class="form-control" placeholder="Search for..."  id="searchBar">
+				      <span class="input-group-btn">
+				        <button class="btn btn-default" type="button" id="searchBtn">Go!</button>
+				      </span>
+				    </div>
+				</div>
+				
+				<div class="col-xs-6">
+				    <select class="selectpicker" id="selectTypeDish">
+					  <option value="main dish">Main dish</option>
+					  <option value="starter">Starter</option>
+					  <option value="dessert">Dessert</option>
+					</select>
+
+				</div>
+			</div>
+		</div>
+
+		<div class="margtop">
+			<div id="loader" class="col-xs-2 col-xs-offset-5">
+				<img src="../loading.gif" alt="" class="img-responsive center-block">
+				<p class="txt-center">Loading</p>
+			</div>
+		</div>
+	</div>
+</div>

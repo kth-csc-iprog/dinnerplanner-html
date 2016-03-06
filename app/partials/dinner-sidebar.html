@@ -7,3 +7,32 @@ People: <input type="number" ng-model="numberOfGuests" ng-change="setNumberOfGue
 purpose so you can see how some information from the model can be retrieved. In Lab 5 you will replace 
 this with Total price of the menu -->
 Total number of guest: {{getNumberOfGuests()}}
+
+<div id="sidebar" class="col-xs-3 nopad">
+
+	<h3>My Dinner</h3>
+	<div>
+		Number of guests : <span id="numberOfGuests"></span>
+	</div>
+		<div class="input-group col-xs-10">
+		  <input type="number" class="form-control" aria-label="..." id="nbGuestInput" ng-model="numberOfGuests">
+		  <div class="input-group-btn">
+		    <button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus" ng-click="setNumberOfGuest(numberOfGuests+1)"></span></button>
+			<button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus" ng-click="setNumberOfGuest(numberOfGuests-1)"></span></button>
+		  </div>
+		</div>
+
+	<table class="table" id="sidebarItems">
+		<tr>
+			<th class="sidebarName">Dish name</th>
+			<th class="sidebarCost">Cost</th>
+			<th></th>
+		</tr>
+	</table>
+
+
+	<div class=" printRecipe">
+		<button class="goBackButton" id="confirmDinner">Confirm dinner</button>
+	</div>
+					
+</div>
