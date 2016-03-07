@@ -10,9 +10,9 @@ not support it in free version) and list all the dishes that match the search. -
 			<div class="col-xs-12">
 				<div class="col-xs-6">
 					<div class="input-group">
-				      <input type="text" class="form-control" ng-model="query" placeholder="Search for..."  id="searchBar" ng-change="search(query, type)">
+				      <input type="text" class="form-control" ng-model="query" placeholder="Search for..."  id="searchBar" >
 				      <span class="input-group-btn">
-				        <button class="btn btn-default" type="button" id="searchBtn">Go!</button>
+				        <button class="btn btn-default" type="button" id="searchBtn" ng-click ="search(query, type)">Go!</button>
 				      </span>
 				    </div>
 				</div>
@@ -36,13 +36,13 @@ not support it in free version) and list all the dishes that match the search. -
 				<h2 class="red txt-center" ng-show="error">Error while executing the search</h2>
 			</div>
 
-			<div ng-repeat="dish in dishes" class="dish col-xs-3" data-id='{{dish.RecipeID}}'>
+			<a ng-repeat="dish in dishes" class="dish col-xs-3" ng-href='#/dish/{{dish.RecipeID}}'>
 				<div class="dishImg">
 					<img class="img-responsive center-block" src="{{dish.ImageURL120}}" alt="{{dish.Title}}">
 					<p class="titleDishThumb">{{dish.Title}}</p>
 				</div>
 				<div class="description"><p>{{dish.Subcategory}}</p></div>
-			</div>
+			</a>
 		</div>
 	</div>
 </div>

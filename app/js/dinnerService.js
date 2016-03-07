@@ -117,20 +117,22 @@ dinnerPlannerApp.factory('Dinner',function ($resource) {
     var foundDish = false;
     var i = menu.length-1;
 
-    // If a dish exist with the id in argument
-    if (dish !== null) {
+    // // If a dish exist with the id in argument
+    // if (dish !== null) {
 
-      // Look if a dish of this type exist in the menu
-      var prevDish = this.getSelectedDish(dish.type);
+    //   // Look if a dish of this type exist in the menu
+    //   var prevDish = this.getSelectedDish(dish.type);
       
-      // if it does remove it
-      if ( prevDish !== null) {
-        this.removeDishFromMenu(prevDish.id);
-      };
+    //   // if it does remove it
+    //   if ( prevDish !== null) {
+    //     this.removeDishFromMenu(prevDish.id);
+    //   };
 
       // We add the dish to the menu
       menu.push(dish.id);
-    };
+    // };
+
+    console.log(menu)
 
   }
 
@@ -151,32 +153,6 @@ dinnerPlannerApp.factory('Dinner',function ($resource) {
 
     return false;
   }
-
-
-
-  //function that returns a dish of specific ID
-  this.getDish = function (id) {
-    console.log("dish id :"+id)
-    $.ajax({
-      url: 'http://api.bigoven.com/recipe/'+id,
-      type: 'GET',
-      dataType: 'json',
-      data: {
-        api_key: bigOvenKey,
-      },
-    })
-    .done(function(data) {
-      console.log("success get dish");
-      console.log(data);
-    })
-    .fail(function() {
-      console.log("error");
-    })
-    .always(function() {
-      console.log("complete");
-    });
-  }
-
 
   // Angular service needs to return an object that has all the
   // methods created in it. You can consider that this is instead

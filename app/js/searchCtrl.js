@@ -23,7 +23,7 @@ dinnerPlannerApp.controller('SearchCtrl', function ($scope,Dinner) {
 	   },function(data){
 	     $scope.error = true;
 	   });
- }
+ 	}
 
 
 
