@@ -1,4 +1,4 @@
-People: <input type="number" ng-model="numberOfGuests" ng-change="setNumberOfGuest(numberOfGuests)"/>
+<!-- People: <input type="number" ng-model="numberOfGuests" ng-change="setNumberOfGuest(numberOfGuests)"/> -->
 
 <!-- TODO in Lab 5: Display the items on the menu with cost for each -->
 
@@ -15,10 +15,10 @@ Total number of guest: {{getNumberOfGuests()}}
 		Number of guests : <span id="numberOfGuests"></span>
 	</div>
 		<div class="input-group col-xs-10">
-		  <input type="number" class="form-control" aria-label="..." id="nbGuestInput" ng-model="numberOfGuests">
+		  <input type="number" class="form-control" aria-label="..." id="nbGuestInput" ng-model="numberOfGuests" ng-change="setNumberOfGuest(numberOfGuests)">
 		  <div class="input-group-btn">
-		    <button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus" ng-click="setNumberOfGuest(numberOfGuests+1)"></span></button>
-			<button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus" ng-click="setNumberOfGuest(numberOfGuests-1)"></span></button>
+		   <!--  <button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus" ng-click="setNumberOfGuest(numberOfGuests + 1)"></span></button>2
+			<button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus" ng-click="setNumberOfGuest(numberOfGuests - 1)"></span></button> -->
 		  </div>
 		</div>
 
