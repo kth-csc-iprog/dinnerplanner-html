@@ -1,0 +1,37 @@
+<!-- TODO in Lab 5: there is not much to do on the home screen. Just arrange the layout so it
+looks a bit nicer. -->
+<!--We include the sidebar as it is shared across two screens. -->
+<div id="overview">
+	<ng-include src="'partials/header.html'" ></ng-include>
+	<!--<ng-include src="'partials/dinner-sidebar.html'" ng-controller="DinnerCtrl"></ng-include>-->
+
+	<div id="statusDinner">
+			<h2 style="display: inline;">
+				My dinner: {{getNumberOfGuests()}} people</h2> 
+			
+			<a href="#/search" style="heigth: 5%; width: 100%;" class="btn btn-primary">Go back to edit dinner</a>
+		</div>
+	</div>
+
+	<div  id="courses" class="row row-centered" style="padding: 20px;">
+
+		<div  ng-repeat="dishInMenu in getFullMenu()" class="col-md-2" style="padding: 0px 0px; margin: 20px 20px;">
+			<div class="courseThumb" style="background-image: url({{dishInMenu.ImageURL}});">
+		    	<a href="#/dish/{{dishInMenu.RecipeID}}" style="heigth: 5%; width: 100%;" class="btn btn-primary">{{dishInMenu.Title}}</a>
+			</div>
+			<h3 class="pull-right" style="color: red; pull-right;">{{getDishPrice(dishInMenu)}} SEK</h3>
+			
+		</div>
+		
+			<h3 style="color: red">
+				{{getTotalMenuPrice()}} SEK
+			</h3>
+	    </div>
+   
+    <div id="buttonpart" class="row">
+    	<hr style="width: 80%; border-color: black; border-width: 3px; "></hr>
+    	<center>
+        	<a href="#/print" class="btn btn-default;" type="button">Print Recipe</a>
+    	</center>
+    </div>
+</div>

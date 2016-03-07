@@ -1,0 +1,28 @@
+<!-- TODO in Lab 5: there is not much to do on the home screen. Just arrange the layout so it
+looks a bit nicer. -->
+<a href="#/search" class="btn btn-primary">Create new dinner</a>
+<div id="printfinal">
+	<ng-include src="'partials/header.html'" ></ng-include>
+	<!--<ng-include src="'partials/dinner-sidebar.html'" ng-controller="DinnerCtrl"></ng-include>-->
+
+	<div>
+			<h2 style="display: inline;">
+				My dinner: {{getNumberOfGuests()}} people</h2> 
+			
+			<a href="#/search" style="heigth: 5%; width: 100%;" class="btn btn-primary">Go back to edit dinner</a>
+		</div>
+	</div>
+
+	<div ng-repeat="dishInMenu in getFullMenu()" class="row" style="padding: 20px 20px;">
+		<img class="col-md-3" ng-src="{{dishInMenu.ImageURL}}"/>	
+		<div class="col-md-4">
+			<h1>{{dishInMenu.Title}}</h1>
+    		<p>{{dishInMenu.Description}}</p>
+		</div>
+		<div class="col-md-4">
+    		<h1>Preparation</h1>
+    		<p>{{dishInMenu.Instructions}}</p>
+		</div>
+	</div>
+
+</div>
