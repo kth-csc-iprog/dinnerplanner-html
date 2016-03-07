@@ -6,7 +6,7 @@ dinnerPlannerApp.controller('DishCtrl', function ($scope,$routeParams,Dinner) {
   // $routingParams.paramName
   // Check the app.js to figure out what is the paramName in this case
 
-  	$scope.numberOfGuests = Dinner.getNumberOfGuests();
+  	$scope.totalPrice = 0;
 
   Dinner.Dish.get({
   	id:$routeParams.dishId,
@@ -14,14 +14,13 @@ dinnerPlannerApp.controller('DishCtrl', function ($scope,$routeParams,Dinner) {
 
   function(data){
   	$scope.currentDish = data;
+  	for (var i = data.Ingredients.length - 1; i >= 0; i--) {
+  		$scope.totalPrice += data.Ingredients[i].Quantity;
+  	}
   	console.log(data)
 
   },function(data){
   	console.log("fail")
   });
-
-  $scope.addDish = function(){
-  	Dinner.addDishToMenu($routeParams.dishId);
-  }
 
 });

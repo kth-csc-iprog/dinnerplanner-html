@@ -4,7 +4,7 @@
 <!-- TODO in Lab 5: Display the input box for search (you can ignore the type dropdown since BigOven does
 not support it in free version) and list all the dishes that match the search. -->
 <div class="main col-xs-9">
-	<div id="dishContainer">
+	<div id="dishContainer" ng-init="search(query,'main dish')">
 		<div class="row menuHeader">
 			<div class="dinnerTitle col-xs-12">Select Dish :</div>
 			<div class="col-xs-12">

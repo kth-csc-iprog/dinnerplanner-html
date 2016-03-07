@@ -6,7 +6,7 @@ Instructions, Ingredients and total cost. -->
 
 <div class="main col-xs-9">
 	<!-- View 4 -->
-	<div id="preparationDetails">
+	<div id="preparationDetails" ng-controller="DinnerCtrl">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-xs-6">
@@ -15,7 +15,7 @@ Instructions, Ingredients and total cost. -->
 						<img id="preparationImg" src="{{currentDish.ImageURL}}" alt="" class="img-responsive center-block col-xs-12">
 						<p class="detailsText col-xs-12">{{currentDish.Description}}</p>
 						<div class="col-xs-12">
-							<button class="goBackButton left" id="backToMain" ng-href="#/search">back to Select Dish</button>
+							<a class="goBackButton left" id="backToMain" ng-href="#/search">back to Select Dish</a>
 						</div>
 						<h2 class=" col-xs-12">Preparation</h2>
 						<p class="detailsText col-xs-12" id="preparationText">{{currentDish.Instructions}}</p>
@@ -23,13 +23,13 @@ Instructions, Ingredients and total cost. -->
 				</div>
 				<div class="col-xs-6 ingredients">
 					<div class="container-fluid" id="ingredients-list">
-						<div class="col-xs-12 ingredients-title">Ingredients for <span id="nbGuests">{{numberOfGuests}}</span> peoples</div>
+						<div class="col-xs-12 ingredients-title">Ingredients for <span id="nbGuests">{{getNumberOfGuests()}}</span> peoples</div>
 						<div class="ingredient ">
 							<div class="ingredient row" ng-repeat="ingredient in currentDish.Ingredients">
-								<div class="col-xs-3"><p><span>{{ingredient.Quantity*numberOfGuests}}</span> {{ingredient.Unit}}</p></div>
+								<div class="col-xs-3"><p><span>{{ingredient.Quantity*getNumberOfGuests()}}</span> {{ingredient.Unit}}</p></div>
 								<div class="col-xs-6"><p>{{ingredient.Name}}</p></div>
 								<div class="col-xs-1"><p>SEK</p></div>
-								<div class="col-xs-2 ingredient-price"><p>{{ingredient.Quantity*numberOfGuests}}</p></div>
+								<div class="col-xs-2 ingredient-price"><p>{{ingredient.Quantity*getNumberOfGuests()}}</p></div>
 							</div>
 						</div>
 					</div>
@@ -37,7 +37,7 @@ Instructions, Ingredients and total cost. -->
 						<div class="col-xs-8 col-xs-offset-1">
 							<button class="goBackButton left" id="confirmDish" ng-click="addDish()" ng-href="#/search">Confirm dish</button>
 						</div>
-						<div class="col-xs-3 ingredient-price" id="totalIngredientsPrice"><p>SEK 200</p></div>
+						<div class="col-xs-3 ingredient-price" id="totalIngredientsPrice"><p>SEK {{totalPrice*getNumberOfGuests}}</p></div>
 					</div>
 				</div>
 			</div>

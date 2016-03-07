@@ -111,26 +111,9 @@ dinnerPlannerApp.factory('Dinner',function ($resource) {
 
   //Adds the passed dish to the menu. If the dish of that type already exists on the menu
   //it is removed from the menu and the new one added.
-  this.addDishToMenu = function(id) {
-    // Get the dish associated with the id in the argument
-    var dish = this.getDish(id);
-    var foundDish = false;
-    var i = menu.length-1;
+  this.addDishToMenu = function(dish) {
 
-    // // If a dish exist with the id in argument
-    // if (dish !== null) {
-
-    //   // Look if a dish of this type exist in the menu
-    //   var prevDish = this.getSelectedDish(dish.type);
-      
-    //   // if it does remove it
-    //   if ( prevDish !== null) {
-    //     this.removeDishFromMenu(prevDish.id);
-    //   };
-
-      // We add the dish to the menu
-      menu.push(dish.id);
-    // };
+      menu.push(dish);
 
     console.log(menu)
 
@@ -138,14 +121,11 @@ dinnerPlannerApp.factory('Dinner',function ($resource) {
 
   //Removes dish from menu
   this.removeDishFromMenu = function(id) {
-    var dish = null;
 
     // We iterate over the menu to find if a dish of the same type exist
     for (var i = menu.length - 1; i >= 0; i--) {
-      dish = this.getDish(menu[i]);
-      if (dish.id == id) {
+      if (dish.RecipeID == id) {
         menu.splice(i,1);
-  
         return true;
 
       };
