@@ -104,7 +104,7 @@ dinnerPlannerApp.factory('Dinner',function ($resource) {
 
     // We iterate over the menu to find if a dish of the same type exist
     for (var i = menu.length - 1; i >= 0; i--) {
-      if (dish.RecipeID == id) {
+      if (menu[i].RecipeID === id) {
         menu.splice(i,1);
         return true;
 
