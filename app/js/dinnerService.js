@@ -25,18 +25,17 @@ dinnerPlannerApp.factory('Dinner',function ($resource, $cookieStore) {
 
   var cookieMenu = $cookieStore.get('menuID');
 
+  //If the array of ID exist we get the dish associated with each one
+  if (cookieMenu !== undefined) {
+    menuID = cookieMenu;
+    //this.getDishFromCookie(0);
 
-  //Get the dishes from the array of id stored in the cookies
-  this.getDishFromCookie = function myself(i){
-    if (i <= cookieMenu.length - 1) {
-
+    for (var i = 0; i <= cookieMenu.length - 1; i++) {
       var totalPrice = 0;
       
-      $resource('http://api.bigoven.com/recipe/:id',{api_key:bigOvenKey}).get({id:cookieMenu[i]},
+      this.Dish.get({id:cookieMenu[i]},
 
         function(data){
-        
-        console.log(data);
 
         //Calculate the price per person and add it to the dish object
         for (var j = data.Ingredients.length - 1; j >= 0; j--) {
@@ -46,24 +45,11 @@ dinnerPlannerApp.factory('Dinner',function ($resource, $cookieStore) {
         data.Price = totalPrice; 
 
         menu.push(data);
-
-        i++;
-        myself(i);
-
       },function(data){
         console.log("fail")
       });
-    }
-    
-  }
-
-
-
-  //If the array of ID exist we get the dish associated with each one
-  if (cookieMenu !== undefined) {
-    menuID = cookieMenu;
-    this.getDishFromCookie(0);
   };
+}
 
   this.setNumberOfGuests = function(num) {
     // If num is an integer
