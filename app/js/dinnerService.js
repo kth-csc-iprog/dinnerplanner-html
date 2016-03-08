@@ -3,15 +3,67 @@
 // dependency on any service you need. Angular will insure that the
 // service is created first time it is needed and then just reuse it
 // the next time.
-dinnerPlannerApp.factory('Dinner',function ($resource) {
+dinnerPlannerApp.factory('Dinner',function ($resource, $cookieStore) {
   
-  var numberOfGuest = 2;
+  var numberOfGuest = 0;
+
+  // Array of dishes so we won't have to make an API call every time
   var menu   = [];
 
-  var bigOvenKey = 'XKEdN82lQn8x6Y5jm3K1ZX8L895WUoXN';
+  // Array of ID to store in the cookie
+  var menuID   = [];
+
+  var bigOvenKey = 'sV1fPGQKrO0b6oUYb6w9kLI8BORLiWox';
     
   this.DishSearch = $resource('http://api.bigoven.com/recipes',{pg:1,rpp:25,api_key:bigOvenKey});
   this.Dish = $resource('http://api.bigoven.com/recipe/:id',{api_key:bigOvenKey}); 
+
+
+
+  cookieGuest = $cookieStore.get('numberOfGuest');
+  if (cookieGuest !== undefined) {numberOfGuest = cookieGuest;}
+
+  var cookieMenu = $cookieStore.get('menuID');
+
+
+  //Get the dishes from the array of id stored in the cookies
+  this.getDishFromCookie = function myself(i){
+    if (i <= cookieMenu.length - 1) {
+
+      var totalPrice = 0;
+      
+      $resource('http://api.bigoven.com/recipe/:id',{api_key:bigOvenKey}).get({id:cookieMenu[i]},
+
+        function(data){
+        
+        console.log(data);
+
+        //Calculate the price per person and add it to the dish object
+        for (var j = data.Ingredients.length - 1; j >= 0; j--) {
+          totalPrice += data.Ingredients[j].Quantity;
+        }
+
+        data.Price = totalPrice; 
+
+        menu.push(data);
+
+        i++;
+        myself(i);
+
+      },function(data){
+        console.log("fail")
+      });
+    }
+    
+  }
+
+
+
+  //If the array of ID exist we get the dish associated with each one
+  if (cookieMenu !== undefined) {
+    menuID = cookieMenu;
+    this.getDishFromCookie(0);
+  };
 
   this.setNumberOfGuests = function(num) {
     // If num is an integer
@@ -22,6 +74,9 @@ dinnerPlannerApp.factory('Dinner',function ($resource) {
         numberOfGuest = num;
       }
     };
+
+    $cookieStore.put('numberOfGuest',numberOfGuest)
+
   }
 
   this.getNumberOfGuests = function() {
@@ -94,7 +149,9 @@ dinnerPlannerApp.factory('Dinner',function ($resource) {
   this.addDishToMenu = function(dish) {
 
       menu.push(dish);
-
+      menuID.push(dish.RecipeID);
+      $cookieStore.put('menuID',menuID);
+      console.log($cookieStore.get('menuID'));
   }
 
   //Removes dish from menu
@@ -104,6 +161,9 @@ dinnerPlannerApp.factory('Dinner',function ($resource) {
     for (var i = menu.length - 1; i >= 0; i--) {
       if (menu[i].RecipeID === id) {
         menu.splice(i,1);
+        menuID.splice(i,1);
+        $cookieStore.put('menuID',menuID);
+
         return true;
 
       };
