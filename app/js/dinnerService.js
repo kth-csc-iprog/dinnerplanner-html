@@ -8,7 +8,7 @@ dinnerPlannerApp.factory('Dinner',function ($resource) {
   var numberOfGuest = 2;
   var menu   = [];
 
-  var bigOvenKey = 'H9n1zb6es492fj87OxDtZM9s5sb29rW3';
+  var bigOvenKey = 'XKEdN82lQn8x6Y5jm3K1ZX8L895WUoXN';
     
   this.DishSearch = $resource('http://api.bigoven.com/recipes',{pg:1,rpp:25,api_key:bigOvenKey});
   this.Dish = $resource('http://api.bigoven.com/recipe/:id',{api_key:bigOvenKey}); 
@@ -94,8 +94,6 @@ dinnerPlannerApp.factory('Dinner',function ($resource) {
   this.addDishToMenu = function(dish) {
 
       menu.push(dish);
-
-      console.log(menu)
 
   }
 

@@ -44,17 +44,22 @@ dinnerPlannerApp.controller('DinnerCtrl', function ($scope,Dinner) {
  	return Dinner.getFullMenu();
  }
 
+ $scope.getTotalMenuPrice = function(){
+ 	var menu = Dinner.getFullMenu();
+ 	var totalPrice = 0;
+ 	for (var i = menu.length - 1; i >= 0; i--) {
+ 		totalPrice += menu[i].Price;
+ 	}
+
+ 	return totalPrice*Dinner.getNumberOfGuests();
+ }
+
  $scope.removeDishFromMenu = function(id) {
  	Dinner.removeDishFromMenu(id);
  }
 
  $scope.addDish = function(dish) {
  	Dinner.addDishToMenu(dish);
- }
-
-
- $scope.getTotalMenuPrice = function() {
- 	return Dinner.getTotalMenuPrice();
  }
 
 

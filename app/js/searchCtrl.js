@@ -16,6 +16,7 @@ dinnerPlannerApp.controller('SearchCtrl', function ($scope,Dinner) {
   	},
   	function(data){
   		$scope.dishes=data.Results;
+      console.log(data)
   		$scope.searching = false;
   	},function(data){
   		$scope.error = true;
