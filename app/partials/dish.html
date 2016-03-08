@@ -35,9 +35,9 @@ Instructions, Ingredients and total cost. -->
 					</div>
 					<div class="row">
 						<div class="col-xs-8 col-xs-offset-1">
-							<button class="goBackButton left" id="confirmDish" ng-click="addDish()" ng-href="#/search">Confirm dish</button>
+							<a class="goBackButton left" id="confirmDish" ng-click="addDish(currentDish)" ng-href="#/search">Confirm dish</a>
 						</div>
-						<div class="col-xs-3 ingredient-price" id="totalIngredientsPrice"><p>SEK {{totalPrice*getNumberOfGuests}}</p></div>
+						<div class="col-xs-3 ingredient-price" id="totalIngredientsPrice"><p>SEK {{currentDish.Price*getNumberOfGuests()}}</p></div>
 					</div>
 				</div>
 			</div>

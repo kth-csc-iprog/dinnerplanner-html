@@ -25,11 +25,19 @@ this with Total price of the menu -->
 			<th class="sidebarCost">Cost</th>
 			<th></th>
 		</tr>
+		<tr ng-repeat="dish in fullMenu">
+			<td>{{dish.Title}}</td>
+			<td>{{dish.Price*getNumberOfGuests()}}</td>
+			<td><span class="glyphicon glyphicon-remove-circle remove-btn" aria-hidden="true" ng-click="removeDishFromMenu(dish.RecipeID)"></span></td>
+
+		</tr>
 	</table>
 
 
 	<div class=" printRecipe">
-		<button class="goBackButton" id="confirmDinner">Confirm dinner</button>
+		<a ng-href="#/overview">
+			<button class="goBackButton" id="confirmDinner" >Confirm dinner</button>
+		</a>
 	</div>
 					
 </div>

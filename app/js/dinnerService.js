@@ -53,15 +53,7 @@ dinnerPlannerApp.factory('Dinner',function ($resource) {
 
   //Returns all the dishes on the menu.
   this.getFullMenu = function() {
-    var fullMenu = [];
-
-    //Iterate over the menu
-    for (key in menu){
-      //Get the details from the id and Add every dish to the array
-      fullMenu.push(this.getDish(menu[key]));
-    }
-
-    return fullMenu;
+    return menu;
   }
 
   //Returns all ingredients for all the dishes on the menu.
@@ -97,25 +89,13 @@ dinnerPlannerApp.factory('Dinner',function ($resource) {
     return individualPrice*this.getNumberOfGuests();
   }
 
-  this.getDishPrice = function(id){
-    var allIngredients = this.getDish(id).ingredients;
-    var totalPrice = 0;
-
-    // for each ingredient add the individual price multiply by the quantity to the total price
-    for (key in allIngredients) {
-      totalPrice += allIngredients[key].price;
-    };
-
-    return totalPrice;
-  }
-
   //Adds the passed dish to the menu. If the dish of that type already exists on the menu
   //it is removed from the menu and the new one added.
   this.addDishToMenu = function(dish) {
 
       menu.push(dish);
 
-    console.log(menu)
+      console.log(menu)
 
   }
 
