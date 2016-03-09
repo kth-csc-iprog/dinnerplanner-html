@@ -6,7 +6,7 @@ html{
 }
 body{
 	height: 100%;
-	background-color:#eeeeee;
+	background-color:#FFF;
 }
 /*Added the styling for landing page*/
 #landingPage h2 { 
@@ -197,6 +197,10 @@ color: white;
 	position: relative;
 	height: 100%;
 	border-left: solid 1px black;
+}
+
+#finalMenu{
+	background-color: #FFF;
 }
 
 .totalPrice{

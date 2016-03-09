@@ -28,7 +28,6 @@ dinnerPlannerApp.factory('Dinner',function ($resource, $cookieStore) {
   //If the array of ID exist we get the dish associated with each one
   if (cookieMenu !== undefined) {
     menuID = cookieMenu;
-    //this.getDishFromCookie(0);
 
     for (var i = 0; i <= cookieMenu.length - 1; i++) {
       var totalPrice = 0;
@@ -118,16 +117,12 @@ dinnerPlannerApp.factory('Dinner',function ($resource, $cookieStore) {
   //Returns the total price of the menu (all the ingredients multiplied by number of guests).
   this.getTotalMenuPrice = function() {
 
-    //get an array with all of the ingredients in the menu
-    var allIngredients = this.getAllIngredients();
-    var individualPrice = 0;
+    var totalPrice = 0;
+    for (var i = menu.length - 1; i >= 0; i--) {
+      totalPrice += menu[i].Price;
+    }
 
-    // for each ingredient add the individual price multiply by the quantity to the total price
-    for (key in allIngredients) {
-      individualPrice += allIngredients[key].price;
-    };
-
-    return individualPrice*this.getNumberOfGuests();
+    return totalPrice*numberOfGuest;
   }
 
   //Adds the passed dish to the menu. If the dish of that type already exists on the menu

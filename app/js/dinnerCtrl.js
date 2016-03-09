@@ -45,13 +45,8 @@ dinnerPlannerApp.controller('DinnerCtrl', function ($scope,Dinner) {
  }
 
  $scope.getTotalMenuPrice = function(){
- 	var menu = Dinner.getFullMenu();
- 	var totalPrice = 0;
- 	for (var i = menu.length - 1; i >= 0; i--) {
- 		totalPrice += menu[i].Price;
- 	}
-
- 	return totalPrice*Dinner.getNumberOfGuests();
+ 	return Dinner.getTotalMenuPrice();
+ 	
  }
 
  $scope.removeDishFromMenu = function(id) {

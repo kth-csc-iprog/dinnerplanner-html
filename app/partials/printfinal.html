@@ -1,28 +1,27 @@
-<!-- TODO in Lab 5: there is not much to do on the home screen. Just arrange the layout so it
-looks a bit nicer. -->
-<a href="#/search" class="btn btn-primary">Create new dinner</a>
-<div id="printfinal">
-	<ng-include src="'partials/header.html'" ></ng-include>
-	<!--<ng-include src="'partials/dinner-sidebar.html'" ng-controller="DinnerCtrl"></ng-include>-->
-
-	<div>
-			<h2 style="display: inline;">
-				My dinner: {{getNumberOfGuests()}} people</h2> 
-			
-			<a href="#/search" style="heigth: 5%; width: 100%;" class="btn btn-primary">Go back to edit dinner</a>
-		</div>
+<div id="finalMenu">
+	<div class="row menuHeader" id="finalHeader">
+		<div class="dinnerTitle">My Dinner : <span id="finalGuestNb"></span> peoples</div>
+		<a class="goBackButton" id="backFromEnd" ng-href="#/overview">Go back and edit dinner</a>
 	</div>
 
-	<div ng-repeat="dishInMenu in getFullMenu()" class="row" style="padding: 20px 20px;">
-		<img class="col-md-3" ng-src="{{dishInMenu.ImageURL}}"/>	
-		<div class="col-md-4">
-			<h1>{{dishInMenu.Title}}</h1>
-    		<p>{{dishInMenu.Description}}</p>
-		</div>
-		<div class="col-md-4">
-    		<h1>Preparation</h1>
-    		<p>{{dishInMenu.Instructions}}</p>
+	<div class="container-fluid">
+
+		<!-- View 6 -->
+		<div class="container-fluid" id="finalMenuDishes">
+			<div class="dishCol row" ng-repeat="dish in fullMenu">
+				<div class="col-xs-2 nopad">
+					<img src="{{dish.ImageURL}}" alt="{{dish.Title}}" class="img-responsive center-block dishPic">
+				</div>
+
+				<div class="dishDescription col-xs-3">
+					<h3 class="dishTitle">{{dish.Title}}</h3>
+					<p>{{dish.Description}}</p>
+				</div>
+				<div class="dishPreparation col-xs-6 col-xs-offset-1">
+					<h4 class="dishTitle">Preparation</h4>
+					<p>{{dish.Instructions}}</p>
+				</div>
+			</div>
 		</div>
 	</div>
-
 </div>
