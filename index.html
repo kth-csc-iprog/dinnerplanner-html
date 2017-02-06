@@ -1,29 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Dinner planner</title>
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
-
-  </head>
-  <body>
-	<div class="container">
-		<h1>Dinner planner</h1>
-		<div id="exampleView">
-			<div>
-				Number of guests: <span id="numberOfGuests"></span>
-			</div>
-			<div>
-          <button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
-				<button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
-			</div>
-		</div>
-	</div>
-
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="icon" type="image/x-icon" href="favicon.ico">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Dinner planner</title>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <h1 style="display: inline-block">HOMELETTE</h1>
+                    <p style="display: inline-block">From the best chefs in the world directly into your kitchen</p>
+                </div>
+            </div>
+        </nav>
+	 <div id="main-page" class="container fill pre-scrollable">
+            <div class="row">
+                <div id="dinnerOverview" class="col-md-2">
+                    <div class="well">
+                        <h4>My Dinner</h4>
+                        <hr>
+                        <div id="numberOfGuestsView">
+                            <div class="input-group number-spinner">
+                    				<span class="input-group-btn">
+                    					<button id="minusGuests" class="btn btn-default" data-dir="dwn"><span class="glyphicon glyphicon-minus"></span></button>
+                    				</span>
+                    				<input id="numberOfGuests" type="text" class="form-control text-center readonly">
+                    				<span class="input-group-btn">
+                    					<button id="plusGuests" class="btn btn-default" data-dir="up"><span class="glyphicon glyphicon-plus"></span></button>
+                    				</span>
+                    			</div>
+                        </div>
+                    </div>
+                    <div id="selectedDishesView" class="well">
+                        <h4>My Menu</h4>
+                        <hr/>
+                        <ul id="selectedDishesList" class="list-unstyled"></ul>
+                        <hr/>
+                        <h3>Total:<span id="totalPrice" class="label label-default pull-right"></span>
+                        </h3>
+                    </div>
+                    <button type="button" class="btn btn-default disabled">Confirm Dinner</button>
+                </div>
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery.js"></script>
     <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
