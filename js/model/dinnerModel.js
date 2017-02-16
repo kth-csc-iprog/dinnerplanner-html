@@ -3,46 +3,104 @@ var DinnerModel = function() {
  
 	//TODO Lab 2 implement the data structure that will hold number of guest
 	// and selected dinner options for dinner menu
+	this.guests = 4; 		//attribut till klassen som har värdet gäster
+	this.selectedMenu = []; //lista med valda rätter
+	var obsArray = [];
 
+	this.addObserver = function(observer) {
+		obsArray.push(observer);
+		return obsArray;
+	}
+
+	var notifyObservers = function(Object) {
+		for (i in obsArray) {
+			obsArray[i].update(Object);
+		}
+	}
 
 	this.setNumberOfGuests = function(num) {
-		//TODO Lab 2
+		//TODO Lab 2. 
+		this.guests = num; //ändrar värdet på guest till indatan.
+		notifyObservers(Object);
 	}
 
 	// should return 
 	this.getNumberOfGuests = function() {
 		//TODO Lab 2
+		return this.guests; //returnerar värdet gäster
 	}
 
 	//Returns the dish that is on the menu for selected type 
 	this.getSelectedDish = function(type) {
 		//TODO Lab 2
+		var dishType = [];
+		var menuDishes = this.getFullMenu();
+		for(i in menuDishes){
+			if (menuDishes[i].type == type) {
+				dishType.push(menuDishes[i]);
+			}
+		}
+		return dishType;
 	}
 
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
 		//TODO Lab 2
+		return this.selectedMenu;
 	}
 
 	//Returns all ingredients for all the dishes on the menu.
 	this.getAllIngredients = function() {
 		//TODO Lab 2
+		allIngredients = [];
+		var allDishes = this.getFullMenu();
+		for (mealnr in allDishes){
+			for (ingri in allDishes[mealnr].ingredients){
+				allIngredients.push(allDishes[mealnr].ingredients[ingri]);
+				//nu läggs namnet på ingrediensen in, om man tar  bort .name så blir det objektet.
+			}
+		}
+		return allIngredients;
 	}
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	this.getTotalMenuPrice = function() {
 		//TODO Lab 2
+		var guests = this.getNumberOfGuests();
+		var allIngredients = this.getAllIngredients();
+		var totalCost = 0;
+		for (i in allIngredients) { //itererar genom alla ingredienser på menyn (objekt), och adderar priset till totalCost
+			totalCost += allIngredients[i].price;
+			} 
+		totalCost = totalCost*guests; //multiplicerar totalCost med antalet gäster
+		return totalCost;
 	}
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
 		//TODO Lab 2 
+		var menuDishes = this.getFullMenu();
+		var chosenDish = this.getDish(id);
+		for(i in menuDishes){
+			if(menuDishes[i].type == chosenDish.type) {
+				this.removeDishFromMenu(menuDishes[i].id);
+			}
+		}
+		menuDishes.push(chosenDish);
+		notifyObservers(Object);
 	}
 
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {
 		//TODO Lab 2
+		var menuDishes = this.getFullMenu();
+		for(i in menuDishes){
+			if(menuDishes[i].id == id) {
+				menuDishes.splice(i);
+				notifyObservers(menuDishes[i]);
+			}
+		}
 	}
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
@@ -76,6 +134,15 @@ var DinnerModel = function() {
 		}
 	}
 
+	//Returns the price of the dish (all the ingredients multiplied by number of guests).
+	this.getDishPrice = function(id) {
+		var chosenDish = this.getDish(id);
+		var dishCost = 0;
+		for (i in chosenDish.ingredients) { //itererar genom alla ingredienser på rätte (objekt), och adderar priset till totalCost
+			dishCost += chosenDish.ingredients[i].price;
+			} 
+		return dishCost;
+	}
 
 	// the dishes variable contains an array of all the 
 	// dishes in the database. each dish has id, name, type,
