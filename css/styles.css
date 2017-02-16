@@ -1,0 +1,30 @@
+html { 
+  background: url(../images/family_dinner.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.header1{
+	position: absolute;
+    width: 100%;
+	background-color: rgba(255, 235, 182, 0.6);
+	padding-left: 50px;
+	padding-right: 50px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.textBox{
+	position: absolute;
+	top: 200px;
+	left: 50px;
+	width: 400px;
+	background-color: rgba(255, 255, 255, 0.6);
+	padding:10px;
+}
+
+.parapadding{
+	padding-bottom: 10%;
+}

@@ -93,7 +93,7 @@ var DinnerModel = function() {
 		'description':"In a large mixing bowl, beat the eggs. Add the milk, brown sugar and nutmeg; stir well to combine. Soak bread slices in the egg mixture until saturated. Heat a lightly oiled griddle or frying pan over medium high heat. Brown slices on both sides, sprinkle with cinnamon and serve hot.",
 		'ingredients':[{ 
 			'name':'eggs',
-			'quantity':0.5,
+			'quantity':5,
 			'unit':'',
 			'price':10
 			},{
