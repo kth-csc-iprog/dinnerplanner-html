@@ -1,0 +1,37 @@
+#header{
+	height: 100px;
+	padding: 30px 0 0 0;
+}
+
+#header h4{
+	padding: 0 0 0 20px;
+}
+
+#header h1, h4{
+	display: inline;
+	padding: 0 0 0 30px;
+}
+
+
+
+div.jumbotron {
+    font-size: 15px;
+}
+
+.Header {
+    border-style: solid;
+    border-width: 12px;
+    font-size: 40px;
+	
+}
+.Header p{
+	 font-size: 30px
+}
+
+.jumbotron {
+font-size: 40px;
+padding: 30px 15px;
+margin-bottom: 15px;
+color: inherit;
+background-color: #D7E46B;
+}

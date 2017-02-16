@@ -3,46 +3,80 @@ var DinnerModel = function() {
  
 	//TODO Lab 2 implement the data structure that will hold number of guest
 	// and selected dinner options for dinner menu
-
+	var numberofguests = 0;
+	var menu = [];
+	
 
 	this.setNumberOfGuests = function(num) {
-		//TODO Lab 2
+		numberofguests = num;					//gets the number of guests and writes it in the variable num
 	}
 
 	// should return 
 	this.getNumberOfGuests = function() {
-		//TODO Lab 2
+		return numberofguests;					//just gets the number of guests
 	}
 
-	//Returns the dish that is on the menu for selected type 
+	//Returns the dishes that is on the menu for selected type 
 	this.getSelectedDish = function(type) {
-		//TODO Lab 2
+		var toReturn = [];
+		$(menu).each(function( index, dish ) {  //each-function goes through a list and does an action for every fitting element
+			if (dish.type === type){			//here we compare the type with the type of the already selected type
+												//"we get the list of all the starters or main or... available"
+				toReturn.push(dish);
+			}
+		});
+		return toReturn; 
 	}
 
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
-		//TODO Lab 2
+		return menu;							//returns the menu of selected items
 	}
 
 	//Returns all ingredients for all the dishes on the menu.
 	this.getAllIngredients = function() {
-		//TODO Lab 2
+				var toReturn = [];  			//builds an empty list called "toReturn"
+		$(menu).each(function( index, dish ) {	//loops the list "menu" and gets ALL the ingredients
+				toReturn.push(dish.ingredients);//puts the ingredients in the list
+		});
+		return  toReturn;						//returns ALL ingredients out of a list
 	}
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	this.getTotalMenuPrice = function() {
-		//TODO Lab 2
+		var totalPrice = 0;  
+		$(menu).each(function( index, dish ) {
+				$(dish.ingredients).each(function( index, ingredients ) {   //this is two loops encapsulated, since the price is in the igeredients
+																			//have a look at getSelectedDish for the loop explanation
+					totalPrice = totalPrice + ingredient.price;
+				});
+		});
+		return  toReturn;
 	}
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
-		//TODO Lab 2 
+		$(dishes).each(function(index, dish) {
+			if(dish.id ===id){
+				$(menu).each(function(indexInMenu, dishInMenu){
+					if(dishInMenu.type === dish.type){
+						menu.splice(indexInMenu, 1)			//remove an item from tha array (only one item in this case)
+					}
+				});
+				menu.push(dish);
+				return;
+			}
+		});
 	}
 
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {
-		//TODO Lab 2
+		$(menu).each(function( index, dish ){
+			if(dish.id === id){
+				menu.splice(index, 1)
+			}
+		});
 	}
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
