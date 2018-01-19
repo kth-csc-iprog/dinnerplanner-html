@@ -4,39 +4,77 @@ var DinnerModel = function() {
 	//TODO Lab 1 implement the data structure that will hold number of guest
 	// and selected dishes for the dinner menu
 
+	var this.numberOfGuests = 4;
+	var this.menu = [101, 2, 201]
+
 
 	this.setNumberOfGuests = function(num) {
-		//TODO Lab 1
+		if(num>0){
+			this.numberOfGuests = num;
+		}
 	}
 	
 	this.getNumberOfGuests = function() {
-		//TODO Lab 1
+		return this.numberOfGuests;
 	}
 
 	//Returns the dish that is on the menu for selected type 
 	this.getSelectedDish = function(type) {
-		//TODO Lab 1
+		for (dish in menu){
+			for(dishId in dishes){
+				if(dishes.[dishId].id === dish) && (dishes.[dishId].type === type){
+					return dishes[dishId].name;
+				}
+				}
+			}
+		}
 	}
 
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
-		//TODO Lab 1
+		var fullMenu = [];
+		for (dishId in menu){
+			fullMenu.push(this.getDish(dish));
+			}
+			return fullMenu;
 	}
 
 	//Returns all ingredients for all the dishes on the menu.
 	this.getAllIngredients = function() {
-		//TODO Lab 1
+		var allIngredients = ();
+		for (dish in menu) {
+			var ings = [];
+			ings.push(this.getDish(dish).ingredients)
+			for (i in ings) {
+				allIngredients.push(ings[i]);
+			}
+			}
+			return allIngredients;
 	}
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	this.getTotalMenuPrice = function() {
-		//TODO Lab 1
+		var ingredientsPrice = 0;
+		var groceries = this.getAllIngredients();
+
+		for (i in groceries){
+			ingredientsPrice += groceries[i].price;
+		}
+
+		var totalPrice = 0;
+
+		totalPrice = numberOfGuests * ingredientsPrice;
+
+		return totalPrice;
 	}
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
-		//TODO Lab 1 
+		var newDish = this.getDish(id).type;
+
+		for (i in menu)
+
 	}
 
 	//Removes dish from menu
