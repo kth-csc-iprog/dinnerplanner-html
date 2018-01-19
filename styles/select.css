@@ -1,0 +1,76 @@
+body {
+  margin: 0;
+}
+
+.container {
+  display: grid;
+  grid-template-rows: 6rem auto;
+  text-align: center;
+  height: 100vh;
+}
+
+header {
+  background-color: rgba(173, 173, 173, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 12rem auto;
+}
+
+.sidebar {
+  background-color: aquamarine;
+  display: grid;
+  grid-template-rows: fit-content(100%) fit-content(100%) auto;
+}
+
+.guestSelector {
+  display: flex;
+
+}
+
+.menu {
+  display: grid;
+  grid-template-rows: fit-content(100%) fit-content(100%) fit-content(100%) fit-content(100%);
+}
+
+.menuHeader, .dish {
+  display: flex;
+}
+
+.menuHeader .dishCostHeader, .dish .dishCost {
+  margin-left: auto;
+}
+
+.menuCost {
+  display: flex;
+  margin-left: auto;
+}
+
+.content {
+  background-color: blanchedalmond;
+}
+
+.dishResultsContainer {
+  margin: 0 auto;
+  width: 80%;
+}
+
+.dishResults {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+}
+
+.dishResult {
+  display: grid;
+  grid-template-rows: 140px auto;
+}
+
+.dishResultImageContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

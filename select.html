@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dinner planner</title>
+
+		<!-- Bootstrap CSS -->
+    <!-- <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"> -->
+		<link rel="stylesheet" href="styles/select.css">
+
+  </head>
+  <body>
+		<div class="container">
+			<header>
+				<h1>Dinner Planner</h1>
+			</header>
+			<main>
+				<div class="sidebar">
+					<div class="sidebarHeader">
+            My Dinner
+          </div>
+          <div class="guestSelector">
+            <label for="guestNumber">Guests:</label>
+            <input id="guestNumber" type="number" value="1">
+          </div>
+          <div class="menu">
+            <div class="menuHeader">
+              <div class="dishNameHeader">Dish Name</div>
+              <div class="dishCostHeader">Cost</div>
+            </div>
+            <div class="dishList">
+              <div class="dish">
+                <div class="dishName">Lasagne</div>
+                <div class="dishCost">77.20</div>
+              </div>
+              <div class="dish">
+                  <div class="dishName">Lasagne</div>
+                  <div class="dishCost">77.20</div>
+                </div>
+            </div>
+            <div class="menuCost">
+              <div class="currency">
+                SEK
+              </div>
+              <div class="cost">
+                77.20
+              </div>
+            </div>
+            <button class="confirmMenuButton">Confirm Dinner</button>
+          </div>
+        </div>
+        <div class="content">
+          <div class="dishSearch">
+            <div class="searchHeader">
+              Add another one
+            </div>
+            <div class="dishSearchForm">
+              <input type="search" id="dishSearchField" name="q">
+              <select id="dishTypeSelectField" name="dishTypeSelectField">
+                  <option value="all" selected>All</option>
+                  <option value="starter">Starter</option>
+                  <option value="main dish">Main Dish</option>
+                  <option value="dessert">Dessert</option>
+                </select>
+              <button class="dishSearchButton">Search</button>
+            </div>
+          </div>
+          <div class="dishResultsContainer">
+            <div class="dishResults">
+              <div class="dishResult">
+                <div class="dishResultImageContainer">
+                  <img class="dishResultImage" src="images/bakedbrie.jpg" alt="">
+                </div>
+                <div class="dishResultName">Baked Brie</div>
+              </div>
+              <div class="dishResult">
+                <div class="dishResultImageContainer">
+                  <img class="dishResultImage" src="images/icecream.jpg" alt="">
+                </div>
+                <div class="dishResultName">Ice Cream</div>
+              </div>
+              <div class="dishResult">
+                <div class="dishResultImageContainer">
+                  <img class="dishResultImage" src="images/meatballs.jpg" alt="">
+                </div>
+                <div class="dishResultName">Meatballs</div>
+              </div>
+              <div class="dishResult">
+                <div class="dishResultImageContainer">
+                  <img class="dishResultImage" src="images/sourdough.jpg" alt="">
+                </div>
+                <div class="dishResultName">Sourdough</div>
+              </div>
+              <div class="dishResult">
+                <div class="dishResultImageContainer">
+                  <img class="dishResultImage" src="images/toast.jpg" alt="">
+                </div>
+                <div class="dishResultName">Toast</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+		</div>
+
+	<!-- jQuery -->
+	<!-- <script src="https://code.jquery.com/jquery.js"></script> -->
+	<!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
+	<!-- <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script> -->
+
+	<!-- The application JavaScript code -->
+	<script src="js/app.js"></script>
+	<script src="js/model/dinnerModel.js"></script>
+	<script src="js/view/exampleView.js"></script>
+	<!-- TODO: Here you should include JS code for your other views -->
+
+  </body>
+</html>
