@@ -29,7 +29,7 @@ main {
 
 .guestSelector {
   display: flex;
-
+  
 }
 
 .menu {
@@ -46,8 +46,17 @@ main {
 }
 
 .menuCost {
-  display: flex;
   margin-left: auto;
+}
+
+.confirmMenuButton {
+  color: rgba(0, 0, 0, 1);
+  background-color: orange;
+  border: 0.1em solid black;
+  box-shadow: 0.1em 0.1em 0.1em black;
+  font-size: 1em;
+  padding: 0.5em;
+  margin: 1em;
 }
 
 .content {
@@ -73,4 +82,70 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.show {
+  display: inline;
+}
+
+.hide {
+  display: none;
+}
+
+@media (min-width: 592px) {
+  /* Collapsible Menu changes */
+  #collapsedMenuCost {
+    display: none;
+  }
+  
+  #expandButton {
+    display: none;
+  }
+
+  #sidebarContent {
+    display: inline;
+  }
+  
+  .hiddenOnMobile {
+    display: inline;
+  }
+
+  .shownOnMobile {
+    display: none;
+  }
+}
+
+@media (max-width: 591px) {
+  main {
+    display: block;
+  }
+
+  .sidebarHeader {
+    display: flex;
+  }
+
+  .sidebarTitle {
+    margin-right: auto;
+  }
+
+  /* Collapsible Menu changes */
+  .hiddenOnMobile {
+    display: none;
+  }
+
+  .shownOnMobile {
+    display: inline;
+  }
+  /* #collapsedMenuCost {
+    display: inline;
+  }
+  
+  #expandButton {
+    display: inline;
+  }
+
+  #sidebarContent {
+    display: none;
+  } */
+  
 }

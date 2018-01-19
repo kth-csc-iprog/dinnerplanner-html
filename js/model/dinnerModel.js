@@ -23,6 +23,9 @@ const createDinnerModel = () => {
 	// Returns all ingredients for all the dishes on the menu.
 	const getAllIngredients = () => state.menu.map(dish => dish.ingredients)
 
+	// Return the full price of a given dish (represented by id)
+	const getPriceForDish = (id) => getDish(id).ingredients.reduce((acc, curr) => acc = acc + curr.price)
+
 	// Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	const getTotalMenuPrice = () => getAllIngredients().reduce((acc, curr) => acc = acc + state.numberOfGuests * curr.price, 0)
 	
