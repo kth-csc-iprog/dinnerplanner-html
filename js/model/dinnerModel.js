@@ -14,7 +14,7 @@ const createDinnerModel = () => {
 
 	const getNumberOfGuests = () => state.numberOfGuests
 	
-	// Returns the dish that is on the menu for selected type 
+	// Returns the dish that is on the menu for the selected type 
 	const getSelectedDish = type => state.menu.find(dish => dish.type === type)
 
 	// Returns all the dishes on the menu.
