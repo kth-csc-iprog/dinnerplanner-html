@@ -1,0 +1,30 @@
+body {
+  margin: 0;
+}
+
+.container {
+  display: grid;
+  grid-template-rows: 6rem auto;
+  text-align: center;
+  height: 100vh;
+}
+
+header {
+  background-color: rgba(173, 173, 173, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main {
+  display: grid;
+  grid-template-rows: fit-content(100%) auto fit-content(100%);
+}
+
+.confirmHeader {
+  display: flex;
+}
+
+.confirmBackButton {
+  margin-left: auto;
+}
