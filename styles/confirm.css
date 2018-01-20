@@ -2,29 +2,124 @@ body {
   margin: 0;
 }
 
+p {
+  margin: 0;
+}
+
+.primaryButton {
+  color: rgba(0, 0, 0, 1);
+  background-color: orange;
+  border: 0.1em solid black;
+  box-shadow: 0.1em 0.1em 0.1em black;
+  font-size: 1em;
+  padding: 0.5em;
+}
+
 .container {
-  display: grid;
-  grid-template-rows: 6rem auto;
   text-align: center;
   height: 100vh;
-}
-
-header {
-  background-color: rgba(173, 173, 173, 1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.main {
   display: grid;
-  grid-template-rows: fit-content(100%) auto fit-content(100%);
+  grid-template-rows: 6rem 2rem auto;
+  grid-template-areas:
+    "header"
+    "statusBar"
+    "menuSummary"
+    "printButtonContainer";
 }
 
-.confirmHeader {
+.verticallyCentered {
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.confirmBackButton {
+#header {
+  grid-area: header;
+  background-color: rgba(173, 173, 173, 1);
+}
+
+#statusBar {
+  grid-area: statusBar;
+  padding: 1.5rem 0rem;
+  border-bottom: 0.2rem solid black;
+}
+
+#statusTitle {
+  margin-right: auto;
+}
+
+#backButton {
   margin-left: auto;
+}
+
+#menuSummary {
+  grid-area: menuSummary;
+  display: grid;
+  grid-gap: 3rem;
+  grid-template-areas: 
+    "starter mainCourse dessert totalPrice"
+}
+
+#starter {
+  grid-area: starter;
+}
+
+#mainCourse {
+  grid-area: mainCourse;
+}
+
+#dessert {
+  grid-area: dessert;
+}
+
+#totalPrice {
+  grid-area: totalPrice;
+  border-left: 0.2rem solid black;
+  padding: 0rem 1rem;
+}
+
+.dishItemContainer {
+  display: grid;
+  grid-template-rows: 140px repeat(2, auto);
+  grid-template-areas:
+    "dishImage"
+    "dishName"
+    "dishPrice";
+}
+
+.dishImage {
+  grid-area: dishImage;
+}
+
+.dishName {
+  grid-area: dishName;
+}
+
+.dishPrice {
+  grid-area: dishPrice;
+  margin-left: auto;
+}
+
+#printButtonContainer {
+  grid-area: printButtonContainer;
+  border-top: 0.2rem solid black;
+  padding: 2rem 0rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 700px) {
+  #menuSummary {
+    grid-template-areas:
+      "starter"
+      "mainCourse"
+      "dessert"
+      "totalPrice"
+  }
+
+  #totalPrice {
+    display: inline;
+    border-left: none;
+    border-top: 0.2rem solid black;
+    padding: 1rem 0rem;
+  }
 }
