@@ -45,14 +45,24 @@ var ExampleView = function (container, model) {
 	 * this button and do something with it (see Lab 2).
 	 * 
 	 */
+
+	this.guests = 0; 
+
+	
 	this.plusButton = container.find("#plusGuest");
 	this.minusButton = container.find("#minusGuest");
+
+
+	this.plusButton.onclick = guests + 1;
+	this.minusButton.onclick = guests - 1;
+
+
 	
 	/**
 	 * Here we use @var {jQuery object} numberOfGuests that is a reference to <span>
 	 * in our view to dynamically set it's value to "Hello World".
 	 */
-	numberOfGuests.html("Hello World");
+	numberOfGuests.html(guests);
 	
 }
  
