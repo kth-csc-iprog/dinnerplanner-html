@@ -2,150 +2,258 @@ body {
   margin: 0;
 }
 
-.container {
-  display: grid;
-  grid-template-rows: 6rem auto;
-  text-align: center;
-  height: 100vh;
+h4 {
+  margin: 0;
 }
 
-header {
-  background-color: rgba(173, 173, 173, 1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+p {
+  margin: 0;
 }
 
-main {
-  display: grid;
-  grid-template-columns: 12rem auto;
+.showOnMobile {
+  display: none;
 }
 
-.sidebar {
-  background-color: aquamarine;
-  display: grid;
-  grid-template-rows: fit-content(100%) fit-content(100%) auto;
+.hideOnMobile {
+  display: inline;
 }
 
-.guestSelector {
-  display: flex;
-  
+.left {
+  text-align: left;
 }
 
-.menu {
-  display: grid;
-  grid-template-rows: fit-content(100%) fit-content(100%) fit-content(100%) fit-content(100%);
+.right {
+  text-align: right;
 }
 
-.menuHeader, .dish {
-  display: flex;
-}
-
-.menuHeader .dishCostHeader, .dish .dishCost {
-  margin-left: auto;
-}
-
-.menuCost {
-  margin-left: auto;
-}
-
-.confirmMenuButton {
+.primaryButton {
   color: rgba(0, 0, 0, 1);
   background-color: orange;
   border: 0.1em solid black;
   box-shadow: 0.1em 0.1em 0.1em black;
   font-size: 1em;
   padding: 0.5em;
-  margin: 1em;
 }
 
-.content {
-  background-color: blanchedalmond;
+.secondaryButton {
+  color: rgba(0, 0, 0, 1);
+  background-color: orange;
+  border: 0.1em solid black;
+  box-shadow: 0.1em 0.1em 0.1em black;
+  font-size: 0.7em;
+  padding: 0.5em;
 }
 
-.dishResultsContainer {
-  margin: 0 auto;
-  width: 80%;
-}
-
-.dishResults {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
-}
-
-.dishResult {
-  display: grid;
-  grid-template-rows: 140px auto;
-}
-
-.dishResultImageContainer {
+.verticallyCentered {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 
-.show {
-  display: inline;
+.container {
+  text-align: center;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 12rem auto;
+  grid-template-rows: 6rem auto;
+  grid-template-areas:
+    "header     header"
+    "sidebar  content";
 }
 
-.hide {
-  display: none;
+#header {
+  grid-area: header;
+  background-color: rgba(173, 173, 173, 1);
 }
 
-@media (min-width: 592px) {
-  /* Collapsible Menu changes */
-  #collapsedMenuCost {
-    display: none;
-  }
+#sidebar {
+  grid-area: sidebar;
+  display: grid;
+  grid-template-rows: 2rem 1fr;
+  grid-template-areas: 
+    "titleBar"
+    "collapseContent";
   
-  #expandButton {
-    display: none;
-  }
+  background-color: aqua;
+  text-align: left;
+}
 
-  #sidebarContent {
-    display: inline;
-  }
-  
-  .hiddenOnMobile {
-    display: inline;
-  }
+.collapseContent {
+  grid-area: collapseContent;
+  display: grid;
+  grid-template-rows: 2rem fit-content(100%) 3rem;
+  grid-template-areas: 
+    "guestSelector"
+    "dishTable"
+    "confirmButtonContainer";
+}
 
-  .shownOnMobile {
+#titleBar {
+  grid-area: titleBar;
+  display: flex;
+  justify-content: flex-end;
+}
+
+#titleBarTitle {
+  align-self: center;
+  margin-right: auto;
+}
+
+#collapsedMenuTotalPrice {
+  align-self: center;
+  justify-self: center;
+  margin-right: 1rem;
+}
+
+#guestSelector {
+  grid-area: guestSelector;
+}
+
+#dishTable {
+  grid-area: dishTable;
+  display: grid;
+  grid-template-areas:
+    "tableHeader"
+    "tableContent"
+    "tableFooter"
+}
+
+#tableHeader {
+  grid-area: tableHeader;
+  display: grid;
+  grid-template-areas:
+    "tableName tableCost";
+
+  background-color: gainsboro;
+  font-weight: bold;
+}
+
+#tableName {
+  grid-area: tableName;
+  text-align: left;
+}
+
+#tableCost {
+  grid-area: tableCost;
+  text-align: right;
+}
+
+#tableContent {
+  grid-area: tableContent;
+  display: grid;
+  grid-template-rows: auto;
+}
+
+.tableRow {
+  display: grid;
+  grid-template-areas:
+    "rowName rowCost";
+}
+
+.rowName {
+  grid-area: rowName;
+  text-align: left;
+}
+
+.rowCost {
+  grid-area: rowCost;
+  text-align: right;
+}
+
+#tableFooter {
+  grid-area: tableFooter;
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-end;
+}
+
+#confirmButtonContainer {
+  grid-area: confirmButtonContainer;
+  text-align: center;
+}
+
+#content {
+  background-color: blanchedalmond;
+  grid-area: content;
+}
+
+#dishSearch {
+  display: grid;
+  grid-template-areas:
+    "dishSearchTitle"
+    "dishSearchForm"
+    "dishSearchResults";
+  margin: 0rem 2rem;
+}
+
+#dishSearchTitle {
+  grid-area: dishSearchTitle;
+  align-self: center;
+  justify-self: flex-start;
+}
+
+#dishSearchForm {
+  grid-area: dishSearchForm;
+  align-self: center;
+  justify-self: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas:
+    "dishSearchField dishTypeSelectField dishSearchButton";
+}
+
+#dishSearchField {
+  grid-area: dishSearchField;
+}
+
+#dishTypeSelectField {
+  grid-area: dishTypeSelectField;
+}
+
+#dishSearchButton {
+  grid-area: dishSearchButton;
+}
+
+#dishSearchResults {
+  grid-area: dishSearchResults;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  margin: 2rem 0rem;
+}
+
+
+@media (min-width: 701px) {
+  #collapsedMenuTotalPrice {
     display: none;
   }
 }
 
-@media (max-width: 591px) {
-  main {
-    display: block;
+@media (max-width: 700px) {
+
+  .showOnMobile {
+    display: inline;
   }
 
-  .sidebarHeader {
-    display: flex;
-  }
-
-  .sidebarTitle {
-    margin-right: auto;
-  }
-
-  /* Collapsible Menu changes */
-  .hiddenOnMobile {
+  .hideOnMobile {
     display: none;
   }
 
-  .shownOnMobile {
-    display: inline;
+  .container {
+    grid-template-areas:
+      "header header"
+      "sidebar sidebar"
+      "content content"
   }
-  /* #collapsedMenuCost {
-    display: inline;
-  }
-  
-  #expandButton {
-    display: inline;
-  }
+}
 
-  #sidebarContent {
-    display: none;
-  } */
-  
+@media (max-width: 320px) {
+
+  #dishSearchForm {
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: none;
+    grid-template-areas:
+      "dishSearchField"
+      "dishTypeSelectField"
+      "dishSearchButton";
+  }
 }
