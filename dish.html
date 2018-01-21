@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dinner planner</title>
+
+		<!-- Bootstrap CSS -->
+    <!-- <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"> -->
+		<link rel="stylesheet" href="styles/dish.css">
+
+  </head>
+
+  <body>
+		<div class="container">
+
+      <div id="header" class="verticallyCentered">
+        <h1>Dinner Planner</h1>
+      </div>
+      
+      <div id="sidebar">
+        
+        <div id="titleBar">
+          <h4>My Dinner</h4>
+        </div>
+
+        <div id="guestSelector">
+          <label for="guestNumber">Guests:</label>
+          <input id="guestNumber" type="number" value="1">
+        </div>
+
+        <div id="dishTable">
+          <div id="tableHeader">
+            <div id="tableName">Dish name</div>
+            <div id="tableCost">Cost</div>
+          </div>
+
+          <div id="tableContent">
+
+            <div class="tableRow">
+              <div class="rowName">Lasagne</div>
+              <div class="rowCost">77.20</div>
+            </div>
+
+            <div class="tableRow">
+              <div class="rowName">Lasagne</div>
+              <div class="rowCost">77.20</div>
+            </div>
+
+          </div>
+
+          <div id="tableFooter">
+            <div id="tableTotalPrice" class="totalPrice">
+              <span id="currency">SEK</span> <span id="value">77.20</span>
+            </div>
+          </div>
+          
+        </div>
+
+        <div id="confirmButtonContainer">
+          <button class="primaryButton" id="confirmMenuButton">Confirm Dinner</button>
+        </div>
+
+      </div>
+
+      <div id="content">
+        <div id="dishDetails">
+          
+          <div id="dishDescription">
+            <div id="dishTitle">
+              <h2>Baked Brie</h2>
+            </div>
+            <div id="dishImage">
+              <img src="images/bakedbrie.jpg" alt="">
+            </div>
+            <div id="dishDescription">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eget aliquet nibh praesent tristique. Quis hendrerit dolor magna eget. In cursus turpis massa tincidunt dui ut ornare.</p>
+            </div>
+            <button id="backButton" class="primaryButton">Back to Search</button>
+          </div>
+          
+          <div id="ingredientsList">
+            
+            <div id="ingredientsTitle">
+              <h3>Ingredients for <span id="numberOfGuests">3</span> people</h3>
+            </div>
+
+            <div id="ingredientsTable">
+
+              <div class="ingredientsTableRow">
+                <div class="ingredientQuantity">
+                  <span id="quantity">2</span> <span id="unit">tbsp</span>
+                </div>
+                <div class="ingredientName">olive oil</div>
+                <div class="ingredientCurrency">SEK</div>
+                <div class="ingredientPrice">0.20</div>
+              </div>
+  
+              <div class="ingredientsTableRow">
+                <div class="ingredientQuantity">
+                  <span id="quantity">750</span> <span id="unit">g</span>
+                </div>
+                <div class="ingredientName">lean beef mince</div>
+                <div class="ingredientCurrency">SEK</div>
+                <div class="ingredientPrice">10.00</div>
+              </div>
+  
+            </div>
+
+            <div id="ingredientsFooter">
+              <div id="addToMenu" class="verticallyCentered">
+                <button id="addToMenuButton" class="primaryButton">Add to menu</button>
+              </div>
+              <div id="ingredientsTotalPriceCurrency">SEK</div>
+              <div id="ingredientsTotalPrice">10.00</div>
+            </div>
+
+          </div>
+          
+          <div id="dishPreparation">
+            <h3>Preparation</h3>
+            <div id="dishPreparationText">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eget aliquet nibh praesent tristique. Quis hendrerit dolor magna eget. In cursus turpis massa tincidunt dui ut ornare. Sed adipiscing diam donec adipiscing tristique risus nec feugiat in. Dolor sit amet consectetur adipiscing elit. Ac tincidunt vitae semper quis lectus nulla at. Mauris augue neque gravida in fermentum. Egestas diam in arcu cursus euismod quis viverra nibh. Vulputate enim nulla aliquet porttitor lacus luctus accumsan. Quis varius quam quisque id. Non odio euismod lacinia at quis risus sed vulputate. Id cursus metus aliquam eleifend mi in. Tortor pretium viverra suspendisse potenti nullam ac tortor.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- jQuery -->
+    <!-- <script src="https://code.jquery.com/jquery.js"></script> -->
+    <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
+    <!-- <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script> -->
+
+    <!-- The application JavaScript code -->
+    <script src="js/toggleMenu.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/model/dinnerModel.js"></script>
+    <script src="js/view/exampleView.js"></script>
+    <!-- TODO: Here you should include JS code for your other views -->
+
+  </body>
+</html>
