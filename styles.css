@@ -1,4 +1,4 @@
-@charset "utf-8";
+/* @charset "utf-8";
 
 .container: {
 	background-color: red;
@@ -6,11 +6,11 @@
 }
 
 .span12: {
-	background-color: grey;
+	background-color: blue;
 	text-align: center;
-	margin-bottom: ceil(@line-height-computed / 4);} 
-}
+	margin-bottom: ceil(@line-height-computed / 4);}
+} */
 
 body {
-	  background-color: #FF0000;
+	  background-color: blue;
 	}
