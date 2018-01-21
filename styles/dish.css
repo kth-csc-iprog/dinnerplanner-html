@@ -10,6 +10,14 @@ p {
   margin: 0;
 }
 
+.showOnMobile {
+  display: none;
+}
+
+.hideOnMobile {
+  display: inline;
+}
+
 .left {
   text-align: left;
 }
@@ -24,6 +32,15 @@ p {
   border: 0.1em solid black;
   box-shadow: 0.1em 0.1em 0.1em black;
   font-size: 1em;
+  padding: 0.5em;
+}
+
+.secondaryButton {
+  color: rgba(0, 0, 0, 1);
+  background-color: orange;
+  border: 0.1em solid black;
+  box-shadow: 0.1em 0.1em 0.1em black;
+  font-size: 0.7em;
   padding: 0.5em;
 }
 
@@ -52,19 +69,40 @@ p {
 #sidebar {
   grid-area: sidebar;
   display: grid;
-  grid-template-rows: 2rem 2rem fit-content(100%) 3rem;
+  grid-template-rows: 2rem 1fr;
   grid-template-areas: 
     "titleBar"
-    "guestSelector"
-    "dishTable"
-    "confirmButtonContainer";
+    "collapseContent";
   
   background-color: aqua;
   text-align: left;
 }
 
+.collapseContent {
+  grid-area: collapseContent;
+  display: grid;
+  grid-template-rows: 2rem fit-content(100%) 3rem;
+  grid-template-areas: 
+    "guestSelector"
+    "dishTable"
+    "confirmButtonContainer";
+}
+
 #titleBar {
   grid-area: titleBar;
+  display: flex;
+  justify-content: flex-end;
+}
+
+#titleBarTitle {
+  align-self: center;
+  margin-right: auto;
+}
+
+#collapsedMenuTotalPrice {
+  align-self: center;
+  justify-self: center;
+  margin-right: 1rem;
 }
 
 #guestSelector {
@@ -233,8 +271,22 @@ p {
 }
 
 
+@media (min-width: 701px) {
+  #collapsedMenuTotalPrice {
+    display: none;
+  }
+}
 
 @media (max-width: 700px) {
+
+  .showOnMobile {
+    display: inline;
+  }
+
+  .hideOnMobile {
+    display: none;
+  }
+
   .container {
     grid-template-areas:
       "header header"
