@@ -1,0 +1,16 @@
+@charset "utf-8";
+
+.container: {
+	background-color: red;
+	text-align: center;
+}
+
+.span12: {
+	background-color: grey;
+	text-align: center;
+	margin-bottom: ceil(@line-height-computed / 4);} 
+}
+
+body {
+	  background-color: #FF0000;
+	}
