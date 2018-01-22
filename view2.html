@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dinner planner</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+
+	<div class="jumbotron"><h1 class="text-center">Dinner Planner</h1></div>
+
+	
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-2">
+				<div class="container">
+					
+				<h2>My Dinner</h2>
+
+				<div id="exampleView">
+			<div>
+				Number of guests: <span id="numberOfGuests"></span>
+			</div>
+			<div>
+				<input type="number" min="1" id="numberOfGuests" name="numberOfGuests">
+			<!-- 
+          <button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
+				<button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button> -->
+			</div>
+		</div>
+				</div>
+		</div>
+
+		<div class="col-md-10">
+				<h2>Add another dish</h2>
+				
+
+				<form class="form-inline">
+					<!-- <label for="keywords">Enter keywords</label> -->
+					<input class="form-control" type="text" id="keywords" placeholder="Enter key words">
+					<select class="form-control">
+						<option>Main Course</option>
+						<option>Side Dish</option>
+						<option>Dessert</option>
+						<option>Appetizer</option>
+					</select>
+					<button class="form-control btn btn-default">Search</button>
+				</div>
+				</form>
+
+
+				<div class="row">
+					<div class="col-lg-2 col-md-1">
+						<img src="images/sourdough.jpg">
+					</div>
+
+					<div class="col-lg-2 col-md-1.jpg">
+						<img src="images/toast.jpg">
+					</div>
+
+					<div class="col-lg-2 col-md-1">
+						<img src="images/meatballs.jpg">
+					</div>
+
+					<div class="col-lg-2 col-md-1">
+						<img src="images/toast.jpg">
+					</div>
+
+					<!-- <div class="col-lg-2">bild 5</div> -->
+				</div>
+			</div>
+
+
+
+			
+		</div>
+		<!-- <div class="row">
+			<div class="col col-sm-3">hejsan</div>
+			<div class="col col-md-9">vi testar</div>
+		</div>
+		 -->
+
+
+	</div>
+
+</body>
+</html>
