@@ -12,6 +12,7 @@ const createSidebarView = (container, model) => {
   guestNumber.onchange = (event) => {
     const newGuestNumber = event.target.value
     model.setNumberOfGuests(newGuestNumber)
+    console.log('Guest number is: ', model.getNumberOfGuests())
   }
 
   const menuTableContent = container.querySelector('#tableContent')

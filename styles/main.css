@@ -435,6 +435,30 @@ p {
 }
 
 /* Recipe Summary View */
+#recipeSummaryView {
+  margin-top: 3rem;
+  grid-area: recipes;
+  display: grid;
+  grid-template-rows: auto;
+  text-align: left;
+}
+
+.recipe {
+  display: grid;
+  grid-gap: 2rem;
+  grid-template-columns: 140px 1fr 1fr;
+}
+
+.recipeImage {
+  align-self: baseline;
+  justify-self: center;
+  margin: 1.5rem 0;
+}
+
+.recipeTextbox {
+  display: grid;
+  grid-template-rows: 4rem auto;
+}
 
 @media (min-width: 701px) {
   #collapsedMenuTotalPrice {
@@ -481,6 +505,16 @@ p {
     border-left: none;
     border-top: 0.2rem solid black;
     padding: 1rem 0rem;
+  }
+
+  #recipeSummaryView {
+    grid-gap: 2rem;
+  }
+
+  .recipe {
+    grid-gap: 0;
+    grid-template-columns: none;
+    grid-template-rows: repeat(3, auto);
   }
 }
 
