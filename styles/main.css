@@ -2,39 +2,99 @@ body {
   margin: 0;
 }
 
-.container {
-  display: grid;
-  grid-template-rows: 6rem auto;
-  text-align: center;
-  height: 100vh;
+h4 {
+  margin: 0;
 }
 
-header {
-  background-color: rgba(173, 173, 173, 1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+p {
+  margin: 0;
 }
 
-main {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.showOnMobile {
+  display: none;
 }
 
-main .content {
-  max-width: 50%;
+.hideOnMobile {
+  display: inline;
 }
 
-main .content .text {
-  margin-bottom: 3rem;
+.left {
+  text-align: left;
 }
 
-main .startButton {
+.right {
+  text-align: right;
+}
+
+.primaryButton {
   color: rgba(0, 0, 0, 1);
   background-color: orange;
   border: 0.1em solid black;
   box-shadow: 0.1em 0.1em 0.1em black;
   font-size: 1em;
   padding: 0.5em;
+}
+
+.secondaryButton {
+  color: rgba(0, 0, 0, 1);
+  background-color: orange;
+  border: 0.1em solid black;
+  box-shadow: 0.1em 0.1em 0.1em black;
+  font-size: 0.7em;
+  padding: 0.5em;
+}
+
+.verticallyCentered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  height: 100vh;
+  display: grid;
+  grid-template-areas: 
+    "header"
+    "content";
+  grid-template-rows: 6rem auto;
+}
+
+#header {
+  grid-area: header;
+  text-align: center;
+  background-color: rgba(173, 173, 173, 1);
+}
+
+#content {
+  grid-area: content;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+}
+
+#mainView {
+  margin: 0 8rem;
+  text-align: center;
+}
+
+#welcomeText {
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 700px) {
+  #mainView {
+    margin: 0 6rem;
+  }
+}
+
+@media (max-width: 520px) {
+  #mainView {
+    margin: 0 4rem;
+  }
+}
+
+@media (max-width: 520px) {
+  #mainView {
+    margin: 0 2rem;
+  }
 }
