@@ -342,6 +342,100 @@ p {
   grid-area: dishPreparation;
 }
 
+/* Menu Summary View */
+#menuSummaryView {
+  display: grid;
+  grid-template-rows: 4rem auto;
+  grid-template-areas:
+    "statusBar"
+    "summaryView"
+}
+
+#statusBar {
+  grid-area: statusBar;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  border-bottom: 0.2rem solid black;
+}
+
+#summaryView {
+  grid-area: summaryView;
+}
+
+/* Price Summary View */
+#priceSummary {
+  display: grid;
+  grid-template-areas: 
+    "dishListContainer"
+    "printButtonContainer";
+}
+
+#dishListContainer {
+  grid-area: dishListContainer;
+  display: grid;
+  grid-gap: 3rem;
+  grid-template-areas: 
+  "starter mainCourse dessert totalPrice";
+  
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 5rem 0rem;
+}
+
+
+#starter {
+  grid-area: starter;
+}
+
+#mainCourse {
+  grid-area: mainCourse;
+}
+
+#dessert {
+  grid-area: dessert;
+}
+
+#totalPrice {
+  grid-area: totalPrice;
+  border-left: 0.2rem solid black;
+  padding: 0rem 1rem;
+}
+
+.dishItemContainer {
+  display: grid;
+  grid-template-rows: 140px repeat(2, auto);
+  grid-template-areas:
+    "dishImage"
+    "dishName"
+    "dishPrice";
+}
+
+.dishImage {
+  grid-area: dishImage;
+}
+
+.dishName {
+  grid-area: dishName;
+}
+
+.dishPrice {
+  grid-area: dishPrice;
+  margin-left: auto;
+}
+
+#printButtonContainer {
+  grid-area: printButtonContainer;
+  border-top: 0.2rem solid black;
+
+  text-align: center;
+  padding: 1rem 0rem;
+}
+
+/* Recipe Summary View */
+
 @media (min-width: 701px) {
   #collapsedMenuTotalPrice {
     display: none;
@@ -371,6 +465,22 @@ p {
       "dishDescription"
       "ingredientsList"
       "dishPreparation";
+  }
+
+  #dishListContainer {
+    grid-template-areas:
+      "starter"
+      "mainCourse"
+      "dessert"
+      "totalPrice";
+    margin: 1rem 0rem;
+  }
+
+  #totalPrice {
+    display: inline;
+    border-left: none;
+    border-top: 0.2rem solid black;
+    padding: 1rem 0rem;
   }
 }
 
