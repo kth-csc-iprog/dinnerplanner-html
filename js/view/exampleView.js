@@ -17,26 +17,6 @@
 
 var ExampleView = function (container, model) {
 	
-	var guests = 0; 
-	$('#numberOfGuests').html(guests);
-
-	$('#plusGuest').click(function(){
-		guests = guests + 1;
-		$('#numberOfGuests').html(guests);
-	});
-
-	$('#minusGuest').click(function(){
-		guests = guests - 1;
-		$('#numberOfGuests').html(guests);
-	});
-
-
-
-	var numberOfGuests = container.find('#numberOfGuests');
-
-
-	
-	//numberOfGuests.onclick = alert("hello");
 	/**
 	 * We use the @method find() on @var {jQuery object} container to look for various elements 
 	 * inside the view in orther to use them later on. For instance:
@@ -68,34 +48,30 @@ var ExampleView = function (container, model) {
 	 * 
 	 */
 
-
-
 	this.plusButton = container.find("#plusGuest");
 	this.minusButton = container.find("#minusGuest");
 
-	//var numberOfGuests = document.getElementById('numberOfGuests');
-	// var plusButton = document.getElementById('plusGuest');
-	// var minusButton = document.getElementById('minusGuest');
+	var guests = 0; 
+
+	var numberOfGuests = container.find('#numberOfGuests');
+	var plusGuest = container.find('#plusGuest');
+	var minusGuest = container.find('#minusGuest');
 
 
-	// numberOfGuests.html(guests);
+	plusGuest.click(function(){
+		guests = guests + 1;
+		numberOfGuests.html(guests);
+	})
 
-	// plusButton.onclick = function(){
-	// 	guests = guests + 1;
-	// 	numberOfGuests.value = guests;
+	minusGuest.click(function(){
+		guests = guests - 1;
+		numberOfGuests.html(guests);
+	})
 
-	// 	//alert('hello');
-	// }
-
-	// minusButton.onclick = function(){
-	// 	guests = guests - 1;
-	// }
-
-
-	// /**
-	//  * Here we use @var {jQuery object} numberOfGuests that is a reference to <span>
-	//  * in our view to dynamically set it's value to "Hello World".
-	//  */
+	/**
+	 * Here we use @var {jQuery object} numberOfGuests that is a reference to <span>
+	 * in our view to dynamically set it's value to "Hello World".
+	 */
 	numberOfGuests.html(guests);
 
 }
