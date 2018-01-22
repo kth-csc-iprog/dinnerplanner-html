@@ -24,7 +24,7 @@ const createDinnerModel = () => {
 	const getAllIngredients = () => state.menu.map(dish => dish.ingredients)
 
 	// Return the full price of a given dish (represented by id)
-	const getPriceForDish = (id) => getDish(id).ingredients.reduce((acc, curr) => acc = acc + curr.price)
+	const getPriceForDish = (id) => getDish(id).ingredients.reduce((acc, curr) => acc = acc + curr.price, 0)
 
 	// Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	const getTotalMenuPrice = () => getAllIngredients().reduce((acc, curr) => acc = acc + state.numberOfGuests * curr.price, 0)
@@ -34,7 +34,8 @@ const createDinnerModel = () => {
 	const addDishToMenu = id => {
 		const selectedDish = getDish(id)
 		const restOfTheMenu = state.menu.filter(dish => dish.type !== selectedDish.type)
-		state.menu = restOfTheMenu.push(selectedDish)
+		restOfTheMenu.push(selectedDish)
+		state.menu = restOfTheMenu
 	}
 
 	// Removes dish from menu
@@ -76,6 +77,7 @@ const createDinnerModel = () => {
 		getSelectedDish,
 		getFullMenu,
 		getAllIngredients,
+		getPriceForDish,
 		getTotalMenuPrice,
 		addDishToMenu,
 		removeDishFromMenu,

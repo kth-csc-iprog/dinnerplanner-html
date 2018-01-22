@@ -1,9 +1,17 @@
-$(function() {
+(function () {
 	//We instantiate our model
-	const model = createDinnerModel();
-	
-	// And create the instance of ExampleView
-	const exampleView = new ExampleView($("#exampleView"));
+	const model = createDinnerModel()
+
+	// Create the instances of the Views
+	const sidebarView = createSidebarView(
+		document.getElementById('sidebar'),
+		model
+	)
+
+	const welcomeView = createWelcomeView(
+		document.getElementById('mainView'),
+		model
+	)
 
 	/**
 	 * IMPORTANT: app.js is the only place where you are allowed to
@@ -12,4 +20,4 @@ $(function() {
 	 * of the specific view you're working with (see exampleView.js).
 	 */
 
-});
+})()

@@ -33,6 +33,8 @@ p {
   box-shadow: 0.1em 0.1em 0.1em black;
   font-size: 1em;
   padding: 0.5em;
+
+  margin: 0.5rem 0rem;
 }
 
 .secondaryButton {
@@ -67,23 +69,308 @@ p {
 
 #content {
   grid-area: content;
-  display: flex;
-  align-items: center;
-  justify-items: center;
+  display: grid;
 }
 
 #mainView {
   margin: 0 8rem;
   text-align: center;
+  align-self: center;
+  justify-self: center;
 }
 
 #welcomeText {
   margin-bottom: 1rem;
 }
 
+#appView {
+  display: grid;
+  grid-template-columns: 12rem auto;
+  grid-template-areas:
+    "sidebarView sectionView";
+}
+
+/* Sidebar View */
+#sidebarView {
+  grid-area: sidebarView;
+
+  display: grid;
+  grid-template-rows: 2rem 1fr;
+  grid-template-areas: 
+    "titleBar"
+    "collapseContent";
+  
+  background-color: aqua;
+  text-align: left;
+}
+
+#titleBar {
+  grid-area: titleBar;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.collapseContent {
+  grid-area: collapseContent;
+  display: grid;
+  grid-template-rows: 2rem fit-content(100%) 3rem;
+  grid-template-areas: 
+    "guestSelector"
+    "dishTable"
+    "confirmButtonContainer";
+}
+
+#titleBarTitle {
+  align-self: center;
+  margin-right: auto;
+}
+
+#collapsedMenuTotalPrice {
+  align-self: center;
+  justify-self: center;
+  margin-right: 1rem;
+}
+
+#guestSelector {
+  grid-area: guestSelector;
+}
+
+#dishTable {
+  grid-area: dishTable;
+  display: grid;
+  grid-template-areas:
+    "tableHeader"
+    "tableContent"
+    "tableFooter"
+}
+
+#tableHeader {
+  grid-area: tableHeader;
+  display: grid;
+  grid-template-areas:
+    "tableName tableCost";
+
+  background-color: gainsboro;
+  font-weight: bold;
+}
+
+#tableName {
+  grid-area: tableName;
+  text-align: left;
+}
+
+#tableCost {
+  grid-area: tableCost;
+  text-align: right;
+}
+
+#tableContent {
+  grid-area: tableContent;
+  display: grid;
+  grid-template-rows: auto;
+}
+
+.tableRow {
+  display: grid;
+  grid-template-areas:
+    "rowName rowCost";
+}
+
+.rowName {
+  grid-area: rowName;
+  text-align: left;
+}
+
+.rowCost {
+  grid-area: rowCost;
+  text-align: right;
+}
+
+#tableFooter {
+  grid-area: tableFooter;
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-end;
+}
+
+#confirmButtonContainer {
+  grid-area: confirmButtonContainer;
+  text-align: center;
+}
+
+#sectionView {
+  grid-area: sectionView;
+}
+
+/* Dish Search View */
+
+#dishSearchView {
+  display: grid;
+  grid-template-areas: 
+    "dishSearchTitle"
+    "dishSearchForm"
+    "dishSearchResults";
+}
+
+#dishSearchTitle {
+  grid-area: dishSearchTitle;
+  margin: 1rem 1rem;
+}
+
+#dishSearchForm {
+  grid-area: dishSearchForm;
+  margin: 0 1rem;
+  align-self: center;
+  justify-self: center;
+}
+
+#dishSearchField {
+  grid-area: dishSearchField;
+  width: 8rem;
+}
+
+#dishTypeSelectField {
+  grid-area: dishTypeSelectField;
+}
+
+#dishSearchButton {
+  grid-area: dishSearchButton;
+}
+
+#dishSearchResults {
+  grid-area: dishSearchResults;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  margin: 2rem 2rem;
+
+  align-items: center;
+  justify-items: center;
+  text-align: center;
+}
+
+/* Dish Details View */
+#dishDetailsView {
+  display: grid;
+  grid-template-areas:
+    "dishDescription ingredientsList"
+    "dishPreparation dishPreparation";
+
+  text-align: left;
+}
+
+#dishDescription {
+  grid-area: dishDescription;
+}
+
+#ingredientsList {
+  grid-area: ingredientsList;
+  display: grid;
+  grid-template-rows: 4rem fit-content(100%) 4rem;
+  grid-template-areas: 
+    "ingredientsTitle"
+    "ingredientsTable"
+    "ingredientsFooter";
+
+  background-color: burlywood;
+  text-align: left;
+}
+
+#ingredientsTitle {
+  grid-area: ingredientsTitle;
+}
+
+#ingredientsTable {
+  grid-area: ingredientsTable;
+  display: grid;
+  grid-template-rows: auto;
+}
+
+.ingredientsTableRow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas: 
+    "ingredientQuantity ingredientName ingredientCurrency ingredientPrice";
+  padding: 0.5rem 0;
+}
+
+.ingredientQuantity {
+  grid-area: ingredientQuantity;
+}
+
+.ingredientName {
+  grid-area: ingredientName;
+}
+
+.ingredientCurrency {
+  grid-area: ingredientCurrency;
+  text-align: right;
+}
+
+.ingredientPrice {
+  grid-area: ingredientPrice;
+  text-align: right;
+}
+
+#ingredientsFooter {
+  grid-area: ingredientsFooter;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas: 
+    "addToMenu addToMenu ingredientsTotalPriceCurrency ingredientsTotalPrice"
+}
+
+#addToMenu {
+  grid-area: addToMenu;
+  grid-column: span 2;
+}
+
+#ingredientsTotalPriceCurrency {
+  grid-area: ingredientsTotalPriceCurrency;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+#ingredientsTotalPrice {
+  grid-area: ingredientsTotalPrice;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+#dishPreparation {
+  grid-area: dishPreparation;
+}
+
+@media (min-width: 701px) {
+  #collapsedMenuTotalPrice {
+    display: none;
+  }
+}
+
 @media (max-width: 700px) {
   #mainView {
     margin: 0 6rem;
+  }
+
+  .showOnMobile {
+    display: inline;
+  }
+
+  .hideOnMobile {
+    display: none;
+  }
+
+  #appView {
+    grid-template-areas: "sidebarView" "sectionView";
+    grid-template-columns: none;
+  }
+
+  #dishDetailsView {
+    grid-template-areas:
+      "dishDescription"
+      "ingredientsList"
+      "dishPreparation";
   }
 }
 
@@ -93,7 +380,7 @@ p {
   }
 }
 
-@media (max-width: 520px) {
+@media (max-width: 320px) {
   #mainView {
     margin: 0 2rem;
   }

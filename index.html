@@ -19,11 +19,186 @@
       
       <div id="content">
         
-        <div id="mainView">
+        <!-- <div id="mainView">
           <div id="welcomeText">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
           </div>
           <button id="startButton" class="primaryButton">Create new dinner</button>
+        </div> -->
+
+        <div id="appView">
+          <div id="sidebarView">
+            <div id="titleBar">
+              <h4 id="titleBarTitle">My Dinner</h4>
+              <div id="collapsedMenuTotalPrice" class="totalPrice showOnMobile">
+                <span class="totalPriceCurrency">SEK</span> <span class="totalPriceValue">77.20</span>
+              </div>
+              <button id="expandButton" class="secondaryButton showOnMobile" onclick="toggleSidebar()">
+                Expand
+              </button>
+            </div>
+    
+            <div id="sideBarContent" class="collapseContent hideOnMobile">
+              <div id="guestSelector" class="show">
+                <label for="guestNumber">Guests:</label>
+                <input id="guestNumber" type="number" value="1">
+              </div>
+          
+              <div id="dishTable" class="show">
+                <div id="tableHeader">
+                  <div id="tableName">Dish name</div>
+                  <div id="tableCost">Cost</div>
+                </div>
+      
+                <div id="tableContent">
+                  <div class="tableRow">
+                    <div class="rowName">Lasagne</div>
+                    <div class="rowCost">77.20</div>
+                  </div>
+                </div>
+      
+                <div id="tableFooter">
+                  <div id="tableTotalPrice" class="totalPrice">
+                    <span class="totalPriceCurrency">SEK</span> <span id="totalPriceValue">77.20</span>
+                  </div>
+                </div>
+              </div>
+    
+              <div id="confirmButtonContainer" class="show">
+                <button class="primaryButton" id="confirmMenuButton">Confirm Dinner</button>
+              </div>
+    
+            </div>
+    
+          </div>
+
+          <div id="sectionView">
+
+            <!-- <div id="dishSearchView">
+          
+              <h2 id="dishSearchTitle">Find a dish</h2>
+  
+              <div id="dishSearchForm">
+      
+                <input type="search" id="dishSearchField" name="dishSearchField" placeholder="Enter keywords">
+      
+                <select id="dishTypeSelectField" name="dishTypeSelectField">
+                  <option value="all" selected>All</option>
+                  <option value="starter">Starter</option>
+                  <option value="main dish">Main Dish</option>
+                  <option value="dessert">Dessert</option>
+                </select>
+                
+                <button id="dishSearchButton" class="secondaryButton">Search</button>
+      
+              </div>
+      
+              <div id="dishSearchResults">
+      
+                <div class="dishResult">
+                  <div class="dishResultImageContainer">
+                    <img class="dishResultImage" src="images/bakedbrie.jpg" alt="">
+                  </div>
+                  <div class="dishResultName">Baked Brie</div>
+                </div>
+      
+                <div class="dishResult">
+                  <div class="dishResultImageContainer">
+                    <img class="dishResultImage" src="images/bakedbrie.jpg" alt="">
+                  </div>
+                  <div class="dishResultName">Baked Brie</div>
+                </div>
+                
+                <div class="dishResult">
+                  <div class="dishResultImageContainer">
+                    <img class="dishResultImage" src="images/bakedbrie.jpg" alt="">
+                  </div>
+                  <div class="dishResultName">Baked Brie</div>
+                </div>
+      
+                <div class="dishResult">
+                  <div class="dishResultImageContainer">
+                    <img class="dishResultImage" src="images/bakedbrie.jpg" alt="">
+                  </div>
+                  <div class="dishResultName">Baked Brie</div>
+                </div>
+      
+                <div class="dishResult">
+                  <div class="dishResultImageContainer">
+                    <img class="dishResultImage" src="images/bakedbrie.jpg" alt="">
+                  </div>
+                  <div class="dishResultName">Baked Brie</div>
+                </div>  
+      
+              </div>
+  
+            </div> -->
+
+            <!-- <div id="dishDetailsView">
+              <div id="dishDescription">
+                <div id="dishTitle">
+                  <h2>Baked Brie</h2>
+                </div>
+                <div id="dishImage">
+                  <img src="images/bakedbrie.jpg" alt="">
+                </div>
+                <div id="dishDescription">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eget aliquet nibh praesent tristique. Quis hendrerit dolor magna eget. In cursus turpis massa tincidunt dui ut ornare.</p>
+                </div>
+                <button id="backButton" class="primaryButton">Back to Search</button>
+              </div>
+              
+              <div id="ingredientsList">
+                
+                <div id="ingredientsTitle">
+                  <h3>Ingredients for <span id="numberOfGuests">3</span> people</h3>
+                </div>
+    
+                <div id="ingredientsTable">
+    
+                  <div class="ingredientsTableRow">
+                    <div class="ingredientQuantity">
+                      <span id="quantity">2</span> <span id="unit">tbsp</span>
+                    </div>
+                    <div class="ingredientName">olive oil</div>
+                    <div class="ingredientCurrency">SEK</div>
+                    <div class="ingredientPrice">0.20</div>
+                  </div>
+      
+                  <div class="ingredientsTableRow">
+                    <div class="ingredientQuantity">
+                      <span id="quantity">750</span> <span id="unit">g</span>
+                    </div>
+                    <div class="ingredientName">lean beef mince</div>
+                    <div class="ingredientCurrency">SEK</div>
+                    <div class="ingredientPrice">10.00</div>
+                  </div>
+      
+                </div>
+    
+                <div id="ingredientsFooter">
+                  <div id="addToMenu" class="verticallyCentered">
+                    <button id="addToMenuButton" class="primaryButton">Add to menu</button>
+                  </div>
+                  <div id="ingredientsTotalPriceCurrency">SEK</div>
+                  <div id="ingredientsTotalPrice">10.00</div>
+                </div>
+    
+              </div>
+              
+              <div id="dishPreparation">
+                <h3>Preparation</h3>
+                <div id="dishPreparationText">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eget aliquet nibh praesent tristique. Quis hendrerit dolor magna eget. In cursus turpis massa tincidunt dui ut ornare. Sed adipiscing diam donec adipiscing tristique risus nec feugiat in. Dolor sit amet consectetur adipiscing elit. Ac tincidunt vitae semper quis lectus nulla at. Mauris augue neque gravida in fermentum. Egestas diam in arcu cursus euismod quis viverra nibh. Vulputate enim nulla aliquet porttitor lacus luctus accumsan. Quis varius quam quisque id. Non odio euismod lacinia at quis risus sed vulputate. Id cursus metus aliquam eleifend mi in. Tortor pretium viverra suspendisse potenti nullam ac tortor.</p>
+                </div>
+              </div>
+    
+            </div> -->
+
+            
+
+          </div>
+
         </div>
         
       </div>
