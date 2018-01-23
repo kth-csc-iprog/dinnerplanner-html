@@ -4,57 +4,120 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Select Dish</title>
+    <title>Select dish</title>
 
     <!-- Bootstrap CSS -->
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+ <!--   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"> -->
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
    <!-- External CSS -->
    <link rel="stylesheet" type="text/css" href="styles.css">
 
    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
  </head>
 
  <body>
     <div class="container-fluid" id="exampleView">
             
-      <!-- Headline -->
-        <div class="span" style="background-color:#f7f7f7;" >
-          <h1 class="display-2">Dinner planner</h1>
-        </div>
-
-      <!-- My Dinner -->
-        <div class="span4">
-          <h3>My Dinner</h3>
-        </div>
-
-      <div class="span4" style="margin-bottom: 10px;">
-        Number of guests: <span id="numberOfGuests"></span>
+    <!-- Headline -->
+      <div class="span12">
+        <h1 >Dinner planner</h1>
       </div>
 
-      <div class="span4">
-         <button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
 
-        <button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
-      </div>
+
+      <!-- Sidebar -->
+      <div class="wrapper">
+            <!-- Sidebar Holder -->
+            <nav id="sidebar">
+                <div class="sidebar-header">
+                    <h3>My Dinner</h3>
+                </div>
+
+                <ul class="list-unstyled components">
+                    
+                    <p>Number of guests: <span id="numberOfGuests"></span></p>
+                    
+                      <button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
+
+                      <button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
+                </ul>
+
+                <ul class="list-unstyled CTAs">
+                    <li><a class="download">Confirm Dinner</a></li>
+                </ul>
+            </nav>
+
+            <!-- Page Content Holder -->
+            <div id="content" class="container-fluid">  
+              <nav class="navbar navbar-default" class="container-fluid">
+                   <div class="navbar-header">
+                      <button type="button" id="sidebarCollapse" class="btn btn-default"">
+                          <i class="glyphicon glyphicon-align-left"></i>
+                      </button>
+                  </div>
+
+                  <!-- Input Field -->
+                  <div class="col-xs-6">
+                    <input type="text" class="form-control" aria-label="...">
+                  </div>
+
+                  <!-- Split button -->
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-default">All</button>
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <span class="caret"></span>
+                      <span class="sr-only">Lasagna</span>
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">Action</a></li>
+                      <li><a href="#">Spaghetti Carbonara</a></li>
+                      <li><a href="#">Chef's special</a></li>
+                      <li role="separator" class="divider"></li>
+                      <li><a href="#">Vegetarian option</a></li>
+                    </ul>
+                  </div>
+                  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                  </div>
+              </nav>
+              <img src="images/icecream.jpg" alt="Icecream">
+              <img src="images/meatballs.jpg" alt="Meatballs">
+              <img src="images/sourdough.jpg" alt="Sourdough">
+              <img src="images/toast.jpg" alt="Toast">
+
+              <img src="images/meatballs.jpg" alt="Meatballs">
+              <img src="images/sourdough.jpg" alt="Sourdough">
+              <img src="images/toast.jpg" alt="Toast">
+              <img src="images/icecream.jpg" alt="Icecream">
+              <img src="images/meatballs.jpg" alt="Meatballs">
+            </div>        
     </div>
 
     <!-- Dishes -->
-      <div class="span8">
-        <img src="images/bakedbrie.jpg" alt="Baked Brie">
-        <img src="images/icecream.jpg" alt="Icecream">
-        <img src="images/meatballs.jpg" alt="Meatballs">
-        <img src="images/sourdough.jpg" alt="Sourdough">
-        <img src="images/toast.jpg" alt="Toast">
-      </div>
+     
 
        <!-- jQuery -->
     <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+
       <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
-      <!-- <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script> -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <!-- The application JavaScript code -->
     <script src="js/app.js"></script>
     <script src="js/model/dinnerModel.js"></script>
     <script src="js/view/exampleView.js"></script> 
+    <script src="js/media/sideBar.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+                 $('#sidebarCollapse').on('click', function () {
+                     $('#sidebar').toggleClass('active');
+                 });
+             });
+    </script> 
   </body>
 </html>
