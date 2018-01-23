@@ -1,47 +1,85 @@
 //DinnerModel Object constructor SAVVAS
 var DinnerModel = function() {
-
 	//TODO Lab 1 implement the data structure that will hold number of guest
 	// and selected dishes for the dinner menu
 
+	this.numberOfGuests = 4;
+	this.menuArray=[];
 
 	this.setNumberOfGuests = function(num) {
 		//TODO Lab 1
+		this.numberOfGuests=num;
+		console.log("Changed number of guests to", this.numberOfGuests);
 	}
 
 	this.getNumberOfGuests = function() {
 		//TODO Lab 1
+
+		return this.numberOfGuests;
 	}
 
 	//Returns the dish that is on the menu for selected type
 	this.getSelectedDish = function(type) {
 		//TODO Lab 1
+
+		//Not at all sure if this works. Probably not.
+		var dish = this.getDish(type);
+		return dish;
 	}
 
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
 		//TODO Lab 1
+		//The menuArray will only contain the id of each dish.
+
+		//dishesOnMenu=[]
+		//for each element in menuArray
+			//dish = dishes[element.id]
+			//add dish to dishesOnMenu
+		//return dishesOnMenu
 	}
 
 	//Returns all ingredients for all the dishes on the menu.
 	this.getAllIngredients = function() {
 		//TODO Lab 1
+
+		//ingredientsArray = []
+		//for each element in menuArray
+			//dish = dishes[element.id]
+			//for each ingredient in dish
+				//add ingredient to ingredientsArray
+		//return ingredientsArray
 	}
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	this.getTotalMenuPrice = function() {
 		//TODO Lab 1
+
+		//totalSum = 0
+		//for each element in menuArray
+			//dish = dishes[element.id]
+			//for each ingredient in dish
+				//ingredientPrice = quantity*price
+				//totalSum = totalSum + ingredientPrice
+		//return totalSum
 	}
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
 		//TODO Lab 1
+
+		//Add id to menuArray
+		//this.menu.append(id);
 	}
 
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {
 		//TODO Lab 1
+
+		//if menuArray contains id
+			//remove id from menuArray
+			//this.menu.remove(id);
 	}
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
