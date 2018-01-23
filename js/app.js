@@ -38,6 +38,11 @@
 	// 	model
 	// )
 
+	document.getElementById('startButton').onclick = transitionFromMainViewToDishSearchView
+  document.getElementById('confirmMenuButton').onclick = transitionFromDishSearchViewToPriceSummaryView
+  document.getElementById('backToDishSearchButton').onclick = transitionFromPriceSummaryViewToDishSearchView
+  document.getElementById('printButton').onclick = transitionFromPriceSummaryViewToRecipeSummaryView
+
 	/**
 	 * IMPORTANT: app.js is the only place where you are allowed to
 	 * use the $('someSelector') to search for elements in the whole HTML.
