@@ -26,13 +26,27 @@ var DinnerModel = function() {
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
 		//TODO Lab 1
-    menu = dishes[0].name + dishes[1].name
+    var menu = "";
+    for (var i = 0; i < dishes.length; i++) {
+      menu = menu + dishes[i].name + "<br>";
+    }
   return menu;
 	}
 
 	//Returns all ingredients for all the dishes on the menu.
 	this.getAllIngredients = function() {
+    var ingredients = "";
 		//TODO Lab 1
+    for (var i = 0; i < dishes.length; i++) {
+      var dish = dishes[i];
+      ingredients = ingredients + dish.name + ": ";
+      for (var j = 0; j < dish.ingredients.length; j++) {
+        ingredients = ingredients + dish.ingredients[j].name + ", ";
+      }
+    ingredients+="<br>"
+    }
+
+  return ingredients;
 	}
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
@@ -82,7 +96,6 @@ var DinnerModel = function() {
 			}
 		}
 	}
-
 
 	// the dishes variable contains an array of all the
 	// dishes in the database. each dish has id, name, type,
