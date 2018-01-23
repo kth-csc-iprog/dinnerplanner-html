@@ -40,8 +40,13 @@
 
 	document.getElementById('startButton').onclick = transitionFromMainViewToDishSearchView
   document.getElementById('confirmMenuButton').onclick = transitionFromDishSearchViewToPriceSummaryView
-  document.getElementById('backToDishSearchButton').onclick = transitionFromPriceSummaryViewToDishSearchView
-  document.getElementById('printButton').onclick = transitionFromPriceSummaryViewToRecipeSummaryView
+  document.getElementById('backFromMenuSummaryButton').onclick = transitionFromPriceSummaryViewToDishSearchView
+  document.getElementById('backFromDishDetailsButton').onclick = transitionFromDishDetailsViewToDishSearchView
+	document.getElementById('printButton').onclick = transitionFromPriceSummaryViewToRecipeSummaryView
+	const dishResults = document.getElementsByClassName('dishResult')
+	for (const dishResult of dishResults) {
+		dishResult.onclick = transitionFromDishSearchViewToDishDetailsView
+	}
 
 	/**
 	 * IMPORTANT: app.js is the only place where you are allowed to

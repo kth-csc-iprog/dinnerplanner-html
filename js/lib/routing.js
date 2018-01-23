@@ -19,9 +19,20 @@ const transitionFromMainViewToDishSearchView = () => {
   dishSearchElement.style = ''
 }
 
+const transitionFromDishSearchViewToDishDetailsView = () => {
+  dishSearchElement.style.display = 'none'
+  dishDetailsElement.style = ''
+}
+
+const transitionFromDishDetailsViewToDishSearchView = () => {
+  dishDetailsElement.style.display = 'none'
+  dishSearchElement.style = ''
+}
+
 const transitionFromDishSearchViewToPriceSummaryView = () => {
   appViewElement.style.display = 'none'
   dishSearchElement.style.display = 'none'
+  dishDetailsElement.style.display = 'none'
   menuSummaryElement.style = ''
   priceSummaryElement.style = ''
 }
