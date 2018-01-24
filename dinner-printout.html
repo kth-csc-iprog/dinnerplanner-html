@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dish details</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+   <!-- External CSS -->
+   <link rel="stylesheet" type="text/css" href="styles.css">
+   <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+ </head>
+
+  <body>
+     <div class="container-fluid" id="printoutView" >
+
+      <!-- Headline -->
+      <div class ="row">
+        <div class ="col-xs-2">
+          <div class ="logo">
+            <a href="select-dish.html">
+              <img src="/images/logo.web.png"></img>
+            </a>  
+          </div> 
+        </div> 
+        <div class ="col-xs-8">
+          <div class="title">
+            <h1 >DINNER PLANNER</h1>
+          </div>
+        </div>
+      </div> 
+
+      <!-- !: Amount of people attending  -->
+        <div class="row" id="dishoverviewView">
+          <div id="dinnerAttendance" class="col-xs-6">
+            Attendance: 
+          </div>  
+          <div class="col-xs-6">
+            <a href="select-dish.html">
+                <button type="button" class="btn btn-default"> Go back to edit your dinner </button>
+            </a>    
+          </div>
+        </div>  
+        <!-- !: Printout Dishes -->
+        <div  id="printoutDishes" class ="row">
+        </div> 
+        
+       </div> 
+
+        
+      </div>
+       <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+
+      <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- The application JavaScript code -->
+    <script src="js/app.js"></script>
+    <script src="js/model/dinnerModel.js"></script>
+    <script src="js/view/dishdetailView.js"></script>
+    <script src="js/view/guestcountView.js"></script>
+    <script src="js/view/dishView.js"></script>
+    <script src="js/view/dishoverviewView.js"></script>
+    <script src="js/view/printoutView.js"></script>
+    <script src="js/media/sideBar.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+                 $('#sidebarCollapse').on('click', function () {
+                     $('#sidebar').toggleClass('active');
+                 });
+             });
+    </script>
+  </body>
+</html>     

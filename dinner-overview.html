@@ -18,34 +18,36 @@
   <body>
     <div class="container-fluid" id="dishoverviewView">
 
-    <!-- Headline -->
-    <div class ="row">
-      <div class ="col-xs-2">
-        <div class ="logo">
-          <a href="select-dish.html">
-            <img src="/images/logo.web.png"></img>
-          </a>  
-         </div> 
+      <!-- Headline -->
+      <div class ="row">
+        <div class ="col-xs-2">
+          <div class ="logo">
+            <a href="select-dish.html">
+              <img src="/images/logo.web.png"></img>
+            </a>  
+           </div> 
+        </div> 
+        <div class ="col-xs-8">
+          <div class="title">
+            <h1 >DINNER PLANNER</h1>
+          </div>
+        </div>
       </div> 
-      <div class ="col-xs-8">
-        <div class="title">
-          <h1 >DINNER PLANNER</h1>
-        </div>
-      </div>
-    </div> 
 
-    <!-- !: Amount of people attending  -->
-      <div class="row">
-        <div id="dinnerAttendance" class="col-xs-6">
-          Attendance: 
+      <!-- !: Amount of people attending  -->
+        <div class="row">
+          <div id="dinnerAttendance" class="col-xs-6">
+            Attendance: 
+          </div>  
+          <div class="col-xs-6">
+            <a href="select-dish.html">
+                <button type="button" class="btn btn-default"> Go back to edit your dinner </button>
+            </a>    
+          </div>
         </div>  
-        <div class="col-xs-6">
-              <button type="button" class="btn btn-default"> Go back to edit your dinner </button>
-        </div>
-      </div>  
 
     <!-- !: Chosen Dishes -->
-    <div  id="chosenDishes" class ="row">
+    <div id="chosenDishes" class ="row">
     </div> 
 
     <div id="dinnerAttendance" > 
@@ -68,6 +70,7 @@
     <script src="js/view/guestcountView.js"></script>
     <script src="js/view/dishView.js"></script>
     <script src="js/view/dishoverviewView.js"></script>
+    <script src="js/view/printoutView.js"></script>
     <script src="js/media/sideBar.js"></script>
     <script type="text/javascript">
       $(document).ready(function () {

@@ -9,6 +9,7 @@ var DishDetailView = function (container, model) {
 	dishTitle.append(model.getDish(200).name);
 	dishImage.append(tag);
 	dishIngredients.html(model.getDish(200).ingredients[0]);
+	// dinnerModelTest.html(model.getAllIngredients());
 
 	// $('#theDiv').prepend('<img id="icecream.jpg" src=/images/"theImg.png" />')
 
