@@ -64,8 +64,10 @@ var GuestCountView = function (container, model) {
 	})
 
 	minusGuest.click(function(){
-		guests = guests - 1;
-		numberOfGuests.html(guests);
+		if (guests>0) {
+			guests = guests - 1;
+			numberOfGuests.html(guests);
+		}
 	})
 
 	/**
@@ -77,7 +79,32 @@ var GuestCountView = function (container, model) {
 	// dinnerModel test
 	var dinnerModelTest = container.find('#dinnerModelTest');
 
-	dinnerModelTest.html(model.removeDishFromMenu(101));
+	var displayMethods = ""
+	model.setNumberOfGuests(4);
+	displayMethods += model.getNumberOfGuests() + " guests<br>";
+	model.addDishToMenu(1); model.addDishToMenu(100); model.addDishToMenu(200);
+	model.addDishToMenu(201);
+	displayMethods += "Menu: " + model.getFullMenu() + "<br>";
+	displayMethods += "Starter: " + model.getSelectedDish("starter") + "<br>";
+	displayMethods += "INGREDIENTS <br>" + model.getAllIngredients() + "<br>";
+	displayMethods += "Total price: " + model.getTotalMenuPrice() + "<br>";
+	model.removeDishFromMenu(100)
+	displayMethods += "Menu after removed: " + model.getFullMenu() + "<br>";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	dinnerModelTest.html(displayMethods);
 
 
 }

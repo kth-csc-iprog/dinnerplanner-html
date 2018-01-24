@@ -4,7 +4,7 @@ var DinnerModel = function() {
 	//TODO Lab 1 implement the data structure that will hold number of guest
 	// and selected dishes for the dinner menu
   this.guests = 0;
-  this.menu = [2, 101, 201];
+  this.menu = [];
 
 	this.setNumberOfGuests = function(num) {
 		//TODO Lab 1
@@ -32,7 +32,7 @@ var DinnerModel = function() {
 
   var menuDishes = "";
   for (var i = 0; i < this.menu.length; i++) {
-    var menuDishes = menuDishes + this.getDish(this.menu[i]).name + "<br>";
+    var menuDishes = menuDishes + this.getDish(this.menu[i]).name + ", ";
   }
   //change return into list of objects
   return menuDishes;
@@ -78,11 +78,11 @@ var DinnerModel = function() {
       var existingDish = this.getDish(this.menu[i]);
       if (newDish.type == existingDish.type) {
         this.menu[i] = newDish.id;
-        return this.menu.toString();
+        return;
       }
     }
     this.menu.push(id);
-    return this.menu.toString();
+    return;
 	}
 
 	//Removes dish from menu
