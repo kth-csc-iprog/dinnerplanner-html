@@ -24,9 +24,18 @@
     <div class="container-fluid" id="exampleView">
 
     <!-- Headline -->
-      <div class="span12">
-        <h1 >Dinner planner</h1>
+    <div class ="row">
+      <div class ="col-xs-2">
+        <div class ="logo">
+          <img src="/images/logo.web.png"></img>
+         </div> 
+      </div> 
+      <div class ="col-xs-8">
+        <div class="title">
+          <h1 >DINNER PLANNER</h1>
+        </div>
       </div>
+    </div> 
 
 
 
@@ -35,17 +44,17 @@
             <!-- Sidebar Holder -->
             <nav id="sidebar">
                 <div class="sidebar-header">
-                    <h3>My Dinner</h3>
+                    <h3>my Dinner</h3>
                 </div>
 
-                <ul class="list-unstyled components">
+                <div class="plusminus">
 
-                    <p>Number of guests: <span id="numberOfGuests"></span></p>
+                    <div class="p2">Number of guests: <strong><span id="numberOfGuests"></span></strong></div>
 
                       <button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
 
                       <button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
-                </ul>
+                </div>
 
                 <ul class="list-unstyled CTAs">
                     <li><a class="download">Confirm Dinner</a></li>
