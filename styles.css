@@ -81,6 +81,11 @@
     font-size:24px;
     padding-left: 220px;
 }
+
+#chosenDishes{
+    text-align: center;
+    /*padding-left: 0px 0px 0px 220px;*/
+}
 /*
     DEMO STYLE
 */
