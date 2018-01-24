@@ -19,24 +19,23 @@ var DinnerModel = function() {
 	//Returns the dish that is on the menu for selected type
 	this.getSelectedDish = function(type) {
 		//TODO Lab 1
-
-
+    for (var i = 0; i < this.menu.length; i++) {
+      var menuDish = this.getDish(this.menu[i])
+      if (menuDish.type == type) {
+        return menuDish.name;
+      }
+    }
 	}
 
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
-	// 	//TODO Lab 1
-  //   var menu = "";
-  //   for (var i = 0; i < dishes.length; i++) {
-  //     menu = menu + dishes[i].name + "<br>";
-  //   }
-  // return menu;
 
   var menuDishes = "";
   for (var i = 0; i < this.menu.length; i++) {
-    menuDishes = menuDishes + this.getDish(this.menu[i]).name + "<br>";
+    var menuDishes = menuDishes + this.getDish(this.menu[i]).name + "<br>";
   }
-  return menuDishes
+  //change return into list of objects
+  return menuDishes;
 	}
 
 	//Returns all ingredients for all the dishes on the menu.
@@ -45,7 +44,7 @@ var DinnerModel = function() {
 		//TODO Lab 1
     for (var i = 0; i < this.menu.length; i++) {
       var dish = this.getDish(this.menu[i]);
-      ingredients = ingredients + dish.name + ": ";
+      var ingredients = ingredients + dish.name + ": ";
       for (var j = 0; j < dish.ingredients.length; j++) {
         ingredients = ingredients + dish.ingredients[j].name + ", ";
       }
@@ -58,7 +57,15 @@ var DinnerModel = function() {
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	this.getTotalMenuPrice = function() {
 		//TODO Lab 1
-
+    var price = 0;
+    for (var i = 0; i < this.menu.length; i++) {
+      var dish = this.getDish(this.menu[i]);
+      for (var j = 0; j < dish.ingredients.length; j++) {
+        var ingredient = dish.ingredients[j];
+        price+= ingredient.quantity * ingredient.price;
+      }
+    }
+    return price * this.guests;
 	}
 
 
@@ -81,7 +88,14 @@ var DinnerModel = function() {
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {
 		//TODO Lab 1
+    for (var i = 0; i < this.menu.length; i++) {
+      if(this.menu[i] == id){
+        this.menu.splice(i, 1);
+      }
+    }
+  return this.menu.toString();
 	}
+
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
 	//you can use the filter argument to filter out the dish by name or ingredient (use for search)
