@@ -7,7 +7,6 @@ var DinnerModel = function() {
 	this.menuArray=[];
 
 	this.setNumberOfGuests = function(num) {
-		//TODO Lab 1
 		this.numberOfGuests=num;
 		console.log("Changed number of guests to", this.numberOfGuests);
 	}
@@ -20,67 +19,77 @@ var DinnerModel = function() {
 
 	//Returns the dish that is on the menu for selected type
 	this.getSelectedDish = function(type) {
-		//TODO Lab 1
+		for (key in this.menuArray){
+			var dish = this.getDish(this.menuArray[key]);
+			if (dish.type == type){
+				return dish;
+			}
+		}
+		console.log("OBS! Couldn't find the requested dish");
+	}
 
-		//Not at all sure if this works. Probably not.
-		var dish = this.getDish(type);
-		return dish;
+	//Returns the menuArray, just containing the id of each dish on the menu.
+	this.getMenu = function(){
+		return this.menuArray;
 	}
 
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
-		//TODO Lab 1
-		//The menuArray will only contain the id of each dish.
+		var dishesOnMenu=[];
+		for (key in this.menuArray){
+			var dish = this.getDish(this.menuArray[key]);
+			dishesOnMenu.push(dish);
+		}
+		console.log("Returning dishes on the menu:",dishesOnMenu);
+		return dishesOnMenu;
+	}
 
-		//dishesOnMenu=[]
-		//for each element in menuArray
-			//dish = dishes[element.id]
-			//add dish to dishesOnMenu
-		//return dishesOnMenu
+	//Added function for practicality
+	this.getIngredientsOfDish = function(id){
+		return this.getDish(id).ingredients;
 	}
 
 	//Returns all ingredients for all the dishes on the menu.
 	this.getAllIngredients = function() {
-		//TODO Lab 1
-
-		//ingredientsArray = []
-		//for each element in menuArray
-			//dish = dishes[element.id]
-			//for each ingredient in dish
-				//add ingredient to ingredientsArray
-		//return ingredientsArray
+		var ingredientsArray = [];
+		for (key in this.menuArray){
+			var dishIngredients = this.getIngredientsOfDish(this.menuArray[key]);
+			for (ingredient in dishIngredients){
+				ingredientsArray.push(dishIngredients[ingredient]);
+			}
+		}
+		console.log("Returning all ingredients on the menu.")
+		return ingredientsArray;
 	}
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	this.getTotalMenuPrice = function() {
-		//TODO Lab 1
-
-		//totalSum = 0
-		//for each element in menuArray
-			//dish = dishes[element.id]
-			//for each ingredient in dish
-				//ingredientPrice = quantity*price
-				//totalSum = totalSum + ingredientPrice
-		//return totalSum
+		var totalSum = 0;
+		var ingredientsArray = this.getAllIngredients();
+		for (key in ingredientsArray){
+			var quantity = ingredientsArray[key].quantity;
+			var price = ingredientsArray[key].price;
+			totalSum = totalSum + quantity*price;
+		}
+		totalSum = totalSum*this.numberOfGuests;
+		console.log("Returning the total price of the menu:",totalSum);
+		return totalSum;
 	}
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
-		//TODO Lab 1
-
-		//Add id to menuArray
-		//this.menu.append(id);
+		this.menuArray.push(id);
+		console.log("Added item with id",id, "to menuArray.");
 	}
 
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {
-		//TODO Lab 1
-
-		//if menuArray contains id
-			//remove id from menuArray
-			//this.menu.remove(id);
+		this.menuArray.splice(this.menuArray.indexOf(id),1);
+		console.log("Removed item with id",id,"from menuArray");
 	}
+
+
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
 	//you can use the filter argument to filter out the dish by name or ingredient (use for search)
@@ -364,5 +373,4 @@ var DinnerModel = function() {
 			}]
 		}
 	];
-
 }
