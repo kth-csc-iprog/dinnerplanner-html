@@ -62,6 +62,13 @@
 #dishdetailView{
     margin:0px;
 }
+
+.button{
+    color:#000;
+    background: #fff;
+    text-align: right;
+}
+}
 /*
     DEMO STYLE
 */
@@ -216,6 +223,7 @@ ul.CTAs a {
 a.download {
     background: #fff;
     color: #7386D5;
+    text-align: right;
 }
 
 a.article, a.article:hover {
