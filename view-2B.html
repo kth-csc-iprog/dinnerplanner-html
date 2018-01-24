@@ -20,13 +20,13 @@
 		<!-- <div class="jumbotron"><h1>Dinner Planner</h1> </div>
 		<div class="container-fluid"> -->
 			<div class="row">
-				<div class="col-lg-3 col-sm-4 blog-sidebar">
+				<div class="col-lg-2 col-md-2 col-sm-2 blog-sidebar hidden-xs">
           <div class="sidebar-module sidebar-module-inset">
             <h4>My Dinner</h4>
             <form class="form-inline">
             	People: <span id="numberOfGuests"></span>
             	<input type="number" min="1" id="numberOfGuests" name="numberOfGuests">
-			</form>
+			      </form>
           </div>
           <div class="sidebar-module">
             <table>
@@ -42,8 +42,66 @@
         </div><!-- /.blog-sidebar -->
 			<!-- </div>
 		</div> -->
-
-<div class="col-lg-3 col-sm-4">
+<div class="row">
+  <div class="col-md-10">
+    <h2>Add another dish</h2>
+      
+      <form class="form-inline">
+          <!-- <label for="keywords">Enter keywords</label> -->
+        <input class="form-control" type="text" id="keywords" placeholder="Enter key words">
+          <select class="form-control">
+            <option>Main Course</option>
+            <option>Side Dish</option>
+            <option>Dessert</option>
+            <option>Appetizer</option>
+          </select>
+          <button class="form-control btn btn-default">Search</button>
+      </form>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-2 col-xs-12">
+      <a href="#" class="thumbnail">
+        <img class="center-crop img-responsive" src="images/icecream.jpg" alt="...">
+        <div class="caption">
+          <h4>Icecream</h4>
+        </div>
+      </a>
+  </div>
+  <div class="col-sm-2 col-xs-12">
+      <a href="#" class="thumbnail">
+        <img class="center-crop img-responsive bild2" src="images/bakedbrie.jpg" alt="...">
+        <div class="caption">
+          <h4>Bakedbrie</h4>
+        </div>
+      </a>
+  </div>
+  <div class="col-sm-2 col-xs-12">
+      <a href="#" class="thumbnail">
+        <img class="center-crop img-responsive" src="images/meatballs.jpg" alt="...">
+        <div class="caption">
+          <h4>Meatballs</h4>
+        </div>
+      </a>
+  </div>
+  <div class="col-sm-2 col-xs-12">
+      <a href="#" class="thumbnail">
+        <img class="center-crop img-responsive" src="images/sourdough.jpg" alt="...">
+        <div class="caption">
+          <h4>Sourdough</h4>
+        </div>
+      </a>
+  </div>
+  <div class="col-sm-2 col-xs-12">
+      <a href="#" class="thumbnail">
+        <img class="center-crop img-responsive" src="images/toast.jpg" alt="...">
+        <div class="caption">
+          <h4>Toast</h4>
+        </div>
+      </a>
+  </div>
+</div> <!--row-->
+<!--<div class="col-lg-3 col-sm-4">
     <div class="thumbnail">
       <img class="center-crop" src="https://images.unsplash.com/photo-1503022932596-500eb8cca2d8?ixlib=rb-0.3.5&s=079403628f8823de69c3aa1485f79f97&auto=format&fit=crop&w=1000&q=80" alt="...">
       <div class="caption">
@@ -75,7 +133,7 @@
 	</div>
 
 
-
+-->
 
 <!-- jQuery CDN -->
         <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>

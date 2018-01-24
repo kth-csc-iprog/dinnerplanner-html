@@ -53,3 +53,14 @@ table {
 .sidebar-module-inset ol:last-child {
   margin-bottom: 0;
 }
+
+form{
+  margin-bottom: 10px;
+}
+input#numberOfGuests{
+  width: 40px;
+}
+img{
+  width: 100%;
+
+}
