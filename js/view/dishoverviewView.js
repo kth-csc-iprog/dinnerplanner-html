@@ -8,7 +8,7 @@ var DishOverviewView = function (container, model) {
 	dinnerAttendance.append(attendance);
 
 	for(var i = 1; i < 4; i++ ){
-		chosenDishes.append("'<img id='icecream.jpg' src=/images/" + model.getDish(i).image +">'<p>" + model.getDish(i).name + "</p>");
+		chosenDishes.append("<div class='col-xs-2'><img src=/images/" +model.getDish(i).image +"><p>" + model.getDish(i).name + "</p></img></div>");
 
 	}
 
