@@ -19,6 +19,12 @@ var DinnerModel = function() {
 	//Returns the dish that is on the menu for selected type
 	this.getSelectedDish = function(type) {
 		//TODO Lab 1
+    for (var i = 0; i < this.menu.length; i++) {
+      var menuDish = this.getDish(this.menu[i])
+      if (menuDish.type == type) {
+        return menuDish.name;
+      }
+    }
 
 
 	}
@@ -34,7 +40,7 @@ var DinnerModel = function() {
 
   var menuDishes = "";
   for (var i = 0; i < this.menu.length; i++) {
-    menuDishes = menuDishes + this.getDish(this.menu[i]).name + "<br>";
+    var menuDishes = menuDishes + this.getDish(this.menu[i]).name + "<br>";
   }
   return menuDishes
 	}
@@ -45,7 +51,7 @@ var DinnerModel = function() {
 		//TODO Lab 1
     for (var i = 0; i < this.menu.length; i++) {
       var dish = this.getDish(this.menu[i]);
-      ingredients = ingredients + dish.name + ": ";
+      var ingredients = ingredients + dish.name + ": ";
       for (var j = 0; j < dish.ingredients.length; j++) {
         ingredients = ingredients + dish.ingredients[j].name + ", ";
       }
