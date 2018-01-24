@@ -21,7 +21,7 @@
  </head>
 
  <body>
-    <div class="container-fluid" >
+    <div class="container-fluid" id="guestcountView" >
 
     <!-- Headline -->
     <div class ="row">
@@ -42,14 +42,14 @@
 
 
       <!-- Sidebar -->
-      <div class="wrapper">
+      <div class="wrapper" >
             <!-- Sidebar Holder -->
             <nav id="sidebar">
                 <div class="sidebar-header">
                     <h3>my Dinner</h3>
                 </div>
 
-                <div class="plusminus" id="guestcountView">
+                <div class="plusminus" >
 
                     <div class="p2">Number of guests: <strong><span id="numberOfGuests"></span></strong></div>
 
@@ -58,8 +58,13 @@
                       <button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
                 </div>
 
+                <!-- !: Adding dish to sidebar menu -->
+                <ul class="download">
+                    <button class="button">Lasagna</button><!-- Add dishes chosen by the user -->
+                </ul> 
+
                 <ul class="list-unstyled CTAs">
-                    <li><a class="download" href="dinner-overview.html">Confirm Dinner</a></li>
+                    <li><a type="button" class="btn btn-default" href="dinner-overview.html">Confirm Dinner</a></li>
                 </ul>
             </nav>
 
@@ -104,17 +109,17 @@
                     </a>
                   </div>  
                 </div>
-              </div>  
-
-              <!-- <img src="images/meatballs.jpg" alt="Meatballs">
+                  <img src="images/meatballs.jpg" alt="Meatballs">
               <img src="images/sourdough.jpg" alt="Sourdough">
               <img src="images/toast.jpg" alt="Toast">
 
               <img src="images/meatballs.jpg" alt="Meatballs">
               <img src="images/sourdough.jpg" alt="Sourdough">
               <img src="images/toast.jpg" alt="Toast">
-              <img src="images/icecream.jpg" alt="Icecream">
-              <img src="images/meatballs.jpg" alt="Meatballs"> -->
+              <img src="images/meatballs.jpg" alt="Meatballs">
+              </div>  
+
+            
               <div class="row">
                 <p id="dinnerModelTest"> </p>
               </div>  
