@@ -77,7 +77,7 @@ var GuestCountView = function (container, model) {
 	// dinnerModel test
 	var dinnerModelTest = container.find('#dinnerModelTest');
 
-	dinnerModelTest.html(model.getAllIngredients());
+	dinnerModelTest.html(model.removeDishFromMenu(101));
 
 
 }
