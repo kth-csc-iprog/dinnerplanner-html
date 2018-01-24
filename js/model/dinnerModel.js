@@ -3,8 +3,8 @@ var DinnerModel = function() {
 
 	//TODO Lab 1 implement the data structure that will hold number of guest
 	// and selected dishes for the dinner menu
-  this.guests;
-
+  this.guests = 0;
+  this.menu = [2, 101, 201];
 
 	this.setNumberOfGuests = function(num) {
 		//TODO Lab 1
@@ -25,20 +25,26 @@ var DinnerModel = function() {
 
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
-		//TODO Lab 1
-    var menu = "";
-    for (var i = 0; i < dishes.length; i++) {
-      menu = menu + dishes[i].name + "<br>";
-    }
-  return menu;
+	// 	//TODO Lab 1
+  //   var menu = "";
+  //   for (var i = 0; i < dishes.length; i++) {
+  //     menu = menu + dishes[i].name + "<br>";
+  //   }
+  // return menu;
+
+  var menuDishes = "";
+  for (var i = 0; i < this.menu.length; i++) {
+    menuDishes = menuDishes + this.getDish(this.menu[i]).name + "<br>";
+  }
+  return menuDishes
 	}
 
 	//Returns all ingredients for all the dishes on the menu.
 	this.getAllIngredients = function() {
     var ingredients = "";
 		//TODO Lab 1
-    for (var i = 0; i < dishes.length; i++) {
-      var dish = dishes[i];
+    for (var i = 0; i < this.menu.length; i++) {
+      var dish = this.getDish(this.menu[i]);
       ingredients = ingredients + dish.name + ": ";
       for (var j = 0; j < dish.ingredients.length; j++) {
         ingredients = ingredients + dish.ingredients[j].name + ", ";
@@ -55,10 +61,21 @@ var DinnerModel = function() {
 
 	}
 
+
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
-	this.addDishToMenu = function(id) {
+	this.addDishToMenu = function(id){
 		//TODO Lab 1
+    var newDish = this.getDish(id);
+    for (var i = 0; i < this.menu.length; i++) {
+      var existingDish = this.getDish(this.menu[i]);
+      if (newDish.type == existingDish.type) {
+        this.menu[i] = newDish.id;
+        return this.menu.toString();
+      }
+    }
+    this.menu.push(id);
+    return this.menu.toString();
 	}
 
 	//Removes dish from menu
