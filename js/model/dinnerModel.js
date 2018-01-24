@@ -12,8 +12,6 @@ var DinnerModel = function() {
 	}
 
 	this.getNumberOfGuests = function() {
-		//TODO Lab 1
-
 		return this.numberOfGuests;
 	}
 
@@ -22,6 +20,7 @@ var DinnerModel = function() {
 		for (key in this.menuArray){
 			var dish = this.getDish(this.menuArray[key]);
 			if (dish.type == type){
+				console.log(dish);
 				return dish;
 			}
 		}
