@@ -5,6 +5,7 @@ $(function() {
 	// And create the instance of ExampleView
 	var guestCount = new GuestCountView($("#guestcountView"), model);
 	var dishDetail = new DishDetailView($("#dishdetailView"), model);
+	var dishOverview = new DishOverviewView($("#dishoverviewView"), model);
 	var sideBar = new SideBar($("#sideBar"), model);
 	/**
 	 * IMPORTANT: app.js is the only place where you are allowed to
