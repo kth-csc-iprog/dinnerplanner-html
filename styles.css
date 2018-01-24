@@ -41,6 +41,27 @@
 .row{
     margin-top:20px;
 }
+
+
+.dishview{
+    padding:10px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    font-family: 'Pacifico', cursive;
+    font-size:18px;
+}
+
+#dinnerModelTest{
+    padding:20px;
+}
+
+#dishTitle{
+    font-size: 25px;    
+    font-family: 'Roboto', sans-serif;
+}
+#dishdetailView{
+    margin:0px;
+}
 /*
     DEMO STYLE
 */
@@ -212,6 +233,9 @@ a.article, a.article:hover {
     padding-top: 0px;
     min-height: 100vh;
     transition: all 0.3s;
+    margin-left:0px;
+    margin-right:0px;
+
 }
 
 /* ---------------------------------------------------
