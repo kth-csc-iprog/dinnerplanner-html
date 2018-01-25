@@ -1,4 +1,4 @@
-//DinnerModel Object constructor
+//DinnerModel Object factory function
 const createDinnerModel = () => {
 	
 	// the data structure that will hold number of guest
@@ -40,9 +40,8 @@ const createDinnerModel = () => {
 
 	// Removes dish from menu
 	const removeDishFromMenu = id => {
-		const newMenu = menu.filter(dish => dish.id !== id)
+		const newMenu = state.menu.filter(dish => dish.id !== id)
 		state.menu = newMenu
-		return newMenu
 	}
 
 	// function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")

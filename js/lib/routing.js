@@ -35,10 +35,12 @@ const transitionFromDishSearchViewToPriceSummaryView = () => {
   dishDetailsElement.style.display = 'none'
   menuSummaryElement.style = ''
   priceSummaryElement.style = ''
+  recipeSummaryElement.style.display = 'none'
 }
 
 const transitionFromPriceSummaryViewToDishSearchView = () => {
   menuSummaryElement.style.display = 'none'
+  recipeSummaryElement.style.display = 'none'
   appViewElement.style = ''
   dishSearchElement.style = ''
 }

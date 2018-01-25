@@ -23,15 +23,15 @@
 	// 	model
 	// )
 	
-	// const statusBarView = createStatusBarView(
-	// 	document.getElementById('statusBar'),
-	// 	model
-	// )
+	const statusBarView = createStatusBarView(
+		document.getElementById('statusBar'),
+		model
+	)
 
-	// const priceSummaryView = createPriceSummaryView(
-	// 	document.getElementById('priceSummary'),
-	// 	model
-	// )
+	const priceSummaryView = createPriceSummaryView(
+		document.getElementById('priceSummary'),
+		model
+	)
 
 	// const recipeSummaryView = createRecipeSummaryView(
 	// 	document.getElementById('recipeSummaryView'),

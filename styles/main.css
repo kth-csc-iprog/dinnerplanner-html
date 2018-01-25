@@ -480,7 +480,9 @@ p {
   }
 
   #appView {
-    grid-template-areas: "sidebarView" "sectionView";
+    grid-template-areas: 
+      "sidebarView" 
+      "sectionView";
     grid-template-columns: none;
   }
 
