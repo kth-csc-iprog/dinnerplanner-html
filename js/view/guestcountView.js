@@ -91,10 +91,12 @@ var GuestCountView = function (container, model) {
 	model.removeDishFromMenu(100)
 	displayMethods += "Menu after removed: " + model.getFullMenu() + "<br>";
 
+	var dinnerPrice = container.find('#dinnerPrice');
+	dinnerPrice.append("Price:<strong>" + model.getTotalMenuPrice() + "</strong> €");
 
 
 
-
+	// addedDishes.append(model.getDish(1).name);
 
 
 

@@ -7,7 +7,6 @@ $(function() {
 	var dishDetail = new DishDetailView($("#dishdetailView"), model);
 	var dishOverview = new DishOverviewView($("#dishoverviewView"), model);
 	var printoutView = new PrintoutView($("#printoutView"), model);
-	var sideBar = new SideBar($("#sideBar"), model);
 	/**
 	 * IMPORTANT: app.js is the only place where you are allowed to
 	 * use the $('someSelector') to search for elements in the whole HTML.
