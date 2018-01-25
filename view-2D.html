@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>View2 update 2</title>
+
+	 <!-- Our Custom CSS -->
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="style2D.css">
+</head>
+<body>
+
+
+	<div class="container-fluid">
+		<div class="row header jumbotron">
+			<div class="col-xs-12">
+				<h1>Dinner Planner</h1>
+			</div>
+		</div>
+		<!-- <div class="jumbotron"><h1>Dinner Planner</h1> </div>
+		<div class="container-fluid"> -->
+			<div class="row">
+				<div class="col-sm-3 col-xs-12 sidebar">
+          <div class="sidebar-module sidebar-module-inset">
+            <h4>My Dinner</h4>
+            <form class="form-inline">
+            	People: <span id="numberOfGuests"></span>
+            	<input type="number" min="1" id="numberOfGuests" name="numberOfGuests">
+			</form>
+          </div>
+          <div class="sidebar-module">
+            <table class="table">
+              <thead>
+                <th>Dish Name</th>
+                <th>Cost</th>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Lasagne</td>
+                  <td>77.20</td>
+                </tr>
+              </tbody>
+            </table>
+            <table>
+              <tr class="sum">
+                <td>SEK</td>
+                <td>0.00</td>
+              </tr>
+            </table>
+          </div>
+          <div class="sidebar-module">
+            <button class="btn btn-default">Confirm Dinner</button>
+          </div>
+        </div><!-- /.sidebar -->
+			<!-- </div>
+		</div> -->
+
+
+    <div class="col-md-9">
+      <div class="row">
+
+        <div class="col-lg-12">
+          <h2>Find a dish</h2>
+        
+        <!-- Väljare av rätt -->
+        <form class="form-inline">
+          <!-- <label for="keywords">Enter keywords</label> -->
+          <input class="form-control" type="text" id="keywords" placeholder="Enter key words">
+          <select class="form-control">
+            <option>Main Course</option>
+            <option>Side Dish</option>
+            <option>Dessert</option>
+            <option>Appetizer</option>
+          </select>
+          <button class="form-control btn btn-default">Search</button>
+        </div>
+        </form>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-3 col-sm-6">
+    <a href="#" class="thumbnail">
+      <img src="images/sourdough.jpg" alt="...">
+      <div class="caption">
+        <h3>Dish 1</h3>
+      </div>
+    </a>
+  </div>
+
+  <div class="col-lg-3 col-sm-6">
+    <a href="#" class="thumbnail">
+      <img src="images/toast.jpg" alt="...">
+      <div class="caption">
+        <h3>Dish 1</h3>
+      </div>
+    </a>
+  </div>
+  
+  <div class="col-lg-3 col-sm-6">
+    <a href="#" class="thumbnail">
+      <img src="images/bakedbrie.jpg" alt="...">
+      <div class="caption">
+        <h3>Dish 1</h3>
+      </div>
+    </a>
+  </div>
+
+  <div class="col-lg-3 col-sm-6">
+    <a href="#" class="thumbnail">
+      <img src="https://images.unsplash.com/photo-1503022932596-500eb8cca2d8?ixlib=rb-0.3.5&s=079403628f8823de69c3aa1485f79f97&auto=format&fit=crop&w=1000&q=80" alt="...">
+      <div class="caption">
+        <h3>Dish 1</h3>
+      </div>
+    </a>
+  </div>
+      </div>
+    </div>
+	</div>
+
+
+
+
+<!-- jQuery CDN -->
+        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+        <!-- Bootstrap Js CDN -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <!-- Custom Scroller Js CDN -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+
+</body>
+</html>
