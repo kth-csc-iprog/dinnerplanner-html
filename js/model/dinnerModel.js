@@ -4,8 +4,8 @@ var DinnerModel = function() {
 	//TODO Lab 1 implement the data structure that will hold number of guest
 	// and selected dishes for the dinner menu
 
-	var this.numberOfGuests = 4;
-	var this.menu = [101, 2, 201]
+	this.numberOfGuests = 2;
+	this.menu = [101, 2, 201]
 
 
 	this.setNumberOfGuests = function(num) {
@@ -22,9 +22,8 @@ var DinnerModel = function() {
 	this.getSelectedDish = function(type) {
 		for (dish in menu){
 			for(dishId in dishes){
-				if(dishes.[dishId].id === dish) && (dishes.[dishId].type === type){
+				if(dishes.id === dish && dishes.type === type){
 					return dishes[dishId].name;
-				}
 				}
 			}
 		}
@@ -41,7 +40,7 @@ var DinnerModel = function() {
 
 	//Returns all ingredients for all the dishes on the menu.
 	this.getAllIngredients = function() {
-		var allIngredients = ();
+		var allIngredients = [];
 		for (dish in menu) {
 			var ings = [];
 			ings.push(this.getDish(dish).ingredients)
