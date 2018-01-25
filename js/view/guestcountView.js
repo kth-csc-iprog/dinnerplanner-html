@@ -94,7 +94,18 @@ var GuestCountView = function (container, model) {
 	var dinnerPrice = container.find('#dinnerPrice');
 	dinnerPrice.append("Price:<strong>" + model.getTotalMenuPrice() + "</strong> €");
 
+	
+
 	// addedDishes.append(model.getDish(1).name);
+
+
+
+
+
+
+
+
+
 	dinnerModelTest.html(displayMethods);
 
 
