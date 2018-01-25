@@ -345,7 +345,7 @@ var DinnerModel = function() {
 		'name':'Chocolat Ice cream',
 		'type':'dessert',
 		'image':'icecream.jpg',
-		'description':"Here is how you make it... Lore ipsum...",
+		'description':"Combine the cream and coffee in a medium, heavy saucepan. Bring to a gentle boil over medium heat to dissolve the coffee. Remove from heat and strain the mixture into the bowl of your mixer. Cool in fridge. Meanwhile, whisk together sweetened condensed milk and chocolate ice cream topping in large bowl. Set aside.When chilled, beat the cream to stiff peaks. Fold into sweetened condensed milk mixture. Pour into a 2-quart container and cover. Store in freezer. After 1 hour, remove from freezer and swirl on the Chocolate Fudge Magic Shell. Stir gently once or twice. Return to freezer for another hour, then remove and gently stir, breaking up the fudge shell. Add more if desired, and repeat 2-3 times as desired.",
 		'ingredients':[{
 			'name':'ice cream',
 			'quantity':100,
