@@ -5,7 +5,7 @@ var DinnerModel = function() {
 	// and selected dishes for the dinner menu
 
 	this.numberOfGuests = 2;
-	this.menu = [101, 2, 201]
+	this.menu = [1, 100, 201]
 
 
 	this.setNumberOfGuests = function(num) {
@@ -32,8 +32,8 @@ var DinnerModel = function() {
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
 		var fullMenu = [];
-		for (dishId in menu){
-			fullMenu.push(this.getDish(dish));
+		for (dishId in this.menu){
+			fullMenu.push(this.getDish(this.menu[dishId]));
 			}
 			return fullMenu;
 	}

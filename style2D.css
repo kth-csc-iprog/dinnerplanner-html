@@ -62,7 +62,6 @@ table {
   text-align: right;
 }
 
-.dish > img {
-  max-height: 200px;
+#imgDish{
+  width: 90%;
 }
-

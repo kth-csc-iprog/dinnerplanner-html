@@ -6,6 +6,8 @@ $(function() {
 	// And create the instance of ExampleView
 	var sideView = new SideView($("#sideView"), model);
 	var mainPic = new MainPic($("#mainPic"), model);
+	var mainView3 = new MainView3($("#mainView3"), model);
+
 
 	/**
 	 * IMPORTANT: app.js is the only place where you are allowed to
