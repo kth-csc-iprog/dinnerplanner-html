@@ -21,13 +21,15 @@ var MainView3 = function (container, model) {
 		
 	var Table = container.find("#table");
 	var string = '<table class="table"><thead><th>mängd</th><th>sak</th><th>SEK</th><th>pris</th></thead>';
-        
+
+    var sum = 0;
+
 	for(i in Dish.ingredients){
 		string += '<tr><td>' + Dish.ingredients[i].quantity + ' ' + Dish.ingredients[i].unit + '</td><td>' + Dish.ingredients[i].name + '</td><td>SEK</td><td>' + Dish.ingredients[i].price + '</td></tr>';
-            
 	}
-	string += '<tr><td><button class="btn btn-default">Add to menu</button></td><td></td><td>SEK</td><td>77.20 </td></tr></table>';
-	Table.html(string);
 
+	string += '<tr><td><button class="btn btn-default">Add to menu</button></td><td></td><td>SEK</td><td>'+ sum + '</td></tr></table>';
+	Table.html(string);
+	
 }
  

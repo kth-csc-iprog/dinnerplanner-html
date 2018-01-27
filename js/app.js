@@ -7,6 +7,8 @@ $(function() {
 	var sideView = new SideView($("#sideView"), model);
 	var mainPic = new MainPic($("#mainPic"), model);
 	var mainView3 = new MainView3($("#mainView3"), model);
+	var mainView5 = new MainView5($("#mainView5"), model);
+
 
 
 	/**

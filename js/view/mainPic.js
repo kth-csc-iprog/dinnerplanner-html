@@ -7,10 +7,12 @@ var MainPic = function (container, model) {
 	var menu = model.getFullMenu(); 
   	var string = '';
   	var picBox = container.find("#template");
+  
 	for(i in menu){
 		string += '<div class="col-md-4 col-sm-6"><a href="#" class="thumbnail"><img src="images/' + model.getDish(menu[i].id).image + ' " ><div class="caption"><h3>' + model.getDish(menu[i].id).name + '</h3></div></a></div>';
 	}
-	
+
 	picBox.html(string);
+
 }
  
