@@ -15,109 +15,8 @@
   </head>
   <body>
     
-
- <!-- FIFTH VIEW -->
-
- <div class="container-fluid" id="fifthView" style="display: none">
-    <div class="row">
-            <div class = "col-sm-12" style="padding: 0">
-                    <div class="jumbotron text-center"  > 
-                         <h1>Dinner planner</h1> 
-                     </div>  
-               </div>       
-    </div>
-    <div class="row">
-        <div class = "col-sm-12 addBorder" style="padding: 0" >
-            <div class ="col-sm-9">
-             <h1>My Dinner: <span id="nGuests"></span> people</h1> 
-            </div>
-            <div class ="col-sm-3" style="padding-top:10px">
-                    <button type="button" class="btn btn-default btn-arrow-left" style="background-color: #c2309e">Return to previous page</button>
-            </div>
-        
-        </div>
-    </div>
-    <div class="row"><!-- one row per dish -->
-        <div class="col-md-3">
-                <img src="images/bakedbrie.jpg" style="width:150px; height: 150px">
-        </div>
-        <div class="col-md-4 bg-primary">
-            <h5>Lasagne</h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </div>
-        <div class="col-md-5 bg-success">
-            <h5>Preperations</h5>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tempor id eu nisl nunc mi ipsum faucibus. Diam vulputate ut pharetra sit amet aliquam id diam. Nisi porta lorem mollis aliquam ut porttitor leo a diam. Placerat duis ultricies lacus sed turpis tincidunt id aliquet. Sollicitudin nibh sit amet commodo nulla facilisi nullam. Amet commodo nulla facilisi nullam vehicula ipsum a. Diam maecenas ultricies mi eget. Elementum tempus egestas sed sed. Sed egestas egestas fringilla phasellus faucibus scelerisque eleifend. Id faucibus nisl tincidunt eget nullam non nisi est.
-
-                Etiam dignissim diam quis enim lobortis. Morbi tincidunt ornare massa eget. Lorem dolor sed viverra ipsum nunc aliquet bibendum. Convallis posuere morbi leo urna molestie at. Penatibus et magnis dis parturient montes nascetur ridiculus mus. </p>                </div>
-    </div>
-</div>
-</div>
-
-
-<!-- Fourth VIEW -->
-
-<div class="container-fluid" id="fourthView" style="display:none">
-<div class="row">
-        <div class = "col-sm-12" style="padding: 0">
-                <div class="jumbotron text-center"  > 
-                     <h1>Dinner planner</h1> 
-                 </div>  
-           </div>       
-</div>
-<div class="row">
-    <div class = "col-sm-12 addBorder" style="padding: 0" >
-        <div class ="col-sm-9">
-         <h1>My Dinner: <span id="nGuests"></span> people</h1> 
-        </div>
-        <div class ="col-sm-3" style="padding-top:10px">
-                <button type="button" class="btn btn-default btn-arrow-left" style="background-color: #c2309e">Return to previous page</button>
-
-        </div>
-    
-    </div>
-</div>
-<div class="row">
-    <!-- my dinner -->
-    <div class="myDinner col-sm-9 bg-primary " style=" border-right: 2px black solid">
-            <div  style="width:200px; float: left; margin-left: 10px;">
-                    <img src="images/bakedbrie.jpg" style="width:200px; height: 200px">
-                    <p> Price X </p>
-                </div>
-                
-                <!-- Image div -->
-                <div style="width:200px; float: left; margin-left: 10px;">
-                    <img src="images/icecream.jpg" style="width:200px; height: 200px">
-                    <p> Price Y </p>
-                </div>
-                
-                <!-- Image div -->
-                <div  style="width:200px; float: left; margin-left: 10px;">
-                    <img src="images/meatballs.jpg" style="width:200px; height: 200px">
-                    <p> Price Z </p>
-                </div>         
-    </div>
-    <!--total-->
-    <div class="totalPrice col-sm-3">
-
-            <div  style="height: 180px;"></div>
-        <p>Total:</br>Price X+Y+Z</p>
-    </div>
-</div>
-<div class ="row">
-    <div class="printButton">
-            <center><button type="button" class="btn btn-primary">Print Full Recipe</button>
-            </center>
-    </div>
-
-</div>
-
-</div>
-</div>
-
-
      <!-- THIRD VIEW ##################################################################################################### -->
-     <div class="container-fluid" id="secondView" style="display: -none"> 
+     <div class="container-fluid" id="secondView" style="display: none"> 
          <!-- header-->
          <div class="row">
             <div class = "col-sm-12" style="padding: 0">
@@ -130,7 +29,7 @@
          <!-- Contains the body of the view -->
          <div class="row">
              <!-- left sidebar -->
-              <div class = "col-sm-2 addBorder" id="sideBar">
+             <div class = "col-sm-2 addBorder">
                   <h1>My Dinner</h1>
                   <p>Number Of Guests: <span id="nGuests"></span>
                     <div>
@@ -152,22 +51,16 @@
                     </div>
                   
                   
-                    <div id="dish_cost">
+                    <div id="DishAndCost">
                         <!-- left div -->
-                        <!--
-                        <div class = "row">
-                            <div class="col-md-6 noPadding" style="float:left">
-                                <p style="text-align:left">French toast</p>                    
-                            </div>
-                        -->
-                            <!-- right div -->  
-                        <!--
-                            <div class="col-md-6">
-                                <p style="text-align:right">SEK 0.00</p>
-                            </div>                            
+                        <div class="col-md-6 noPadding" style="float:left">
+                            <p style="text-align:left">DishA</p>                    
                         </div>
-                        -->
-                        
+
+                        <!-- right div -->                
+                        <div class="col-md-6">
+                            <p style="text-align:right">SEK 0.00</p>
+                        </div>                        
                     </div>
                     
                     <div class="col-md-12 text-center" id="confirmDinnerButton">
@@ -178,16 +71,16 @@
                  
              
               <!-- right side (Find a dish + food images) -->
-              <div class = "col-sm-10  addBorder" id="dishDetails">
+              <div class = "col-sm-10  addBorder">
 
                 <div class = "container-fluid"> 
                  <div class="row">
                      <div class = "col-sm-5 "  >
-                      <h1 id="dish_name"> Dish A</h1>
+                      <h1> Dish A</h1>
                       
                       <img src="images/bakedbrie.jpg" style="width:100%; height: 400px">
                       
-                      <p class="textJustifyCenter" style="width:100%;" id="dishDescription"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                      <p class="textJustifyCenter" style="width:100%;"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
                       
                       <div class="col-md-12 text-left" style="margin-bottom: 20px; margin-top: 20px">
                           <button type="button" class="btn btn-warning">Back to search</button>               
@@ -197,12 +90,11 @@
                   
                   <!-- Ingredients Table -->
                   <div class = "col-sm-7 yellow addBorder"  >
-                      <h1 id="tableTitle"> Ingredients for X people</h1>
+                      <h1> Ingredients for X people</h1>
                       <hr style="border-color: black">
                       
-                      <div class = "container-fluid" id="tableItens">
+                      <div class = "container-fluid">
                           <!-- Row for each dish -->
-                          <!--
                           <div class= "row" >
                               <div class = "col-xs-3 text-right"  >
                                   <p>750 g</p>
@@ -220,10 +112,9 @@
                                   <p>0.20</p>
                               </div>                              
                           </div>    
-                          -->
+                          
                           
                           <!-- Row for each dish -->
-                          <!--
                           <div class= "row" >
                               <div class = "col-xs-3 text-right"  >
                                   <p>250 g</p>
@@ -241,7 +132,7 @@
                                   <p>9.27</p>
                               </div>                              
                           </div>                               
-                            -->
+    
                           <hr style="border-color: black">
                           
                           <!-- Row for each dish -->
@@ -253,7 +144,7 @@
                             </div>
                               
                             <div class = "col-xs-6 text-right" > 
-                                <p id="totalPrice">720 SEK </p>
+                                <p>720 SEK </p>
                             </div>
                           </div>                            
                       </div>
@@ -263,7 +154,7 @@
                       
                  <div class="row">
                       <h1> Preparation </h1>
-                      <p class="" style="width:100%;" id="preparation"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>                     
+                      <p class="" style="width:100%;"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>                     
                  </div>                      
                 </div>
               </div> <!-- END of right side (Find a dish + food images) -->
@@ -276,7 +167,7 @@
       
       
      <!-- SECOND SCREEN  ##################################################################################################### -->
-      <div class="container-fluid" id="secondView" style="display: none">  
+      <div class="container-fluid" id="secondView" style="display: -none">  
           <!-- header-->
           <div class="row">
               <div class = "col-sm-12" style="padding: 0">
@@ -319,6 +210,7 @@
                                 <p style="text-align:left">French toast</p>                    
                             </div>
                         -->
+
                             <!-- right div -->  
                         <!--
                             <div class="col-md-6">
@@ -408,7 +300,7 @@
       
       
       
-      
+     <!-- FIRST VIEW ##################################################################################################### -->      
       <div class="container-fluid" id="FirstView"  style="display: none">
           <!-- header-->
           <div class="row">
@@ -431,6 +323,7 @@
             </div>
           <div class="col-sm-3"></div>
       </div>
+     <!-- END OF FIRST VIEW ##################################################################################################### -->      
       
       
       
@@ -445,8 +338,6 @@
 	<script src="js/model/dinnerModel.js"></script>
 	<script src="js/view/exampleView.js"></script>
 	<!-- TODO: Here you should include JS code for your other views -->
-	<script src="js/view/sideBarView.js"></script>   
-	<script src="js/view/dishDetailsView.js"></script>      
-
+	<script src="js/view/sideBarView.js"></script>      
   </body>
 </html>

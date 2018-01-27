@@ -13,7 +13,7 @@
  * @param {Object} model - the reference to the Dinner Model
  */ 
 var ExampleView = function (container, model) {
-	
+    
 	/**
 	 * We use the @method find() on @var {jQuery object} container to look for various elements 
 	 * inside the view in orther to use them later on. For instance:
@@ -52,7 +52,7 @@ var ExampleView = function (container, model) {
 	 * Here we use @var {jQuery object} numberOfGuests that is a reference to <span>
 	 * in our view to dynamically set it's value to "Hello World".
 	 */
-	numberOfGuests.html(model.getNumberOfGuests);
+	numberOfGuests.html("Hello World");
 	
 }
  

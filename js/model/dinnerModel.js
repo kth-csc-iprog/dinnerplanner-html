@@ -1,59 +1,163 @@
 //DinnerModel Object constructor
-var DinnerModel = function() {
- 
+var DinnerModel = function() 
+{
+    var nGuests;
+    
+    // Just to test our app
+    nGuests = 3;
+    
+    // Array containing the ID of the dishes selected
+    // I'm initializing it with some dishes just to test the app
+    var dishesSelectedID = [1,2];
+    
+    
 	//TODO Lab 1 implement the data structure that will hold number of guest
 	// and selected dishes for the dinner menu
-var nGuest=5;
-var menu=[1, 103 ,202];
 
-	this.setNumberOfGuests = function(num) {
-		nGuest = num;
+	this.setNumberOfGuests = function(num) 
+    {
+        // Just checking if we are not trying to set a negative number by mistake
+        if(num < 0)
+        {
+            nGuests = 0;
+        }
+        else
+        {
+            nGuests = num; 
+        }
 	}
 	
-	this.getNumberOfGuests = function() {
-		return nGuest;
+	this.getNumberOfGuests = function() 
+    {
+        return (nGuests);
 	}
 
-	//getDish(1).type
 	//Returns the dish that is on the menu for selected type 
-	this.getSelectedDish = function(type) {
-		if( type == "starter"){
-			return menu[0];
-		}else if (type )
-		return ;
+	this.getSelectedDish = function(type) 
+    {
+        // Go through every dish selected
+        for(var i=0; i<dishesSelectedID.length; i++)
+        {
+            if(dishesSelectedID[i].type == type)
+            {
+                return this.getDish(dishesSelectedID[i]);
+            }
+        }
+        
+        // If no dish of that type was found, let's return -1.
+        return (-1);
 	}
 
+    // Returns all dishes selected
+    this.getSelectedDishes = function()
+    {
+        // Array that is gonna contain all the dishes selected
+		var allDishesOnTheMenu = [];
+        
+        // Go through every dish selected
+        for(var i=0; i<dishesSelectedID.length; i++)
+        {
+            allDishesOnTheMenu.push(this.getDish(dishesSelectedID[i]));
+        }
+        
+        return allDishesOnTheMenu;        
+    }
+    
 	//Returns all the dishes on the menu.
-	this.getFullMenu = function() {
-		//TODO Lab 1
+	this.getFullMenu = function() 
+    {
+        return this.getAllDishes();
 	}
 
+    
 	//Returns all ingredients for all the dishes on the menu.
-	this.getAllIngredients = function() {
-		//TODO Lab 1
+	this.getAllIngredients = function() 
+    {
+		var allIngredients = [];
+    
+        // Go through every dish selected
+        for(var i=0; i<dishesSelectedID.length; i++)
+        {
+            allIngredients.push(this.getDish(dishesSelectedID[i]).ingredients);
+        }
+ 
+        return allIngredients;
 	}
 
+    
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
-	this.getTotalMenuPrice = function() {
-		//TODO Lab 1
+	this.getTotalMenuPrice = function() 
+    {
+        var totalPrice = 0;
+    
+        var ingredients = this.getAllIngredients();
+        
+        // Each dish has a list of ingredients.
+        // 'ingredients' is a list of the list of ingredients for the dishes selected
+        for(var i=0; i< ingredients.length; i++)
+        {
+            for(var m=0; m<ingredients[i]; m++)
+            {
+                totalPrice += ingredients[i][m].price;
+            }
+        }
+            
+        return totalPrice*nGuests;   
 	}
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
-	this.addDishToMenu = function(id) {
-		//TODO Lab 1 
+	this.addDishToMenu = function(id) 
+    {
+        // Go through every dish selected
+        for(var i=0; i<dishesSelectedID.length; i++)
+        {
+            // If there's already a dish of the type we are trying to add, we should remove it
+            if( dishesSelectedID[i].type == this.getDish(id).type  )
+            {
+                // removing the dish of the same type
+                this.removeDishFromMenu(dishesSelectedID[i]);
+                
+                // Adding the new dish to our dishesSelectedID
+                dishesSelectedID.push(id);
+            }
+        }
 	}
 
 	//Removes dish from menu
-	this.removeDishFromMenu = function(id) {
-		//TODO Lab 1
+	this.removeDishFromMenu = function(id) 
+    {
+        // Go through every dish selected
+        for(var i=0; i<dishesSelectedID.length; i++)
+        {
+            if( dishesSelectedID[i] == id )
+            {
+                dishesSelectedID[i].splice(i,1);
+            }
+        }
 	}
+    
+    //Get the price of the dish
+	this.getDishPrice = function(id) 
+    {
+        var d = this.getDish(id); 
+        
+        var price = 0;
+        for(var i=0; i< d.ingredients.length; i++)
+        {
+            price += d.ingredients[i].price;
+        }
+        
+        return price
+	}    
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
 	//you can use the filter argument to filter out the dish by name or ingredient (use for search)
 	//if you don't pass any filter all the dishes will be returned
-	this.getAllDishes = function (type,filter) {
-	  return dishes.filter(function(dish) {
+	this.getAllDishes = function (type,filter) 
+    {
+	  return dishes.filter(function(dish) 
+      {
 		var found = true;
 		if(filter){
 			found = false;
