@@ -19,6 +19,7 @@
 		</div>
 		<!-- <div class="jumbotron"><h1>Dinner Planner</h1> </div>
 		<div class="container-fluid"> -->
+<<<<<<< HEAD
 			<div class="row" id="sideView">
 				<div class="col-md-3 col-xs-12 sidebar">
           <div class="sidebar-module sidebar-module-inset">
@@ -45,49 +46,76 @@
               <tr class="sum">
                 <td>SEK</td>
                 <td>0.00</td>
+=======
+		<div class="row" >
+			<div class="col-sm-3 col-xs-12 sidebar" id="sideView">
+        <div class="sidebar-module sidebar-module-inset">
+          <h4>My Dinner</h4>
+          <form class="form-inline">
+          	People: <span id="numberOfGuests"></span>
+          	<input type="number" min="1" id="Guests" >
+          </form>
+        </div>
+        <div class="sidebar-module">
+          <table class="table">
+          	<thead>
+          		<th>Dish Name</th>
+          		<th>Cost</th>
+          	</thead>
+            <tbody>
+              <tr>
+                <td>Lasagne</td>
+                <td>77.20</td>
+>>>>>>> origin/master
               </tr>
-            </table>
-          </div>
-          <div class="sidebar-module">
-            <button class="btn btn-default">Confirm Dinner</button>
-          </div>
+            </tbody>
+          </table>
+          <table>
+            <tr class="sum">
+              <td>SEK</td>
+              <td>0.00</td>
+            </tr>
+          </table>
+          <button class="btn btn-default">Confirm Dinner</button>
         </div><!-- /.sidebar -->
+<<<<<<< HEAD
 			<!-- </div>
 		</div> -->
 
 
     <div class="col-lg-9">
+=======
+    </div> <!--col sideview-->
+    <div class="col-md-9">
+>>>>>>> origin/master
       <div class="row">
 
         <div class="col-lg-12">
           <h2>Add another dish</h2>
         
         <!-- Väljare av rätt -->
-        <form class="form-inline">
+          <form class="form-inline">
           <!-- <label for="keywords">Enter keywords</label> -->
-          <input class="form-control" type="text" id="keywords" placeholder="Enter key words">
-          <select class="form-control">
-            <option>Main Course</option>
-            <option>Side Dish</option>
-            <option>Dessert</option>
-            <option>Appetizer</option>
-          </select>
-          <button class="form-control btn btn-default">Search</button>
-        </div>
-        </form>
-        </div>
-      </div>
-
-      <div class="row" id="mainPic">
-        <div id="template" class=" col-md-12" >
-        <!--hämtar data till bild-boxarna i mainPic.js -->
-        </div>
-      </div>
-      
-
-      </div>
+            <input class="form-control" type="text" id="keywords" placeholder="Enter key words">
+            <select class="form-control">
+              <option>Main Course</option>
+              <option>Side Dish</option>
+              <option>Dessert</option>
+              <option>Appetizer</option>
+            </select>
+            <button class="form-control btn btn-default">Search</button>
+          </form>
+        </div> <!--column end-->
+      </div><!--row end-->
+    </div><!--column end-->
+  </div>
+  <div class="row" id="mainPic">
+    <div id="template" class=" col-md-12" >
+    <!--hämtar data till bild-boxarna i mainPic.js -->
     </div>
-	</div>
+  </div>
+      
+	</div> <!--container fluid end-->
 
 
 
@@ -104,6 +132,8 @@
   <script src="js/view/sideView.js"></script>
   <script src="js/view/mainPic.js"></script>
   <script src="js/view/mainView3.js"></script>
+  <script src="js/view/mainView5.js"></script>
+
 
   <script src="js/app.js"></script>
 
