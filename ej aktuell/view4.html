@@ -10,16 +10,46 @@
 </head>
 <body>
 
-	<div class="container-fluid">
-    <!-- Header -->
-		<div class="row-fluid">
-			<div class="col-xs-12 jumbotron">
-				<h1>Dinner Planner</h1>
-			</div>
-		</div>
 
-    <!-- Row 1/Col1 Sidebar och väljare -->
-		<div class="row-fluid" >
+	<div class="container-fluid">
+		<div class="row header jumbotron">
+			<!-- <div class="col-xs-12"> -->
+				<h1>Dinner Planner</h1>
+			<!-- </div> -->
+		</div>
+		<!-- <div class="jumbotron"><h1>Dinner Planner</h1> </div>
+		<div class="container-fluid"> -->
+
+			<!-- <div class="row" id="sideView">
+				<div class="col-md-3 col-xs-12 sidebar">
+
+          <div class="sidebar-module sidebar-module-inset">
+            <h4>My Dinner</h4>
+            <form class="form-inline">
+            	People: <span id="numberOfGuests"></span>
+            	<input type="number" min="1" id="Guests" >
+            </form>
+          </div>
+
+          <div class="sidebar-module">
+            <table class="table">
+            	<thead>
+            		<th>Dish Name</th>
+            		<th>Cost</th>
+            	</thead>
+              <tbody>
+                <tr>
+                  <td>Lasagne</td>
+                  <td>77.20</td>
+                </tr>
+              </tbody>
+            </table>
+            <table>
+              <tr class="sum">
+                <td>SEK</td>
+                <td>0.00</td> -->
+
+		<div class="row" >
 			<div class="col-sm-3 col-xs-12 sidebar" id="sideView">
 
         <div class="sidebar-module sidebar-module-inset">
@@ -30,7 +60,6 @@
           </form>
         </div>
 
-        <!-- Module 2: Cost table -->
         <div class="sidebar-module">
           <table class="table">
           	<thead>
@@ -50,19 +79,19 @@
               <td>SEK</td>
               <td>0.00</td>
             </tr>
-          </table> 
+          </table>
 
-          <!-- Button -->
           <button class="btn btn-default">Confirm Dinner</button>  
-        </div><!-- Module 2 table end -->   
-      </div> <!-- Sidebar col end -->
+        </div><!-- /.sidebar -->
+    <!-- <div class="col-lg-9">
+    </div> </col> sideview-->
+  </div>
 
-    <!-- Row1/Col2 Väljare + rätter-->
     <div class="col-md-9">
 
       <div class="row">
 
-        <div class="col-md-12">
+        <div class="col-lg-12">
           <h2>Add another dish</h2>
         
         <!-- Väljare av rätt -->
@@ -85,8 +114,11 @@
           <!--hämtar data till bild-boxarna i mainPic.js --> 
         </div>
       </div>
-      </div><!--column end-->
-    </div> <!-- Row 1 end -->
+
+    </div><!--column end-->
+
+  
+    </div>
 	</div> <!--container fluid end-->
 
 
