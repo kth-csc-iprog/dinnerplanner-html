@@ -8,7 +8,7 @@ var DinnerModel = function()
     
     // Array containing the ID of the dishes selected
     // I'm initializing it with some dishes just to test the app
-    var dishesSelectedID = [1,2];
+    var dishesSelectedID = [2,103,202];
     
     
 	//TODO Lab 1 implement the data structure that will hold number of guest
@@ -171,7 +171,12 @@ var DinnerModel = function()
 				found = true;
 			}
 		}
-	  	return dish.type == type && found;
+		if (type) {
+			return dish.type == type && found;
+		}
+		else {
+			return found;
+		}
 	  });	
 	}
 

@@ -8,9 +8,10 @@ $(function()
 
     //
     var sideBarView = new SideBarView($("#sideBar"), model);
-    
+    var dishItemView =new DishItemView($("#dishItems"), model);
     var dishDetailsView = new DishDetailsView($("#dishDetails"), model);
-    
+	var searchView = new SearchView($("#searchField"), model);
+
 
     
     
