@@ -68,3 +68,6 @@ table {
 .knapp{
   margin-top: 20px
 }
+.pull-right{
+  text-align: right;
+}
