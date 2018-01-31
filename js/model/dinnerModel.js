@@ -21,7 +21,7 @@ var DinnerModel = function() {
 		//TODO Lab 1
     for (var i = 0; i < menu.length; i++) {
       var menuDish = this.getDish(menu[i])
-      if (menuDish.type == type) {
+      if (menuDish.type === type) {
         return menuDish.name;
       }
     }
@@ -40,17 +40,14 @@ var DinnerModel = function() {
 
 	//Returns all ingredients for all the dishes on the menu.
 	this.getAllIngredients = function() {
-    var ingredients = "";
+    var ingredients = [];
 		//TODO Lab 1
     for (var i = 0; i < menu.length; i++) {
       var dish = this.getDish(menu[i]);
-      var ingredients = ingredients + dish.name + ": ";
       for (var j = 0; j < dish.ingredients.length; j++) {
-        ingredients = ingredients + dish.ingredients[j].name + ", ";
+        ingredients.push(dish.ingredients[j].name);
       }
-    ingredients+="<br>"
     }
-
   return ingredients;
 	}
 
@@ -76,7 +73,7 @@ var DinnerModel = function() {
     var newDish = this.getDish(id);
     for (var i = 0; i < menu.length; i++) {
       var existingDish = this.getDish(menu[i]);
-      if (newDish.type == existingDish.type) {
+      if (newDish.type === existingDish.type) {
         menu[i] = newDish.id;
         return;
       }
@@ -89,7 +86,7 @@ var DinnerModel = function() {
 	this.removeDishFromMenu = function(id) {
 		//TODO Lab 1
     for (var i = 0; i < menu.length; i++) {
-      if(menu[i] == id){
+      if(menu[i] === id){
         menu.splice(i, 1);
       }
     }
@@ -122,7 +119,7 @@ var DinnerModel = function() {
 	//function that returns a dish of specific ID
 	this.getDish = function (id) {
 	  for(key in dishes){
-			if(dishes[key].id == id) {
+			if(dishes[key].id === id) {
 				return dishes[key];
 			}
 		}
