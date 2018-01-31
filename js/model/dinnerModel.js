@@ -3,24 +3,24 @@ var DinnerModel = function() {
 
 	//TODO Lab 1 implement the data structure that will hold number of guest
 	// and selected dishes for the dinner menu
-  this.guests = 0;
-  this.menu = [];
+  var guests = 0;
+  var menu = [];
 
 	this.setNumberOfGuests = function(num) {
 		//TODO Lab 1
-    this.guests = num;
+    guests = num;
 	}
 
 	this.getNumberOfGuests = function() {
 		//TODO Lab 1
-    return this.guests;
+    return guests;
 	}
 
 	//Returns the dish that is on the menu for selected type
 	this.getSelectedDish = function(type) {
 		//TODO Lab 1
-    for (var i = 0; i < this.menu.length; i++) {
-      var menuDish = this.getDish(this.menu[i])
+    for (var i = 0; i < menu.length; i++) {
+      var menuDish = this.getDish(menu[i])
       if (menuDish.type == type) {
         return menuDish.name;
       }
@@ -31,8 +31,8 @@ var DinnerModel = function() {
 	this.getFullMenu = function() {
 
   var menuDishes = "";
-  for (var i = 0; i < this.menu.length; i++) {
-    var menuDishes = menuDishes + this.getDish(this.menu[i]).name + ", ";
+  for (var i = 0; i < menu.length; i++) {
+    var menuDishes = menuDishes + this.getDish(menu[i]).name + ", ";
   }
   //change return into list of objects
   return menuDishes;
@@ -42,8 +42,8 @@ var DinnerModel = function() {
 	this.getAllIngredients = function() {
     var ingredients = "";
 		//TODO Lab 1
-    for (var i = 0; i < this.menu.length; i++) {
-      var dish = this.getDish(this.menu[i]);
+    for (var i = 0; i < menu.length; i++) {
+      var dish = this.getDish(menu[i]);
       var ingredients = ingredients + dish.name + ": ";
       for (var j = 0; j < dish.ingredients.length; j++) {
         ingredients = ingredients + dish.ingredients[j].name + ", ";
@@ -58,14 +58,14 @@ var DinnerModel = function() {
 	this.getTotalMenuPrice = function() {
 		//TODO Lab 1
     var price = 0;
-    for (var i = 0; i < this.menu.length; i++) {
-      var dish = this.getDish(this.menu[i]);
+    for (var i = 0; i < menu.length; i++) {
+      var dish = this.getDish(menu[i]);
       for (var j = 0; j < dish.ingredients.length; j++) {
         var ingredient = dish.ingredients[j];
         price+= ingredient.quantity * ingredient.price;
       }
     }
-    return price * this.guests;
+    return price * guests;
 	}
 
 
@@ -74,26 +74,26 @@ var DinnerModel = function() {
 	this.addDishToMenu = function(id){
 		//TODO Lab 1
     var newDish = this.getDish(id);
-    for (var i = 0; i < this.menu.length; i++) {
-      var existingDish = this.getDish(this.menu[i]);
+    for (var i = 0; i < menu.length; i++) {
+      var existingDish = this.getDish(menu[i]);
       if (newDish.type == existingDish.type) {
-        this.menu[i] = newDish.id;
+        menu[i] = newDish.id;
         return;
       }
     }
-    this.menu.push(id);
+    menu.push(id);
     return;
 	}
 
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {
 		//TODO Lab 1
-    for (var i = 0; i < this.menu.length; i++) {
-      if(this.menu[i] == id){
-        this.menu.splice(i, 1);
+    for (var i = 0; i < menu.length; i++) {
+      if(menu[i] == id){
+        menu.splice(i, 1);
       }
     }
-  return this.menu.toString();
+  return menu.toString();
 	}
 
 
