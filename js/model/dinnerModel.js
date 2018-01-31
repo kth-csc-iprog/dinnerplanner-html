@@ -4,7 +4,7 @@ var DinnerModel = function() {
 	//TODO Lab 1 implement the data structure that will hold number of guest
 	// and selected dishes for the dinner menu
 
-	this.numberOfGuests = 2;
+	this.numberOfGuests = 2; // ej this. för då blir det en property som man kan nå utifrån. istället var. 
 	this.menu = [1, 100, 201]
 
 
@@ -19,6 +19,7 @@ var DinnerModel = function() {
 	}
 
 	//Returns the dish that is on the menu for selected type 
+	//borde kolla i dishes istället för att filtrera vilka rätter som visas i overview. 
 	this.getSelectedDish = function(type) {
 		for (dish in menu){
 			for(dishId in dishes){
