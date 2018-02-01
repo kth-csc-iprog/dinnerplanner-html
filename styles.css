@@ -155,6 +155,10 @@ a, a:hover, a:focus {
     border: none;
 }
 
+.navbar-overview{
+    background: #7f7f7f;
+}
+
 .line {
     width: 100%;
     height: 1px;
@@ -281,6 +285,10 @@ a.article, a.article:hover {
 
 }
 
+/*@-ms-viewport{
+  width: device-width;
+}*/
+
 /* ---------------------------------------------------
     MEDIAQUERIES
 ----------------------------------------------------- */
@@ -289,7 +297,7 @@ a.article, a.article:hover {
         margin-left: -250px;
     }
     #sidebar.active {
-        margin-left: 0;
+        margin-left: 0px;
     }
     #sidebarCollapse span {
         display: none;
@@ -300,8 +308,9 @@ a.article, a.article:hover {
     font-size:12px;
     }
     .responsive{
-    width:150px;
+    width:100px;
     }
+
    /* .navbar{
     padding:0px;   
     margin:0px; 
@@ -312,8 +321,8 @@ a.article, a.article:hover {
     }
     .navbar navbar-default{
     height:10px;
-    margin:0px;*/
-    }
+    margin:0px;
+    }*/
 }
 
 /*

@@ -17,9 +17,9 @@ var DishDetailView = function (container, model) {
 		 	+ "</h3>"
 		 	+ "<a href='select-dish.html'><button class='btn btn-danger' type='button'>Add to Menu</button></a>"
 		 	+ "</div></br>"
-			+ "<img src=/images/"
+			+ "<div class='responsive'><img src=/images/"
 		 	+ model.getDish(200).image 
-		 	+"></img>"
+		 	+"></img></div>"
 		 	+"</br></br><p>" + model.getDish(200).description
 		 	+"</p></div>"
 		 	+"<div class='col-xs-6'>"

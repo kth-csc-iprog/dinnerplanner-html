@@ -15,7 +15,7 @@
 
 
 
-var GuestCountView = function (container, model) {
+var DishSearchView = function (container, model) {
 
 	/**
 	 * We use the @method find() on @var {jQuery object} container to look for various elements
@@ -51,6 +51,8 @@ var GuestCountView = function (container, model) {
 	this.plusButton = container.find("#plusGuest");
 	this.minusButton = container.find("#minusGuest");
 
+	var guests = 0;
+
 	var numberOfGuests = container.find('#numberOfGuests');
 	var plusGuest = container.find('#plusGuest');
 	var minusGuest = container.find('#minusGuest');
@@ -58,14 +60,14 @@ var GuestCountView = function (container, model) {
 
 	plusGuest.click(function(){
 		// model.getNumberOfGuests() = model.getNumberOfGuests() + 1;
-		model.getNumberOfGuests ++;
-		numberOfGuests.html(model.getNumberOfGuests);
+		guests = guests + 1;
+		numberOfGuests.html(guests);
 	})
 
 	minusGuest.click(function(){
 		if (guests>0) {
-			model.getNumberOfGuests --;
-			numberOfGuests.html(model.getNumberOfGuests);
+			guests = guests - 1;
+			numberOfGuests.html(guests);
 		}
 	})
 
@@ -93,7 +95,7 @@ var GuestCountView = function (container, model) {
 	// var dinnerPrice = container.find('#dinnerPrice');
 	// dinnerPrice.append("Price:<strong>" + model.getTotalMenuPrice() + "</strong> €");
 
-
+	
 
 	// addedDishes.append(model.getDish(1).name);
 
