@@ -1,8 +1,7 @@
 
  
 var SearchView = function (container, model) {
-	return
+	this.container = container;
 
-	
 }
  

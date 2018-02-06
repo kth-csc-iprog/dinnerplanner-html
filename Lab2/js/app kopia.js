@@ -1,11 +1,11 @@
 // Visa söksidan. 
-/*function showSelectDish() {
+function showSelectDish() {
 	$("#homeView").hide();
 	$("#header").show();
 	$("#sideView").show();	
 	$("#searchView").show();
 	$("#mainPic").show();
-}*/
+}
 
 $(function() {
 	//We instantiate our model
@@ -20,7 +20,6 @@ $(function() {
 	var sideView = new SideView($("#sideView"), model);
 
 	// 3.searchView (inkl maträtterna nedanför)
-	var searchView =  new SearchView($("#searchView"), model);
 	var mainPic = new MainPic($("#mainPic"), model);
 
 	// 4. oneDishView (inkl div med recept som uppdateras)
@@ -30,14 +29,12 @@ $(function() {
 	// 6. printView
 
 
-	
-	
+	var searchView =  new SearchView($("#searchView"), model);
+	//var searchViewController = new SearchViewController(searchView, model);
 
 
 	// Controllers
-	var stateController = new StateController(homeView, sideView, searchView);
-	//var homeViewController = new HomeViewController(homeView, model);
-	//var searchViewController = new SearchViewController(searchView, model); //funkar ej.
+	var homeViewController = new HomeViewController(homeView, model);
 
 
 
@@ -45,8 +42,9 @@ $(function() {
 	var mainView5 = new MainView5($("#mainView5"), model);
 
 	// Gömmer allt utom start
+	// Man skulle kunna lägga detta inuti varje view, när den initieras så göms den!
 	$("#header").hide();
-	$("#sideView").hide();	
+	/*$("#sideView").hide();	*/
 	$("#searchView").hide();
 	$("#mainPic").hide();
 
