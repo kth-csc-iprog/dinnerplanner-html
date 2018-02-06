@@ -39,7 +39,7 @@
 
 <!-- SIDE VIEW -->
 
-	<div class="col-sm-3 col-xs-12 sidebar" id="sideView">
+	<div class="hidden-xs col-md-2 sidebar" id="sideView">
 
         <div class="sidebar-module sidebar-module-inset">
           <h4>My Dinner</h4>
@@ -74,7 +74,38 @@
           <!-- Button -->
           <button class="btn btn-default">Confirm Dinner</button>  
         </div><!-- Module 2 table end -->   
-    </div> <!-- SIDEVIEW col end -->
+  </div> <!-- SIDEVIEW col end -->
+
+
+<!-- Search View -->
+
+  <div class="col-md-6">
+
+    <div id="searchView">
+      <h2>Find a dish</h2>
+    
+    <!-- Väljare av rätt -->
+      <form class="form-inline">
+        <input class="form-control" type="text" id="keywords" placeholder="Enter key words">
+        <select class="form-control">
+          <option>All</option>
+          <option>Main Course</option>
+          <option>Side Dish</option>
+          <option>Dessert</option>
+          <option>Appetizer</option>
+        </select>
+        <button id="searchButton" class="form-control btn btn-default">Search</button>
+      </form>
+    </div>
+
+    <div id="mainPic">
+        <div id="template" class=" col-md-12" >
+          <!--hämtar data till bild-boxarna i mainPic.js --> 
+        </div>
+    </div>
+      
+  </div> <!--column end-->
+
 
 
 
@@ -85,17 +116,20 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <!-- Custom Scroller Js CDN -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
- 
+  
+  <script src="js/app.js"></script> 
   <script src="js/model/dinnerModel.js"></script>
   <script src="js/view/homeView.js"></script>
   <script src="js/controller/homeViewController.js"></script>
+  <script src="js/view/searchView.js"></script>
+  <script src="js/controller/searchViewController.js"></script>
   <script src="js/view/sideView.js"></script>
   <script src="js/view/mainPic.js"></script>
   <script src="js/view/mainView3.js"></script>
   <script src="js/view/mainView5.js"></script>
 
 
-  <script src="js/app.js"></script>
+
 
 
 

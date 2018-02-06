@@ -4,7 +4,9 @@ gets the pictures and name of the dishes for view2 and 4 */
 var MainPic = function (container, model) {
 	/*var menu =[1,2,101,102]
 	Ska ändras i labb 2, ska kopplas till det sökta. */
-	var menu = model.getFullMenu(); 
+	/*var menu = model.getFullMenu();*/
+	var menu = model.getAllDishes();
+	console.log(menu); 
   	var string = '';
   	var picBox = container.find("#template");
   
