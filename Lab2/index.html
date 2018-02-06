@@ -1,27 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>View 4</title>
-
-	 <!-- Our Custom CSS -->
-        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<title>DinnerPlanner</title>
+	
+	<!-- Our Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="style2D.css">
+
 </head>
 <body>
 
-	<div class="container-fluid">
-    <!-- Header -->
-		<div class="row-fluid">
-			<div class="col-xs-12 jumbotron">
-				<h1>Dinner Planner</h1>
+
+<!-- HEADER VIEW -->   <!-- TODO-VIEW!!! -->
+	<div id="header" class="row-fluid">
+		<div class="col-xs-12 jumbotron">
+			<h1>Dinner Planner</h1>
+		</div>
+	</div>
+
+
+<!-- HOME VIEW -->
+	<div id="homeView" class="container home">
+		<div class="row">
+			<div class="col-lg-6 col-lg-offset-3">
+				<div class="content">
+					<h1>Dinner Planner</h1>
+					<h4>
+		            Normally, both your asses would be dead as fucking fried chicken, but you happen to pull this shit while I'm in a transitional period so I don't wanna kill you, I wanna help you. But I can't give you this case, it don't belong to me. Besides, I've already been through too much shit this morning over this case to hand it over to your dumb ass.
+		       		</h4>
+					<hr>
+					
+					<button id="startButton" class="btn btn-default btn-lg">Get Started</button>
+				</div>
 			</div>
 		</div>
+	</div>
 
-    <!-- Row 1/Col1 Sidebar och väljare -->
-		<div class="row-fluid" >
-      
-			<div class="col-sm-3 col-xs-12 sidebar" id="sideView">
+<!-- SIDE VIEW -->
+
+	<div class="col-sm-3 col-xs-12 sidebar" id="sideView">
 
         <div class="sidebar-module sidebar-module-inset">
           <h4>My Dinner</h4>
@@ -56,52 +74,21 @@
           <!-- Button -->
           <button class="btn btn-default">Confirm Dinner</button>  
         </div><!-- Module 2 table end -->   
-      </div> <!-- Sidebar col end -->
-
-    <!-- Row1/Col2 Väljare + rätter-->
-    <div class="col-md-9">
-
-      <div class="row">
-
-        <div class="col-md-12">
-          <h2>Add another dish</h2>
-        
-        <!-- Väljare av rätt -->
-          <form class="form-inline">
-          <!-- <label for="keywords">Enter keywords</label> -->
-            <input class="form-control" type="text" id="keywords" placeholder="Enter key words">
-            <select class="form-control">
-              <option>Main Course</option>
-              <option>Side Dish</option>
-              <option>Dessert</option>
-              <option>Appetizer</option>
-            </select>
-            <button class="form-control btn btn-default">Search</button>
-          </form>
-        </div> <!--column end-->
-      </div><!--row end-->
-
-      <div class="row" id="mainPic">
-        <div id="template" class=" col-md-12" >
-          <!--hämtar data till bild-boxarna i mainPic.js --> 
-        </div>
-      </div>
-      </div><!--column end-->
-    </div> <!-- Row 1 end -->
-	</div> <!--container fluid end-->
+    </div> <!-- SIDEVIEW col end -->
 
 
 
 
-<!-- jQuery CDN -->
-  <!-- The application JavaScript code -->
+	<!-- jQuery CDN -->
         <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
         <!-- Bootstrap Js CDN -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <!-- Custom Scroller Js CDN -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
-
+ 
   <script src="js/model/dinnerModel.js"></script>
+  <script src="js/view/homeView.js"></script>
+  <script src="js/view/homeViewController.js"></script>
   <script src="js/view/sideView.js"></script>
   <script src="js/view/mainPic.js"></script>
   <script src="js/view/mainView3.js"></script>
@@ -109,6 +96,8 @@
 
 
   <script src="js/app.js"></script>
+
+
 
 </body>
 </html>
