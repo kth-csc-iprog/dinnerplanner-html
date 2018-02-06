@@ -1,4 +1,4 @@
-var DishDetailView = function (container, model) {
+var DetailView = function (container, model) {
 
 	// var tag = "'<img id='icecream.jpg' src=/images/" + model.getDish(200).image +">'";
 	// var dishTitle = container.find('#dishTitle');
@@ -12,13 +12,13 @@ var DishDetailView = function (container, model) {
 
 	dishIngredients.append("<div class='row'><div class='col-xs-6'>"
 			+"<div>"
-			+"<h3>" 
-		 	+ model.getDish(200).name 
+			+"<h3>"
+		 	+ model.getDish(200).name
 		 	+ "</h3>"
-		 	+ "<a href='select-dish.html'><button class='btn btn-danger' type='button'>Add to Menu</button></a>"
+		 	+ "<a href='searchpage.html'><button class='btn btn-danger' type='button'>Add to Menu</button></a>"
 		 	+ "</div></br>"
 			+ "<div class='responsive'><img src=/images/"
-		 	+ model.getDish(200).image 
+		 	+ model.getDish(200).image
 		 	+"></img></div>"
 		 	+"</br></br><p>" + model.getDish(200).description
 		 	+"</p></div>"

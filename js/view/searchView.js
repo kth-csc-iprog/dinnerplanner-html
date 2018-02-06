@@ -15,7 +15,7 @@
 
 
 
-var DishSearchView = function (container, model) {
+var SearchView = function (container, model) {
 
 	/**
 	 * We use the @method find() on @var {jQuery object} container to look for various elements
@@ -95,7 +95,7 @@ var DishSearchView = function (container, model) {
 	// var dinnerPrice = container.find('#dinnerPrice');
 	// dinnerPrice.append("Price:<strong>" + model.getTotalMenuPrice() + "</strong> €");
 
-	
+
 
 	// addedDishes.append(model.getDish(1).name);
 
