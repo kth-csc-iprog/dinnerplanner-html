@@ -302,37 +302,8 @@ a.article, a.article:hover {
     #sidebarCollapse span {
         display: none;
     }
-    .dishview{
-    padding:0px;
-    /*box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);*/
-    font-size:12px;
-    }
+  
     .responsive{
     width:100px;
     }
-
-   /* .navbar{
-    padding:0px;
-    margin:0px;
-    }
-    .nav-responsive{
-    width:10vw;
-    margin:0vw;
-    }
-    .navbar navbar-default{
-    height:10px;
-    margin:0px;
-    }*/
 }
-
-/*
-.navbar {
-    padding: 15px 10px;
-    padding-top: 0px;
-    background: #fff;
-    border: none;
-    border-radius: 0;
-    margin-bottom: 20px;
-    margin-top: 35px;
-    /*box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);*/
-}*/

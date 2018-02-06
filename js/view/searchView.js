@@ -1,3 +1,45 @@
+var SearchView = function (container, model) {
+	// SEARCHBAR
+
+	// TYPES OF DISHES
+
+
+
+
+
+
+	/**
+	 * Here we use @var {jQuery object} numberOfGuests that is a reference to <span>
+	 * in our view to dynamically set it's value to "Hello World".
+	 */
+
+
+	// // dinnerModel method presentation
+	// var dinnerModelTest = container.find('#dinnerModelTest');
+
+	// var displayMethods = ""
+	// model.setNumberOfGuests(4);
+	// displayMethods += model.getNumberOfGuests() + " guests<br>";
+	// model.addDishToMenu(1); model.addDishToMenu(100); model.addDishToMenu(200);
+	// model.addDishToMenu(201);
+	// displayMethods += "Menu: " + model.getFullMenu() + "<br>";
+	// displayMethods += "Starter: " + model.getSelectedDish("starter") + "<br>";
+	// displayMethods += "INGREDIENTS <br>" + model.getAllIngredients() + "<br>";
+	// displayMethods += "Total price: " + model.getTotalMenuPrice() + "<br>";
+	// model.removeDishFromMenu(100)
+	// displayMethods += "Menu after removed: " + model.getFullMenu() + "<br>";
+
+	// var dinnerPrice = container.find('#dinnerPrice');
+	// dinnerPrice.append("Price:<strong>" + model.getTotalMenuPrice() + "</strong> €");
+
+
+
+	// addedDishes.append(model.getDish(1).name);
+	// dinnerModelTest.html(displayMethods);
+
+
+}
+
 /** ExampleView Object constructor
  *
  * This object represents the code for one specific view (in this case the Example view).
@@ -13,9 +55,6 @@
  * @param {Object} model - the reference to the Dinner Model
  */
 
-
-
-var SearchView = function (container, model) {
 
 	/**
 	 * We use the @method find() on @var {jQuery object} container to look for various elements
@@ -47,67 +86,3 @@ var SearchView = function (container, model) {
 	 * this button and do something with it (see Lab 2).
 	 *
 	 */
-
-	this.plusButton = container.find("#plusGuest");
-	this.minusButton = container.find("#minusGuest");
-
-	var guests = 0;
-
-	var numberOfGuests = container.find('#numberOfGuests');
-	var plusGuest = container.find('#plusGuest');
-	var minusGuest = container.find('#minusGuest');
-
-
-	plusGuest.click(function(){
-		// model.getNumberOfGuests() = model.getNumberOfGuests() + 1;
-		guests = guests + 1;
-		numberOfGuests.html(guests);
-	})
-
-	minusGuest.click(function(){
-		if (guests>0) {
-			guests = guests - 1;
-			numberOfGuests.html(guests);
-		}
-	})
-
-	/**
-	 * Here we use @var {jQuery object} numberOfGuests that is a reference to <span>
-	 * in our view to dynamically set it's value to "Hello World".
-	 */
-	numberOfGuests.html(guests);
-
-	// // dinnerModel method presentation
-	// var dinnerModelTest = container.find('#dinnerModelTest');
-
-	// var displayMethods = ""
-	// model.setNumberOfGuests(4);
-	// displayMethods += model.getNumberOfGuests() + " guests<br>";
-	// model.addDishToMenu(1); model.addDishToMenu(100); model.addDishToMenu(200);
-	// model.addDishToMenu(201);
-	// displayMethods += "Menu: " + model.getFullMenu() + "<br>";
-	// displayMethods += "Starter: " + model.getSelectedDish("starter") + "<br>";
-	// displayMethods += "INGREDIENTS <br>" + model.getAllIngredients() + "<br>";
-	// displayMethods += "Total price: " + model.getTotalMenuPrice() + "<br>";
-	// model.removeDishFromMenu(100)
-	// displayMethods += "Menu after removed: " + model.getFullMenu() + "<br>";
-
-	// var dinnerPrice = container.find('#dinnerPrice');
-	// dinnerPrice.append("Price:<strong>" + model.getTotalMenuPrice() + "</strong> €");
-
-
-
-	// addedDishes.append(model.getDish(1).name);
-
-
-
-
-
-
-
-
-
-	// dinnerModelTest.html(displayMethods);
-
-
-}

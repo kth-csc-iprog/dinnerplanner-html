@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Select dish</title>
+    <title>Search Page</title>
 
     <!-- Bootstrap CSS -->
  <!--   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"> -->
@@ -23,15 +23,26 @@
  <body>
     <div class="container-fluid" id="searchView">
 
-    <!-- Headline -->
-      <div class="span12">
-        <h1 >Dinner planner</h1>
+      <!-- HEADLINE -->
+      <div class ="row">
+        <div class ="col-xs-2">
+          <div class ="logo">
+            <a href="searchpage.html">
+              <img src="/images/logo.web.png"></img>
+            </a>
+           </div>
+        </div>
+        <div class ="col-xs-8">
+          <div class="title">
+            <h1 >DINNER PLANNER</h1>
+          </div>
+        </div>
       </div>
 
 
 
       <!-- Sidebar -->
-      <div class="wrapper">
+      <div class="wrapper" id="sideView">
             <!-- Sidebar Holder -->
             <nav id="sidebar">
                 <div class="sidebar-header">
@@ -48,7 +59,7 @@
                 </ul>
 
                 <ul class="list-unstyled CTAs">
-                    <li><a class="download">Confirm Dinner</a></li>
+                    <li><a class="download" href="menupage.html">Confirm Dinner</a></li>
                 </ul>
             </nav>
 
@@ -84,16 +95,14 @@
                   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                   </div>
               </nav>
-              <img src="images/icecream.jpg" alt="Icecream">
-              <img src="images/meatballs.jpg" alt="Meatballs">
-              <img src="images/sourdough.jpg" alt="Sourdough">
-              <img src="images/toast.jpg" alt="Toast">
 
-              <img src="images/meatballs.jpg" alt="Meatballs">
-              <img src="images/sourdough.jpg" alt="Sourdough">
-              <img src="images/toast.jpg" alt="Toast">
-              <img src="images/icecream.jpg" alt="Icecream">
-              <img src="images/meatballs.jpg" alt="Meatballs">
+
+              <!-- SELECTING DISHES  -->
+              <div id="dishView">
+                <div class="col-xs-12" >
+                       <a href="detailpage.html"><div id="dish" ></div></a>
+                 </div>
+              </div>
 
               <p> <span id="dinnerModelTest"> </span> </p>
 
