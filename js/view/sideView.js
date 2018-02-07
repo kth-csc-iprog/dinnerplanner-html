@@ -1,31 +1,26 @@
 var SideView = function (container, model) {
 
     // +/- GUESTS
-
+    var guests = model.getNumberOfGuests()
   	var numberOfGuests = container.find('#numberOfGuests');
-  	this.plusGuest = container.find('#plusGuest');
-  	this.minusGuest = container.find('#minusGuest');
+  	var plusGuest = container.find('#plusGuest');
+  	var minusGuest = container.find('#minusGuest');
 
 
   	plusGuest.click(function(){
-  		model.getNumberOfGuests() += 1;
-      return model.getNumberOfGuests();
+  		guests ++;
+  		numberOfGuests.html(guests);
   	})
 
   	minusGuest.click(function(){
-  		if (model.getNumberOfGuests()>0) {
-  			model.getNumberOfGuests() -= 1;
-  			return model.getNumberOfGuests();
+  		if (guests>0) {
+  			guests --;
+  			numberOfGuests.html(guests);
   		}
   	})
-  	numberOfGuests.html(model.getNumberOfGuests());
 
+    numberOfGuests.html(guests);
 
-
-    // CHOSEN DISHES
-
-
-
-
+      // CHOSEN DISHES
 
 }
