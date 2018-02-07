@@ -7,37 +7,87 @@
 
 const createSidebarView = (container, model) => {
 
+  const state = {
+    display: false,
+    numberOfGuests: undefined,
+    menu: undefined,
+    totalMenuPrice: undefined
+  }
+
   const guestNumber = container.querySelector('#guestNumber')
-  guestNumber.value = model.getNumberOfGuests()
-  guestNumber.onchange = (event) => {
-    const newGuestNumber = event.target.value
-    model.setNumberOfGuests(newGuestNumber)
-    console.log('Guest number is: ', model.getNumberOfGuests())
+  const confirmMenuButton = container.querySelector('#confirmMenuButton')
+  const _menuTableContent = container.querySelector('#tableContent')
+  const _totalPrice = container.querySelector('#totalPriceValue') 
+
+  const _createUpdate = (model) => (changeDetails) => {
+    state.numberOfGuests = model.getNumberOfGuests()
+    state.menu = model.getFullMenu().map(item => {
+      item.price = model.getPriceForDish(item.id)
+      return item
+    })
+    state.totalMenuPrice = model.getTotalMenuPrice()
+
+    _remove()
+    _render()
   }
+  const update = _createUpdate(model)
 
-  const menuTableContent = container.querySelector('#tableContent')
+  const _render = () => {
+    guestNumber.value = state.numberOfGuests
 
-  const createNewRow = (name, cost) => {
+    const createNewRow = (name, cost) => {
 
-    const tableRow = document.createElement('div')
-    tableRow.classList.add('tableRow')
-
-    const rowName = document.createElement('div')
-    rowName.classList.add('rowName')
-    rowName.innerHTML = `${name}`
+      const tableRow = document.createElement('div')
+      tableRow.classList.add('tableRow')
+  
+      const rowName = document.createElement('div')
+      rowName.classList.add('rowName')
+      rowName.innerHTML = `${name}`
+      
+      const rowCost = document.createElement('div')
+      rowCost.classList.add('rowCost')
+      rowCost.innerHTML = `${cost}:-`
+  
+      tableRow.appendChild(rowName)
+      tableRow.appendChild(rowCost)
+  
+      return tableRow
+    }
     
-    const rowCost = document.createElement('div')
-    rowCost.classList.add('rowCost')
-    rowCost.innerHTML = `${cost}:-`
+    state.menu.map(item => 
+      _menuTableContent.appendChild(createNewRow(item.name, item.price))
+    )
 
-    tableRow.appendChild(rowName)
-    tableRow.appendChild(rowCost)
-
-    return tableRow
+    _totalPrice.innerHTML = `${state.totalMenuPrice}.00`
+    
   }
 
-  model.addDishToMenu(1)
-  model.getFullMenu().map(item => {
-    menuTableContent.appendChild(createNewRow(item.name, model.getPriceForDish(item.id)))
+  const _remove = () => {
+    Array.from(_menuTableContent.childNodes).map(child => child.remove())
+  }
+
+  const show = () => {
+    if(state.display !== true) {
+      state.display = true
+    }
+    container.style = ''
+  }
+
+  const hide = () => {
+    if(state.display !== false) {
+      state.display = false
+    }
+    container.style.display = 'none'
+  }
+
+  model.addObserver(update)
+  update()
+
+  return ({
+    guestNumber,
+    confirmMenuButton,
+    update,
+    show,
+    hide
   })
 }

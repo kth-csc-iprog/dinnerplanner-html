@@ -52,10 +52,7 @@
                 </div>
       
                 <div id="tableContent">
-                  <div class="tableRow">
-                    <div class="rowName">Lasagne</div>
-                    <div class="rowCost">77.20</div>
-                  </div>
+                  
                 </div>
       
                 <div id="tableFooter">
@@ -95,7 +92,7 @@
               </div>
       
               <div id="dishSearchResults">
-      
+                
               </div>
   
             </div>
@@ -167,7 +164,7 @@
 
         <div id="menuSummaryView">
               
-          <div id="statusBar" class="">
+          <div id="statusBar">
             <h2 id="statusTitle">My Dinner: <span id="numberOfGuests">3</span> people</h2>
             <button id="backFromMenuSummaryButton" class="backButton primaryButton" >Go back and edit dinner</button>
           </div>
@@ -179,40 +176,41 @@
               <div id="dishListContainer">
 
                 <div id="starter" class="dishItemContainer">
-                  <div class="verticallyCentered dishImage">
+                  <!-- <div class="verticallyCentered dishImage">
                     <img src="images/bakedbrie.jpg" alt="">
                   </div>
                   <p class="dishName">Baked Brie</p>
                   <p class="dishPrice">
                     <span class="value">77.20</span> <span class="currency">SEK</span>
-                  </p>
+                  </p> -->
                 </div>
         
                 <div id="mainCourse" class="dishItemContainer">
-                  <div class="verticallyCentered dishImage">
+                  <!-- <div class="verticallyCentered dishImage">
                     <img src="images/icecream.jpg" alt="">
                   </div>
                   <p class="dishName">Ice Cream</p>
                   <p class="dishPrice">
                     <span class="value">77.20</span> <span class="currency">SEK</span>
-                  </p>
+                  </p> -->
                 </div>
         
                 <div id="dessert" class="dishItemContainer">
-                  <div class="verticallyCentered dishImage">
+                  <!-- <div class="verticallyCentered dishImage">
                     <img src="images/meatballs.jpg" alt="">
                   </div>
                   <p class="dishName">Meatballs</p>
                   <p class="dishPrice">
                     <span class="value">77.20</span> <span class="currency">SEK</span>
-                  </p>
+                  </p> -->
                 </div>
         
                 <div id="totalPrice" class="dishItemContainer">
                   <div class="verticallyCentered dishImage"></div>
                   <p class="dishName">Total:</p>
                   <p class="dishPrice">
-                    <span class="value">77.20</span> <span class="currency">SEK</span>
+                    <span class="value" id="dishPriceValue">0.00</span> 
+                    <span class="currency">SEK</span>
                   </p>
                 </div>
 
@@ -296,11 +294,26 @@
 
     <script src="js/lib/toggleSidebar.js"></script>
     <!-- Here you should include JS code for your other views -->
-    <script src="js/lib/routing.js"></script>
+    <script src="js/view/MainView.js"></script>
+
     <script src="js/view/SidebarView.js"></script>
-    <script src="js/view/StatusBarView.js"></script>
-    <script src="js/view/PriceSummaryView.js"></script>
+    <script src="js/controllers/SidebarController.js"></script>
+
     <script src="js/view/DishSearchView.js"></script>
+    <script src="js/controllers/DishSearchController.js"></script>
+
+    <script src="js/view/DishDetailsView.js"></script>
+    <script src="js/controllers/DishDetailsController.js"></script>
+    
+    <script src="js/view/StatusBarView.js"></script>
+    <script src="js/controllers/StatusBarController.js"></script>
+
+    <script src="js/view/PriceSummaryView.js"></script>
+    <script src="js/controllers/PriceSummaryController.js"></script>
+    
+    <script src="js/view/RecipeSummaryView.js"></script>
+    <script src="js/controllers/RecipeSummaryController.js"></script>
+
     <script src="js/model/dinnerModel.js"></script>
     <!-- The application JavaScript code -->
     <script src="js/app.js"></script>

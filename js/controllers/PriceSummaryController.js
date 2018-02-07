@@ -1,0 +1,3 @@
+const createPriceSummaryController = (view, model) => {
+  
+}

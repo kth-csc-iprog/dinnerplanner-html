@@ -5,11 +5,25 @@ const createDinnerModel = () => {
 	// and selected dishes for the dinner menu
 	const state = {
 		numberOfGuests: 1,
-		menu: []
+		menu: [],
+		observers: []
+	}
+	
+	const addObserver = (observer) => {
+		state.observers.push(observer)
+	}
+
+	const removeObserver = (observer) => {
+		state.observers = observers.filter(subscribedObserver => subscribedObserver !== observer)
+	}
+
+	const _notifyObservers = (details) => {
+		state.observers.map(observer => observer(details))
 	}
 
 	const setNumberOfGuests = num => {
 		state.numberOfGuests = num
+		_notifyObservers({ numberOfGuests: state.numberOfGuests })
 	}
 
 	const getNumberOfGuests = () => state.numberOfGuests
@@ -19,15 +33,21 @@ const createDinnerModel = () => {
 
 	// Returns all the dishes on the menu.
 	const getFullMenu = () => state.menu
-
+	
 	// Returns all ingredients for all the dishes on the menu.
-	const getAllIngredients = () => state.menu.map(dish => dish.ingredients)
+	const getAllIngredients = () => state.menu.reduce((acc, curr) => acc.concat(curr.ingredients), [])
 
 	// Return the full price of a given dish (represented by id)
-	const getPriceForDish = (id) => getDish(id).ingredients.reduce((acc, curr) => acc = acc + curr.price, 0)
+	const getPriceForDish = (id) => getDish(id).ingredients.reduce((acc, curr) => {
+		acc += state.numberOfGuests * curr.price
+		return acc
+	}, 0)
 
 	// Returns the total price of the menu (all the ingredients multiplied by number of guests).
-	const getTotalMenuPrice = () => getAllIngredients().reduce((acc, curr) => acc = acc + state.numberOfGuests * curr.price, 0)
+	const getTotalMenuPrice = () => getAllIngredients().reduce((acc, curr) => {
+		acc += state.numberOfGuests * curr.price
+		return acc
+	}, 0)
 	
 	// Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	// it is removed from the menu and the new one added.
@@ -36,12 +56,14 @@ const createDinnerModel = () => {
 		const restOfTheMenu = state.menu.filter(dish => dish.type !== selectedDish.type)
 		restOfTheMenu.push(selectedDish)
 		state.menu = restOfTheMenu
+		_notifyObservers({ menu: state.menu })
 	}
 
 	// Removes dish from menu
 	const removeDishFromMenu = id => {
 		const newMenu = state.menu.filter(dish => dish.id !== id)
 		state.menu = newMenu
+		_notifyObservers({ menu: state.menu })
 	}
 
 	// function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
@@ -51,15 +73,18 @@ const createDinnerModel = () => {
 		
 		return dishes.filter(dish => {
 			
-			let typeMatch =  dish.type === type
+			let typeMatch = dish.type === type
 			if(type === 'all') {
 				typeMatch = true
 			}
 			
 			let filterMatch = true
 			if(filter !== undefined) {
-				const nameMatch = dish.name.includes(filter)
-				const ingredientMatch = dish.ingredients.some(ingredient => ingredient.name.includes(filter))
+				const filterString = filter.toLowerCase()
+				const nameMatch = dish.name.toLowerCase().includes(filterString)
+				const ingredientMatch = dish.ingredients.some(ingredient => 
+					ingredient.name.toLowerCase().includes(filterString)
+				)
 				filterMatch = nameMatch || ingredientMatch
 			}
 			
@@ -71,6 +96,8 @@ const createDinnerModel = () => {
 	const getDish = id => dishes.find(dish => dish.id === id)
 
 	return ({
+		addObserver,
+		removeObserver,
 		setNumberOfGuests,
 		getNumberOfGuests,
 		getSelectedDish,
@@ -94,7 +121,9 @@ const createDinnerModel = () => {
 // defining the unit i.e. "g", "slices", "ml". Unit
 // can sometimes be empty like in the example of eggs where
 // you just say "5 eggs" and not "5 pieces of eggs" or anything else.
-const dishes = [{
+const dishes = [
+	
+	{
 	'id':1,
 	'name':'French toast',
 	'type':'starter',
@@ -126,7 +155,10 @@ const dishes = [{
 		'unit':'slices',
 		'price':2
 		}]
-	},{
+	}
+	
+	
+	,{
 	'id':2,
 	'name':'Sourdough Starter',
 	'type':'starter',

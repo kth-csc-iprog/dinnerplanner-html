@@ -1,0 +1,3 @@
+const createRecipeSummaryController = (view, model) => {
+  
+}

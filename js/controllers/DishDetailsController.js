@@ -1,0 +1,3 @@
+const createDishDetailsController = (view, model) => {
+  
+}
