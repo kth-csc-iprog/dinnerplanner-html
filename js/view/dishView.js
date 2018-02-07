@@ -6,15 +6,17 @@ var DishView = function (container, model) {
 
 
 	 // DISPLAY DISHES
-		dish.append("<div class='col-xs-2'><img src=/images/"
-													+model.getDish(200).image
+	 for (var i = 1; i < 4; i++) {
+
+		dish.append("<div class='col-xs-8'><img src=/images/"
+													+model.getDish(i).image
 													+"><p>"
-													+ model.getDish(200).name
+													+ model.getDish(i).name
 													+ "</p></img></div>");
-
+												}
 	// LOAD THE USER SELECTED DISH
-	dish.click(function(){
-
-
-	})
+	// dish.click(function(){
+  //
+  //
+	// })
 }

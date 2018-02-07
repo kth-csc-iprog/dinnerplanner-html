@@ -3,6 +3,11 @@ var SearchView = function (container, model) {
 
 	// TYPES OF DISHES
 
+  // FILIP'S COMMENT: GENERATING DISHVIEWS
+  // for (var i = 0; i < 4; i++) {
+  //   new DishView(model.getSelectedDish)
+  //   new DishView(controller)
+  // }
 
 
 
