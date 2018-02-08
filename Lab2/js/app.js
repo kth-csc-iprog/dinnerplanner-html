@@ -8,6 +8,7 @@
 }*/
 
 $(function() {
+
 	//We instantiate our model
 	var model = new DinnerModel();
 
@@ -16,11 +17,14 @@ $(function() {
 	// 1. homeView
 	var homeView = new HomeView($("#homeView"), model);
 
+	//  headerView
+	var header = new HeaderView($("#header"), model);
 	// 2.sideView
 	var sideView = new SideView($("#sideView"), model);
-
+	
 	// 3.searchView (inkl maträtterna nedanför)
 	var searchView =  new SearchView($("#searchView"), model);
+
 	var mainPic = new MainPic($("#mainPic"), model);
 
 	// 4. oneDishView (inkl div med recept som uppdateras)
@@ -35,7 +39,7 @@ $(function() {
 
 
 	// Controllers
-	var stateController = new StateController(homeView, sideView, searchView);
+	var stateController = new StateController(homeView, sideView, searchView, header, mainPic);
 	//var homeViewController = new HomeViewController(homeView, model);
 	//var searchViewController = new SearchViewController(searchView, model); //funkar ej.
 

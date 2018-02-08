@@ -87,14 +87,14 @@
     <!-- Väljare av rätt -->
       <form class="form-inline">
         <input class="form-control" type="text" id="keywords" placeholder="Enter key words">
-        <select class="form-control">
-          <option>All</option>
-          <option>Main Course</option>
-          <option>Side Dish</option>
-          <option>Dessert</option>
-          <option>Appetizer</option>
+        <select id="selectOption" class="form-control">
+          <!--<option value="All">All</option>-->
+          <option value="main dish">Main Course</option>
+          <option value="starter">Side Dish</option>
+          <option value="dessert">Dessert</option>
+          <option value="appetizer">Appetizer</option>
         </select>
-        <button id="searchButton" class="form-control btn btn-default">Search</button>
+        <input type="submit" id="searchButton" class="form-control btn btn-default" value="Search">
       </form>
     </div>
 
@@ -121,6 +121,7 @@
   <script src="js/model/dinnerModel.js"></script>
   <script src="js/view/homeView.js"></script>
   <script src="js/controller/homeViewController.js"></script>
+  <script src="js/view/headerView.js"></script>
   <script src="js/view/searchView.js"></script>
   <script src="js/controller/searchViewController.js"></script>
   <script src="js/controller/stateController.js"></script>
