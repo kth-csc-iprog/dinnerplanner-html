@@ -1,8 +1,23 @@
 (function () {
+
+	// Curry Functions Tutorial
+	// const func2 = (one,two) => {
+  //   return one + two
+  // }
+  // const func = (one, two) => (one + two)
+
+  // const curryFunc = (zero) => (one, two) => (zero + one + two)
+  // const curryFunc2 = (zero) => {
+  //   return (one, two) => {
+  //     return zero + one + two
+  //   }
+  // }
 	
 	// Model
 	const model = createDinnerModel()
 	model.addDishToMenu(1)
+	model.addDishToMenu(100)
+	model.addDishToMenu(200)
 
 	// Views + Controllers
 	const mainView = createMainView(
