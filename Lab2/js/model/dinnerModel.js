@@ -4,14 +4,25 @@ var DinnerModel = function() {
 	//TODO Lab 1 implement the data structure that will hold number of guest
 	// and selected dishes for the dinner menu
 
-	this.numberOfGuests = 2; // ej this. för då blir det en property som man kan nå utifrån. istället var. 
-	this.menu = [1, 100, 201]
+	var numberOfGuests = 2; // ej this. för då blir det en property som man kan nå utifrån. istället var. 
+	var menu = [1, 100, 201]
+	var observers = new Array();
 
+	this.addObserver = function(observer) {
+		observers.push(observer);
+	}
+
+	var notifyObservers = function() {
+		for(var i = 0; i < observers.length; i++) {
+			observers[i].loadView();
+		}
+	}
 
 	this.setNumberOfGuests = function(num) {
 		if(num>0){
 			this.numberOfGuests = num;
 		}
+		notifyObservers();
 	}
 	
 	this.getNumberOfGuests = function() {
@@ -116,6 +127,7 @@ var DinnerModel = function() {
 		}
 	  	return dish.type == type && found;
 	  });	
+	  notifyObservers();
 	}
 
 	//function that returns a dish of specific ID

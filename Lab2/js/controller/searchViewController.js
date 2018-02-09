@@ -16,8 +16,9 @@ var SearchViewController = function(view, model) {
 		var menu = model.getAllDishes(type, filter);
 		console.log(menu);
 		// visa de rätter som gäller
+
 /*test*/
-		var menu = menu;
+		/*var menu = menu;
 
 		var string = '';
   		var picBox = view.container.find("#template");
@@ -29,21 +30,7 @@ var SearchViewController = function(view, model) {
 
 	picBox.html(string);
 
-	});
+	});*/
 
-	view.thumbnail.click(function(){
-		alert("clicked");
-		
-
-	});
-
-
-	//ladda oneDishView när en bild klickas på.
-
-		/*view.dish.click(function() {
-			oneDish
-
-
-		});
-*/
+});
 }
