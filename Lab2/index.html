@@ -94,7 +94,8 @@
           <option value="dessert">Dessert</option>
           <option value="appetizer">Appetizer</option>
         </select>
-        <input type="submit" id="searchButton" class="form-control btn btn-default" value="Search">
+        <!--<input type="submit" id="searchButton" class="form-control btn btn-default" value="Search">-->
+        <button id="searchButton">search</button>
       </form>
     </div>
 
@@ -104,7 +105,35 @@
         </div>
     </div>
       
-  </div> <!--column end-->
+  </div> <!--searchView column end-->
+
+  <!-- oneDishView -->
+  <div class="col-sm-9" id="oneDishView">
+    <div class="row">
+      <div class="col-md-6 col-xs-12">
+          <h2 id="headlineDish"></h2>
+          <div id="imgDish">
+            
+          </div> <!--imgdish end-->
+          <button class="btn btn-default knapp">Back to search</button>
+
+      </div> <!--column end-->
+
+      <div class="col-md-6 col-xs-12">
+        <!-- Lägg ingredienslista här -->
+        <h3 id="ingrFor"></h3>
+        <div id="table"></div>
+
+      </div><!--column end-->
+    </div> <!--row end-->
+
+      <div class="row">
+        <div class="col-lg-6 col-xs-12 text">
+          <h2>Preparation</h2>
+          <p id="description"></p>
+        </div>
+      </div>
+  </div>
 
 
 
@@ -126,8 +155,8 @@
   <script src="js/controller/searchViewController.js"></script>
   <script src="js/controller/stateController.js"></script>
   <script src="js/view/sideView.js"></script>
-  <script src="js/view/mainPic.js"></script>
-  <script src="js/view/mainView3.js"></script>
+  <!--<script src="js/view/mainPic.js"></script>-->
+ <!-- <script src="js/view/oneDishView.js"></script>-->
   <script src="js/view/mainView5.js"></script>
 
 

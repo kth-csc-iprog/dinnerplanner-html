@@ -1,10 +1,9 @@
-var StateController = function(view1, view2, view3, view4, view5) {
+var StateController = function(view1, view2, view3, view4) {
 
 	var homeView = view1;
 	var sideView = view2;
 	var searchView = view3;
 	var headerView = view4;
-	var pictureView = view5;
 
 	var startDinner = function() {
 		homeView.startButton.click(function() {
@@ -20,20 +19,20 @@ var StateController = function(view1, view2, view3, view4, view5) {
 
 		});
 	}
-	var Search = function() {
+	/*var Search = function() {
 		searchView.searchButton.click(function() {
-		//var element = searchView.find("#selectOption option:selected").val();
-		//console.log(element);
-		pictureView.container.show();
 
+		//ladda om pictures anpassad till search kriterierna. 
+		
 
-
-
-		});
+	
 	}
+	var oneDish = function(){
+		});
+	}*/
 
 	startDinner();
-	Search();
+	//Search();
 
 	
 }

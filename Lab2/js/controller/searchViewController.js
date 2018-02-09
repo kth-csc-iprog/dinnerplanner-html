@@ -1,8 +1,22 @@
-var searchViewController= function(view, model) {
-	var searchButton = view.find("#searchButton");
+	
+var SearchViewController = function(view, model) {
+	this.view = view;
+
+	//var searchButton = view.container.find("#searchButton");
 
 	view.searchButton.click(function() {
-		alert("knappen är tryckt!");
+
+
 	});
 
+
+
+	//ladda oneDishView när en bild klickas på.
+
+		/*view.dish.click(function() {
+			oneDish
+
+
+		});
+*/
 }
