@@ -1,3 +1,0 @@
-const createStatusBarController = (view, model) => {
-  
-}

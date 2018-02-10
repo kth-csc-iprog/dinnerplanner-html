@@ -37,6 +37,16 @@ const createDinnerModel = () => {
 	// Returns all ingredients for all the dishes on the menu.
 	const getAllIngredients = () => state.menu.reduce((acc, curr) => acc.concat(curr.ingredients), [])
 
+	const getAllIngredientsForDish = (id) => {
+		const dish = getDish(id)
+		return dish.ingredients.map(({ name, quantity, unit, price }) => ({
+			name,
+			unit,
+			quantity: quantity * state.numberOfGuests,
+			price: price * state.numberOfGuests
+		}))
+	}
+
 	// Return the full price of a given dish (represented by id)
 	const getPriceForDish = (id) => getDish(id).ingredients.reduce((acc, curr) => {
 		acc += state.numberOfGuests * curr.price
@@ -103,6 +113,7 @@ const createDinnerModel = () => {
 		getSelectedDish,
 		getFullMenu,
 		getAllIngredients,
+		getAllIngredientsForDish,
 		getPriceForDish,
 		getTotalMenuPrice,
 		addDishToMenu,

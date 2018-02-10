@@ -68,9 +68,16 @@
 		dishSearchView.show()
 	}
 
-	const transitionFromDishSearchViewToDishDetailsView = () => {
-		dishSearchView.hide()
-		dishDetailsView.show()
+	const transitionFromDishSearchViewToDishDetailsView = (event) => {
+		
+		const clickedElement = event.target
+		const clickedDishId = clickedElement.getAttribute('key')
+		if(clickedDishId !== null && clickedDishId !== undefined) {
+			dishSearchView.hide()
+			dishDetailsView.render(Number(clickedDishId))
+			dishDetailsView.show()
+		}
+		
 	}
 
 	const transitionFromDishDetailsViewToDishSearchView = () => {
@@ -108,11 +115,7 @@
 	statusBarView.backFromMenuSummaryButton.onclick = transitionFromPriceSummaryViewToDishSearchView
 	dishDetailsView.backFromDishDetailsButton.onclick = transitionFromDishDetailsViewToDishSearchView
 	priceSummaryView.printButton.onclick = transitionFromPriceSummaryViewToRecipeSummaryView
-
-	const dishResults = document.getElementsByClassName('dishResult')
-	for (const dishResult of dishResults) {
-		dishResult.onclick = transitionFromDishSearchViewToDishDetailsView
-	}
+	dishSearchView.dishSearchResultsElement.onclick = transitionFromDishSearchViewToDishDetailsView
 
 	mainView.show()
 	sidebarView.hide()

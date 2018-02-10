@@ -10,10 +10,9 @@ const createDishSearchView = (container, model) => {
   const state = {
     display: false,
   }
-  
+
   const dishSearchButton = container.querySelector('#dishSearchButton')
-  
-  const _dishSearchResultsElement = container.querySelector('#dishSearchResults')
+  const dishSearchResultsElement = container.querySelector('#dishSearchResults')
 
   const render = () => {
 
@@ -22,34 +21,39 @@ const createDishSearchView = (container, model) => {
     const filter = container.querySelector('#dishSearchField').value
     const type = container.querySelector('#dishTypeSelectField').value
 
-    const createDishResultElement = (imageUrl, name) => {
+    const createDishResultElement = ({ image, name, id}) => {
+
       const dishResultElement = document.createElement('div')
       dishResultElement.classList.add('dishResult')
-  
+      dishResultElement.setAttribute('key', id)
+
       const dishResultImageContainerElement = document.createElement('div')
       dishResultImageContainerElement.classList.add('dishResultImageContainer')
-  
+      dishResultImageContainerElement.setAttribute('key', id)
+
       const dishResultImageElement = document.createElement('img')
       dishResultImageElement.classList.add('dishResultImage')
-      dishResultImageElement.src = imageUrl
-  
+      dishResultImageElement.src = `images/${image}`
+      dishResultImageElement.setAttribute('key', id)
+
       const dishResultNameElement = document.createElement('div')
       dishResultNameElement.innerHTML = name
-  
+      dishResultNameElement.setAttribute('key', id)
+
       dishResultImageContainerElement.appendChild(dishResultImageElement)
       dishResultElement.appendChild(dishResultImageContainerElement)
       dishResultElement.appendChild(dishResultNameElement)
-  
-      return dishResultElement;
+
+      return dishResultElement
     }
 
-    model.getAllDishes(type, filter).map(({image, name}) => {
-      _dishSearchResultsElement.append(createDishResultElement(`images/${image}`, name))
+    model.getAllDishes(type, filter).map(dish => {
+      dishSearchResultsElement.append(createDishResultElement(dish))
     })
   }
 
   const _remove = () => {
-    Array.from(_dishSearchResultsElement.childNodes).map(child => child.remove())
+    Array.from(dishSearchResultsElement.childNodes).map(child => child.remove())
   }
 
   const show = () => {
@@ -70,6 +74,7 @@ const createDishSearchView = (container, model) => {
 
   return ({
     dishSearchButton,
+    dishSearchResultsElement,
     render,
     show,
     hide
