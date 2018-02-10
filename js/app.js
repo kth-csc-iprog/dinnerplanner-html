@@ -47,19 +47,16 @@
 		document.getElementById('statusBar'),
 		model
 	)
-	const statusBarController = createStatusBarController(statusBarView, model)
 
 	const priceSummaryView = createPriceSummaryView(
 		document.getElementById('priceSummary'),
 		model
 	)
-	const priceSummaryController = createPriceSummaryController(priceSummaryView, model)
 
 	const recipeSummaryView = createRecipeSummaryView(
 		document.getElementById('recipeSummaryView'),
 		model
 	)
-	const recipeSummaryController = createRecipeSummaryController(recipeSummaryView, model)
 
 	// General State Controller
 	const transitionFromMainViewToDishSearchView = () => {
