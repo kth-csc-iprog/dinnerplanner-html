@@ -68,7 +68,9 @@ const createRecipeSummaryView = (container, model) => {
 
     Object.keys(menu).map(type => {
       const dish = menu[type]
-      container.append(createRecipeElement(dish))
+      if(dish !== undefined) {
+        container.append(createRecipeElement(dish))
+      }
     })
   }
   const update = _createUpdate(model)
