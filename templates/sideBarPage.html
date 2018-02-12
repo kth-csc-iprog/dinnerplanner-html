@@ -1,0 +1,49 @@
+
+var sideBarTemplate = `
+
+<div class = "col-sm-2 addBorder" id="sideBar">
+    <h1>My Dinner</h1>
+    <p>Number Of Guests: <span id="nGuests"></span>
+
+    <div>
+        <button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
+        <button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
+    </div> 
+                  
+                    
+    <div class="row" id="dishNameAndCostDiv" >
+        <!-- left div -->
+        <div class="col-md-6 noPadding" style="float:left">
+            <p style="text-align:left">Dish Name</p>                    
+        </div>
+
+        <!-- right div -->                
+        <div class="col-md-6">
+            <p style="text-align:right">Cost</p>
+        </div>
+    </div>
+                   
+    <div id="dish_cost">
+        
+        <!-- left div -->
+    <!--    <div class="col-md-6 noPadding" style="float:left">
+            <p style="text-align:left">DishA</p>                    
+        </div>
+    -->
+
+        <!-- right div -->                
+    <!--    <div class="col-md-6">
+            <p style="text-align:right">SEK 0.00</p>
+        </div>                        
+    -->
+    </div>
+                    
+    <div class="col-md-12 text-center" id="confirmDinnerButton">
+        <button type="button" class="btn btn-primary">Confirm Dinner</button>
+    </div>
+</div>    
+`;
+
+
+
+

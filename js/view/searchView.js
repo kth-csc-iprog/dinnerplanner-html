@@ -17,7 +17,7 @@ var SearchView = function (container, model){
 
     var inputField = document.createElement("INPUT");
     inputField.setAttribute("type", "text");
-    inputField.setAttribute("value", "search for a recipe!");
+    //inputField.setAttribute("value", "search for a recipe!");
     inputField.setAttribute("class", "form-control");
    /* var btn = document.createElement("BUTTON");
     btn.setAttribute("type","button");

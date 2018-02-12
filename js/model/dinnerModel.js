@@ -4,7 +4,8 @@ var DinnerModel = function()
     var nGuests;
     
     // Just to test our app
-    nGuests = 3;
+    //nGuests = 3;
+    nGuests = 0;
     
     // Array containing the ID of the dishes selected
     // I'm initializing it with some dishes just to test the app
@@ -31,6 +32,18 @@ var DinnerModel = function()
     {
         return (nGuests);
 	}
+    
+    this.addOneGuest = function()
+    {
+        this.setNumberOfGuests( this.getNumberOfGuests() + 1);
+    }
+    
+    this.removeOneGuest = function()
+    {
+        this.setNumberOfGuests( this.getNumberOfGuests() - 1);
+    }    
+    
+    
 
 	//Returns the dish that is on the menu for selected type 
 	this.getSelectedDish = function(type) 

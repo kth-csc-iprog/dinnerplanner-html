@@ -1,0 +1,71 @@
+
+var dishDetailsTemplate = `
+
+<!-- right side (Find a dish + food images) -->
+ <div class = "col-sm-10  addBorder">
+    <h1>Find a dish</h1> 
+    <!--Search bar + button + dropdown menu -->
+    <div class="row">
+                        
+        <!-- Search bar -->
+        <div class="col-md-5 ">
+            <div class="input-group">
+                <input type="text" class="form-control">
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-primary specialButton">
+                        <span class="glyphicon glyphicon-search "></span> 
+                        Search
+                    </button>
+                </span>
+            </div>
+        </div>
+
+        <!-- Drop down menu -->
+        <div class="col-md-2">
+            <div class="dropdown">
+                <button class="dropdown-toggle btn btn-primary" type="button" data-toggle="dropdown" >
+                    <span>Starter</span>
+                    <!-- Shows a down arrow in the right side -->
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a href="#" >Starter</a></li>
+                    <li><a href="#" >Main</a></li>
+                    <li><a href="#" >Desert</a></li>
+                </ul>
+            </div>
+        </div> 
+                     
+     </div>  
+                  
+    <hr>
+                  
+    <!-- IMAGES -->
+    <div class="row">
+        <div class="col-md-12 " style="padding-top:25px">
+                            
+            <!-- Image div -->
+            <div  style="width:200px; float: left; margin-left: 10px;">
+                <img src="images/bakedbrie.jpg" style="width:200px; height: 200px">
+                <p> Dish A </p>
+            </div>
+                    
+            <!-- Image div -->
+            <div style="width:200px; float: left; margin-left: 10px;">
+                <img src="images/icecream.jpg" style="width:200px; height: 200px">
+                <p> Dish B </p>
+            </div>
+                            
+            <!-- Image div -->
+            <div  style="width:200px; float: left; margin-left: 10px;">
+                <img src="images/meatballs.jpg" style="width:200px; height: 200px">
+                <p> Dish C </p>
+            </div>                                 
+                    
+        </div>
+     </div>       
+</div>
+
+        
+`;
+
