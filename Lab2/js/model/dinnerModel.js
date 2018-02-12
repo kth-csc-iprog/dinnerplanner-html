@@ -20,13 +20,13 @@ var DinnerModel = function() {
 
 	this.setNumberOfGuests = function(num) {
 		if(num>0){
-			this.numberOfGuests = num;
+			numberOfGuests = num;
 		}
 		notifyObservers();
 	}
 	
 	this.getNumberOfGuests = function() {
-		return this.numberOfGuests;
+		return numberOfGuests;
 	}
 
 	//Returns the dish that is on the menu for selected type 
@@ -44,8 +44,8 @@ var DinnerModel = function() {
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
 		var fullMenu = [];
-		for (dishId in this.menu){
-			fullMenu.push(this.getDish(this.menu[dishId]));
+		for (i in menu){
+			fullMenu.push(this.getDish(menu[i]));
 			}
 			return fullMenu;
 	}

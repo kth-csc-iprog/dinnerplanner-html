@@ -39,41 +39,74 @@
 
 <!-- SIDE VIEW -->
 
-	<div class="hidden-xs col-md-2 sidebar" id="sideView">
+	<div class="col-sm-2 sidebar" id="sideView">
+    
 
-        <div class="sidebar-module sidebar-module-inset">
-          <h4>My Dinner</h4>
-          <form class="form-inline">
+    <div class="sidebar-module sidebar-module-inset ">
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sideCollapse" aria-expanded="false">
+              <span class="sr-only"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <div class="navbar-brand">
+              <!--behövs snyggas till, täcker headern på något sätt när menyn collapse-->
+              <table>
+                <tr class="Sum">
+                  <td>My dinner </td>
+                  <td> SEK </td>
+                  <td id="summa"></td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class="collapse navbar-collapse" id="sideCollapse">
+            <ul class="nav navbar-nav">  
+       
+          <!--<form class="form-inline">
           	People: <span id="numberOfGuests"></span>
           	<input type="number" min="1" id="Guests" >
-          </form>
-        </div>
+          </form>-->
+              
+              <h5>Number of guests: <span id="numberOfGuests"></span></h5>
+              <div>
+                <button id="minusGuest" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-minus"></span></button>
+                <button id="plusGuest" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-plus"></span></button>
+              </div>
 
         <!-- Module 2: Cost table -->
+
         <div class="sidebar-module">
           <table class="table">
           	<thead>
           		<th>Dish Name</th>
           		<th>Cost</th>
           	</thead>
-            <tbody>
-              <tr>
-                <td>Lasagne</td>
-                <td>77.20</td>
-              </tr>
+            <tbody id="dinnerTable">
+
             </tbody>
           </table>
 
           <table>
-            <tr class="sum">
+            <tr class="Sum">
               <td>SEK</td>
-              <td>0.00</td>
+              <td id="sum"></td>
             </tr>
           </table> 
 
           <!-- Button -->
-          <button class="btn btn-default">Confirm Dinner</button>  
-        </div><!-- Module 2 table end -->   
+          <button class="btn btn-success">Confirm Dinner</button>  
+        </div><!-- Module 2 table end -->
+        </ul>
+      </div> 
+      </div>
+      </div> 
+     </nav>
+ 
   </div> <!-- SIDEVIEW col end -->
 
 
@@ -95,12 +128,13 @@
           <option value="appetizer">Appetizer</option>
         </select>
         <!--<input type="submit" id="searchButton" class="form-control btn btn-default" value="Search">-->
-        <button id="searchButton" class="form-control btn btn-default">Search</button>
+        <button type="button" id="searchButton" class="form-control btn btn-default">Search</button>
+        <!--type = "button" fixade reloaden av sidan-->
       </form>
     </div>
 
     <div id="mainPic">
-        <div id="template" class=" col-md-12" >
+        <div id="template" class=" col-md-12">
           <!--hämtar data till bild-boxarna i mainPic.js --> 
         </div>
     </div>
@@ -154,8 +188,8 @@
   <script src="js/controller/searchViewController.js"></script>
   <script src="js/controller/stateController.js"></script>
   <script src="js/view/sideView.js"></script>
-  <!--<script src="js/view/mainPic.js"></script>-->
- <!-- <script src="js/view/oneDishView.js"></script>-->
+  <script src="js/controller/sideViewController.js"></script>
+  <script src="js/view/oneDishView.js"></script>
   <script src="js/view/mainView5.js"></script>
 
 

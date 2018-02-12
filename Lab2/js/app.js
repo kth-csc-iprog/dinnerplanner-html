@@ -25,10 +25,8 @@ $(function() {
 	// 3.searchView (inkl maträtterna nedanför)
 	var searchView =  new SearchView($("#searchView"), model);
 
-	//var mainPic = new MainPic($("#mainPic"), model);
-
 	// 4. oneDishView (inkl div med recept som uppdateras)
-	//var oneDishView = new OneDishView($("oneDishView"), model);
+	var oneDishView = new OneDishView($("oneDishView"), model);
 
 	// 5. fullMenuView
 
@@ -42,7 +40,9 @@ $(function() {
 	// Controllers
 	var stateController = new StateController(homeView, sideView, searchView, header);
 	//var homeViewController = new HomeViewController(homeView, model);
-	var searchViewController = new SearchViewController(searchView, model); //funkar ej.
+	var searchViewController = new SearchViewController(searchView, model); 
+
+	var sideViewController = new SideViewController(sideView, model);
 
 
 

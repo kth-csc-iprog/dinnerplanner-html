@@ -1,7 +1,7 @@
 var SearchView = function (container, model) {
 	this.container = container;
 	this.searchButton = container.find("#searchButton"); // knappen ska bara göra loadView(), i den funktionen finns resten av isntruktionerna
-	var textInput = document.getElementById("keywords"); //container.find("#keywords"); 
+	var textInput = container.find("#keywords"); //document.getElementById("keywords"); //
 	
 
 
@@ -13,19 +13,17 @@ var SearchView = function (container, model) {
 		//console.log(type);
 		//var keywords = Hämta filter
 		var filter = document.getElementById("keywords").value;
-		console.log(filter);
 
 		var menu = model.getAllDishes(type, filter); // stoppain filter och type i funktionen. 
-		console.log(menu);
 		var string = '';
-			var picBox = container.find("#template");
+		var picBox = container.find("#template");
 
 		//lägg in rätterna
 		for(i in menu){
-		string += '<div class="col-md-4 col-sm-6"><a href="#" class="thumbnail"><img src="images/' + menu[i].image + ' " ><div class="caption"><h3>' + menu[i].name + '</h3></div></a></div>';
+			string += '<div class="col-md-4 col-sm-6"><a href="#" class="thumbnail"><img src="images/' + menu[i].image + ' " ><div class="caption"><h3>' + menu[i].name + '</h3></div></a></div>';
 		}
 		picBox.html(string);
-		textInput.value = ""; //nollställer keywordsfönstret när man tryckt sök. 
+		textInput.value = ""; // funkar inte. nollställer keywordsfönstret när man tryckt sök. 
 	}
 		
 		
