@@ -7,6 +7,7 @@ var DinnerModel = function() {
 	var numberOfGuests = 2; // ej this. för då blir det en property som man kan nå utifrån. istället var. 
 	var menu = [1, 100, 201]
 	var observers = new Array();
+	var displayedDish = ""; 
 
 	this.addObserver = function(observer) {
 		observers.push(observer);
@@ -40,6 +41,12 @@ var DinnerModel = function() {
 			}
 		}
 	}
+
+	//Returnerar id på klickad rätt
+	this.selectDishRecipe = function (selectedID) {
+		this.displayedDish = selectedID;
+		this.notifyObservers("toRecipe");
+	};
 
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
@@ -132,9 +139,9 @@ var DinnerModel = function() {
 
 	//function that returns a dish of specific ID
 	this.getDish = function (id) {
-	  for(key in dishes){
-			if(dishes[key].id == id) {
-				return dishes[key];
+		for( var i = 0; i < dishes.length; i++) {
+			if (dishes[i].id == id) {
+				return dishes[i];
 			}
 		}
 	}

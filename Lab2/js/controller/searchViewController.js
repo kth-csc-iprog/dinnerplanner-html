@@ -7,6 +7,7 @@ var SearchViewController = function(view, model) {
 
 	view.searchButton.click(function() {
 		view.loadView();
-		
 	});
+
+	
 }

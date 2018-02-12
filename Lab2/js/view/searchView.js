@@ -20,10 +20,11 @@ var SearchView = function (container, model) {
 
 		//lägg in rätterna
 		for(i in menu){
-			string += '<div class="col-md-4 col-sm-6"><a href="#" class="thumbnail"><img src="images/' + menu[i].image + ' " ><div class="caption"><h3>' + menu[i].name + '</h3></div></a></div>';
+			string += '<div class="col-md-4 col-sm-6"><div class="thumbnail" id="' + menu[i].id + '"><img src="images/' + menu[i].image + ' " ><div class="caption"><h3>' + menu[i].name + '</h3></div></div></div>';
 		}
 		picBox.html(string);
 		textInput.value = ""; // funkar inte. nollställer keywordsfönstret när man tryckt sök. 
+
 	}
 		
 		
