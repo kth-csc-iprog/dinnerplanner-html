@@ -51,12 +51,13 @@ $(function()
         controllers.homeController = new HomeController(views.homeView, model, pagesDisplayer);
     }
     
-    
+/*    
     pagesDisplayer.showSearchView = function()
     {
         pagesDisplayer.showSideBar();
         //appDiv.html(searchTemplate);
     }    
+    
     
     
     pagesDisplayer.showSideBar = function()
@@ -67,17 +68,39 @@ $(function()
         views.sideBar = new SideBarView($("#sideBar"), model);
          
         controllers.sidebarController = new SideBarController(views.sideBar, model, pagesDisplayer);
-
     }
+*/
+    
+    
+    function showSideBar() 
+    {
+        appDiv.html(sideBarTemplate);
+        views.sideBar = new SideBarView($("#sideBar"), model);
+        controllers.sidebarController = new SideBarController(views.sideBar, model, pagesDisplayer);       
+    }
+   
+    function showDishDetails() 
+    {
+        appDiv.append(dishDetailsTemplate);
+        views.dishDetails = new DishDetailsView($("#dishDetails"), model);
+        controllers.dishDetailsController = new DishDetailsController(views.dishDetails, model, pagesDisplayer);       
+    }                                          
     
     pagesDisplayer.showDishDetailsPage = function()
     {
-        appDiv.append(dishDetailsTemplate);  
+       appDiv.html(""); 
+       showSideBar();
+       showDishDetails();
     }    
     
+   
     
-    
-    
-    pagesDisplayer.showHomePage();
-    //pagesDisplayer.showSearchView();    
+    //pagesDisplayer.showHomePage();
+    //pagesDisplayer.showDishDetailsPage();    
+    pagesDisplayer.showDishDetailsPage();
 });
+
+
+
+
+

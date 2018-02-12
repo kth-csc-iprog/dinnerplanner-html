@@ -44,7 +44,7 @@ var SideBarView = function (container, model)
         var dishNameCostDiv = container.find("#dish_cost");
         dishNameCostDiv.html("");
         
-        console.log(selectedDishes);
+        //console.log(selectedDishes);
 
         for(var i =0; i< selectedDishes.length; i++)
         {

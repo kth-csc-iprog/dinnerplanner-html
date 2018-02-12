@@ -1,7 +1,7 @@
 
 
 var DishDetailsView = function (container, model) 
-{
+{     
     var nGuests = model.getNumberOfGuests();
     
     //get the <h1 id="dish_name">
