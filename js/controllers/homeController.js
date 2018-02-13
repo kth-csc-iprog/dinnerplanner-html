@@ -6,7 +6,7 @@ var HomeController = function(view, model, pagesDisplayer)
 	view.create_new_dinner_button.click(function(e)
     {
         //console.log("Clicked on the create new dinner button !");
-		pagesDisplayer.showSearchView();
+		pagesDisplayer.showSelectDishesPage();
 	});
 }
 

@@ -2,7 +2,6 @@
 
 var SideBarController = function(view, model, pagesDisplayer) 
 {
-    console.log(" SIDE BAR CONTROLLER! ");
     
     
     // getting a reference to the buttons:
@@ -21,6 +20,12 @@ var SideBarController = function(view, model, pagesDisplayer)
         model.addOneGuest();
         view.update();
 	});       
+   
+	view.confirmDinnerButton.click(function(e)
+    {
+         pagesDisplayer.showDinnerSummary();
+	});          
+
 }
 
 

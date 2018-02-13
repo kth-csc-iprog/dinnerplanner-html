@@ -122,20 +122,22 @@ var DinnerModel = function()
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) 
     {
-        // Go through every dish selected
-        for(var i=0; i<dishesSelectedID.length; i++)
-        {
-            // If there's already a dish of the type we are trying to add, we should remove it
-            if( dishesSelectedID[i].type == this.getDish(id).type  )
-            {
-                // removing the dish of the same type
-                this.removeDishFromMenu(dishesSelectedID[i]);
+       console.log("adding dish " + id);
+       
+       // Go through every dish selected
+       for(var i=0; i<dishesSelectedID.length; i++)
+       {       
+          // If there's already a dish of the type we are trying to add, we should remove it
+          if( this.getDish(dishesSelectedID[i]).type == this.getDish(id).type  )
+          {
+             // removing the dish of the same type
+             this.removeDishFromMenu(dishesSelectedID[i]);
                 
-                // Adding the new dish to our dishesSelectedID
-                dishesSelectedID.push(id);
-            }
-        }
-	}
+             // Adding the new dish to our dishesSelectedID
+             dishesSelectedID.push(id);
+          }
+       }
+    }
 
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) 
@@ -145,7 +147,7 @@ var DinnerModel = function()
         {
             if( dishesSelectedID[i] == id )
             {
-                dishesSelectedID[i].splice(i,1);
+                dishesSelectedID.splice(i,1);
             }
         }
 	}

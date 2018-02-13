@@ -1,6 +1,6 @@
 
 
-var DishDetailsView = function (container, model) 
+var DishDetailsView = function (container, model, _dishId) 
 {     
     var nGuests = model.getNumberOfGuests();
     
@@ -8,23 +8,43 @@ var DishDetailsView = function (container, model)
     var dName = container.find("#dish_name");
     
     
-    var selectedDishes = model.getSelectedDishes();
-    dName.html(selectedDishes[0].name);
+    this.dishId = _dishId;
+    // Get the dish
+    var selectedDish = model.getDish(this.dishId); 
+   
+    dName.html(selectedDish.name);
+   
 
+    var dishPhoto = container.find("#dish_image");
+    dishPhoto.attr("src", "images/" + selectedDish.image);   
+
+
+   
     var dishDescription = container.find("#dishDescription");
-    dishDescription.html(selectedDishes[0].description);
-    
+    dishDescription.html(selectedDish.description);
+
+   
     var preparation = container.find("#preparation");
-    preparation.html(selectedDishes[0].description);
+    preparation.html(selectedDish.description);
     
     
-    // Table
+    this.backToSearchButton = container.find("#back_to_search");
+    this.addToMenuButton = container.find("#add_to_menu");
+   
+   
+    
+   
+   
+   
+    // Table ------------------------------------------------------------------------------------------------------
     // Ingredients for X people
     var tableTitle = container.find("#tableTitle");
     tableTitle.html("Ingredients for " + nGuests + " people");
     
-    var ingredients = selectedDishes[0].ingredients;
-    
+    //var ingredients = selectedDishes[0].ingredients;
+    var ingredients = selectedDish.ingredients;
+
+   
     var tableItens = container.find("#tableItens"); 
     
     
@@ -43,8 +63,9 @@ var DishDetailsView = function (container, model)
         htmlToBeAdded += " <div class='col-xs-3 text-right'> <p> SEK </p>  </div> "
         
         // PRICE 
-        htmlToBeAdded += " <div class='col-xs-3 text-right'> <p>" + ingredients[i].price*nGuests + "</p>  </div> "
-        
+        htmlToBeAdded += " <div class='col-xs-3 text-right'> <p>" + parseInt(ingredients[i].price)*nGuests + "</p>  </div> "
+    
+       
         // Close the row div
         htmlToBeAdded += "</div>"
 
@@ -53,6 +74,6 @@ var DishDetailsView = function (container, model)
     
     
     var total = container.find("#totalPrice");
-    total.html(model.getDishPrice(selectedDishes[0].id)*nGuests);
-
+    total.html(model.getDishPrice(selectedDish.id)*nGuests);
+   // ------------------------------------------------------------------------------------------------------------
 }

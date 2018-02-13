@@ -1,55 +1,30 @@
+
+
 var SearchView = function (container, model){
-/*
-    <div id="searchField" class="col-md-5 ">
-    <div id="searchBar" class="input-group">
-        <input type="text" class="form-control">
-        <span class="input-group-btn">
-            <button type="button" class="btn btn-primary specialButton">
-                <span class="glyphicon glyphicon-search "></span>
-                Search
-            </button>
-        </span>
-    </div>
-    </div>*/
 
-    var searchBar = container.find("#searchBar");
+   var searchBar = container.find("#searchBar");
+   
+   searchBar.append("HELLO BABY");
 
+   var inputField = document.createElement("INPUT");
+   inputField.setAttribute("type", "text");
+   inputField.setAttribute("class", "form-control");
 
-    var inputField = document.createElement("INPUT");
-    inputField.setAttribute("type", "text");
-    //inputField.setAttribute("value", "search for a recipe!");
-    inputField.setAttribute("class", "form-control");
-   /* var btn = document.createElement("BUTTON");
-    btn.setAttribute("type","button");
-    btn.setAttribute("class", "btn btn-primary specialButton");
-    var spanElement=document.createElement("SPAN");
-    spanElement.setAttribute("class", "glyphicon glyphicon-search");
-    btn.append(spanElement);
-    btn.value = "Search";*/
-    searchBar.prepend(inputField);
-
-/*
-    function myFunction() {
-        container.find("myDropdown").classList.toggle("show");
-    }
-    
-    // Close the dropdown if the user clicks outside of it
-    container.onclick = function(event) {
-      if (!event.target.matches('.dropbtn')) {
-    
-        var dropdowns = container.find("dropdown-content");
-        var i;
-        for (i = 0; i < dropdowns.length; i++) {
-          var openDropdown = dropdowns[i];
-          if (openDropdown.classList.contains('show')) {
-            openDropdown.classList.remove('show');
-          }
-        }
-      }
-    }*/
-    
-
-    //Search input field
-
-
+   searchBar.prepend(inputField);
+   
+   
+   
+   
+   // FOOD IMAGES GRID ----------------------------------------------
+   this.imageGrid = container.find("#dishImages");
+   
+   var dishMenu = model.getFullMenu();
+   
+    //Show full dish list
+   for (i=0;i<dishMenu.length;i++){
+      this.imageGrid.append("<a href='#' data-id='" + dishMenu[i].id +"' class='nav-to-dish'> <div style='width:200px; float: left; margin-left: 10px;'><img src='images/"+dishMenu[i].image+"' style='width:200px; height: 200px'><p>"+dishMenu[i].name+"</p></div> </a>");
+   }   
+   // ---------------------------------------------------------------
+   
 }
+
