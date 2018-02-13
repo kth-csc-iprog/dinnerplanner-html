@@ -26,23 +26,30 @@ $(function() {
 	var searchView =  new SearchView($("#searchView"), model);
 
 	// 4. oneDishView (inkl div med recept som uppdateras)
-	var oneDishView = new OneDishView($("oneDishView"), model);
+	var oneDishView = new OneDishView($("#oneDishView"), model);
 
-	// 5. fullMenuView
+	// 5. fullMenuView -overviewView
+	var overviewView = new OverviewView($("#overview"), model);
+
+
 
 	// 6. printView
 
 
-	
+
 	
 
 
 	// Controllers
-	var stateController = new StateController(homeView, sideView, searchView, header);
+	var stateController = new StateController(homeView, sideView, searchView, header, oneDishView, overviewView);
 	//var homeViewController = new HomeViewController(homeView, model);
 	var searchViewController = new SearchViewController(searchView, model); 
 
 	var sideViewController = new SideViewController(sideView, model);
+
+	var oneDishViewController = new OneDishViewController(oneDishView, model);
+
+	var overviewViewController = new OverviewViewController(OverviewView, model); 
 
 
 
@@ -54,6 +61,8 @@ $(function() {
 	$("#sideView").hide();	
 	$("#searchView").hide();
 	$("#oneDishView").hide();
+	$("#overview").hide();
+
 
 
 

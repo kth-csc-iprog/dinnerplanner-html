@@ -1,4 +1,4 @@
-var SideViewController = function(view, model ) {
+var SideViewController = function(view, model) {
 	this.view = view;
 	this.model = model;
 
@@ -9,5 +9,5 @@ var SideViewController = function(view, model ) {
 	 view.minusButton.click(function(){
 	 model.setNumberOfGuests(model.getNumberOfGuests() - 1);
 	 });
- 	//view.loadView();
+	 
 }

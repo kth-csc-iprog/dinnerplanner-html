@@ -15,8 +15,8 @@ var SideView = function (container, model) {
 
 	//load view
 	this.loadView = function() {
-
-		numberOfGuests.html(model.getNumberOfGuests());
+		nrOfGuests = model.getNumberOfGuests();
+		numberOfGuests.html(nrOfGuests);
 
 		var menu = model.getFullMenu(); // stoppain filter och type i funktionen. 
 		var string = '';
@@ -27,13 +27,12 @@ var SideView = function (container, model) {
 		for(i in menu){
 			var dishPrice = 0;
 			for(n in menu[i].ingredients){
-				dishPrice += menu[i].ingredients[n].price
+				dishPrice += menu[i].ingredients[n].price*nrOfGuests;
 			}
 			sum += dishPrice;
 
 			string += '<tr><td>' + menu[i].name + '</td><td>' + dishPrice + '</td></tr>';
 		}
-		console.log(menu);
 
 		
 		table.html(string);

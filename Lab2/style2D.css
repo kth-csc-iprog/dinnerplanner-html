@@ -1,9 +1,6 @@
 form{
   margin-bottom: 10px;
 }
-#Guests{
-  width: 40px;
-}
 
 img{
   width: 100%;
@@ -43,6 +40,11 @@ table {
 
 .jumbotron  {
   text-align: center;
+  padding-top: 0px;
+}
+.page-header  {
+  text-align: center;
+  margin-top: 0px;
 }
 
 .row {
@@ -97,5 +99,6 @@ hr {
     background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0));
 }
 #collapseSide.collapsing {
-  display: block!important;
+  margin-top: 10px;
+  margin-bottom: 10px
 }

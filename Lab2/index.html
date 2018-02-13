@@ -14,9 +14,9 @@
 
 <!-- HEADER VIEW -->   <!-- TODO-VIEW!!! -->
 	<div id="header" class="row-fluid">
-		<div class="col-xs-12 jumbotron">
-			<h1>Dinner Planner</h1>
-		</div>
+		<div class="col-sm-12 hidden-xs jumbotron">
+			 <h1>Dinner Planner</h1>
+    </div>
 	</div>
 
 
@@ -39,14 +39,17 @@
 
 <!-- SIDE VIEW -->
 
-	<div class="col-sm-3 sidebar" id="sideView">
+	<div class="col-sm-3 sidebar well" id="sideView">
     
 
     <div class="sidebar-module sidebar-module-inset ">
-      <nav class="navbar navbar-default">
+      <nav class="navbar navbar-default navbar-static-top ">
         <div class="container-fluid">
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
+            <div class="col-xs-12 visible-xs jumbotron">
+               <h1>Dinner Planner</h1>
+            </div>
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sideCollapse" aria-expanded="false">
               <span class="sr-only"></span>
               <span class="icon-bar"></span>
@@ -72,7 +75,7 @@
           	<input type="number" min="1" id="Guests" >
           </form>-->
               
-              <h5>Number of guests: <span id="numberOfGuests"></span></h5>
+              <h5 >Number of guests: <span id="numberOfGuests"></span></h5>
               <div>
                 <button id="minusGuest" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-minus"></span></button>
                 <button id="plusGuest" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-plus"></span></button>
@@ -99,15 +102,18 @@
           </table> 
 
           <!-- Button -->
-          <button class="btn btn-success">Confirm Dinner</button>  
+          <button id="confirm" class="btn btn-success">Confirm Dinner</button>  
         </div><!-- Module 2 table end -->
         </ul>
       </div> 
       </div>
       </div> 
      </nav>
+    </div>
+  </div>
+
  
-  </div> <!-- SIDEVIEW col end -->
+</div> <!-- SIDEVIEW col end -->
 
 
 <!-- Search View -->
@@ -134,6 +140,7 @@
     </div>
 
     <div id="mainPic">
+    <button class="btn btn-default" id="test">test</button>
         <div id="template" class=" col-md-12">
           <!--hämtar data till bild-boxarna i mainPic.js --> 
         </div>
@@ -149,7 +156,7 @@
           <div id="imgDish">
             
           </div> <!--imgdish end-->
-          <button class="btn btn-default knapp">Back to search</button>
+          <button id="backButton" class="btn btn-default knapp">Back to search</button>
 
       </div> <!--column end-->
 
@@ -157,7 +164,14 @@
         <!-- Lägg ingredienslista här -->
         <h3 id="ingrFor"></h3>
         <div id="table"></div>
-
+          
+          <tr>
+            <td>
+              <button id="add" class="btn btn-default">Add to menu</button>
+            </td>
+            <div id="td1"></div>
+          </tr>
+        </table>
       </div><!--column end-->
     </div> <!--row end-->
 
@@ -169,7 +183,41 @@
       </div>
   </div>
 
+  <!-- overview-View -->
+<div class="container-fluid" id="overview">
 
+  <div class="row-fluid">
+    <div class="col-lg-6">
+      <h2>My dinner: 3 people</h2>
+    </div>  
+    <div class="col-lg-6 pull-right">
+      <button class="btn btn-default knapp">Go back and edit dinner</button>
+    </div>
+  </div>
+
+
+  <div class="row-fluid">
+    <div id="pictures" class="col-md-9" >
+    <!--hämtar data till bild-boxarna i mainPic.js -->
+    <!-- Måste det inte vara en rad till här, eftersom pics som hämtas är kolumner? -->
+    </div>
+    <div class="col-md-3 col-xs-12" >           
+      <ul>
+        <h4>Total: </h4>
+      </ul>
+
+      <ul>
+        <h4 id="summa"></h4>
+      </ul>
+  
+    </div>
+  </div>  <!--row mainview5 end -->
+  <div class="row-fluid caption">
+    <div class="col-xs-12">
+      <button class="btn btn-default knapp">Print full recipe</button>
+    </div>
+  </div>
+</div>
 
 
 
@@ -190,6 +238,9 @@
   <script src="js/view/sideView.js"></script>
   <script src="js/controller/sideViewController.js"></script>
   <script src="js/view/oneDishView.js"></script>
+  <script src="js/controller/oneDishViewController.js"></script>
+  <script src="js/view/overviewView.js"></script>
+  <script src="js/controller/overviewViewController.js"></script>
   <script src="js/view/mainView5.js"></script>
 
 

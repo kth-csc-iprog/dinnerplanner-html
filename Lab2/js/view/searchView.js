@@ -2,7 +2,7 @@ var SearchView = function (container, model) {
 	this.container = container;
 	this.searchButton = container.find("#searchButton"); // knappen ska bara göra loadView(), i den funktionen finns resten av isntruktionerna
 	var textInput = container.find("#keywords"); //document.getElementById("keywords"); //
-	
+	this.testButton = container.find("#test");
 
 
 	//load view
