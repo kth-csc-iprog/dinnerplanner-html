@@ -79,5 +79,6 @@ var StateController = function(view1, view2, view3, view4, view5, view6, view7) 
 
 
 	startDinner();
+	searchView.updateView();
 	
 }

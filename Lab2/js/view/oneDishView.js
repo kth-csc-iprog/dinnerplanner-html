@@ -48,6 +48,8 @@ var OneDishView = function (container, model) {
 		Summa.html(summa);
 
 	}
+
+	
 		
 		
 
@@ -55,6 +57,9 @@ var OneDishView = function (container, model) {
 	this.loadView();
 	//attach as listener
 	model.addObserver(this);
+	this.updateView = function() {
+		console.log("testar ny funktion - onedish");
+	}
 	
 }
  

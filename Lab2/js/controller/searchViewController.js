@@ -1,4 +1,4 @@
-	
+
 var SearchViewController = function(view, model) {
 	this.view = view;
 	this.model = model;
@@ -19,17 +19,12 @@ var SearchViewController = function(view, model) {
 			// spara id i modellens displayedDish, och notify att uppdater vy. 
 			model.selectDishRecipe(this.id);
 			//model.displayedDish = this.id;
-
 			console.log(this.id);
 			console.log("och i modellen:");
 			console.log(model.displayedDish); // funktion istället så att den notifies. 
-
+			//view.container.hide();
 			
 		});
 	}
-	
-
-	
-
 	
 }

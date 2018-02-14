@@ -33,10 +33,14 @@ var PrintView = function (container, model) {
 
 	}
 		
-		
+	
 
 	// load/update view.
 	this.loadView();
 	//attach as listener
 	model.addObserver(this);
+
+	this.updateView = function() {
+		console.log("testar ny funktion - print");
+	}
 }

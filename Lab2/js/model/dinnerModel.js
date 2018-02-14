@@ -6,17 +6,20 @@ var DinnerModel = function() {
 
 	var numberOfGuests = 2; // ej this. för då blir det en property som man kan nå utifrån. istället var. 
 	var menu = [1, 101, 201]
-	var observers = new Array();
+	this.observers = new Array();
 	this.displayedDish = ""; 
 
 	this.addObserver = function(observer) {
-		observers.push(observer);
+		this.observers.push(observer);
 	}
 
-	var notifyObservers = function() {
-		for(var i = 0; i < observers.length; i++) {
-			observers[i].loadView();
-			//observer[i].update(args);
+	this.notifyObservers = function(args) {
+		for(var i = 0; i < this.observers.length; i++) {
+			//this.observers[i].loadView();
+			console.log("nu meddelar vi observer");
+			//console.log(args);
+			console.log(args);
+			this.observers[i].updateView();
 		}
 	}
 
@@ -24,7 +27,7 @@ var DinnerModel = function() {
 		if(num>0){
 			numberOfGuests = num;
 		}
-		notifyObservers();
+		this.notifyObservers("guestsChanged");
 	}
 	
 	this.getNumberOfGuests = function() {
@@ -48,9 +51,9 @@ var DinnerModel = function() {
 		this.displayedDish = selectedID;
 		console.log("nu går vi vidare till recept");
 		console.log(this.displayedDish);
-
-		//meddela observers att de ska vidare till nästa. 
-		notifyObservers("toRecipe");
+		//notifyObservers();
+		//meddela observers att de ska vidare till nästa.
+		this.notifyObservers("toRecipe");
 	};
 
 	//Returns all the dishes on the menu.
@@ -104,7 +107,7 @@ var DinnerModel = function() {
 		}
 
 		menu.push(id);
-		notifyObservers();
+		this.notifyObservers("newDishAdded");
 
 
 	}
@@ -119,7 +122,7 @@ var DinnerModel = function() {
 			}
 			i++;
 		}
-		notifyObservers();
+		//notifyObservers();
 
 	}
 
@@ -143,7 +146,7 @@ var DinnerModel = function() {
 		}
 	  	return dish.type == type && found;
 	  });	
-	  notifyObservers();
+	  this.notifyObservers("newTypeSelected");
 	}
 
 	//function that returns a dish of specific ID

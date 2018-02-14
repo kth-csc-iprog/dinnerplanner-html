@@ -41,18 +41,21 @@ var SideView = function (container, model) {
 		summa.html(sum);
 		Summa.html(sum);
 
-	
-
-
 		//model.setNumberOfGuests(guests);
 	
 	}
+	
 		
 
 	// load/update view.
 	this.loadView();
+
+
 	//attach as listener
 	model.addObserver(this);
+	this.updateView = function() {
+		console.log("testar ny funktion - sideView");
+	}
 	
 }
  
