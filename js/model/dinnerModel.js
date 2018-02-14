@@ -9,7 +9,31 @@ var DinnerModel = function()
     
     // Array containing the ID of the dishes selected
     // I'm initializing it with some dishes just to test the app
-    var dishesSelectedID = [2,103,202];
+    //var dishesSelectedID = [2,103,202];
+    var dishesSelectedID = [];   
+   
+   // This will contain all our observers.
+   // They will basically be a reference to our views so we can call their update functions
+   var observers = [];
+   
+   this.addObserver = function(obs) 
+   { /* Your code here */ 
+      observers.push(obs);
+      
+   }
+   
+   
+   var notifyObservers = function(obj)
+   {
+      for(var i=0; i<observers.length; i++)
+      {
+         observers[i].update();
+      }
+   }
+   
+   
+   
+ 
     
     
 	//TODO Lab 1 implement the data structure that will hold number of guest
@@ -36,11 +60,13 @@ var DinnerModel = function()
     this.addOneGuest = function()
     {
         this.setNumberOfGuests( this.getNumberOfGuests() + 1);
+        notifyObservers();
     }
     
     this.removeOneGuest = function()
     {
         this.setNumberOfGuests( this.getNumberOfGuests() - 1);
+        notifyObservers();       
     }    
     
     
@@ -121,22 +147,33 @@ var DinnerModel = function()
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) 
-    {
-       console.log("adding dish " + id);
-       
-       // Go through every dish selected
-       for(var i=0; i<dishesSelectedID.length; i++)
-       {       
-          // If there's already a dish of the type we are trying to add, we should remove it
-          if( this.getDish(dishesSelectedID[i]).type == this.getDish(id).type  )
-          {
-             // removing the dish of the same type
-             this.removeDishFromMenu(dishesSelectedID[i]);
-                
-             // Adding the new dish to our dishesSelectedID
-             dishesSelectedID.push(id);
-          }
+    {       
+       if(dishesSelectedID.length == 0)
+       {
+          dishesSelectedID.push(id);
        }
+       else
+       {
+          // Go through every dish selected
+          for(var i=0; i<dishesSelectedID.length; i++)
+          {       
+             // If there's already a dish of the type we are trying to add, we should remove it
+             if( this.getDish(dishesSelectedID[i]).type == this.getDish(id).type  )
+             {
+                // removing the dish of the same type
+                this.removeDishFromMenu(dishesSelectedID[i]);
+
+                // Adding the new dish to our dishesSelectedID
+                dishesSelectedID.push(id);
+             }
+             else
+             {
+                dishesSelectedID.push(id);
+             }
+          }
+      }
+
+      notifyObservers(); 
     }
 
 	//Removes dish from menu
@@ -150,6 +187,8 @@ var DinnerModel = function()
                 dishesSelectedID.splice(i,1);
             }
         }
+       
+        notifyObservers();       
 	}
     
     //Get the price of the dish

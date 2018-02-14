@@ -3,7 +3,8 @@
 
 var DinnerPrintoutView = function (container, model) 
 {
- 
+    model.addObserver(this);
+   
     var nGuests = container.find("#nGuests");
     
     nGuests.html(model.getNumberOfGuests() + " people");

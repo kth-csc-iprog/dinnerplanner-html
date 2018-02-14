@@ -2,6 +2,8 @@
 
 var SideBarView = function (container, model) 
 {
+    model.addObserver(this);
+   
     // getting a reference to the buttons:
     this.minusButton = container.find("#minusGuest");
     this.plusButton  = container.find("#plusGuest");    
@@ -31,7 +33,7 @@ var SideBarView = function (container, model)
         }        
        
         // Adding the total cost of the dish
-        container.find("#total_cost").html(model.getTotalMenuPrice() + " SEK");
+        container.find("#total_cost").html( model.getTotalMenuPrice() + " SEK");
     }
     
     this.update();
