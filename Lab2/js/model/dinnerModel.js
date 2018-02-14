@@ -15,11 +15,11 @@ var DinnerModel = function() {
 
 	this.notifyObservers = function(args) {
 		for(var i = 0; i < this.observers.length; i++) {
-			//this.observers[i].loadView();
+			this.observers[i].loadView();
 			console.log("nu meddelar vi observer");
 			//console.log(args);
 			console.log(args);
-			this.observers[i].updateView();
+			//this.observers[i].updateView();
 		}
 	}
 
