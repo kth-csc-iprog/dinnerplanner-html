@@ -26,6 +26,18 @@ var SearchView = function (container, model) {
 		textInput.value = ""; // funkar inte. nollställer keywordsfönstret när man tryckt sök. 
 
 	}
+
+	this.update = function(args) {
+		var viewArgs = args;
+		switch(viewArgs) {
+			case "toRecipe":
+			this.hide();
+			break
+			default:
+			break
+		}
+
+	}
 		
 		
 
