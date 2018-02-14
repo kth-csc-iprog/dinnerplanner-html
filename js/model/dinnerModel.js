@@ -181,8 +181,9 @@ var DinnerModel = function()
 					found = true;
 				}
 			});
-			if(dish.name.indexOf(filter) != -1)
-			{
+			//if(dish.name.indexOf(filter) != -1)
+			if(dish.name.toLocaleLowerCase().indexOf(filter) != -1)
+            {
 				found = true;
 			}
 		}

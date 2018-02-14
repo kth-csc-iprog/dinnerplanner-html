@@ -12,7 +12,7 @@ PAGES:
 	OK
 
 2- SideBar + FindDish (selectDishesPage). searchView is called FindDishes.
-	Missing:
+	OK
 
 
 3- SideBar + DishDetails
@@ -26,6 +26,17 @@ PAGES:
 
 
 
+
+<div class="dropdown">
+	<form class="btn btn-primary dropdown-toggle">
+		<select id="DishType">
+                        <option value="all">All</option>
+                        <option value="starter">Starter</option>
+                        <option value="main dish">Main dish</option>
+                        <option value="dessert">Dessert</option>
+                    </select>
+                </form>
+</div>
 
 
 

@@ -158,8 +158,8 @@ $(function()
     */
    
     
-    //pagesDisplayer.showHomePage();
-    pagesDisplayer.showSelectDishesPage();
+    pagesDisplayer.showHomePage();
+    //pagesDisplayer.showSelectDishesPage();
     //pagesDisplayer.showDishDetailsPage();    
     //pagesDisplayer.showDinnerSummary();
    

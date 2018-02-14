@@ -4,45 +4,40 @@ var findDishesTemplate = `
 <!-- right side (Find a dish + food images) -->
  <div class = "col-sm-10  addBorder" id="findDishes">
     <h1>Find a dish</h1> 
+    
     <!--Search bar + button + dropdown menu -->
-    <div class="row">
-                        
-        <!-- Search bar -->
-        <div class="col-md-5 ">
-            <div class="input-group">
-                <input type="text" class="form-control">
-                <span class="input-group-btn">
-                    <button type="button" class="btn btn-primary specialButton">
-                        <span class="glyphicon glyphicon-search "></span> 
-                        Search
-                    </button>
-                </span>
-            </div>
-        </div>
+    <div class="row">    
+       <div class ="col-md-10 col-sm-10 input-group" id="searchBar">
 
-        <!-- Drop down menu -->
-        <div class="col-md-2">
-            <div class="dropdown">
-                <button class="dropdown-toggle btn btn-primary" type="button" data-toggle="dropdown" >
-                    <span>Starter</span>
-                    <!-- Shows a down arrow in the right side -->
-                    <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a href="#" >Starter</a></li>
-                    <li><a href="#" >Main</a></li>
-                    <li><a href="#" >Desert</a></li>
-                </ul>
-            </div>
-        </div> 
-                     
-     </div>  
+                  <input type="text" id="SearchField" class="form-control" placeholder="Search ">
+                      <span class="input-group-btn">
+                      <button type="button" class="btn btn-primary specialButton">
+                      <span class="glyphicon glyphicon-search "></span>
+                      Search
+                      </button>
+                      </span>
+                      <div class="dropdown">
+                      <form class="btn btn-primary dropdown-toggle">
+                          <select id="DishType">
+                              <option value="all">All</option>
+                              <option value="starter">Starter</option>
+                              <option value="main dish">Main dish</option>
+                              <option value="dessert">Dessert</option>
+                          </select>
+                      </form>
+                  </div>
+       </div>    
+     </div>
+    
+    
+    
+
                   
     <hr>
                   
     <!-- IMAGES -->
     <div class="row">
-        <div class="col-md-12 " style="padding-top:25px" id="dishImages">
+        <div class="col-md-12 " style="padding-top:25px" id="dishImages" > 
                             
             <!-- Image div -->
             <!--
