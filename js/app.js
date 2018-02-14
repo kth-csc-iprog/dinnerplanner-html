@@ -70,11 +70,20 @@ $(function()
        appDiv.html(dinnerSummaryTemplate); 
        views.dinnerSummary = new DinnerSummaryView($("#dinnerSummary"), model);
        controllers.dinnerSummaryController = new DinnerSummaryController(views.dinnerSummary, model, pagesDisplayer);
-       
     }
+    
+    
+    pagesDisplayer.showFullReceipe = function(){
+       appDiv.html(fullRecipeTemplate); 
+       views.fullRecipe = new FullReceipeView($("#fullReceipe"), model);
+       controllers.fullReceipeController = new FullReceipeController(views.fullRecipe, model, pagesDisplayer);
+    }    
    
     
     
+    
+    
+    // ==================================================================================================================
     function showSideBar(){
         appDiv.html(sideBarTemplate);
         views.sideBar = new SideBarView($("#sideBar"), model);
@@ -94,6 +103,9 @@ $(function()
         views.dishDetails = new DishDetailsView($("#dishDetails"), model, id);
         controllers.dishDetailsController = new DishDetailsController(views.dishDetails, model, pagesDisplayer);       
     }      
+    // ==================================================================================================================
+
+   
    
    
     /*
@@ -146,10 +158,12 @@ $(function()
     */
    
     
-    pagesDisplayer.showHomePage();
-    //pagesDisplayer.showSelectDishesPage();
+    //pagesDisplayer.showHomePage();
+    pagesDisplayer.showSelectDishesPage();
     //pagesDisplayer.showDishDetailsPage();    
     //pagesDisplayer.showDinnerSummary();
+   
+    //pagesDisplayer.showFullReceipe();   
 });
 
 

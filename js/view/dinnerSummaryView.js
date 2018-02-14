@@ -2,7 +2,6 @@
 
 var DinnerSummaryView = function (container, model) 
 {
-   console.log("Dinner Summary View");
    
    var nGuests = container.find("#nGuests");
    nGuests.html(model.getNumberOfGuests() + " People");
@@ -26,6 +25,6 @@ var DinnerSummaryView = function (container, model)
    
    
     this.return_to_previous_page_button = container.find("#return_to_previous_page_button");
-   
+    this.print_full_recipe_button       = container.find("#print_full_recipe_button");
 }
 

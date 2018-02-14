@@ -1,46 +1,28 @@
 
 
 
-1- On DishDetailsPage, you need to implement the buttons:
-	"Confirm Dinner"
-	"Back to search"
-	"Add to menu"
-
-2- Implement the observers
-
-3- Add a total price in the Table.
-
-4- Add a total price in the sidebar
-
-5- 
-
-
 PAGES:
 ------------------------------------
 0- General
 	- Add the header
+	- Implement the observers
+
 
 1- Home Page
 	OK
 
 2- SideBar + FindDish (selectDishesPage). searchView is called FindDishes.
 	Missing:
-		- Confirm Dinner button
-		- Search 
-		- Starter
-		- On the sidebar: we are missing the total amount.
+
 
 3- SideBar + DishDetails
-	Missing:
-
+	OK
 
 5- Dinner Summary
-	Missing:
-		- Print Full Recipe button
+	OK
 
 6- PrintFullRecipe
-	Missing:
-		- Everything.
+	OK
 
 
 

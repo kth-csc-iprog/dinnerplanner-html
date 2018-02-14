@@ -103,18 +103,18 @@ var DinnerModel = function()
     {
         var totalPrice = 0;
     
-        var ingredients = this.getAllIngredients();
-        
+        var ingredients = this.getAllIngredients();       
+       
         // Each dish has a list of ingredients.
         // 'ingredients' is a list of the list of ingredients for the dishes selected
         for(var i=0; i< ingredients.length; i++)
         {
-            for(var m=0; m<ingredients[i]; m++)
-            {
+            for(var m=0; m<ingredients[i].length; m++)
+            {               
                 totalPrice += ingredients[i][m].price;
             }
         }
-            
+
         return totalPrice*nGuests;   
 	}
 

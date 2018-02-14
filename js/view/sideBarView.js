@@ -29,6 +29,9 @@ var SideBarView = function (container, model)
             //id='dish_cost_'"+i+"
             //dishNameCostDiv.append("<div class='col-md-6'> <p style='text-align:right'>"+ model.getDishPrice(selectedDishes[i].id) + " SEK</p> </div> </div>");        
         }        
+       
+        // Adding the total cost of the dish
+        container.find("#total_cost").html(model.getTotalMenuPrice() + " SEK");
     }
     
     this.update();
