@@ -53,9 +53,10 @@ var SideView = function (container, model) {
 
 	//attach as listener
 	model.addObserver(this);
-	this.updateView = function() {
-		console.log("testar ny funktion - sideView");
+	this.updateView = function(args) {
+		this.loadView();
 	}
+
 	
 }
  

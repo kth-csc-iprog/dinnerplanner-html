@@ -1,4 +1,4 @@
-var OneDishViewController = function(view, model) {
+var OneDishViewController = function(view, model, sControl) {
 	this.view = view;
 	this.model = model;
 

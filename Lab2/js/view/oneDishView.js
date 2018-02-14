@@ -6,9 +6,7 @@ var OneDishView = function (container, model) {
 	this.model = model;
 
 	/*måste ämdras till hämtning av vald dish genom click... */
-	var dish = 100;
-
-	this.Dish = model.getDish(dish);
+	
 	this.backButton = container.find("#backButton");
 	this.add = container.find("#add");
 
@@ -22,6 +20,11 @@ var OneDishView = function (container, model) {
 	
 
 	this.loadView = function() {
+
+		var dish = model.returnDishRecipe();
+		console.log(dish);
+
+		this.Dish = model.getDish(dish);
 
 		nrOfGuests = model.getNumberOfGuests();
 
@@ -54,12 +57,12 @@ var OneDishView = function (container, model) {
 		
 
 	// load/update view.
-	this.loadView();
+	//this.loadView();
 	//attach as listener
 	model.addObserver(this);
-	this.updateView = function() {
-		console.log("testar ny funktion - onedish");
-	}
+	this.updateView = function(args) {
+		this.loadView();
+		}
 	
 }
  

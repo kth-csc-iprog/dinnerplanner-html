@@ -47,7 +47,7 @@ var OverviewView = function (container, model) {
 	model.addObserver(this);
 
 	this.updateView = function() {
-		console.log("testar ny funktion - overview");
+		this.loadView();
 	}
 	
 }

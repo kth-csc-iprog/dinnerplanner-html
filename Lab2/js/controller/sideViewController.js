@@ -1,4 +1,4 @@
-var SideViewController = function(view, model) {
+var SideViewController = function(view, model, sControl) {
 	this.view = view;
 	this.model = model;
 
