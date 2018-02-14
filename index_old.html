@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      
+    <!-- It ensures that your website has a 1:1 ratio with the viewport (screen size) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dinner planner</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+
+  </head>
+  <body>
+    
+     <!-- THIRD VIEW ##################################################################################################### -->
+     <div class="container-fluid" id="secondView" style="display: none"> 
+         <!-- header-->
+         <div class="row">
+            <div class = "col-sm-12" style="padding: 0">
+                <div class="jumbotron text-center"  > 
+                    <h1>Dinner planner</h1> 
+                </div>  
+            </div>
+         </div>
+         
+         <!-- Contains the body of the view -->
+         <div class="row">
+             <!-- left sidebar -->
+             <div class = "col-sm-2 addBorder">
+                  <h1>My Dinner</h1>
+                  <p>Number Of Guests: <span id="nGuests"></span>
+                    <div>
+                        <button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
+                        <button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
+                    </div> 
+                  
+                    
+                    <div class="row" id="dishNameAndCostDiv" >
+                        <!-- left div -->
+                        <div class="col-md-6 noPadding" style="float:left">
+                            <p style="text-align:left">Dish Name</p>                    
+                        </div>
+
+                        <!-- right div -->                
+                        <div class="col-md-6">
+                            <p style="text-align:right">Cost</p>
+                        </div>
+                    </div>
+                  
+                  
+                    <div id="DishAndCost">
+                        <!-- left div -->
+                        <div class="col-md-6 noPadding" style="float:left">
+                            <p style="text-align:left">DishA</p>                    
+                        </div>
+
+                        <!-- right div -->                
+                        <div class="col-md-6">
+                            <p style="text-align:right">SEK 0.00</p>
+                        </div>                        
+                    </div>
+                    
+                    <div class="col-md-12 text-center" id="confirmDinnerButton">
+                        <button type="button" class="btn btn-primary">Confirm Dinner</button>
+                    </div>
+              <!-- END of left sidebar -->
+              </div>
+                 
+             
+              <!-- right side (Find a dish + food images) -->
+              <div class = "col-sm-10  addBorder">
+
+                <div class = "container-fluid"> 
+                 <div class="row">
+                     <div class = "col-sm-5 "  >
+                      <h1> Dish A</h1>
+                      
+                      <img src="images/bakedbrie.jpg" style="width:100%; height: 400px">
+                      
+                      <p class="textJustifyCenter" style="width:100%;"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                      
+                      <div class="col-md-12 text-left" style="margin-bottom: 20px; margin-top: 20px">
+                          <button type="button" class="btn btn-warning">Back to search</button>               
+                      </div>
+                  </div>
+
+                  
+                  <!-- Ingredients Table -->
+                  <div class = "col-sm-7 yellow addBorder"  >
+                      <h1> Ingredients for X people</h1>
+                      <hr style="border-color: black">
+                      
+                      <div class = "container-fluid">
+                          <!-- Row for each dish -->
+                          <div class= "row" >
+                              <div class = "col-xs-3 text-right"  >
+                                  <p>750 g</p>
+                              </div>
+
+                              <div class = "col-xs-3 text-right"  >
+                                  <p>Olive Oil</p>
+                              </div>      
+
+                              <div class = "col-xs-3 text-right"  >
+                                  <p>SEK</p>
+                              </div>     
+
+                              <div class = "col-xs-3 text-right"  >
+                                  <p>0.20</p>
+                              </div>                              
+                          </div>    
+                          
+                          
+                          <!-- Row for each dish -->
+                          <div class= "row" >
+                              <div class = "col-xs-3 text-right"  >
+                                  <p>250 g</p>
+                              </div>
+
+                              <div class = "col-xs-3 text-right"  >
+                                  <p>Dish B</p>
+                              </div>      
+
+                              <div class = "col-xs-3 text-right"  >
+                                  <p>SEK</p>
+                              </div>     
+
+                              <div class = "col-xs-3 text-right"  >
+                                  <p>9.27</p>
+                              </div>                              
+                          </div>                               
+    
+                          <hr style="border-color: black">
+                          
+                          <!-- Row for each dish -->
+                          <div class= "row" >
+                            <div class = "col-xs-6" > 
+                              <div class="col-md-12 text-left" style="margin-bottom: 10px; margin-top: 10px">
+                                  <button type="button" class="btn btn-warning">Add to menu</button>               
+                              </div>
+                            </div>
+                              
+                            <div class = "col-xs-6 text-right" > 
+                                <p>720 SEK </p>
+                            </div>
+                          </div>                            
+                      </div>
+                      
+                  </div> <!-- END of Ingredients Table --> 
+                 </div>
+                      
+                 <div class="row">
+                      <h1> Preparation </h1>
+                      <p class="" style="width:100%;"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>                     
+                 </div>                      
+                </div>
+              </div> <!-- END of right side (Find a dish + food images) -->
+
+         </div>
+     </div>
+     <!-- END OF THIRD VIEW ##################################################################################################### -->
+      
+      
+      
+      
+     <!-- SECOND SCREEN  ##################################################################################################### -->
+      <div class="container-fluid" id="secondView" style="display: -none">  
+          <!-- header-->
+          <div class="row">
+              <div class = "col-sm-12" style="padding: 0">
+                   <div class="jumbotron text-center"  > 
+                        <h1>Dinner planner</h1> 
+                    </div>  
+              </div>
+          </div>
+          
+          <!-- Contains the body of the view -->
+          <div class="row">
+              <!-- left sidebar -->
+              <div class = "col-sm-2 addBorder" id="sideBar">
+                  <h1>My Dinner</h1>
+                  <p>Number Of Guests: <span id="nGuests"></span>
+                    <div>
+                        <button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
+                        <button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
+                    </div> 
+                  
+                    
+                    <div class="row" id="dishNameAndCostDiv" >
+                        <!-- left div -->
+                        <div class="col-md-6 noPadding" style="float:left">
+                            <p style="text-align:left">Dish Name</p>                    
+                        </div>
+
+                        <!-- right div -->                
+                        <div class="col-md-6">
+                            <p style="text-align:right">Cost</p>
+                        </div>
+                    </div>
+                  
+                  
+                    <div id="dish_cost">
+                        <!-- left div -->
+                        <!--
+                        <div class = "row">
+                            <div class="col-md-6 noPadding" style="float:left">
+                                <p style="text-align:left">French toast</p>                    
+                            </div>
+                        -->
+
+                            <!-- right div -->  
+                        <!--
+                            <div class="col-md-6">
+                                <p style="text-align:right">SEK 0.00</p>
+                            </div>                            
+                        </div>
+                        -->
+                        
+                    </div>
+                    
+                    <div class="col-md-12 text-center" id="confirmDinnerButton">
+                        <button type="button" class="btn btn-primary">Confirm Dinner</button>
+                    </div>
+              <!-- END of left sidebar -->
+              </div>
+              
+              <!-- right side (Find a dish + food images) -->
+              <div class = "col-sm-10  addBorder">
+                    <h1>Find a dish</h1> 
+                    <!--Search bar + button + dropdown menu -->
+                    <div class="row">
+                        
+                        <!-- Search bar -->
+                        <div class="col-md-5 ">
+                            <div class="input-group">
+                                <input type="text" class="form-control">
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-primary specialButton">
+                                        <span class="glyphicon glyphicon-search "></span> 
+                                        Search
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <!-- Drop down menu -->
+                        <div class="col-md-2">
+                            <div class="dropdown">
+                                <button class="dropdown-toggle btn btn-primary" type="button" data-toggle="dropdown" >
+                                    <span>Starter</span>
+                                    <!-- Shows a down arrow in the right side -->
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#" >Starter</a></li>
+                                    <li><a href="#" >Main</a></li>
+                                    <li><a href="#" >Desert</a></li>
+                                </ul>
+                            </div>
+                        </div> 
+                       
+                    </div>  
+                  
+                    <hr>
+                  
+                    <!-- IMAGES -->
+                    <div class="row">
+                        <div class="col-md-12 " style="padding-top:25px">
+                            
+                            <!-- Image div -->
+                            <div  style="width:200px; float: left; margin-left: 10px;">
+                                <img src="images/bakedbrie.jpg" style="width:200px; height: 200px">
+                                <p> Dish A </p>
+                            </div>
+                            
+                            <!-- Image div -->
+                            <div style="width:200px; float: left; margin-left: 10px;">
+                                <img src="images/icecream.jpg" style="width:200px; height: 200px">
+                                <p> Dish B </p>
+                            </div>
+                            
+                            <!-- Image div -->
+                            <div  style="width:200px; float: left; margin-left: 10px;">
+                                <img src="images/meatballs.jpg" style="width:200px; height: 200px">
+                                <p> Dish C </p>
+                            </div>                                 
+                            
+                        </div>
+                    </div>
+                  
+              </div>   
+          </div>
+      </div>
+     <!-- END OF SECOND VIEW ##################################################################################################### -->
+
+      
+      
+      
+      
+     <!-- FIRST VIEW ##################################################################################################### -->      
+      <div class="container-fluid" id="FirstView"  style="display: none">
+          <!-- header-->
+          <div class="row">
+              <div class = "col-sm-12" style="padding: 0">
+                   <div class="jumbotron text-center"  > 
+                        <h1>Dinner planner</h1> 
+                    </div>  
+              </div>
+          </div>          
+          
+          
+          <div class="col-sm-3"></div>
+            <div class="col-sm-6" id="introductionTextContainer">
+                <p class="textJustifyCenter"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+
+                <div class="col-md-12 text-center">
+                    <button type="button" class="btn btn-warning">Create a new dinner</button>               
+                </div>
+
+            </div>
+          <div class="col-sm-3"></div>
+      </div>
+     <!-- END OF FIRST VIEW ##################################################################################################### -->      
+      
+      
+      
+      
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+	<!-- The application JavaScript code -->
+	<script src="js/app.js"></script>
+	<script src="js/model/dinnerModel.js"></script>
+	<script src="js/view/exampleView.js"></script>
+	<!-- TODO: Here you should include JS code for your other views -->
+	<script src="js/view/sideBarView.js"></script>      
+  </body>
+</html>

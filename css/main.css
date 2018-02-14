@@ -1,0 +1,155 @@
+
+.red
+{
+    background-color: red;
+}
+
+.blue
+{
+    background-color: blue;
+}
+
+.green
+{
+    background-color: green;
+}
+
+.yellow
+{
+    background-color: yellow;
+}
+
+
+html,body 
+{
+    height:100%;
+}
+
+
+
+
+
+
+
+
+#dishNameAndCostDiv
+{  
+  background-color: lightgrey;
+  border: 2px black solid;
+    
+  margin-top: 10px;
+  border-left: 0;
+  border-right: 0; 
+}
+
+
+#confirmDinnerButton
+{
+    margin-top: 30px;
+}
+
+
+.addBorder
+{
+  border: 2px black solid;
+}
+
+
+.textJustifyCenter
+{
+    text-align: justify;
+    -moz-text-align-last: center;
+    text-align-last: center;      
+}
+
+/*
+
+#introductionText
+{
+    text-align: justify;
+    -moz-text-align-last: center;
+    text-align-last: center;    
+}
+
+#dishNameAndCostDiv
+{  
+  background-color: lightgrey;
+  border: 2px black solid;
+    
+  margin-top: 10px;
+  border-left: 0;
+  border-right: 0; 
+}
+
+.container-fluid
+{
+  height: 100%;    
+}
+
+.noPadding
+{
+    padding: 0;    
+}
+
+#leftColumn
+{
+  border: 2px black solid; 
+  border-left: 0;    
+}
+
+.row
+{
+    height: 100%;
+}
+
+#leftColumn 
+{
+   -min-height: 300px; 
+   -bottom: 0;
+    
+  -background-color: white;
+ - overflow: hidden;
+ - height: 100%;
+ - padding-bottom: 100%;
+ - margin-bottom: -100%;
+}
+
+
+
+@media screen and (max-width: 770px) 
+{
+    
+    #introductionTextContainer
+    {
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+}
+
+
+
+
+
+.red
+{
+    background-color: red;
+}
+
+.blue
+{
+    background-color: blue;
+}
+
+.green
+{
+    background-color: green;
+}
+
+.yellow
+{
+    background-color: yellow;
+}
+
+*/

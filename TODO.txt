@@ -1,0 +1,55 @@
+
+
+
+PAGES:
+------------------------------------
+0- General
+	- Add the header
+	- Implement the observers
+
+
+1- Home Page
+	OK
+
+2- SideBar + FindDish (selectDishesPage). searchView is called FindDishes.
+	OK
+
+
+3- SideBar + DishDetails
+	OK
+
+5- Dinner Summary
+	OK
+
+6- PrintFullRecipe
+	OK
+
+
+
+
+<div class="dropdown">
+	<form class="btn btn-primary dropdown-toggle">
+		<select id="DishType">
+                        <option value="all">All</option>
+                        <option value="starter">Starter</option>
+                        <option value="main dish">Main dish</option>
+                        <option value="dessert">Dessert</option>
+                    </select>
+                </form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

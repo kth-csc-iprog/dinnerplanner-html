@@ -1,0 +1,66 @@
+
+
+var dinnerSummaryTemplate = `
+
+    <div class="container-fluid" id="dinnerSummary" >
+        <div class="row">
+            <div class="col-sm-12" style="padding: 0">
+                <div class="jumbotron text-center">
+                    <h1>Dinner planner</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 addBorder" style="padding: 0">
+                <div class="col-sm-9">
+                    <h1>My Dinner:
+                        <span id="nGuests"></span> </h1>
+                </div>
+                <div class="col-sm-3" style="padding-top:10px">
+                    <button id ="return_to_previous_page_button" type="button" class="btn btn-default btn-arrow-left" style="background-color: #c2309e">Return to previous page</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- my dinner -->
+            <div class="myDinner col-sm-9 bg-primary " style=" border-right: 2px black solid" id="dishes_list">
+               
+               <!--
+                <div style="width:200px; float: left; margin-left: 10px;">
+                    <img src="images/bakedbrie.jpg" style="width:200px; height: 200px">
+                    <p> Price X </p>
+                </div>
+                -->
+               
+                <!-- Image div -->
+                <!--
+                <div style="width:200px; float: left; margin-left: 10px;">
+                    <img src="images/icecream.jpg" style="width:200px; height: 200px">
+                    <p> Price Y </p>
+                </div>
+                -->
+               
+                <!-- Image div -->
+                <!--
+                <div style="width:200px; float: left; margin-left: 10px;">
+                    <img src="images/meatballs.jpg" style="width:200px; height: 200px">
+                    <p> Price Z </p>
+                </div>
+                -->
+            </div>
+            <!--total-->
+            <div class="totalPrice col-sm-3">
+
+                <div style="height: 180px;"></div>
+                <p id="total_price">Total:</br>Price X+Y+Z</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="printButton">
+                <center>
+                    <button id="print_full_recipe_button" type="button" class="btn btn-primary">Print Full Recipe</button>
+                </center>
+            </div>
+        </div>
+    </div>
+`;
