@@ -10,14 +10,14 @@ var DinnerModel = function() {
   var menu = [];
 
   var observers=[];
-      this.addObserver=function(observer){ observers.push(observer); }
+  this.addObserver=function(observer){ observers.push(observer); }
 
-      this.notifyObservers=function(details){
-          for(var i=0; i<observers.length; i++)
-               observers[i](this, details); // we will make sure that observers[i] is a function, so we can call it like observers[i](parameters)
-      }
+  this.notifyObservers=function(details){
+      for(var i=0; i<observers.length; i++)
+           observers[i](this, details); // we will make sure that observers[i] is a function, so we can call it like observers[i](parameters)
+  }
 
-      this.removeObserver=function(observer){  /* remove observer from array */}
+  this.removeObserver=function(observer){  /* remove observer from array */}
 
   //.... other model data and code calling notifyObservers() when the model changes
 
@@ -25,7 +25,7 @@ var DinnerModel = function() {
 		//TODO Lab 1
     guests = num;
     //Notify observers that a change has occurred (STEP 10)
-    this.guestCount.notify();
+    this.notifyObservers();
 	}
 
 	this.getNumberOfGuests = function() {

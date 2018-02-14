@@ -20,7 +20,7 @@ var SideView = function (container, model) {
         });
 
     // Add observers to the Model (STEP 3)
-    this._model.guestCount.attach(function () {
+    this._model.addObserver(function () {
         _this.rebuildList();
         });
 
