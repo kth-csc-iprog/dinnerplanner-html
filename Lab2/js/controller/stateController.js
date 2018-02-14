@@ -58,6 +58,15 @@ var StateController = function(view1, view2, view3, view4, view5, view6, view7) 
 	var printRecipe = function(){
 		overviewView.container.hide();
 		printView.container.show();
+		
+		printView.BackButton.click(function() {
+			printView.container.hide();
+			sideView.container.show();
+			searchView.container.show();
+
+		});
+
+
 
 	}
 	sideView.confirmButton.click(function(){

@@ -18,8 +18,8 @@ var OverviewView = function (container, model) {
 
 	//load view
 	this.loadView = function() {
-		nr= model.getNumberOfGuests();
-		string = '<h2>My dinner: '+ nr +' people</h2>';
+		var nr= model.getNumberOfGuests();
+		var string = '<h2>My dinner: '+ nr +' people</h2>';
 		var menu = model.getFullMenu();
 		header.html(string);
 
@@ -34,7 +34,6 @@ var OverviewView = function (container, model) {
 			
 			sum += dishPrice;
 		}
-		console.log(HTMLPic);
 		pictures.html(HTMLPic);
 		total.html(sum);
 

@@ -63,6 +63,8 @@ $(function() {
 	$("#searchView").hide();
 	$("#oneDishView").hide();
 	$("#overview").hide();
+	$("#printView").hide();
+
 
 
 
