@@ -49,7 +49,7 @@ $(function() {
 
 	var oneDishViewController = new OneDishViewController(oneDishView, model);
 
-	var overviewViewController = new OverviewViewController(OverviewView, model); 
+	var overviewViewController = new OverviewViewController(overviewView, model); 
 
 
 

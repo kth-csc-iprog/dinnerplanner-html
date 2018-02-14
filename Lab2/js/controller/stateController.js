@@ -5,7 +5,7 @@ var StateController = function(view1, view2, view3, view4, view5, view6) {
 	var searchView = view3;
 	var headerView = view4;
 	var oneDishView = view5;
-	var overview = view6;
+	var overviewView = view6;
 
 	var startDinner = function() {
 		homeView.startButton.click(function() {
@@ -19,6 +19,10 @@ var StateController = function(view1, view2, view3, view4, view5, view6) {
 			searchView.testButton.click(function() {
 				oneDish();
 			});
+			sideView.confirmButton.click(function(){
+				overview();
+			});
+
 
 		});
 	}
@@ -34,19 +38,27 @@ var StateController = function(view1, view2, view3, view4, view5, view6) {
 		});
 		//måste fungera i både oneDish och SearchView
 		sideView.confirmButton.click(function(){
-			searchView.container.hide();
-			oneDishView.container.hide();
-			searchView.container.hide();
+			overview();
+		});
+	}
+	var overview = function(){
+		searchView.container.hide();
+		oneDishView.container.hide();
+		searchView.container.hide();
+		overviewView.container.show();
 
-			overview.container.show();
+		overviewView.backButton.click(function() {
+			overviewView.container.hide();
+			searchView.container.show();
+			sideView.container.show();
 
 		});
-
+	}
 
 
 
 		
-	}
+	
 
 
 	startDinner();

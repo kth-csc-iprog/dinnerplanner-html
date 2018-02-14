@@ -3,8 +3,9 @@ var OverviewView = function (container, model) {
 	this.container = container;
 	this.model = model;
 
-	
-	//var numberOfGuests = container.find("#numberOfGuests");
+	this.backButton = container.find("#back");
+
+	var header = container.find("#overviewHeader");
 	
 
 
@@ -12,8 +13,13 @@ var OverviewView = function (container, model) {
 
 	//load view
 	this.loadView = function() {
+		nr= model.getNumberOfGuests();
+		string = '<h2>My dinner: '+ nr +' people</h2>';
+	
+		header.html(string);
+	
 		
-		}
+	}
 		
 
 	// load/update view.

@@ -4,6 +4,8 @@ var SideView = function (container, model) {
 	this.model = model;
 	this.plusButton = container.find("#plusGuest");
 	this.minusButton = container.find("#minusGuest");
+	this.confirmButton = container.find("#confirm");
+
 
 	var numberOfGuests = container.find("#numberOfGuests");
 	var table = container.find("#dinnerTable");
@@ -44,7 +46,7 @@ var SideView = function (container, model) {
 
 		//model.setNumberOfGuests(guests);
 	
-		}
+	}
 		
 
 	// load/update view.
