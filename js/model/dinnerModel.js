@@ -147,31 +147,39 @@ var DinnerModel = function()
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) 
-    {       
+    {           
+       
+
+       // If there is no selected dishes, we should add it right away
        if(dishesSelectedID.length == 0)
        {
           dishesSelectedID.push(id);
-       }
+       }       
+       
+       // If there is already some dishes selected, we should check if there isn't some dish of the same type
        else
        {
+          var inserted = false;
           // Go through every dish selected
           for(var i=0; i<dishesSelectedID.length; i++)
-          {       
-             // If there's already a dish of the type we are trying to add, we should remove it
-             if( this.getDish(dishesSelectedID[i]).type == this.getDish(id).type  )
+          {        
+             if( this.getDish(dishesSelectedID[i]).type == this.getDish(id).type)
              {
-                // removing the dish of the same type
                 this.removeDishFromMenu(dishesSelectedID[i]);
-
+                
                 // Adding the new dish to our dishesSelectedID
                 dishesSelectedID.push(id);
-             }
-             else
-             {
-                dishesSelectedID.push(id);
+                
+                inserted = true;
+                break;
              }
           }
-      }
+          
+          if(!inserted)
+          {
+             dishesSelectedID.push(id);
+          }
+       }
 
       notifyObservers(); 
     }

@@ -49,7 +49,7 @@ var DishDetailsView = function (container, model, _dishId)
        var ingredients = selectedDish.ingredients;
 
 
-       var tableItens = container.find("#tableItens"); 
+       var tableItens = container.find("#tableIngredients"); 
        tableItens.html("");
 
        for(var i=0; i<ingredients.length; i++)
@@ -77,7 +77,7 @@ var DishDetailsView = function (container, model, _dishId)
            tableItens.prepend(htmlToBeAdded);        
        }
       
-      tableItens.append("<hr style='border-color: black'> <div class='row'> <div class='col-xs-6'> <div class='col-md-12 text-left' style='margin-bottom: 10px; margin-top: 10px'> <button type='button' class='btn btn-warning' id='add_to_menu'>Add to menu</button>  </div> </div> <div class='col-xs-6 text-right'> <p id='totalPrice'>??? SEK </p> </div> </div>   ");
+      //tableItens.append("<hr style='border-color: black'> <div class='row'> <div class='col-xs-6'> <div class='col-md-12 text-left' style='margin-bottom: 10px; margin-top: 10px'> <button type='button' class='btn btn-warning' id='add_to_menu'>Add to menu</button>  </div> </div> <div class='col-xs-6 text-right'> <p id='totalPrice'>??? SEK </p> </div> </div>   ");
       
        
 
@@ -87,9 +87,9 @@ var DishDetailsView = function (container, model, _dishId)
    // ------------------------------------------------------------------------------------------------------------ 
       
       
-   // Reference to the buttons
-   this.backToSearchButton = container.find("#back_to_search");
-   this.addToMenuButton = container.find("#add_to_menu");   
+      // Reference to the buttons
+      //this.backToSearchButton = container.find("#back_to_search");
+      this.addToMenuButton = container.find("#add_to_menu");      
       
    }
 

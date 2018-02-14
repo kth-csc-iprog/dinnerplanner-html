@@ -26,7 +26,7 @@ var SideBarView = function (container, model)
         for(var i =0; i< selectedDishes.length; i++)
         {
             // id='dish_name_'"+i+"
-            dishNameCostDiv.append("<div class = 'row'> <div  class='col-md-6 noPadding' style='float:left' > <p style='text-align:left'>"+ model.getDish(selectedDishes[i].id).name + " </p> </div>" + "<div class='col-md-6'> <p style='text-align:right'>"+ model.getDishPrice(selectedDishes[i].id) + " SEK</p> </div> </div>");
+            dishNameCostDiv.append("<div class = 'row'> <div  class='col-md-6 noPadding' style='float:left' > <p style='text-align:left'>"+ model.getDish(selectedDishes[i].id).name + " </p> </div>" + "<div class='col-md-6'> <p style='text-align:right'>"+ model.getDishPrice(selectedDishes[i].id)*model.getNumberOfGuests() + " SEK</p> </div> </div>");
 
             //id='dish_cost_'"+i+"
             //dishNameCostDiv.append("<div class='col-md-6'> <p style='text-align:right'>"+ model.getDishPrice(selectedDishes[i].id) + " SEK</p> </div> </div>");        
