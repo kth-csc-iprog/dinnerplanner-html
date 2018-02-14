@@ -1,11 +1,17 @@
 var OneDishViewController = function(view, model, sControl) {
-	this.view = view;
-	this.model = model;
+	var view = view;
+	var model = model;
+	var backButton = view.container.find("#backButton");
+	var add = view.container.find("#add"); //kallas på i controller
+	var sControl = sControl;
 
-	view.add.click(function() {
-		model.addDishToMenu(view.Dish.id);
-
+	add.click(function() {
+		model.addDishToMenu(view.dish.id);
 	});
+
+	backButton.click(function() {
+		sControl.backToSearch();
+		});
 
 
 }

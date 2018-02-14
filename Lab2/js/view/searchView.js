@@ -1,15 +1,15 @@
 var SearchView = function (container, model) {
 	this.container = container;
 	this.searchButton = container.find("#searchButton"); // knappen ska bara göra loadView(), i den funktionen finns resten av isntruktionerna
-	var textInput = container.find("#keywords"); //document.getElementById("keywords"); //
-	this.picBox = container.find("#template");
+	
+	this.picBox = container.find("#template"); //this, app adds eventlistener
 
 	//load view
 	this.loadView = function() {
 
 		//var type = hämta type 
 		var type = container.find("#selectOption option:selected").val();
-		//console.log(type);
+	
 		//var keywords = Hämta filter
 		var filter = document.getElementById("keywords").value;
 
@@ -22,7 +22,7 @@ var SearchView = function (container, model) {
 			string += '<div class="col-md-4 col-sm-6"><div class="thumbnail" id="' + menu[i].id + '"><img src="images/' + menu[i].image + ' " ><div class="caption"><h3>' + menu[i].name + '</h3></div></div></div>';
 		}
 		this.picBox.html(string);
-		textInput.value = ""; // funkar inte. nollställer keywordsfönstret när man tryckt sök. 
+		
 
 	}
 		
@@ -36,6 +36,4 @@ var SearchView = function (container, model) {
 	this.updateView = function(args) {
 		this.loadView();
 		}	 
-
-	//this.updateView();
 }

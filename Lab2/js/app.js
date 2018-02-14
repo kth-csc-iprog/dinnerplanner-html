@@ -1,12 +1,3 @@
-// Visa söksidan. 
-/*function showSelectDish() {
-	$("#homeView").hide();
-	$("#header").show();
-	$("#sideView").show();	
-	$("#searchView").show();
-	$("#mainPic").show();
-}*/
-
 $(function() {
 
 	//We instantiate our model
@@ -37,8 +28,6 @@ $(function() {
 
 
 	// Controllers
-	//var stateController = new StateController(homeView, sideView, searchView, header, oneDishView, overviewView, printView);
-	//var homeViewController = new HomeViewController(homeView, model);
 	var searchViewController = new SearchViewController(searchView, model, this); 
 
 	var sideViewController = new SideViewController(sideView, model, this);
@@ -50,72 +39,45 @@ $(function() {
 	var printViewController = new PrintViewController(printView, model, this);
 
 
-	//------------------------
-
+/*General State Controller*/
 	var startDinner = function() {
 		homeView.startButton.click(function() {
 			homeView.container.hide();
 			sideView.container.show();
 			searchView.container.show()
 			headerView.container.show();
-
-			//kunde inte flytta den till searchviewController, då gick det inte att anropa funktionen. 
-			//ändra till bilderna som knappar istället för test!
-			searchView.testButton.click(function() {
-				oneDish();
-			});
-
-
 		});
 	}
+
 	this.oneDish = function(){
 		sideView.container.show();
 		searchView.container.hide();
 		headerView.container.show();
 		oneDishView.loadView();
 		oneDishView.container.show();
-
-		
-		oneDishView.backButton.click(function() {
-			oneDishView.container.hide();
-			searchView.container.show();
-		});
-		//måste fungera i både oneDish och SearchView
 		
 	}
-	var overview = function(){
+	this.overview = function(){
 		searchView.container.hide();
 		oneDishView.container.hide();
 		searchView.container.hide();
 		sideView.container.hide();
 		overviewView.container.show();
-
-		overviewView.backButton.click(function() {
-			overviewView.container.hide();
-			searchView.container.show();
-			sideView.container.show();
-
-		});
-		overviewView.printButton.click(function(){
-			printRecipe();	
-
-		});
+	
 	}
-	var printRecipe = function(){
+	this.printRecipe = function(){
 		overviewView.container.hide();
 		printView.container.show();
 		
-		printView.BackButton.click(function() {
-			printView.container.hide();
-			sideView.container.show();
-			searchView.container.show();
-
-		});
 	}
 
-	sideView.confirmButton.click(function(){
-			overview();
-		});
+	this.backToSearch = function() {
+		oneDishView.container.hide();
+		overviewView.container.hide();
+		printView.container.hide();
+		sideView.container.show();
+		searchView.container.show();
+	}
 
 	// Gömmer allt utom start
 	$("#header").hide();
@@ -126,9 +88,6 @@ $(function() {
 	$("#printView").hide();
 
 	startDinner();
-
-
-
 
 
 

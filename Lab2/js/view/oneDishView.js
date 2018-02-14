@@ -3,35 +3,30 @@
 gets the pictures and name of the dishes for view2 and 4 */ 
 var OneDishView = function (container, model) {
 	this.container = container;
-	this.model = model;
+ 	this.model = model;
 
-	/*måste ämdras till hämtning av vald dish genom click... */
 	
-	this.backButton = container.find("#backButton");
-	this.add = container.find("#add");
 
 	var headlineDish = container.find("#headlineDish");
 	var picDish = container.find("#imgDish");
 	var description = container.find("#description");
-	var Table = container.find("#table");
-	var Summa = container.find("#td1");
+	var tableString = container.find("#table");
+	var sumString = container.find("#td1");
 	var rubrik = container.find("#ingrFor");
-
-	
 
 	this.loadView = function() {
 
-		var dish = model.returnDishRecipe();
-		console.log(dish);
+		var dishId = model.returnDishRecipe();
+		
 
-		this.Dish = model.getDish(dish);
+		this.dish = model.getDish(dishId);
 
 		nrOfGuests = model.getNumberOfGuests();
 
-		headlineDish.html(this.Dish.name);
-		picDish.html('<img src="images/' + this.Dish.image + ' ">');
+		headlineDish.html(this.dish.name);
+		picDish.html('<img src="images/' + this.dish.image + ' ">');
 	 
-		description.html(this.Dish.description);
+		description.html(this.dish.description);
 
 		Rubrik = 'Ingredients for ' + nrOfGuests + ' people';
 		rubrik.html(Rubrik);
@@ -40,15 +35,15 @@ var OneDishView = function (container, model) {
 
 	    var sum = 0;
 
-		for(i in this.Dish.ingredients){
-			Price = this.Dish.ingredients[i].price*nrOfGuests;
-			string += '<tr><td>' + this.Dish.ingredients[i].quantity + ' ' + this.Dish.ingredients[i].unit + '</td><td>' + this.Dish.ingredients[i].name + '</td><td>SEK</td><td>' + Price + '</td></tr>';
+		for(i in this.dish.ingredients){
+			Price = this.dish.ingredients[i].price*nrOfGuests;
+			string += '<tr><td>' + this.dish.ingredients[i].quantity + ' ' + this.dish.ingredients[i].unit + '</td><td>' + this.dish.ingredients[i].name + '</td><td>SEK</td><td>' + Price + '</td></tr>';
 			sum += Price;
 		}
 		summa= '<td >SEK</td> <td>' + sum + '</td>';
 
-		Table.html(string);
-		Summa.html(summa);
+		tableString.html(string);
+		sumString.html(summa);
 
 	}
 

@@ -2,7 +2,7 @@ var PrintView = function (container, model) {
 	this.container = container;
 	this.model = model;
 
-	this.BackButton = container.find("#Back");
+	
 
 
 	var print = container.find("#printDish")

@@ -3,17 +3,9 @@ var OverviewView = function (container, model) {
 	this.container = container;
 	this.model = model;
 
-	this.backButton = container.find("#back");
-	this.printButton = container.find("#print");
-
-
 	var header = container.find("#overviewHeader");
 	var pictures = container.find("#pictures");
 	var total = container.find("#totSum");
-
-	
-
-
 
 
 	//load view
