@@ -9,6 +9,18 @@ var DinnerModel = function() {
   var guests = 0;
   var menu = [];
 
+  var observers=[];
+      this.addObserver=function(observer){ observers.push(observer); }
+
+      this.notifyObservers=function(details){
+          for(var i=0; i<observers.length; i++)
+               observers[i](this, details); // we will make sure that observers[i] is a function, so we can call it like observers[i](parameters)
+      }
+
+      this.removeObserver=function(observer){  /* remove observer from array */}
+
+  //.... other model data and code calling notifyObservers() when the model changes
+
 	this.setNumberOfGuests = function(num) {
 		//TODO Lab 1
     guests = num;
