@@ -32,16 +32,15 @@ $(function() {
 	var overviewView = new OverviewView($("#overview"), model);
 
 
-
 	// 6. printView
-
+	var printView = new PrintView($("#printView"), model);
 
 
 	
 
 
 	// Controllers
-	var stateController = new StateController(homeView, sideView, searchView, header, oneDishView, overviewView);
+	var stateController = new StateController(homeView, sideView, searchView, header, oneDishView, overviewView, printView);
 	//var homeViewController = new HomeViewController(homeView, model);
 	var searchViewController = new SearchViewController(searchView, model); 
 
@@ -50,6 +49,8 @@ $(function() {
 	var oneDishViewController = new OneDishViewController(oneDishView, model);
 
 	var overviewViewController = new OverviewViewController(overviewView, model); 
+
+	var printViewController = new PrintViewController(printView, model);
 
 
 

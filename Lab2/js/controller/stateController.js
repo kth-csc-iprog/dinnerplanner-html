@@ -1,4 +1,4 @@
-var StateController = function(view1, view2, view3, view4, view5, view6) {
+var StateController = function(view1, view2, view3, view4, view5, view6, view7) {
 
 	var homeView = view1;
 	var sideView = view2;
@@ -6,6 +6,7 @@ var StateController = function(view1, view2, view3, view4, view5, view6) {
 	var headerView = view4;
 	var oneDishView = view5;
 	var overviewView = view6;
+	var printView = view7;
 
 	var startDinner = function() {
 		homeView.startButton.click(function() {
@@ -18,9 +19,6 @@ var StateController = function(view1, view2, view3, view4, view5, view6) {
 			//ändra till bilderna som knappar istället för test!
 			searchView.testButton.click(function() {
 				oneDish();
-			});
-			sideView.confirmButton.click(function(){
-				overview();
 			});
 
 
@@ -37,14 +35,13 @@ var StateController = function(view1, view2, view3, view4, view5, view6) {
 			searchView.container.show();
 		});
 		//måste fungera i både oneDish och SearchView
-		sideView.confirmButton.click(function(){
-			overview();
-		});
+		
 	}
 	var overview = function(){
 		searchView.container.hide();
 		oneDishView.container.hide();
 		searchView.container.hide();
+		sideView.container.hide();
 		overviewView.container.show();
 
 		overviewView.backButton.click(function() {
@@ -53,8 +50,19 @@ var StateController = function(view1, view2, view3, view4, view5, view6) {
 			sideView.container.show();
 
 		});
-	}
+		overviewView.printButton.click(function(){
+			printRecipe();	
 
+		});
+	}
+	var printRecipe = function(){
+		overviewView.container.hide();
+		printView.container.show();
+
+	}
+	sideView.confirmButton.click(function(){
+			overview();
+		});
 
 
 		
