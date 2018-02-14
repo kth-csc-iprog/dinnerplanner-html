@@ -1,8 +1,8 @@
 $(function() {
-	//We instantiate our model (STEP 1)
+	//We instantiate our model
 	var model = new DinnerModel();
 
-	//We instantiate our views (STEP 2)
+	// And create the instance of ExampleView
 	var welcomeView = new WelcomeView($("#welcomeView"), model);
 	var sideView = new SideView($("#sideView"), model);
 	var searchView = new SearchView($("#searchView"), model);
@@ -10,12 +10,6 @@ $(function() {
 	var dishDetail = new DetailView($("#detailView"), model);
 	var menuView = new MenuView($("#menuView"), model);
 	var printView = new PrintView($("#printView"), model);
-
-	//Instantiate controller (STEP 5)
-	var sideCtrl = new SideController(model, sideView);
-
-	//The General Controller can use .show() to hide/show views. sideView.show() calls the rebuilds function  (STEP 7 / STEP 13)
-	sideView.show();
 
 	// Instatiating the controller
 	// var controller = new TaskController(view, model);
