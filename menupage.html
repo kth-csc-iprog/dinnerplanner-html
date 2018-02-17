@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Menu Page</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+   <!-- External CSS -->
+   <link rel="stylesheet" type="text/css" href="styles.css">
+   <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+ </head>
+
+  <body>
+    <div class="container-fluid" id="menuView">
+
+      <!-- Headline -->
+      <div class ="row">
+        <div class ="col-xs-2">
+          <div class ="logo">
+            <a href="searchpage.html">
+              <img src="/images/logo.web.png"></img>
+            </a>
+           </div>
+        </div>
+        <div class ="col-xs-8">
+          <div class="title">
+            <h1 >DINNER PLANNER</h1>
+          </div>
+        </div>
+      </div>
+
+      <!-- !: Amount of people attending  -->
+        <div class="row">
+          <div id="dinnerAttendance" class="col-xs-6">
+            Attendance:
+          </div>
+          <div class="col-xs-6">
+            <a href="searchpage.html">
+                <button type="button" class="btn btn-default"> Go back to edit your dinner </button>
+            </a>
+          </div>
+        </div>
+
+        <!-- !: Chosen Dishes -->
+        <div id="chosenDishes" class ="row">
+        </div>
+
+        <div id="dinnerAttendance" >
+          <a href="printpage.html">
+            <button class="btn btn-danger" type="button">Print Full Recipe</button>
+          </a>
+        </div>
+  </div>
+
+     <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script> -->
+
+      <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- The application JavaScript code -->
+    <script src="js/app.js"></script>
+    <script src="js/model/dinnerModel.js"></script>
+    <script src="js/view/welcomeView.js"></script>
+    <script src="js/view/sideView.js"></script>
+    <script src="js/view/detailView.js"></script>
+    <script src="js/view/searchView.js"></script>
+    <script src="js/view/dishView.js"></script>
+    <script src="js/view/menuView.js"></script>
+    <script src="js/view/printView.js"></script>
+  </body>
+</html>
