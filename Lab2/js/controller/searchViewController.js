@@ -5,6 +5,7 @@ var SearchViewController = function(view, model, sControl) {
 	var dishesView = new Array();
 	//var textInput = view.container.find("#keywords"); //document.getElementById("keywords"); //
 	var dishesView = view.container.find(".thumbnail");
+
 	
 	
 	view.searchButton.click(function() {
@@ -12,8 +13,10 @@ var SearchViewController = function(view, model, sControl) {
 	});
 
 	view.picBox.on("click", ".thumbnail", function(){
+		console.log("funkar");
 		model.selectDishRecipe(this.id);
 		//textInput.value = ""; // nollställer keywordsfönstret när man tryckt sök. 
 		sControl.oneDish();	
+		
 	});	
 }
