@@ -16,9 +16,9 @@
       <div id="header" class="verticallyCentered">
         <h1>Dinner Planner</h1>
       </div>
-      
+
       <div id="content">
-        
+
         <div id="mainView">
           <div id="welcomeText">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -27,7 +27,7 @@
         </div>
 
         <div id="appView">
-          
+
           <div id="sidebarView">
             <div id="titleBar">
               <h4 id="titleBarTitle">My Dinner</h4>
@@ -38,67 +38,67 @@
                 Expand
               </button>
             </div>
-    
+
             <div id="sideBarContent" class="collapseContent hideOnMobile">
               <div id="guestSelector" class="show">
                 <label for="guestNumber">Guests:</label>
                 <input id="guestNumber" type="number" value="1">
               </div>
-          
+
               <div id="dishTable" class="show">
                 <div id="tableHeader">
                   <div id="tableName">Dish name</div>
                   <div id="tableCost">Cost</div>
                 </div>
-      
+
                 <div id="tableContent">
-                  
+
                 </div>
-      
+
                 <div id="tableFooter">
                   <div id="tableTotalPrice" class="totalPrice">
                     <span class="totalPriceCurrency">SEK</span> <span id="totalPriceValue">77.20</span>
                   </div>
                 </div>
               </div>
-    
+
               <div id="confirmButtonContainer" class="show">
                 <button class="primaryButton" id="confirmMenuButton">Confirm Dinner</button>
               </div>
-    
+
             </div>
-    
+
           </div>
 
           <div id="sectionView">
 
             <div id="dishSearchView">
-          
+
               <h2 id="dishSearchTitle">Find a dish</h2>
-  
+
               <div id="dishSearchForm">
-      
+
                 <input type="search" id="dishSearchField" name="dishSearchField" placeholder="Enter keywords">
-      
+
                 <select id="dishTypeSelectField" name="dishTypeSelectField">
                   <option value="all" selected>All</option>
                   <option value="starter">Starter</option>
                   <option value="main dish">Main Dish</option>
                   <option value="dessert">Dessert</option>
                 </select>
-                
+
                 <button id="dishSearchButton" class="secondaryButton">Search</button>
-      
+
               </div>
-      
+
               <div id="dishSearchResults">
-                
+
               </div>
-  
+
             </div>
 
             <div id="dishDetailsView">
-                 
+
             </div>
 
           </div>
@@ -106,7 +106,7 @@
         </div>
 
         <div id="menuSummaryView">
-              
+
           <div id="statusBar">
             <h2 id="statusTitle">My Dinner: <span id="numberOfGuests">3</span> people</h2>
             <button id="backFromMenuSummaryButton" class="backButton primaryButton" >Go back and edit dinner</button>
@@ -119,22 +119,22 @@
               <div id="dishListContainer">
 
                 <div id="starter">
-                  
+
                 </div>
-        
+
                 <div id="mainCourse">
-                  
+
                 </div>
-        
+
                 <div id="dessert">
 
                 </div>
-        
+
                 <div id="totalPrice" class="dishItemContainer">
                   <div class="verticallyCentered dishImage"></div>
                   <p class="dishName">Total:</p>
                   <p class="dishPrice">
-                    <span class="value" id="totalPriceValue">0.00</span> 
+                    <span class="value" id="totalPriceValue">0.00</span>
                     <span class="currency">SEK</span>
                   </p>
                 </div>
@@ -154,11 +154,12 @@
           </div>
 
         </div>
-        
+
       </div>
 
     </div>
 
+    <script src="js/lib/apiConfig.js"></script>
     <script src="js/lib/toggleSidebar.js"></script>
     <!-- Here you should include JS code for your other views -->
     <script src="js/view/MainView.js"></script>
@@ -172,13 +173,13 @@
 
     <script src="js/view/DishDetailsView.js"></script>
     <script src="js/controllers/DishDetailsController.js"></script>
-    
+
     <script src="js/view/StatusBarView.js"></script>
     <script src="js/controllers/StatusBarController.js"></script>
-    
+
     <script src="js/view/PriceSummaryView.js"></script>
     <script src="js/controllers/PriceSummaryController.js"></script>
-    
+
     <script src="js/view/RecipeSummaryView.js"></script>
 
     <script src="js/model/dinnerModel.js"></script>
