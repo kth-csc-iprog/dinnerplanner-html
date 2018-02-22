@@ -9,6 +9,8 @@ const createDinnerModel = () => {
 		observers: []
 	}
 
+	window.getState = () => state
+
 	const addObserver = (observer) => {
 		state.observers.push(observer)
 	}
@@ -38,34 +40,31 @@ const createDinnerModel = () => {
 	const getAllIngredients = () => state.menu.reduce((acc, curr) => acc.concat(curr.ingredients), [])
 
 	const getAllIngredientsForDish = dish => {
-		return dish.ingredients.map(({ name, quantity, unit, price }) => ({
+		return dish.extendedIngredients.map(({ name, amount: quantity, unit }) => ({
 			name,
 			unit,
-			quantity: quantity * state.numberOfGuests,
-			price: price * state.numberOfGuests
+			quantity: quantity * state.numberOfGuests
 		}))
 	}
 
 	// Return the full price of a given dish (represented by dish)
-	const getPriceForDish = dish => dish.ingredients.reduce((acc, curr) => {
-		acc += state.numberOfGuests * curr.price
-		return acc
-	}, 0)
+	const getPriceForDish = dish => dish.pricePerServing
 
 	// Returns the total price of the menu (all the ingredients multiplied by number of guests).
-	const getTotalMenuPrice = () => getAllIngredients().reduce((acc, curr) => {
-		acc += state.numberOfGuests * curr.price
-		return acc
+	const getTotalMenuPrice = () => state.menu.reduce((acc, dish) => {
+		acc += state.numberOfGuests * getPriceForDish(dish)
+		return acc;
 	}, 0)
 
 	// Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	// it is removed from the menu and the new one added.
 	const addDishToMenu = id => {
-		const selectedDish = getDish(id)
-		const restOfTheMenu = state.menu.filter(dish => dish.type !== selectedDish.type)
-		restOfTheMenu.push(selectedDish)
-		state.menu = restOfTheMenu
-		_notifyObservers({ menu: state.menu })
+		getDish(id).then(selectedDish => {
+			const restOfTheMenu = state.menu.filter(dish => dish.dishTypes[0] !== selectedDish.dishTypes[0])
+			restOfTheMenu.push(selectedDish)
+			state.menu = restOfTheMenu
+			_notifyObservers({ menu: state.menu })
+		})
 	}
 
 	// Removes dish from menu
@@ -120,8 +119,8 @@ const createDinnerModel = () => {
 
 			fetch(`https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/${id}/information?${queryParams.join('&')}`, options)
 				.then(res => res.json())
-				.then(({ results }) => {
-					resolve(results);
+				.then(result => {
+					resolve(result);
 				})
 				.catch(err => {
 					reject(err);

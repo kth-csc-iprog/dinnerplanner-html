@@ -49,7 +49,7 @@ const createDishDetailsView = (container, model) => {
     const ingredientsTableElement = document.createElement('div')
     ingredientsTableElement.setAttribute('id', 'ingredientsTable')
 
-    const createIngredientRow = ({ name, quantity, unit, price}) => {
+    const createIngredientRow = ({ name, quantity, unit }) => {
 
       const ingredientRowElement = document.createElement('div')
       ingredientRowElement.classList.add('ingredientsTableRow')
@@ -63,16 +63,6 @@ const createDishDetailsView = (container, model) => {
       nameCell.classList.add('ingredientName')
       nameCell.innerHTML = name
       ingredientRowElement.appendChild(nameCell)
-
-      const currencyCell = document.createElement('div')
-      currencyCell.classList.add('ingredientCurrency')
-      currencyCell.innerHTML = 'SEK'
-      ingredientRowElement.appendChild(currencyCell)
-
-      const priceCell = document.createElement('div')
-      priceCell.classList.add('ingredientPrice')
-      priceCell.innerHTML = `${price}.00`
-      ingredientRowElement.appendChild(priceCell)
 
       return ingredientRowElement
     }
@@ -117,26 +107,28 @@ const createDishDetailsView = (container, model) => {
       const numberOfGuests = model.getNumberOfGuests()
       const totalPriceValue = model.getPriceForDish(dish)
 
-      const createDishDescription = ({ name, image, description }) => {
+      const createDishDescription = ({ title, image, sourceUrl }) => {
         const dishDescriptionElement = document.createElement('div')
         dishDescriptionElement.setAttribute('id', 'dishDescription')
 
         const dishTitleElement = document.createElement('div')
         dishTitleElement.setAttribute('id', 'dishTitle')
         const titleH2Element = document.createElement('h2')
-        titleH2Element.innerHTML = `${name}`
+        titleH2Element.innerHTML = `${title}`
         dishTitleElement.appendChild(titleH2Element)
 
         const dishImageElement = document.createElement('div')
         dishImageElement.setAttribute('id', 'dishImage')
         const dishImage = document.createElement('img')
-        dishImage.src = `images/${image}`
+        dishImage.src = image
         dishImageElement.appendChild(dishImage)
 
         const dishDescriptionTextElement = document.createElement('div')
         dishDescriptionTextElement.setAttribute('id', 'dishDescriptionText')
-        const dishDescription = document.createElement('p')
-        dishDescription.innerHTML = description
+        const dishDescription = document.createElement('a')
+        dishDescription.href = sourceUrl
+        dishDescription.target = "_blank"
+        dishDescription.innerHTML = "See description on original website"
         dishDescriptionTextElement.appendChild(dishDescription)
 
         dishDescriptionElement.appendChild(dishTitleElement)
@@ -161,7 +153,7 @@ const createDishDetailsView = (container, model) => {
       const dishPreparationTextElement = document.createElement('div')
       dishPreparationTextElement.setAttribute('id', 'dishPreparationText')
       const dishPreparationText = document.createElement('p')
-      dishPreparationText.innerHTML = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eget aliquet nibh praesent tristique. Quis hendrerit dolor magna eget. In cursus turpis massa tincidunt dui ut ornare. Sed adipiscing diam donec adipiscing tristique risus nec feugiat in. Dolor sit amet consectetur adipiscing elit. Ac tincidunt vitae semper quis lectus nulla at. Mauris augue neque gravida in fermentum. Egestas diam in arcu cursus euismod quis viverra nibh. Vulputate enim nulla aliquet porttitor lacus luctus accumsan. Quis varius quam quisque id. Non odio euismod lacinia at quis risus sed vulputate. Id cursus metus aliquam eleifend mi in. Tortor pretium viverra suspendisse potenti nullam ac tortor.'
+      dishPreparationText.innerHTML = dish.instructions
       dishPreparationTextElement.appendChild(dishPreparationText)
 
       dishPreparationElement.appendChild(dishPreparationTextElement)
