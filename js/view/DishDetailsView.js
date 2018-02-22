@@ -106,16 +106,16 @@ const createDishDetailsView = (container, model) => {
     return ingredientsListElement
   }
 
-  const render = (id) => {
+  const render = id => {
 
     _remove()
 
     state.id = id
 
     model.getDish(id).then(dish => {
-      const ingredientsList = model.getAllIngredientsForDish(id)
+      const ingredientsList = model.getAllIngredientsForDish(dish)
       const numberOfGuests = model.getNumberOfGuests()
-      const totalPriceValue = model.getPriceForDish(id)
+      const totalPriceValue = model.getPriceForDish(dish)
 
       const createDishDescription = ({ name, image, description }) => {
         const dishDescriptionElement = document.createElement('div')
@@ -176,14 +176,17 @@ const createDishDetailsView = (container, model) => {
 
   const _createUpdate = (model) => () => {
     if(state.display === true) {
-      container.querySelector('#ingredientsList').remove()
-      const ingredientsList = model.getAllIngredientsForDish(state.id)
-      const totalPriceValue = model.getPriceForDish(state.id)
-      const numberOfGuests = model.getNumberOfGuests()
-      container.insertBefore(
-        _createIngredientsList(ingredientsList, totalPriceValue, numberOfGuests),
-        container.children[2]
-      )
+      model.getDish(state.id).then(dish => {
+        container.querySelector('#ingredientsList').remove()
+        const ingredientsList = model.getAllIngredientsForDish(dish)
+        const totalPriceValue = model.getPriceForDish(dish)
+        const numberOfGuests = model.getNumberOfGuests()
+
+        container.insertBefore(
+          _createIngredientsList(ingredientsList, totalPriceValue, numberOfGuests),
+          container.children[2]
+        )
+      });
     }
   }
   const update = _createUpdate(model)
