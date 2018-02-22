@@ -88,12 +88,12 @@ const createDinnerModel = () => {
 
 			let queryParams = [`instructionsRequired=true`];
 
-			if (type !== 'all') {
+			if (type !== undefined && type !== 'all') {
 				queryParams.push(`type=${encodeURIComponent(type)}`);
 			}
 
-			if (filter) {
-				queryParams.push(`filter=${encodeURIComponent(filter)}`);
+			if (filter !== undefined) {
+				queryParams.push(`query=${encodeURIComponent(filter)}`);
 			}
 
 			fetch(`https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?${queryParams.join('&')}`, options)
