@@ -21,8 +21,7 @@ const createDishSearchView = (container, model) => {
     const filter = container.querySelector('#dishSearchField').value
     const type = container.querySelector('#dishTypeSelectField').value
 
-    const createDishResultElement = ({ image, name, id}) => {
-
+    const createDishResultElement = ({ image, title: name, id }) => {
       const dishResultElement = document.createElement('div')
       dishResultElement.classList.add('dishResult')
       dishResultElement.setAttribute('key', id)
@@ -33,7 +32,7 @@ const createDishSearchView = (container, model) => {
 
       const dishResultImageElement = document.createElement('img')
       dishResultImageElement.classList.add('dishResultImage')
-      dishResultImageElement.src = `images/${image}`
+      dishResultImageElement.src = `https://spoonacular.com/recipeImages/${image}`
       dishResultImageElement.setAttribute('key', id)
 
       const dishResultNameElement = document.createElement('div')

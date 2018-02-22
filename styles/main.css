@@ -55,7 +55,7 @@ p {
 .container {
   height: 100vh;
   display: grid;
-  grid-template-areas: 
+  grid-template-areas:
     "header"
     "content";
   grid-template-rows: 6rem auto;
@@ -96,10 +96,10 @@ p {
 
   display: grid;
   grid-template-rows: 2rem 1fr;
-  grid-template-areas: 
+  grid-template-areas:
     "titleBar"
     "collapseContent";
-  
+
   background-color: aqua;
   text-align: left;
 }
@@ -114,7 +114,7 @@ p {
   grid-area: collapseContent;
   display: grid;
   grid-template-rows: 2rem fit-content(100%) 3rem;
-  grid-template-areas: 
+  grid-template-areas:
     "guestSelector"
     "dishTable"
     "confirmButtonContainer";
@@ -206,7 +206,7 @@ p {
 
 #dishSearchView {
   display: grid;
-  grid-template-areas: 
+  grid-template-areas:
     "dishSearchTitle"
     "dishSearchForm"
     "dishSearchResults";
@@ -266,7 +266,7 @@ p {
   grid-area: ingredientsList;
   display: grid;
   grid-template-rows: 4rem fit-content(100%) 4rem;
-  grid-template-areas: 
+  grid-template-areas:
     "ingredientsTitle"
     "ingredientsTable"
     "ingredientsFooter";
@@ -288,7 +288,7 @@ p {
 .ingredientsTableRow {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-areas: 
+  grid-template-areas:
     "ingredientQuantity ingredientName ingredientCurrency ingredientPrice";
   padding: 0.5rem 0;
 }
@@ -315,7 +315,7 @@ p {
   grid-area: ingredientsFooter;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-areas: 
+  grid-template-areas:
     "addToMenu addToMenu ingredientsTotalPriceCurrency ingredientsTotalPrice"
 }
 
@@ -367,7 +367,7 @@ p {
 /* Price Summary View */
 #priceSummary {
   display: grid;
-  grid-template-areas: 
+  grid-template-areas:
     "dishListContainer"
     "printButtonContainer";
 }
@@ -376,9 +376,9 @@ p {
   grid-area: dishListContainer;
   display: grid;
   grid-gap: 3rem;
-  grid-template-areas: 
+  grid-template-areas:
   "starter mainCourse dessert totalPrice";
-  
+
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -424,6 +424,10 @@ p {
 .dishPrice {
   grid-area: dishPrice;
   margin-left: auto;
+}
+
+.dishResultImage {
+  max-width: 50px;
 }
 
 #printButtonContainer {
@@ -480,8 +484,8 @@ p {
   }
 
   #appView {
-    grid-template-areas: 
-      "sidebarView" 
+    grid-template-areas:
+      "sidebarView"
       "sectionView";
     grid-template-columns: none;
   }
