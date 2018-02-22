@@ -24,7 +24,7 @@ const createDishDetailsView = (container, model) => {
     backButton.innerHTML = 'Back to Search'
     return backButton
   }
-  
+
   const _createAddButton = (id) => {
     const addButton = document.createElement('button')
     addButton.setAttribute('id', id)
@@ -48,7 +48,7 @@ const createDishDetailsView = (container, model) => {
 
     const ingredientsTableElement = document.createElement('div')
     ingredientsTableElement.setAttribute('id', 'ingredientsTable')
-    
+
     const createIngredientRow = ({ name, quantity, unit, price}) => {
 
       const ingredientRowElement = document.createElement('div')
@@ -58,12 +58,12 @@ const createDishDetailsView = (container, model) => {
       quantityCell.classList.add('ingredientQuantity')
       quantityCell.innerHTML = `${quantity} ${unit}`
       ingredientRowElement.appendChild(quantityCell)
-      
+
       const nameCell = document.createElement('div')
       nameCell.classList.add('ingredientName')
       nameCell.innerHTML = name
       ingredientRowElement.appendChild(nameCell)
-      
+
       const currencyCell = document.createElement('div')
       currencyCell.classList.add('ingredientCurrency')
       currencyCell.innerHTML = 'SEK'
@@ -79,7 +79,7 @@ const createDishDetailsView = (container, model) => {
     ingredients.map(ingredient => {
       ingredientsTableElement.appendChild(createIngredientRow(ingredient))
     })
-    
+
     const ingredientsFooterElement = document.createElement('div')
     ingredientsFooterElement.setAttribute('id', 'ingredientsFooter')
 
@@ -98,7 +98,7 @@ const createDishDetailsView = (container, model) => {
     totalPriceElement.setAttribute('id', 'ingredientsTotalPrice')
     totalPriceElement.innerHTML = `${totalPrice}.00`
     ingredientsFooterElement.appendChild(totalPriceElement)
-    
+
 
     ingredientsListElement.appendChild(ingredientsTitleElement)
     ingredientsListElement.appendChild(ingredientsTableElement)
@@ -111,62 +111,63 @@ const createDishDetailsView = (container, model) => {
     _remove()
 
     state.id = id
-    const dish = model.getDish(id)
-    const ingredientsList = model.getAllIngredientsForDish(id)
-    const numberOfGuests = model.getNumberOfGuests()
-    const totalPriceValue = model.getPriceForDish(id)
 
-    const createDishDescription = ({ name, image, description }) => {
-      const dishDescriptionElement = document.createElement('div')
-      dishDescriptionElement.setAttribute('id', 'dishDescription')
+    model.getDish(id).then(dish => {
+      const ingredientsList = model.getAllIngredientsForDish(id)
+      const numberOfGuests = model.getNumberOfGuests()
+      const totalPriceValue = model.getPriceForDish(id)
 
-      const dishTitleElement = document.createElement('div')
-      dishTitleElement.setAttribute('id', 'dishTitle')
-      const titleH2Element = document.createElement('h2')
-      titleH2Element.innerHTML = `${name}`
-      dishTitleElement.appendChild(titleH2Element)
+      const createDishDescription = ({ name, image, description }) => {
+        const dishDescriptionElement = document.createElement('div')
+        dishDescriptionElement.setAttribute('id', 'dishDescription')
 
-      const dishImageElement = document.createElement('div')
-      dishImageElement.setAttribute('id', 'dishImage')
-      const dishImage = document.createElement('img')
-      dishImage.src = `images/${image}`
-      dishImageElement.appendChild(dishImage)
+        const dishTitleElement = document.createElement('div')
+        dishTitleElement.setAttribute('id', 'dishTitle')
+        const titleH2Element = document.createElement('h2')
+        titleH2Element.innerHTML = `${name}`
+        dishTitleElement.appendChild(titleH2Element)
 
-      const dishDescriptionTextElement = document.createElement('div')
-      dishDescriptionTextElement.setAttribute('id', 'dishDescriptionText')
-      const dishDescription = document.createElement('p')
-      dishDescription.innerHTML = description
-      dishDescriptionTextElement.appendChild(dishDescription)
+        const dishImageElement = document.createElement('div')
+        dishImageElement.setAttribute('id', 'dishImage')
+        const dishImage = document.createElement('img')
+        dishImage.src = `images/${image}`
+        dishImageElement.appendChild(dishImage)
 
-      dishDescriptionElement.appendChild(dishTitleElement)
-      dishDescriptionElement.appendChild(dishImageElement)
-      dishDescriptionElement.appendChild(dishDescriptionTextElement)
-      dishDescriptionElement.appendChild(backFromDishDetailsButton)
+        const dishDescriptionTextElement = document.createElement('div')
+        dishDescriptionTextElement.setAttribute('id', 'dishDescriptionText')
+        const dishDescription = document.createElement('p')
+        dishDescription.innerHTML = description
+        dishDescriptionTextElement.appendChild(dishDescription)
 
-      return dishDescriptionElement
+        dishDescriptionElement.appendChild(dishTitleElement)
+        dishDescriptionElement.appendChild(dishImageElement)
+        dishDescriptionElement.appendChild(dishDescriptionTextElement)
+        dishDescriptionElement.appendChild(backFromDishDetailsButton)
 
-    }
+        return dishDescriptionElement
 
-    container.appendChild(createDishDescription(dish))
-    container.appendChild(_createIngredientsList(ingredientsList, totalPriceValue, numberOfGuests))
+      }
 
-    const dishPreparationElement = document.createElement('div')
-    dishPreparationElement.setAttribute('id', 'dishPreparation')
-    
-    const titleH3Element = document.createElement('h3')
-    titleH3Element.innerHTML = 'Preparation'
-    dishPreparationElement.appendChild(titleH3Element)
-    
-    const dishPreparationTextElement = document.createElement('div')
-    dishPreparationTextElement.setAttribute('id', 'dishPreparationText')
-    const dishPreparationText = document.createElement('p')
-    dishPreparationText.innerHTML = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eget aliquet nibh praesent tristique. Quis hendrerit dolor magna eget. In cursus turpis massa tincidunt dui ut ornare. Sed adipiscing diam donec adipiscing tristique risus nec feugiat in. Dolor sit amet consectetur adipiscing elit. Ac tincidunt vitae semper quis lectus nulla at. Mauris augue neque gravida in fermentum. Egestas diam in arcu cursus euismod quis viverra nibh. Vulputate enim nulla aliquet porttitor lacus luctus accumsan. Quis varius quam quisque id. Non odio euismod lacinia at quis risus sed vulputate. Id cursus metus aliquam eleifend mi in. Tortor pretium viverra suspendisse potenti nullam ac tortor.'
-    dishPreparationTextElement.appendChild(dishPreparationText)
-    
-    dishPreparationElement.appendChild(dishPreparationTextElement)
+      container.appendChild(createDishDescription(dish))
+      container.appendChild(_createIngredientsList(ingredientsList, totalPriceValue, numberOfGuests))
 
-    container.appendChild(dishPreparationElement)
-    
+      const dishPreparationElement = document.createElement('div')
+      dishPreparationElement.setAttribute('id', 'dishPreparation')
+
+      const titleH3Element = document.createElement('h3')
+      titleH3Element.innerHTML = 'Preparation'
+      dishPreparationElement.appendChild(titleH3Element)
+
+      const dishPreparationTextElement = document.createElement('div')
+      dishPreparationTextElement.setAttribute('id', 'dishPreparationText')
+      const dishPreparationText = document.createElement('p')
+      dishPreparationText.innerHTML = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eget aliquet nibh praesent tristique. Quis hendrerit dolor magna eget. In cursus turpis massa tincidunt dui ut ornare. Sed adipiscing diam donec adipiscing tristique risus nec feugiat in. Dolor sit amet consectetur adipiscing elit. Ac tincidunt vitae semper quis lectus nulla at. Mauris augue neque gravida in fermentum. Egestas diam in arcu cursus euismod quis viverra nibh. Vulputate enim nulla aliquet porttitor lacus luctus accumsan. Quis varius quam quisque id. Non odio euismod lacinia at quis risus sed vulputate. Id cursus metus aliquam eleifend mi in. Tortor pretium viverra suspendisse potenti nullam ac tortor.'
+      dishPreparationTextElement.appendChild(dishPreparationText)
+
+      dishPreparationElement.appendChild(dishPreparationTextElement)
+
+      container.appendChild(dishPreparationElement)
+    });
   }
 
   const _remove = () => {
@@ -202,7 +203,7 @@ const createDishDetailsView = (container, model) => {
   }
 
   model.addObserver(update)
-  
+
   return ({
     getDishId,
     backFromDishDetailsButton,

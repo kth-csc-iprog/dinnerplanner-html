@@ -47,9 +47,11 @@ const createDishSearchView = (container, model) => {
       return dishResultElement
     }
 
-    model.getAllDishes(type, filter).map(dish => {
-      dishSearchResultsElement.append(createDishResultElement(dish))
-    })
+    model.getAllDishes(type, filter).then(dishes => {
+      dishes.map(dish => {
+        dishSearchResultsElement.append(createDishResultElement(dish))
+      })
+    });
   }
 
   const _remove = () => {

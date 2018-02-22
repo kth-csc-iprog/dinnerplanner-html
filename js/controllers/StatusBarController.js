@@ -1,4 +1,4 @@
-const createStatusBarController = (view, model, { 
+const createStatusBarController = (view, model, {
   statusBarView, priceSummaryView, recipeSummaryView, sidebarView, dishSearchView, dishDetailsView
 }) => {
 

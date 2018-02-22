@@ -1,6 +1,6 @@
 //DinnerModel Object factory function
 const createDinnerModel = () => {
-	
+
 	// the data structure that will hold number of guest
 	// and selected dishes for the dinner menu
 	const state = {
@@ -8,7 +8,7 @@ const createDinnerModel = () => {
 		menu: [],
 		observers: []
 	}
-	
+
 	const addObserver = (observer) => {
 		state.observers.push(observer)
 	}
@@ -27,13 +27,13 @@ const createDinnerModel = () => {
 	}
 
 	const getNumberOfGuests = () => state.numberOfGuests
-	
-	// Returns the dish that is on the menu for the selected type 
+
+	// Returns the dish that is on the menu for the selected type
 	const getSelectedDish = type => state.menu.find(dish => dish.type === type)
 
 	// Returns all the dishes on the menu.
 	const getFullMenu = () => state.menu
-	
+
 	// Returns all ingredients for all the dishes on the menu.
 	const getAllIngredients = () => state.menu.reduce((acc, curr) => acc.concat(curr.ingredients), [])
 
@@ -58,7 +58,7 @@ const createDinnerModel = () => {
 		acc += state.numberOfGuests * curr.price
 		return acc
 	}, 0)
-	
+
 	// Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	// it is removed from the menu and the new one added.
 	const addDishToMenu = id => {
@@ -80,30 +80,58 @@ const createDinnerModel = () => {
 	// you can use the filter argument to filter out the dish by name or ingredient (use for search)
 	// if you don't pass any filter all the dishes will be returned
 	const getAllDishes = (type, filter) => {
-		
-		return dishes.filter(dish => {
-			
-			let typeMatch = dish.type === type
-			if(type === 'all') {
-				typeMatch = true
+		return new Promise((resolve, reject) => {
+			let options = {
+				headers: {
+					'X-Mashape-Key': apiConfig.apiKey
+				}
+			};
+
+			let queryParams = [`instructionsRequired=true`];
+
+			if (type !== 'all') {
+				queryParams.push(`type=${encodeURIComponent(type)}`);
 			}
-			
-			let filterMatch = true
-			if(filter !== undefined) {
-				const filterString = filter.toLowerCase()
-				const nameMatch = dish.name.toLowerCase().includes(filterString)
-				const ingredientMatch = dish.ingredients.some(ingredient => 
-					ingredient.name.toLowerCase().includes(filterString)
-				)
-				filterMatch = nameMatch || ingredientMatch
+
+			if (filter) {
+				queryParams.push(`filter=${encodeURIComponent(filter)}`);
 			}
-			
-			return typeMatch && filterMatch
-		})
+
+			fetch(`https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?${queryParams.join('&')}`, options)
+				.then(res => res.json())
+				.then(({ results }) => {
+					resolve(results);
+				})
+				.catch(err => {
+					reject(err);
+				});
+		});
 	}
 
 	//function that returns a dish of specific ID
-	const getDish = id => dishes.find(dish => dish.id === id)
+	const getDish = id => {
+		return new Promise((resolve, reject) => {
+			let options = {
+				headers: {
+					'X-Mashape-Key': apiConfig.apiKey
+				}
+			};
+
+			let queryParams = [
+				`includeNutrition=true`,
+				`id=${id}`
+			];
+
+			fetch(`https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/{id}/information?${queryParams.join('&')}`, options)
+				.then(res => res.json())
+				.then(({ results }) => {
+					resolve(results);
+				})
+				.catch(err => {
+					reject(err);
+				});
+		});
+	};
 
 	return ({
 		addObserver,
@@ -124,23 +152,23 @@ const createDinnerModel = () => {
 
 }
 
-// the dishes variable contains an array of all the 
+// the dishes variable contains an array of all the
 // dishes in the database. each dish has id, name, type,
 // image (name of the image file), description and
-// array of ingredients. Each ingredient has name, 
-// quantity (a number), price (a number) and unit (string 
+// array of ingredients. Each ingredient has name,
+// quantity (a number), price (a number) and unit (string
 // defining the unit i.e. "g", "slices", "ml". Unit
 // can sometimes be empty like in the example of eggs where
 // you just say "5 eggs" and not "5 pieces of eggs" or anything else.
 const dishes = [
-	
+
 	{
 	'id':1,
 	'name':'French toast',
 	'type':'starter',
 	'image':'toast.jpg',
 	'description':"In a large mixing bowl, beat the eggs. Add the milk, brown sugar and nutmeg; stir well to combine. Soak bread slices in the egg mixture until saturated. Heat a lightly oiled griddle or frying pan over medium high heat. Brown slices on both sides, sprinkle with cinnamon and serve hot.",
-	'ingredients':[{ 
+	'ingredients':[{
 		'name':'eggs',
 		'quantity':0.5,
 		'unit':'',
@@ -167,15 +195,15 @@ const dishes = [
 		'price':2
 		}]
 	}
-	
-	
+
+
 	,{
 	'id':2,
 	'name':'Sourdough Starter',
 	'type':'starter',
 	'image':'sourdough.jpg',
 	'description':"Here is how you make it... Lore ipsum...",
-	'ingredients':[{ 
+	'ingredients':[{
 		'name':'active dry yeast',
 		'quantity':0.5,
 		'unit':'g',
@@ -197,7 +225,7 @@ const dishes = [
 	'type':'starter',
 	'image':'bakedbrie.jpg',
 	'description':"Here is how you make it... Lore ipsum...",
-	'ingredients':[{ 
+	'ingredients':[{
 		'name':'round Brie cheese',
 		'quantity':10,
 		'unit':'g',
@@ -219,7 +247,7 @@ const dishes = [
 	'type':'main dish',
 	'image':'meatballs.jpg',
 	'description':"Preheat an oven to 400 degrees F (200 degrees C). Place the beef into a mixing bowl, and season with salt, onion, garlic salt, Italian seasoning, oregano, red pepper flakes, hot pepper sauce, and Worcestershire sauce; mix well. Add the milk, Parmesan cheese, and bread crumbs. Mix until evenly blended, then form into 1 1/2-inch meatballs, and place onto a baking sheet. Bake in the preheated oven until no longer pink in the center, 20 to 25 minutes.",
-	'ingredients':[{ 
+	'ingredients':[{
 		'name':'extra lean ground beef',
 		'quantity':115,
 		'unit':'g',
@@ -281,7 +309,7 @@ const dishes = [
 	'type':'main dish',
 	'image':'bakedbrie.jpg',
 	'description':"Here is how you make it... Lore ipsum...",
-	'ingredients':[{ 
+	'ingredients':[{
 		'name':'ingredient 1',
 		'quantity':1,
 		'unit':'pieces',
@@ -303,7 +331,7 @@ const dishes = [
 	'type':'main dish',
 	'image':'meatballs.jpg',
 	'description':"Here is how you make it... Lore ipsum...",
-	'ingredients':[{ 
+	'ingredients':[{
 		'name':'ingredient 1',
 		'quantity':2,
 		'unit':'pieces',
@@ -325,7 +353,7 @@ const dishes = [
 	'type':'main dish',
 	'image':'meatballs.jpg',
 	'description':"Here is how you make it... Lore ipsum...",
-	'ingredients':[{ 
+	'ingredients':[{
 		'name':'ingredient 1',
 		'quantity':1,
 		'unit':'pieces',
@@ -347,7 +375,7 @@ const dishes = [
 	'type':'dessert',
 	'image':'icecream.jpg',
 	'description':"Here is how you make it... Lore ipsum...",
-	'ingredients':[{ 
+	'ingredients':[{
 		'name':'ice cream',
 		'quantity':100,
 		'unit':'ml',
@@ -359,7 +387,7 @@ const dishes = [
 	'type':'dessert',
 	'image':'icecream.jpg',
 	'description':"Here is how you make it... Lore ipsum...",
-	'ingredients':[{ 
+	'ingredients':[{
 		'name':'ice cream',
 		'quantity':100,
 		'unit':'ml',
@@ -371,7 +399,7 @@ const dishes = [
 	'type':'dessert',
 	'image':'icecream.jpg',
 	'description':"Here is how you make it... Lore ipsum...",
-	'ingredients':[{ 
+	'ingredients':[{
 		'name':'ice cream',
 		'quantity':100,
 		'unit':'ml',
