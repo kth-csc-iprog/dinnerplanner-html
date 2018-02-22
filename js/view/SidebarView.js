@@ -17,7 +17,7 @@ const createSidebarView = (container, model) => {
   const guestNumber = container.querySelector('#guestNumber')
   const confirmMenuButton = container.querySelector('#confirmMenuButton')
   const _menuTableContent = container.querySelector('#tableContent')
-  const _totalPrice = container.querySelector('#totalPriceValue') 
+  const _totalPrice = container.querySelector('#totalPriceValue')
 
   const _createUpdate = (model) => (changeDetails) => {
     state.numberOfGuests = model.getNumberOfGuests()
@@ -39,27 +39,27 @@ const createSidebarView = (container, model) => {
 
       const tableRow = document.createElement('div')
       tableRow.classList.add('tableRow')
-  
+
       const rowName = document.createElement('div')
       rowName.classList.add('rowName')
       rowName.innerHTML = `${name}`
-      
+
       const rowCost = document.createElement('div')
       rowCost.classList.add('rowCost')
       rowCost.innerHTML = `${cost}:-`
-  
+
       tableRow.appendChild(rowName)
       tableRow.appendChild(rowCost)
-  
+
       return tableRow
     }
-    
-    state.menu.map(item => 
-      _menuTableContent.appendChild(createNewRow(item.name, item.price))
+
+    state.menu.map(item =>
+      _menuTableContent.appendChild(createNewRow(item.title, item.pricePerServing))
     )
 
     _totalPrice.innerHTML = `${state.totalMenuPrice}.00`
-    
+
   }
 
   const _remove = () => {

@@ -16,5 +16,5 @@ const createSidebarController = (view, model, {
 		priceSummaryView.show()
 		recipeSummaryView.hide()
 	}
-  
+
 }
