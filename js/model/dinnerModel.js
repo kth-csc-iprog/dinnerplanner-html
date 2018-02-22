@@ -116,12 +116,9 @@ const createDinnerModel = () => {
 				}
 			};
 
-			let queryParams = [
-				`includeNutrition=true`,
-				`id=${id}`
-			];
+			let queryParams = [`includeNutrition=true`];
 
-			fetch(`https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/{id}/information?${queryParams.join('&')}`, options)
+			fetch(`https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/${id}/information?${queryParams.join('&')}`, options)
 				.then(res => res.json())
 				.then(({ results }) => {
 					resolve(results);
