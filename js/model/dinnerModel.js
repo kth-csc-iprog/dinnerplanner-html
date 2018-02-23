@@ -102,6 +102,7 @@ const createDinnerModel = () => {
 					resolve(results);
 				})
 				.catch(err => {
+					alert('Sorry, we could not perform this request. It might be your internet connection. Try again later.');
 					reject(err);
 				});
 		});
@@ -124,6 +125,7 @@ const createDinnerModel = () => {
 					resolve(result);
 				})
 				.catch(err => {
+					alert('Sorry, we could not perform this request. It might be your internet connection. Try again later.');
 					reject(err);
 				});
 		});
