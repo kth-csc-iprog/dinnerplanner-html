@@ -31,7 +31,7 @@ const createDinnerModel = () => {
 	const getNumberOfGuests = () => state.numberOfGuests
 
 	// Returns the dish that is on the menu for the selected type
-	const getSelectedDish = type => state.menu.find(dish => dish.type === type)
+	const getSelectedDish = type => state.menu.find(dish => (dish.dishTypes.length === 0 && type === 'main course') || dish.dishTypes.includes(type))
 
 	// Returns all the dishes on the menu.
 	const getFullMenu = () => state.menu
@@ -60,7 +60,8 @@ const createDinnerModel = () => {
 	// it is removed from the menu and the new one added.
 	const addDishToMenu = id => {
 		getDish(id).then(selectedDish => {
-			const restOfTheMenu = state.menu.filter(dish => dish.dishTypes[0] !== selectedDish.dishTypes[0])
+			let selectedDishTypes = selectedDish.dishTypes;
+			const restOfTheMenu = state.menu.filter(dish => (dish.dishTypes.length === 0 && selectedDishTypes.length === 0) || dish.dishTypes.find(dishType => selectedDishTypes.includes(dishType)))
 			restOfTheMenu.push(selectedDish)
 			state.menu = restOfTheMenu
 			_notifyObservers({ menu: state.menu })

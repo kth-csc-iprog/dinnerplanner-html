@@ -377,7 +377,7 @@ p {
   display: grid;
   grid-gap: 3rem;
   grid-template-areas:
-  "starter mainCourse dessert totalPrice";
+  "appetizer mainCourse dessert totalPrice";
 
   align-items: center;
   justify-content: center;
@@ -386,7 +386,7 @@ p {
 }
 
 
-#starter {
+#appetizer {
   grid-area: starter;
 }
 
@@ -415,6 +415,10 @@ p {
 
 .dishImage {
   grid-area: dishImage;
+}
+
+.dishImage img {
+  max-width: 200px;
 }
 
 .dishName {
