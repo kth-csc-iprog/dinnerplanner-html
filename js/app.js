@@ -41,13 +41,46 @@
 	
 	// General State Controller
 	const generalStateController = {
-		mainView,
-		sidebarView,
-		statusBarView,
-		priceSummaryView,
-		dishDetailsView,
-		dishSearchView,
-		recipeSummaryView,
+		transitionFromDishDetailsToDishSearch: () => {
+			dishDetailsView.hide()
+			dishSearchView.show()
+		},
+		transitionFromDishSearchToDishDetails: (event) => {
+			const clickedElement = event.target
+			const clickedDishId = clickedElement.getAttribute('key')
+			if(clickedDishId !== null && clickedDishId !== undefined) {
+				dishSearchView.hide()
+				dishDetailsView.render(Number(clickedDishId))
+				dishDetailsView.show()
+			}
+		},
+		transitionFromMainViewToDishSearch: () => {
+			mainView.hide()
+			sidebarView.show()
+			dishSearchView.show()
+		},
+		transitionFromPriceSummaryToRecipeSummary: () => {
+			priceSummaryView.hide()
+			recipeSummaryView.show()
+		},
+		transitionFromDishSearchToPriceSummary: () => {
+			sidebarView.hide()
+			dishSearchView.hide()
+			dishDetailsView.hide()
+	
+			statusBarView.show()
+			priceSummaryView.show()
+			recipeSummaryView.hide()
+		},
+		transitionFromPriceSummaryToDishSearch: () => {
+			statusBarView.hide()
+			priceSummaryView.hide()
+			recipeSummaryView.hide()
+	
+			sidebarView.show()
+			dishSearchView.show()
+			dishDetailsView.hide()
+		}
 	}
 
 	const mainViewController = createMainViewController(mainView, model, generalStateController)

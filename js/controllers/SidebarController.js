@@ -1,20 +1,10 @@
-const createSidebarController = (view, model, { 
-  sidebarView, dishSearchView, dishDetailsView, statusBarView, priceSummaryView, recipeSummaryView
-}) => {
+const createSidebarController = (view, model, generalStateController) => {
 
   view.guestNumber.oninput = (event) => {
     const newGuestNumber = event.target.value
     model.setNumberOfGuests(newGuestNumber)
   }
 
-  view.confirmMenuButton.onclick = () => {
-		sidebarView.hide()
-		dishSearchView.hide()
-		dishDetailsView.hide()
-
-		statusBarView.show()
-		priceSummaryView.show()
-		recipeSummaryView.hide()
-	}
+  view.confirmMenuButton.onclick = generalStateController.transitionFromDishSearchToPriceSummary
   
 }

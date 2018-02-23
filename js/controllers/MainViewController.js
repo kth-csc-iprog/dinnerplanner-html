@@ -1,8 +1,4 @@
-const createMainViewController = (view, model, { sidebarView, dishSearchView }) => {
+const createMainViewController = (view, model, generalStateController) => {
 
-  view.startButton.onclick = () => {
-    view.hide()
-    sidebarView.show()
-    dishSearchView.show()
-  }
+  view.startButton.onclick = generalStateController.transitionFromMainViewToDishSearch
 }

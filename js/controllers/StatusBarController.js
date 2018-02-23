@@ -1,15 +1,6 @@
-const createStatusBarController = (view, model, { 
-  statusBarView, priceSummaryView, recipeSummaryView, sidebarView, dishSearchView, dishDetailsView
-}) => {
+const createStatusBarController = (view, model, generalStateController) => {
 
-  view.backFromMenuSummaryButton.onclick = () => {
-		statusBarView.hide()
-		priceSummaryView.hide()
-		recipeSummaryView.hide()
-
-		sidebarView.show()
-		dishSearchView.show()
-		dishDetailsView.hide()
-	}
+	view.backFromMenuSummaryButton.onclick = 
+		generalStateController.transitionFromPriceSummaryToDishSearch
 
 }

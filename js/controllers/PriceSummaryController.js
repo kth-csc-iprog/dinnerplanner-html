@@ -1,7 +1,4 @@
-const createPriceSummaryController = (view, model, { priceSummaryView, recipeSummaryView }) => {
+const createPriceSummaryController = (view, model, generalStateController) => {
 
-  view.printButton.onclick = () => {
-		priceSummaryView.hide()
-		recipeSummaryView.show()
-	}
+  view.printButton.onclick = generalStateController.transitionFromPriceSummaryToRecipeSummary
 }
