@@ -167,6 +167,8 @@ const createDishDetailsView = (container, model) => {
       dishPreparationElement.appendChild(dishPreparationTextElement)
 
       container.appendChild(dishPreparationElement)
+    }).catch(error => {
+      loadingAlert.innerHTML = error;
     });
   }
 
