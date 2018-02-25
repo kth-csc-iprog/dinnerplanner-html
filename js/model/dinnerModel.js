@@ -60,7 +60,7 @@ const createDinnerModel = () => {
 	// it is removed from the menu and the new one added.
 	const addDishToMenu = id => {
 		getDish(id).then(selectedDish => {
-			const restOfTheMenu = state.menu.filter(dish => dish.dishType === selectedDish.dishType)
+			const restOfTheMenu = state.menu.filter(dish => dish.dishType !== selectedDish.dishType)
 			restOfTheMenu.push(selectedDish)
 			state.menu = restOfTheMenu
 			_notifyObservers({ menu: state.menu })

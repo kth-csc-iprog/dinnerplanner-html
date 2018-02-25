@@ -1,5 +1,5 @@
 (function () {
-	
+
 	// Model
 	const model = createDinnerModel()
 
@@ -8,37 +8,37 @@
 		document.getElementById('mainView'),
 		model
 	)
-	
+
 	const sidebarView = createSidebarView(
 		document.getElementById('sidebarView'),
 		model
 	)
-	
+
 	const dishSearchView = createDishSearchView(
 		document.getElementById('dishSearchView'),
 		model
 	)
-	
+
 	const dishDetailsView = createDishDetailsView(
 		document.getElementById('dishDetailsView'),
 		model
 	)
-	
+
 	const statusBarView = createStatusBarView(
 		document.getElementById('statusBar'),
 		model
 	)
-	
+
 	const priceSummaryView = createPriceSummaryView(
 		document.getElementById('priceSummary'),
 		model
 	)
-	
+
 	const recipeSummaryView = createRecipeSummaryView(
 		document.getElementById('recipeSummaryView'),
 		model
 	)
-	
+
 	// General State Controller
 	const generalStateController = {
 		transitionFromDishDetailsToDishSearch: () => {
@@ -67,7 +67,7 @@
 			sidebarView.hide()
 			dishSearchView.hide()
 			dishDetailsView.hide()
-	
+
 			statusBarView.show()
 			priceSummaryView.show()
 			recipeSummaryView.hide()
@@ -76,7 +76,7 @@
 			statusBarView.hide()
 			priceSummaryView.hide()
 			recipeSummaryView.hide()
-	
+
 			sidebarView.show()
 			dishSearchView.show()
 			dishDetailsView.hide()
