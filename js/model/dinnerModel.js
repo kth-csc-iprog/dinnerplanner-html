@@ -31,7 +31,7 @@ const createDinnerModel = () => {
 	const getNumberOfGuests = () => state.numberOfGuests
 
 	// Returns the dish that is on the menu for the selected type
-	const getSelectedDish = type => state.menu.find(dish => (dish.dishTypes.length === 0 && type === 'main course') || dish.dishTypes.includes(type))
+	const getSelectedDish = type => state.menu.find(dish => dish.dishType === type)
 
 	// Returns all the dishes on the menu.
 	const getFullMenu = () => state.menu
@@ -60,8 +60,7 @@ const createDinnerModel = () => {
 	// it is removed from the menu and the new one added.
 	const addDishToMenu = id => {
 		getDish(id).then(selectedDish => {
-			let selectedDishTypes = selectedDish.dishTypes;
-			const restOfTheMenu = state.menu.filter(dish => (dish.dishTypes.length === 0 && selectedDishTypes.length === 0) || dish.dishTypes.find(dishType => selectedDishTypes.includes(dishType)))
+			const restOfTheMenu = state.menu.filter(dish => dish.dishType === selectedDish.dishType)
 			restOfTheMenu.push(selectedDish)
 			state.menu = restOfTheMenu
 			_notifyObservers({ menu: state.menu })
@@ -92,7 +91,7 @@ const createDinnerModel = () => {
 				queryParams.push(`type=${encodeURIComponent(type)}`);
 			}
 
-			if (filter !== undefined) {
+			if (filter !== undefined && filter !== "") {
 				queryParams.push(`query=${encodeURIComponent(filter)}`);
 			}
 
@@ -119,9 +118,24 @@ const createDinnerModel = () => {
 
 			let queryParams = [`includeNutrition=true`];
 
+			let recognizedDishTypes = [
+				"appetizer",
+				"mainCourse",
+				"sideDish",
+				"dessert",
+				"salad",
+				"bread",
+				"breakfast",
+				"soup",
+				"beverage",
+				"sauce",
+				"drink"
+			];
+
 			fetch(`https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/${id}/information?${queryParams.join('&')}`, options)
 				.then(res => res.json())
 				.then(result => {
+					result.dishType = result.dishTypes.find(dishType => recognizedDishTypes.includes(dishType)) || 'main course';
 					resolve(result);
 				})
 				.catch(err => {

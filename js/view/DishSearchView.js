@@ -46,10 +46,25 @@ const createDishSearchView = (container, model) => {
       return dishResultElement
     }
 
+
+    const loadingAlert = document.querySelector('#alert-notice')
+    loadingAlert.style.display = "block"
+    loadingAlert.innerHTML = "Loading search results ..."
+
     model.getAllDishes(type, filter).then(dishes => {
+      loadingAlert.style.display = "none"
+      loadingAlert.innerHTML = ""
+
+      if (dishes.length === 0) {
+        dishSearchResultsElement.innerHTML = `Sorry, no search results were found for '${filter}'.`;
+        return;
+      }
+
       dishes.map(dish => {
         dishSearchResultsElement.append(createDishResultElement(dish))
       })
+    }).catch(error => {
+      loadingAlert.innerHTML = error;
     });
   }
 

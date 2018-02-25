@@ -102,7 +102,15 @@ const createDishDetailsView = (container, model) => {
 
     state.id = id
 
+    // loading state
+    const loadingAlert = document.querySelector('#alert-notice')
+    loadingAlert.style.display = "block"
+    loadingAlert.innerHTML = "Loading dish details ..."
+
     model.getDish(id).then(dish => {
+      loadingAlert.style.display = "none"
+      loadingAlert.innerHTML = ""
+
       const ingredientsList = model.getAllIngredientsForDish(dish)
       const numberOfGuests = model.getNumberOfGuests()
       const totalPriceValue = model.getPriceForDish(dish)

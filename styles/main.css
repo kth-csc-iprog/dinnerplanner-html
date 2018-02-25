@@ -10,6 +10,13 @@ p {
   margin: 0;
 }
 
+#alert-notice {
+  display: none;
+  background: skyblue;
+  padding: 15px;
+  text-align: center;
+}
+
 .showOnMobile {
   display: none;
 }
@@ -100,7 +107,7 @@ p {
     "titleBar"
     "collapseContent";
 
-  background-color: aqua;
+  background-color: pink;
   text-align: left;
 }
 
@@ -377,7 +384,7 @@ p {
   display: grid;
   grid-gap: 3rem;
   grid-template-areas:
-  "appetizer mainCourse dessert totalPrice";
+  "appetizer mainCourse dessert";
 
   align-items: center;
   justify-content: center;
