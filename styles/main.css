@@ -458,6 +458,10 @@ p {
   text-align: left;
 }
 
+#recipeSummaryView img {
+  max-width: 200px;
+}
+
 .recipe {
   display: grid;
   grid-gap: 2rem;
