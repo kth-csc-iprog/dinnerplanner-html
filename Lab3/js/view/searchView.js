@@ -19,7 +19,7 @@ var SearchView = function (container, model) {
 
 		//lägg in rätterna
 		for(i in menu){
-			string += '<div class="col-md-4 col-sm-6"><div class="thumbnail" id="' + menu[i].id + '"><img src="images/' + menu[i].image + ' " ><div class="caption"><h3>' + menu[i].name + '</h3></div></div></div>';
+			string += '<div class="col-md-3 col-sm-4"><div class="thumbnail picture" id="' + menu[i].id + ' "><img src="images/' + menu[i].image + ' " ><div class="caption"><h3>' + menu[i].name + '</h3></div></div></div>';
 		}
 		this.picBox.html(string);
 		
@@ -34,6 +34,13 @@ var SearchView = function (container, model) {
 	model.addObserver(this);
 
 	this.updateView = function(args) {
-		this.loadView();
-		}	 
+		switch(args) {
+		    case "newTypeSelected":
+				this.loadView();
+		        break;
+		        
+		    default:
+		    	break;
+		}
+	}	 
 }

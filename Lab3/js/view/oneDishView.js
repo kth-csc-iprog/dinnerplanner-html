@@ -36,12 +36,13 @@ var OneDishView = function (container, model) {
 	    var sum = 0;
 
 		for(i in this.dish.ingredients){
-			Price = this.dish.ingredients[i].price*nrOfGuests;
-			string += '<tr><td>' + this.dish.ingredients[i].quantity + ' ' + this.dish.ingredients[i].unit + '</td><td>' + this.dish.ingredients[i].name + '</td><td>SEK</td><td>' + Price + '</td></tr>';
+			var Price = this.dish.ingredients[i].price*nrOfGuests;
+			var Quantity = this.dish.ingredients[i].quantity*nrOfGuests;
+			string += '<tr><td>' + Quantity + ' ' + this.dish.ingredients[i].unit + '</td><td>' + this.dish.ingredients[i].name + '</td><td>SEK</td><td>' + Price + '</td></tr>';
 			sum += Price;
 		}
-		summa= '<td >SEK</td> <td>' + sum + '</td>';
-
+		summa= '<td >SEK</td><td> ' + ' ' + sum + '</td>';
+		string += "</table>";
 		tableString.html(string);
 		sumString.html(summa);
 
@@ -56,8 +57,18 @@ var OneDishView = function (container, model) {
 	//attach as listener
 	model.addObserver(this);
 	this.updateView = function(args) {
-		this.loadView();
+		switch(args) {
+		    case "guestsChanged":
+				this.loadView();
+		        break;
+		     case "toRecipe":
+				this.loadView();
+		        break;
+		        
+		    default:
+		    	break;
 		}
+	}
 	
 }
  

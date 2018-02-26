@@ -4,19 +4,22 @@ var SideViewController = function(view, model, sControl) {
 
 	var plusButton = view.container.find("#plusGuest"); // used by controller
 	var minusButton = view.container.find("#minusGuest");
-	var confirmButton = view.container.find("#confirm");
+	var closeButton = view.container.find(".close");
 
+	plusButton.click(function(){
+	model.setNumberOfGuests(model.getNumberOfGuests() + 1);
+	});
 
-	 plusButton.click(function(){
-	 model.setNumberOfGuests(model.getNumberOfGuests() + 1);
-	 });
+	minusButton.click(function(){
+	model.setNumberOfGuests(model.getNumberOfGuests() - 1);
+	});
 
-	 minusButton.click(function(){
-	 model.setNumberOfGuests(model.getNumberOfGuests() - 1);
-	 });
-
-	 confirmButton.click(function(){
+	view.confirmButton.click(function(){
 			sControl.overview();
-		});
+	});
+	view.table.on("click", ".close", function(){
+			model.removeDishFromMenu(this.id);
+	});
+
 	 
 }

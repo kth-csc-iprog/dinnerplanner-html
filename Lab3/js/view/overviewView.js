@@ -34,12 +34,23 @@ var OverviewView = function (container, model) {
 		
 
 	// load/update view.
-	this.loadView();
+	//this.loadView();
 	//attach as listener
 	model.addObserver(this);
 
 	this.updateView = function() {
 		this.loadView();
+		/*switch(args) {
+		    case "guestsChanged":
+				this.loadView();
+		        break;
+		     case "toRecipe":
+				this.loadView();
+		        break;
+		        
+		    default:
+		    	break;
+		}*/
 	}
 	
 }

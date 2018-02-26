@@ -5,7 +5,7 @@ var DinnerModel = function() {
 	// and selected dishes for the dinner menu
 
 	var numberOfGuests = 2; // ej this. för då blir det en property som man kan nå utifrån. istället var. 
-	var menu = [1, 101, 201]
+	var menu = [];
 	this.observers = new Array();
 	var displayedDish = ""; 
 
@@ -16,9 +16,8 @@ var DinnerModel = function() {
 	this.notifyObservers = function(args) {
 		for(var i = 0; i < this.observers.length; i++) {
 			//this.observers[i].loadView();
-			console.log("nu meddelar vi observer");
+			//console.log("nu meddelar vi observer");
 			//console.log(args);
-			console.log(args);
 			this.observers[i].updateView(args);
 		}
 	}
@@ -49,8 +48,8 @@ var DinnerModel = function() {
 	//Returnerar id på klickad rätt
 	this.selectDishRecipe = function (selectedID) {
 		displayedDish = selectedID;
-		console.log("nu går vi vidare till recept");
-		console.log(displayedDish);
+		//console.log("nu går vi vidare till recept");
+		//console.log(displayedDish);
 		//notifyObservers();
 		//meddela observers att de ska vidare till nästa.
 		this.notifyObservers("toRecipe");
@@ -118,15 +117,15 @@ var DinnerModel = function() {
 
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {
+		id = parseInt(id);
 		var i = 0;
 		for (i in menu){
 
 			if (menu[i] === id){
 				menu.splice(i,1)
 			}
-			i++;
 		}
-		//notifyObservers();
+		this.notifyObservers("removedDish");
 
 	}
 
@@ -148,7 +147,7 @@ var DinnerModel = function() {
 				found = true;
 			}
 		}
-	  	return dish.type == type || type =="all" && found;
+	  	return dish.type == type || type == "all" && found;
 	  	//för att få alla dishes. 
 	  });	
 	  this.notifyObservers("newTypeSelected");

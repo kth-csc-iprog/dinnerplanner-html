@@ -39,8 +39,7 @@
 	</div>
 
 <!-- SIDE VIEW -->
-
-	<div class="col-sm-3 sidebar well" id="sideView">
+	<div class="col-sm-3 col-md-2 sidebar well" id="sideView">
     
 
     <div class="sidebar-module sidebar-module-inset ">
@@ -58,7 +57,6 @@
               <span class="icon-bar"></span>
             </button>
             <div class="navbar-brand">
-              <!--behövs snyggas till, täcker headern på något sätt när menyn collapse-->
               <table>
                 <tr class="Sum">
                   <td>My dinner </td>
@@ -70,11 +68,6 @@
           </div>
           <div class="collapse navbar-collapse" id="sideCollapse">
             <ul class="nav navbar-nav">  
-       
-          <!--<form class="form-inline">
-          	People: <span id="numberOfGuests"></span>
-          	<input type="number" min="1" id="Guests" >
-          </form>-->
               
               <h5 >Number of guests: <span id="numberOfGuests"></span></h5>
               <div>
@@ -102,6 +95,7 @@
             </tr>
           </table> 
 
+
           <!-- Button -->
           <button id="confirm" class="btn btn-success">Confirm Dinner</button>  
         </div><!-- Module 2 table end -->
@@ -119,7 +113,7 @@
 
 <!-- Search View -->
 
-  <div id="searchView" class="col-md-9"> <!-- detta inkl maträtterna -->
+  <div id="searchView" class="col-md-10 col-sm-9"> <!-- detta inkl maträtterna -->
 
     <div>
       <h2>Find a dish</h2>
@@ -128,11 +122,11 @@
       <form class="form-inline">
         <input class="form-control" type="text" id="keywords" placeholder="Enter key words" value="">
         <select id="selectOption" class="form-control">
-          <!--<option value="All">All</option>-->
+          <option value="all">All</option>
           <option value="main dish">Main Course</option>
           <option value="starter">Side Dish</option>
           <option value="dessert">Dessert</option>
-          <option value="appetizer">Appetizer</option>
+          <option value="starter">Appetizer</option>
         </select>
         <!--<input type="submit" id="searchButton" class="form-control btn btn-default" value="Search">-->
         <button type="button" id="searchButton" class="form-control btn btn-default">Search</button>
@@ -150,7 +144,7 @@
   </div> <!--searchView column end-->
 
   <!-- oneDishView -->
-  <div class="col-sm-9" id="oneDishView">
+  <div class="col-md-10 col-sm-9" id="oneDishView">
     <div class="row">
       <div class="col-md-6 col-xs-12">
           <h2 id="headlineDish" class="page-header"></h2>
@@ -161,15 +155,13 @@
 
       </div> <!--column end-->
 
-      <div class="col-md-6 col-xs-12">
+      <div class="col-sm-6 col-xs-12">
         <!-- Lägg ingredienslista här -->
         <h3 id="ingrFor"></h3>
         <div id="table"></div>
-          </table>
-          
-              <button id="add" class="btn btn-default">Add to menu</button>
+        <button id="add" class="btn btn-success">Add to menu</button>
             
-            <span id="td1" class="pull-right"></span>
+        <span id="td1" class="pull-right"></span>
           
         
       </div><!--column end-->
