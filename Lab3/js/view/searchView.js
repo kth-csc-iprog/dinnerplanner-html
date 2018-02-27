@@ -1,28 +1,23 @@
 var SearchView = function (container, model) {
 	this.container = container;
 	this.searchButton = container.find("#searchButton"); // knappen ska bara göra loadView(), i den funktionen finns resten av isntruktionerna
+	this.loadingView = 
 	
 	this.picBox = container.find("#template"); //this, app adds eventlistener
 	var self = this;
 	var string = '';
 
-	var loadDishes = function(dishes) {
+	/*var loadDishes = function(dishes) {
 		string = "";
-		
 		var menu = dishes;
 
 		//lägg in rätterna
 		for(i in menu){
-			string += '<div class="col-md-3 col-sm-4"><div class="thumbnail picture" id="' + menu[i].id + '"><img src="https://spoonacular.com/recipeImages/' + menu[i].image + '" ><div class="caption"><h3>' + menu[i].title + '</h3></div></div></div>';
-			
+			string += '<div class="col-md-3 col-sm-4"><div class="thumbnail picture" id="' + menu[i].id + '"><img src="https://spoonacular.com/recipeImages/' + menu[i].image + '" ><div class="caption"><h3>' + menu[i].title + '</h3></div></div></div>';	
 		}
-		
 		//console.log(string);
 		self.picBox.html(string);
-
-
-	}
-
+	}*/
 
 	//load view
 	this.loadView = function() {
@@ -33,15 +28,17 @@ var SearchView = function (container, model) {
 		//var keywords = Hämta filter
 		var filter = document.getElementById("keywords").value;
 
-		model.getAllDishes(type, filter, loadDishes); // stoppain filter och type i funktionen. 
+		model.getAllDishes(type, filter, function(data) {
+			string = "";
+			var menu = data;
+
+			//lägg in rätterna
+			for(i in menu){
+				string += '<div class="col-md-3 col-sm-4"><div class="thumbnail" id="' + menu[i].id + '"><img src="https://spoonacular.com/recipeImages/' + menu[i].image + '" ><div class="caption"><h3>' + menu[i].title + '</h3></div></div></div>';
+			}
+		self.picBox.html(string);
+		}); 
 		
-
-		//this.picBox.html(string);
-
-
-		
-		
-
 	}
 
 
@@ -50,6 +47,7 @@ var SearchView = function (container, model) {
 
 	// load/update view.
 	this.loadView();
+
 	//attach as listener
 	model.addObserver(this);
 

@@ -136,7 +136,7 @@ var DinnerModel = function() {
     	},
     	error: function(jqXHR, exception) {
             if (jqXHR.status === 0) {
-                alert('Not connect.\n Verify Network.');
+                alert('Not connected.\n Verify network.');
             } else if (jqXHR.status == 404) {
                 alert('Requested page not found. [404]');
             } else if (jqXHR.status == 500) {
@@ -166,9 +166,7 @@ var DinnerModel = function() {
 		     'X-Mashape-Key': "Qu9grxVNWpmshA4Kl9pTwyiJxVGUp1lKzrZjsnghQMkFkfA4LB"
 		   },
 		   success: function(data) {
-		   
 		   	var dishes = data.results;
-
 		    loadDishes(dishes);
 
 		   }
@@ -201,7 +199,7 @@ var DinnerModel = function() {
 	// defining the unit i.e. "g", "slices", "ml". Unit
 	// can sometimes be empty like in the example of eggs where
 	// you just say "5 eggs" and not "5 pieces of eggs" or anything else.
-	var dishes = [{
+	/*var dishes = [{
 		'id':1,
 		'name':'French toast',
 		'type':'starter',
@@ -442,6 +440,6 @@ var DinnerModel = function() {
 			'price':6
 			}]
 		}
-	];
+	];*/
 
 }

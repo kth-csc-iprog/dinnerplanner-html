@@ -28,18 +28,6 @@ var OverviewView = function (container, model) {
 
 		}
 
-
-
-
-		/*for(i in menu){
-			var dishPrice = 0;
-			for(n in menu[i].ingredients){
-				dishPrice += menu[i].ingredients[n].price*nr;
-			}
-			HTMLPic += '<div class="col-sm-3"><div class="thumbnail margin1" id="' + menu[i].id + '"><img src="' + menu[i].image + ' " ><div class="caption"><h3>' + menu[i].title + '</h3></div></div><h4 class="pull-right margin"> '+ dishPrice +' SEK </h4></div>';
-			
-			sum += dishPrice;
-		}*/
 		pictures.html(HTMLPic);
 		total.html(sum);
 

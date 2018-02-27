@@ -21,7 +21,8 @@ var SideView = function (container, model) {
 		var menu = model.getFullMenu(); // stoppain filter och type i funktionen. 
 
 		var string = '';
-		var menuPrice = 0;
+		//var menuPrice = "";
+		var mp = 0;
 
 		if (menu === undefined || menu.length == 0){
 			this.confirmButton.prop('disabled', true);
@@ -37,7 +38,9 @@ var SideView = function (container, model) {
 		for(var i = 0; i < menu.length; i++){
 			console.log("inne i loopen");
 			var dishPrice = parseInt(model.getDishPrice(menu[i]) * nrOfGuests);
-			menuPrice += dishPrice;
+			mp += dishPrice;
+
+
 
 
 
@@ -49,6 +52,8 @@ var SideView = function (container, model) {
 			string += '<tr><td>' + menu[i].title + '</td><td>' + dishPrice + '</td><td> '+ 
 			'<button type="button" id="' + menu[i].id + '" " class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button></td></tr>';
 		}
+
+		var menuPrice = "<td>" + mp + "</td>";
 
 		
 		this.table.html(string);
