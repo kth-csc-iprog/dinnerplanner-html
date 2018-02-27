@@ -15,17 +15,31 @@ var OverviewView = function (container, model) {
 		var menu = model.getFullMenu();
 		header.html(string);
 
-		sum =0;
-		HTMLPic= "";
-		for(i in menu){
+		var menuPrice =0;
+		var HTMLPic= "";
+
+		for(var i = 0; i < menu.length; i++){
+			console.log("inne i loopen");
+			var dishPrice = parseInt(model.getDishPrice(menu[i]) * nrOfGuests);
+			menuPrice += dishPrice;
+
+			HTMLPic += '<div class="col-sm-3"><div class="thumbnail margin1" id="' + menu[i].id + '"><img src="' + menu[i].image + ' " ><div class="caption"><h3>' + menu[i].title + '</h3></div></div><h4 class="pull-right margin"> '+ dishPrice +' SEK </h4></div>';
+
+
+		}
+
+
+
+
+		/*for(i in menu){
 			var dishPrice = 0;
 			for(n in menu[i].ingredients){
 				dishPrice += menu[i].ingredients[n].price*nr;
 			}
-			HTMLPic += '<div class="col-sm-3"><div class="thumbnail margin1" id="' + menu[i].id + '"><img src="images/' + menu[i].image + ' " ><div class="caption"><h3>' + menu[i].name + '</h3></div></div><h4 class="pull-right margin"> '+ dishPrice +' SEK </h4></div>';
+			HTMLPic += '<div class="col-sm-3"><div class="thumbnail margin1" id="' + menu[i].id + '"><img src="' + menu[i].image + ' " ><div class="caption"><h3>' + menu[i].title + '</h3></div></div><h4 class="pull-right margin"> '+ dishPrice +' SEK </h4></div>';
 			
 			sum += dishPrice;
-		}
+		}*/
 		pictures.html(HTMLPic);
 		total.html(sum);
 

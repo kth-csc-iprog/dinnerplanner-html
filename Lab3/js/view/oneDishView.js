@@ -13,81 +13,93 @@ var OneDishView = function (container, model) {
 	var tableString = container.find("#table");
 	var sumString = container.find("#td1");
 	var rubrik = container.find("#ingrFor");
+	var noServings = "";
+	var priceServing = "";
+	var ingredients = [];
+	const self = this;
 
 	var loadRecipe = function(dish) {
+		
+		
 		headlineDish.html(dish.title);
 		picDish.html('<img src="' + dish.image + '">');
 		description.html(dish.instructions);
-		var noServings = dish.servings;
-		var priceServing = dish.pricePerServing;
+		noServings = dish.servings;
+		priceServing = dish.pricePerServing;
+		ingredients = dish.extendedIngredients;
+		console.log("ingredienslista: " + ingredients);
+
 		//hämta antal servings : 4 personer
 
 		//hämta totalpris
 
+		//uppdatera tabellen rätt antal
+		updateRecipe();
+
 	}
 
-	this.updateRecipe = function() {
+	var updateRecipe = function() {
+
+		//console.log("inne i updateREcipe");
 		nrOfGuests = model.getNumberOfGuests();
 
 		//nytt totalpris 
+		var totalPrice = Math.round(priceServing * nrOfGuests*10)/10; //model.getDishPrice()
 
 		// ingrediens/antal servibngs * nrOfGuests
-	}
-	this.loadView = function() {
 
+		var string = '<table class="table"><thead><th>Amount</th><th>Ingredient</th></thead>';
+
+		for(i in ingredients){
+			//var Price = ingredients[i].price*nrOfGuests;
+			var quantity = ingredients[i].amount * nrOfGuests;
+			string += '<tr><td>' + quantity + ' ' + ingredients[i].unit + '</td><td>' + ingredients[i].name + '</td></tr>';
+		}
+
+
+		string += "</table>";
+		var summa= '<table class="table"><thead><th>SEK</th><th> ' + ' ' + totalPrice + '</th></thead></table>';
+		tableString.html(string);
+		sumString.html(summa);
+
+	}
+
+	this.loadView = function() {
+		clearView();
 		var dishId = model.returnDishRecipe();
 		//nrOfGuests = model.getNumberOfGuests();
 		model.getDish(dishId, loadRecipe);
-		var string = '<table class="table"><thead><th>Amount</th><th>Ingredient</th><th> </th><th>pris</th></thead>';
-		string += "</table>";
-		tableString.html(string);
 
-		
+	}
 
-		
-
-/*
-		
-		picDish.html('<img src="https://spoonacular.com/recipeImages/' + this.dish.image + ' ">');
-	 
-		description.html(this.dish.description);
-
-		Rubrik = 'Ingredients for ' + nrOfGuests + ' people';
-		rubrik.html(Rubrik);
-			
-		var string = '<table class="table"><thead><th>mängd</th><th>sak</th><th>SEK</th><th>pris</th></thead>';
-
-	    var sum = 0;
-
-		for(i in this.dish.ingredients){
-			var Price = this.dish.ingredients[i].price*nrOfGuests;
-			var Quantity = this.dish.ingredients[i].quantity*nrOfGuests;
-			string += '<tr><td>' + Quantity + ' ' + this.dish.ingredients[i].unit + '</td><td>' + this.dish.ingredients[i].name + '</td><td>SEK</td><td>' + Price + '</td></tr>';
-			sum += Price;
-		}
-		summa= '<td >SEK</td><td> ' + ' ' + sum + '</td>';
-		string += "</table>";
-		tableString.html(string);
-		sumString.html(summa);*/
+	var clearView = function() {
+		headlineDish.html("");
+		picDish.html("");
+		description.html("");
+		tableString.html("");
+		sumString.html("");
 
 	}
 
 	
-		
-		
-
-	// load/update view.
-	//this.loadView();
 	//attach as listener
-	//model.addObserver(this);
+	model.addObserver(this);
+	
 	this.updateView = function(args) {
 		switch(args) {
 		    case "guestsChanged":
-				this.loadView();
+				updateRecipe();
 		        break;
 		     case "toRecipe":
 				this.loadView();
 		        break;
+		     case "dishFetched":
+		     	loadRecipe()
+		    	break;
+		    case "clearView":
+		     	loadRecipe()
+		     	break;
+
 		        
 		    default:
 		    	break;

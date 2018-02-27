@@ -10,7 +10,6 @@ var SearchView = function (container, model) {
 		string = "";
 		
 		var menu = dishes;
-		console.log("Menyn är här: "+ menu);
 
 		//lägg in rätterna
 		for(i in menu){
@@ -18,10 +17,8 @@ var SearchView = function (container, model) {
 			
 		}
 		
-		console.log(string);
+		//console.log(string);
 		self.picBox.html(string);
-
-
 
 
 	}

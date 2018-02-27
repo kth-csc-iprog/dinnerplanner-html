@@ -7,7 +7,7 @@ var DinnerModel = function() {
 	var numberOfGuests = 2; // ej this. för då blir det en property som man kan nå utifrån. istället var. 
 	var menu = [];
 	this.observers = new Array();
-	var displayedDish = ""; 
+	this.displayedDish = ""; 
 
 	this.addObserver = function(observer) {
 		this.observers.push(observer);
@@ -33,6 +33,8 @@ var DinnerModel = function() {
 		return numberOfGuests;
 	}
 
+
+
 	//Returns the dish that is on the menu for selected type 
 	//borde kolla i dishes istället för att filtrera vilka rätter som visas i overview. 
 	this.getSelectedDish = function(type) {
@@ -47,7 +49,7 @@ var DinnerModel = function() {
 
 	//Returnerar id på klickad rätt
 	this.selectDishRecipe = function (selectedID) {
-		displayedDish = selectedID;
+		this.displayedDish = selectedID;
 		//console.log("nu går vi vidare till recept");
 		//console.log(displayedDish);
 		//notifyObservers();
@@ -56,16 +58,12 @@ var DinnerModel = function() {
 	};
 
 	this.returnDishRecipe = function() {
-		return displayedDish;
+		return this.displayedDish;
 	}
 
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
-		var fullMenu = [];
-		for (i in menu){
-			fullMenu.push(this.getDish(menu[i]));
-			}
-			return fullMenu;
+		return menu;
 	}
 
 	//Returns all ingredients for all the dishes on the menu.
@@ -97,22 +95,21 @@ var DinnerModel = function() {
 		return totalPrice;
 	}
 
+	this.getDishPrice = function(dishObject) {
+		return dishObject.pricePerServing;
+
+	}
+
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
-		var newType = this.getDish(id).type;
-
-		for (i in menu){
-			var menuType = this.getDish(menu[i]).type;
-			if (newType === menuType){
-				this.removeDishFromMenu(menu[i]);
-			}
-		}
-
-		menu.push(id);
-		this.notifyObservers("newDishAdded");
-
-
+		this.getDish(id, dish=> {
+			var newDish = dish;
+			console.log("vår nya rätt: " + newDish);
+			menu.push(newDish);
+			console.log("vår nya meny: " + menu);
+			this.notifyObservers("newDishAdded");
+		});
 	}
 
 	//Removes dish from menu
@@ -121,13 +118,41 @@ var DinnerModel = function() {
 		var i = 0;
 		for (i in menu){
 
-			if (menu[i] === id){
+			if (menu[i].id === id){
 				menu.splice(i,1)
 			}
 		}
 		this.notifyObservers("removedDish");
-
 	}
+
+	$.ajaxSetup({
+		beforeSend: function() {
+        		$("#loadingView").show();
+        		//this.notifyObservers("startLoading");
+    		},
+    	complete: function() {
+    			$("#loadingView").hide();
+    			//this.notifyObservers("stopLoading");
+    	},
+    	error: function(jqXHR, exception) {
+            if (jqXHR.status === 0) {
+                alert('Not connect.\n Verify Network.');
+            } else if (jqXHR.status == 404) {
+                alert('Requested page not found. [404]');
+            } else if (jqXHR.status == 500) {
+                alert('Internal Server Error [500].');
+            } else if (exception === 'parsererror') {
+                alert('Requested JSON parse failed.');
+            } else if (exception === 'timeout') {
+                alert('Time out error.');
+            } else if (exception === 'abort') {
+                alert('Ajax request aborted.');
+            } else {
+                alert('Uncaught Error.\n' + jqXHR.responseText);
+            }
+        }
+	});
+
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
 	//you can use the filter argument to filter out the dish by name or ingredient (use for search)
@@ -135,50 +160,23 @@ var DinnerModel = function() {
 	this.getAllDishes = function (type,filter, loadDishes) {
 
 		$.ajax( {
-		   url: "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?type=" + type,
+		   url: "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?type=" + type + "&query=" + filter,
 
 		   headers: {
 		     'X-Mashape-Key': "Qu9grxVNWpmshA4Kl9pTwyiJxVGUp1lKzrZjsnghQMkFkfA4LB"
 		   },
 		   success: function(data) {
+		   
 		   	var dishes = data.results;
-		   	console.log("type: " + type);
-		    console.log(dishes);
-		    //callback(data)
 
 		    loadDishes(dishes);
 
-		   },
-		   error: function(error) {
-		     alert("fungerade ej");
-		     //errorCallback(error)
 		   }
 		 }); 
-
-
-
-	  /*return dishes.filter(function(dish) {
-		var found = true;
-		if(filter){
-			found = false;
-			dish.ingredients.forEach(function(ingredient) {
-				if(ingredient.name.indexOf(filter)!=-1) {
-					found = true;
-				}
-			});
-			if(dish.name.indexOf(filter) != -1)
-			{
-				found = true;
-			}
-		}
-	  	return dish.type == type || type == "all" && found;
-	  	//för att få alla dishes. 
-	  });*/	
-	  //this.notifyObservers("newTypeSelected"); //Behövs inte längre pga använder API istället för att ändra i modellen.
 	}
 
 	//function that returns a dish of specific ID
-	this.getDish = function (id, loadRecipe) {
+	this.getDish = function (id, func) {
 		console.log("Dish id innan ajax: " + id);
 		$.ajax( {
 		   url: "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/" + id + "/information",
@@ -187,32 +185,11 @@ var DinnerModel = function() {
 		     'X-Mashape-Key': "Qu9grxVNWpmshA4Kl9pTwyiJxVGUp1lKzrZjsnghQMkFkfA4LB"
 		   },
 		   success: function(data) {
-
-		   	var dishInformation = data;
-		   	console.log("Dish: " + dishInformation.title);
-		    console.log("First Ingredient: " + dishInformation.extendedIngredients[0].id);
-
-		    loadRecipe(dishInformation);
-		    //callback(data)
-
-		    
-
-		   },
-		   error: function(error) {
-		     alert("fungerade ej");
-		     //errorCallback(error)
+		   	func(data);
 		   }
+
 		 }); 
 
-
-
-
-
-		/*for( var i = 0; i < dishes.length; i++) {
-			if (dishes[i].id == id) {
-				return dishes[i];
-			}
-		}*/
 	}
 
 

@@ -21,10 +21,10 @@ var PrintView = function (container, model) {
 		menu = model.getFullMenu()
 
 
-		for(i in menu){
-			string += '<div class="row"><div class="col-sm-2 col-xs-12 margin well"><img src="images/' + menu[i].image +'"></img>'+
-    '</div><!--column end--><div class="col-sm-4 col-xs-12"><h3>' + menu[i].name +
-    '</h3></div><!--column end--><div class="col-sm-5 col-xs-12 text well"><h3>Preparation</h3><p>' + menu[i].description + 
+		for(var i = 0; i < menu.length; i++){
+			string += '<div class="row"><div class="col-sm-2 col-xs-12 margin well"><img src="' + menu[i].image +'"></img>'+
+    '</div><!--column end--><div class="col-sm-4 col-xs-12"><h3>' + menu[i].title +
+    '</h3></div><!--column end--><div class="col-sm-5 col-xs-12 text well"><h3>Preparation</h3><p>' + menu[i].instructions + 
     '</p></div><!--column end--></div><!--row end-->';
    ;
 		

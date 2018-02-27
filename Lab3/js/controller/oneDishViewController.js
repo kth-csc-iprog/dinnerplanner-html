@@ -6,11 +6,14 @@ var OneDishViewController = function(view, model, sControl) {
 	var sControl = sControl;
 
 	add.click(function() {
-		model.addDishToMenu(view.dish.id);
+		model.addDishToMenu(model.displayedDish);
 	});
 
 	backButton.click(function() {
 		sControl.backToSearch();
+		//model.displayedDish ="";
+
+
 		});
 
 

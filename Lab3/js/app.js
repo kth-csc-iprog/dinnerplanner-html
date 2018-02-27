@@ -25,6 +25,9 @@ $(function() {
 
 	// 6. printView
 	var printView = new PrintView($("#printView"), model);
+	
+	// 7. loadview
+	//var loadingView = new LoadingView($("#loadView"), model);
 
 
 	// Controllers
@@ -79,6 +82,15 @@ $(function() {
 		searchView.container.show();
 	}
 
+	this.startLoading = function() {
+		loadingView.container.show();
+		oneDishView.container.hide();
+	}
+
+	this.doneLoading = function() {
+		loadingView.container.hide();
+	}
+
 	// Gömmer allt utom start
 	$("#header").hide();
 	$("#sideView").hide();	
@@ -86,6 +98,7 @@ $(function() {
 	$("#oneDishView").hide();
 	$("#overview").hide();
 	$("#printView").hide();
+	$("#loadingView").hide();
 
 	startDinner();
 
