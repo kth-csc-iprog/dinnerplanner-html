@@ -1,330 +1,153 @@
-//DinnerModel Object constructor
-var DinnerModel = function() {
- 
-	//TODO Lab 1 implement the data structure that will hold number of guest
+//DinnerModel Object factory function
+const createDinnerModel = () => {
+
+	// the data structure that will hold number of guest
 	// and selected dishes for the dinner menu
-
-
-	this.setNumberOfGuests = function(num) {
-		//TODO Lab 1
-	}
-	
-	this.getNumberOfGuests = function() {
-		//TODO Lab 1
+	const state = {
+		numberOfGuests: 1,
+		menu: [],
+		observers: []
 	}
 
-	//Returns the dish that is on the menu for selected type 
-	this.getSelectedDish = function(type) {
-		//TODO Lab 1
+	window.getState = () => state
+
+	const addObserver = (observer) => {
+		state.observers.push(observer)
 	}
 
-	//Returns all the dishes on the menu.
-	this.getFullMenu = function() {
-		//TODO Lab 1
+	const removeObserver = (observer) => {
+		state.observers = observers.filter(subscribedObserver => subscribedObserver !== observer)
 	}
 
-	//Returns all ingredients for all the dishes on the menu.
-	this.getAllIngredients = function() {
-		//TODO Lab 1
+	const _notifyObservers = (details) => {
+		state.observers.map(observer => observer(details))
 	}
 
-	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
-	this.getTotalMenuPrice = function() {
-		//TODO Lab 1
+	const setNumberOfGuests = num => {
+		state.numberOfGuests = num
+		_notifyObservers({ numberOfGuests: state.numberOfGuests })
 	}
 
-	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
-	//it is removed from the menu and the new one added.
-	this.addDishToMenu = function(id) {
-		//TODO Lab 1 
+	const getNumberOfGuests = () => state.numberOfGuests
+
+	// Returns the dish that is on the menu for the selected type
+	const getSelectedDish = type => state.menu.find(dish => dish.dishType === type)
+
+	// Returns all the dishes on the menu.
+	const getFullMenu = () => state.menu
+
+	// Returns all ingredients for all the dishes on the menu (represented by dish)
+	const getAllIngredients = () => state.menu.reduce((acc, curr) => acc.concat(curr.ingredients), [])
+
+	const getAllIngredientsForDish = dish => {
+		return dish.extendedIngredients.map(({ name, amount: quantity, unit }) => ({
+			name,
+			unit,
+			quantity: quantity * state.numberOfGuests
+		}))
 	}
 
-	//Removes dish from menu
-	this.removeDishFromMenu = function(id) {
-		//TODO Lab 1
+	// Return the full price of a given dish (represented by dish)
+	const getPriceForDish = dish => dish.pricePerServing
+
+	// Returns the total price of the menu (all the ingredients multiplied by number of guests).
+	const getTotalMenuPrice = () => state.menu.reduce((acc, dish) => {
+		acc += state.numberOfGuests * getPriceForDish(dish)
+		return acc;
+	}, 0)
+
+	// Adds the passed dish to the menu. If the dish of that type already exists on the menu
+	// it is removed from the menu and the new one added.
+	const addDishToMenu = id => {
+		getDish(id).then(selectedDish => {
+			const restOfTheMenu = state.menu.filter(dish => dish.dishType !== selectedDish.dishType)
+			restOfTheMenu.push(selectedDish)
+			state.menu = restOfTheMenu
+			_notifyObservers({ menu: state.menu })
+		})
 	}
 
-	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
-	//you can use the filter argument to filter out the dish by name or ingredient (use for search)
-	//if you don't pass any filter all the dishes will be returned
-	this.getAllDishes = function (type,filter) {
-	  return dishes.filter(function(dish) {
-		var found = true;
-		if(filter){
-			found = false;
-			dish.ingredients.forEach(function(ingredient) {
-				if(ingredient.name.indexOf(filter)!=-1) {
-					found = true;
-				}
-			});
-			if(dish.name.indexOf(filter) != -1)
-			{
-				found = true;
+	// Removes dish from menu
+	const removeDishFromMenu = id => {
+		const newMenu = state.menu.filter(dish => dish.id !== id)
+		state.menu = newMenu
+		_notifyObservers({ menu: state.menu })
+	}
+
+	// function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
+	// you can use the filter argument to filter out the dish by name or ingredient (use for search)
+	// if you don't pass any filter all the dishes will be returned
+	const getAllDishes = (type, filter) => {
+		let options = {
+			headers: {
+				'X-Mashape-Key': apiConfig.apiKey
 			}
+		};
+
+		let queryParams = [`instructionsRequired=true`];
+
+		if (type !== undefined && type !== 'all') {
+			queryParams.push(`type=${encodeURIComponent(type)}`);
 		}
-	  	return dish.type == type && found;
-	  });	
+
+		if (filter !== undefined && filter !== "") {
+			queryParams.push(`query=${encodeURIComponent(filter)}`);
+		}
+
+		return fetch(`https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?${queryParams.join('&')}`, options)
+			.then(res => res.json())
+			.then(({ results }) => {
+				return results
+			})
 	}
 
 	//function that returns a dish of specific ID
-	this.getDish = function (id) {
-	  for(key in dishes){
-			if(dishes[key].id == id) {
-				return dishes[key];
+	const getDish = id => {
+		let options = {
+			headers: {
+				'X-Mashape-Key': apiConfig.apiKey
 			}
-		}
-	}
+		};
 
+		let queryParams = [`includeNutrition=true`];
 
-	// the dishes variable contains an array of all the 
-	// dishes in the database. each dish has id, name, type,
-	// image (name of the image file), description and
-	// array of ingredients. Each ingredient has name, 
-	// quantity (a number), price (a number) and unit (string 
-	// defining the unit i.e. "g", "slices", "ml". Unit
-	// can sometimes be empty like in the example of eggs where
-	// you just say "5 eggs" and not "5 pieces of eggs" or anything else.
-	var dishes = [{
-		'id':1,
-		'name':'French toast',
-		'type':'starter',
-		'image':'toast.jpg',
-		'description':"In a large mixing bowl, beat the eggs. Add the milk, brown sugar and nutmeg; stir well to combine. Soak bread slices in the egg mixture until saturated. Heat a lightly oiled griddle or frying pan over medium high heat. Brown slices on both sides, sprinkle with cinnamon and serve hot.",
-		'ingredients':[{ 
-			'name':'eggs',
-			'quantity':0.5,
-			'unit':'',
-			'price':10
-			},{
-			'name':'milk',
-			'quantity':30,
-			'unit':'ml',
-			'price':6
-			},{
-			'name':'brown sugar',
-			'quantity':7,
-			'unit':'g',
-			'price':1
-			},{
-			'name':'ground nutmeg',
-			'quantity':0.5,
-			'unit':'g',
-			'price':12
-			},{
-			'name':'white bread',
-			'quantity':2,
-			'unit':'slices',
-			'price':2
-			}]
-		},{
-		'id':2,
-		'name':'Sourdough Starter',
-		'type':'starter',
-		'image':'sourdough.jpg',
-		'description':"Here is how you make it... Lore ipsum...",
-		'ingredients':[{ 
-			'name':'active dry yeast',
-			'quantity':0.5,
-			'unit':'g',
-			'price':4
-			},{
-			'name':'warm water',
-			'quantity':30,
-			'unit':'ml',
-			'price':0
-			},{
-			'name':'all-purpose flour',
-			'quantity':15,
-			'unit':'g',
-			'price':2
-			}]
-		},{
-		'id':3,
-		'name':'Baked Brie with Peaches',
-		'type':'starter',
-		'image':'bakedbrie.jpg',
-		'description':"Here is how you make it... Lore ipsum...",
-		'ingredients':[{ 
-			'name':'round Brie cheese',
-			'quantity':10,
-			'unit':'g',
-			'price':8
-			},{
-			'name':'raspberry preserves',
-			'quantity':15,
-			'unit':'g',
-			'price':10
-			},{
-			'name':'peaches',
-			'quantity':1,
-			'unit':'',
-			'price':4
-			}]
-		},{
-		'id':100,
-		'name':'Meat balls',
-		'type':'main dish',
-		'image':'meatballs.jpg',
-		'description':"Preheat an oven to 400 degrees F (200 degrees C). Place the beef into a mixing bowl, and season with salt, onion, garlic salt, Italian seasoning, oregano, red pepper flakes, hot pepper sauce, and Worcestershire sauce; mix well. Add the milk, Parmesan cheese, and bread crumbs. Mix until evenly blended, then form into 1 1/2-inch meatballs, and place onto a baking sheet. Bake in the preheated oven until no longer pink in the center, 20 to 25 minutes.",
-		'ingredients':[{ 
-			'name':'extra lean ground beef',
-			'quantity':115,
-			'unit':'g',
-			'price':20
-			},{
-			'name':'sea salt',
-			'quantity':0.7,
-			'unit':'g',
-			'price':3
-			},{
-			'name':'small onion, diced',
-			'quantity':0.25,
-			'unit':'',
-			'price':2
-			},{
-			'name':'garlic salt',
-			'quantity':0.7,
-			'unit':'g',
-			'price':2
-			},{
-			'name':'Italian seasoning',
-			'quantity':0.6,
-			'unit':'g',
-			'price':3
-			},{
-			'name':'dried oregano',
-			'quantity':0.3,
-			'unit':'g',
-			'price':3
-			},{
-			'name':'crushed red pepper flakes',
-			'quantity':0.6,
-			'unit':'g',
-			'price':3
-			},{
-			'name':'Worcestershire sauce',
-			'quantity':6,
-			'unit':'ml',
-			'price':7
-			},{
-			'name':'milk',
-			'quantity':20,
-			'unit':'ml',
-			'price':4
-			},{
-			'name':'grated Parmesan cheese',
-			'quantity':5,
-			'unit':'g',
-			'price':8
-			},{
-			'name':'seasoned bread crumbs',
-			'quantity':15,
-			'unit':'g',
-			'price':4
-			}]
-		},{
-		'id':101,
-		'name':'MD 2',
-		'type':'main dish',
-		'image':'bakedbrie.jpg',
-		'description':"Here is how you make it... Lore ipsum...",
-		'ingredients':[{ 
-			'name':'ingredient 1',
-			'quantity':1,
-			'unit':'pieces',
-			'price':8
-			},{
-			'name':'ingredient 2',
-			'quantity':15,
-			'unit':'g',
-			'price':7
-			},{
-			'name':'ingredient 3',
-			'quantity':10,
-			'unit':'ml',
-			'price':4
-			}]
-		},{
-		'id':102,
-		'name':'MD 3',
-		'type':'main dish',
-		'image':'meatballs.jpg',
-		'description':"Here is how you make it... Lore ipsum...",
-		'ingredients':[{ 
-			'name':'ingredient 1',
-			'quantity':2,
-			'unit':'pieces',
-			'price':8
-			},{
-			'name':'ingredient 2',
-			'quantity':10,
-			'unit':'g',
-			'price':7
-			},{
-			'name':'ingredient 3',
-			'quantity':5,
-			'unit':'ml',
-			'price':4
-			}]
-		},{
-		'id':103,
-		'name':'MD 4',
-		'type':'main dish',
-		'image':'meatballs.jpg',
-		'description':"Here is how you make it... Lore ipsum...",
-		'ingredients':[{ 
-			'name':'ingredient 1',
-			'quantity':1,
-			'unit':'pieces',
-			'price':4
-			},{
-			'name':'ingredient 2',
-			'quantity':12,
-			'unit':'g',
-			'price':7
-			},{
-			'name':'ingredient 3',
-			'quantity':6,
-			'unit':'ml',
-			'price':4
-			}]
-		},{
-		'id':200,
-		'name':'Chocolat Ice cream',
-		'type':'dessert',
-		'image':'icecream.jpg',
-		'description':"Here is how you make it... Lore ipsum...",
-		'ingredients':[{ 
-			'name':'ice cream',
-			'quantity':100,
-			'unit':'ml',
-			'price':6
-			}]
-		},{
-		'id':201,
-		'name':'Vanilla Ice cream',
-		'type':'dessert',
-		'image':'icecream.jpg',
-		'description':"Here is how you make it... Lore ipsum...",
-		'ingredients':[{ 
-			'name':'ice cream',
-			'quantity':100,
-			'unit':'ml',
-			'price':6
-			}]
-		},{
-		'id':202,
-		'name':'Strawberry',
-		'type':'dessert',
-		'image':'icecream.jpg',
-		'description':"Here is how you make it... Lore ipsum...",
-		'ingredients':[{ 
-			'name':'ice cream',
-			'quantity':100,
-			'unit':'ml',
-			'price':6
-			}]
-		}
-	];
+		let recognizedDishTypes = [
+			"appetizer",
+			"mainCourse",
+			"sideDish",
+			"dessert",
+			"salad",
+			"bread",
+			"breakfast",
+			"soup",
+			"beverage",
+			"sauce",
+			"drink"
+		];
+
+		return fetch(`https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/${id}/information?${queryParams.join('&')}`, options)
+			.then(res => res.json())
+			.then(result => {
+				result.dishType = result.dishTypes.find(dishType => recognizedDishTypes.includes(dishType)) || 'main course';
+				return result
+			})
+	};
+
+	return ({
+		addObserver,
+		removeObserver,
+		setNumberOfGuests,
+		getNumberOfGuests,
+		getSelectedDish,
+		getFullMenu,
+		getAllIngredients,
+		getAllIngredientsForDish,
+		getPriceForDish,
+		getTotalMenuPrice,
+		addDishToMenu,
+		removeDishFromMenu,
+		getAllDishes,
+		getDish
+	})
 
 }

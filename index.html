@@ -6,33 +6,195 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Dinner planner</title>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
-
+		<link rel="stylesheet" href="styles/main.css">
   </head>
+
   <body>
-	<div class="container">
-		<h1>Dinner planner</h1>
-		<div id="exampleView">
-			<div>
-				Number of guests: <span id="numberOfGuests"></span>
-			</div>
-			<div>
-          <button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
-				<button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
-			</div>
-		</div>
-	</div>
 
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+		<div class="container">
 
-	<!-- The application JavaScript code -->
-	<script src="js/app.js"></script>
-	<script src="js/model/dinnerModel.js"></script>
-	<script src="js/view/exampleView.js"></script>
-	<!-- TODO: Here you should include JS code for your other views -->
+      <div id="header" class="verticallyCentered">
+        <h1>Dinner Planner</h1>
+      </div>
+
+      <div id="content">
+
+        <div id="alert-notice" role="alert"></div>
+
+        <div id="mainView">
+          <div id="welcomeText">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </div>
+          <button id="startButton" class="primaryButton">Create new dinner</button>
+        </div>
+
+        <div id="appView">
+
+          <div id="sidebarView">
+            <div id="titleBar">
+              <h4 id="titleBarTitle">My Dinner</h4>
+              <div id="collapsedMenuTotalPrice" class="totalPrice showOnMobile">
+                <span class="totalPriceCurrency">SEK</span> <span id="hiddenTotalPriceValue">77.20</span>
+              </div>
+              <button id="expandButton" class="secondaryButton showOnMobile" onclick="toggleSidebar()">
+                Expand
+              </button>
+            </div>
+
+            <div id="sideBarContent" class="collapseContent hideOnMobile">
+              <div id="guestSelector" class="show">
+                <label for="guestNumber">Guests:</label>
+                <input id="guestNumber" type="number" value="1">
+              </div>
+
+              <div id="dishTable" class="show">
+                <div id="tableHeader">
+                  <div id="tableName">Dish name</div>
+                  <div id="tableCost">Cost</div>
+                </div>
+
+                <div id="tableContent">
+
+                </div>
+
+                <div id="tableFooter">
+                  <div id="tableTotalPrice" class="totalPrice">
+                    <span class="totalPriceCurrency">SEK</span> <span id="totalPriceValue">77.20</span>
+                  </div>
+                </div>
+              </div>
+
+              <div id="confirmButtonContainer" class="show">
+                <button class="primaryButton" id="confirmMenuButton">Confirm Dinner</button>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div id="sectionView">
+
+            <div id="dishSearchView">
+
+              <h2 id="dishSearchTitle">Find a dish</h2>
+
+              <div id="dishSearchForm">
+
+                <input type="search" id="dishSearchField" name="dishSearchField" placeholder="Enter keywords">
+
+                <select id="dishTypeSelectField" name="dishTypeSelectField">
+                  <option value="all" selected>All</option>
+                  <option value="appetizer">Appetizer</option>
+                  <option value="main course">Main Course</option>
+                  <option value="side dish">Side Dish</option>
+                  <option value="dessert">Dessert</option>
+                  <option value="salad">Salad</option>
+                  <option value="bread">Bread</option>
+                  <option value="breakfast">Breakfast</option>
+                  <option value="soup">Soup</option>
+                  <option value="beverage">Beverage</option>
+                  <option value="sauce">Sauce</option>
+                  <option value="drink">Drink</option>
+                </select>
+
+                <button id="dishSearchButton" class="secondaryButton">Search</button>
+
+              </div>
+
+              <div id="dishSearchResults">
+
+              </div>
+
+            </div>
+
+            <div id="dishDetailsView">
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div id="menuSummaryView">
+
+          <div id="statusBar">
+            <h2 id="statusTitle">My Dinner: <span id="numberOfGuests">3</span> people</h2>
+            <button id="backFromMenuSummaryButton" class="backButton primaryButton" >Go back and edit dinner</button>
+          </div>
+
+          <div id="summaryView">
+
+            <div id="priceSummary">
+
+              <div id="dishListContainer">
+
+                <div id="appetizer"></div>
+                <div id="mainCourse"></div>
+                <div id="sideDish"></div>
+                <div id="dessert"></div>
+                <div id="salad"></div>
+                <div id="bread"></div>
+                <div id="breakfast"></div>
+                <div id="soup"></div>
+                <div id="beverage"></div>
+                <div id="sauce"></div>
+                <div id="drink"></div>
+
+                <div id="totalPrice" class="dishItemContainer">
+                  <div class="verticallyCentered dishImage"></div>
+                  <p class="dishName">Total:</p>
+                  <p class="dishPrice">
+                    <span class="value" id="totalPriceValue">0.00</span>
+                    <span class="currency">SEK</span>
+                  </p>
+                </div>
+
+              </div>
+
+              <div id="printButtonContainer" class="item">
+                <button id="printButton" class="primaryButton">Print Full Recipe</button>
+              </div>
+
+            </div>
+
+            <div id="recipeSummaryView">
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <script src="js/lib/apiConfig.js"></script>
+    <script src="js/lib/toggleSidebar.js"></script>
+    <!-- Here you should include JS code for your other views -->
+    <script src="js/view/MainView.js"></script>
+    <script src="js/controllers/MainViewController.js"></script>
+
+    <script src="js/view/SidebarView.js"></script>
+    <script src="js/controllers/SidebarController.js"></script>
+
+    <script src="js/view/DishSearchView.js"></script>
+    <script src="js/controllers/DishSearchController.js"></script>
+
+    <script src="js/view/DishDetailsView.js"></script>
+    <script src="js/controllers/DishDetailsController.js"></script>
+
+    <script src="js/view/StatusBarView.js"></script>
+    <script src="js/controllers/StatusBarController.js"></script>
+
+    <script src="js/view/PriceSummaryView.js"></script>
+    <script src="js/controllers/PriceSummaryController.js"></script>
+
+    <script src="js/view/RecipeSummaryView.js"></script>
+
+    <script src="js/model/dinnerModel.js"></script>
+    <!-- The application JavaScript code -->
+    <script src="js/app.js"></script>
+
   </body>
 </html>
