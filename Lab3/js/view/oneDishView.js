@@ -14,16 +14,40 @@ var OneDishView = function (container, model) {
 	var sumString = container.find("#td1");
 	var rubrik = container.find("#ingrFor");
 
+	var loadRecipe = function(dish) {
+		headlineDish.html(dish.title);
+		picDish.html('<img src="' + dish.image + '">');
+		description.html(dish.instructions);
+		var noServings = dish.servings;
+		var priceServing = dish.pricePerServing;
+		//hämta antal servings : 4 personer
+
+		//hämta totalpris
+
+	}
+
+	this.updateRecipe = function() {
+		nrOfGuests = model.getNumberOfGuests();
+
+		//nytt totalpris 
+
+		// ingrediens/antal servibngs * nrOfGuests
+	}
 	this.loadView = function() {
 
 		var dishId = model.returnDishRecipe();
+		//nrOfGuests = model.getNumberOfGuests();
+		model.getDish(dishId, loadRecipe);
+		var string = '<table class="table"><thead><th>Amount</th><th>Ingredient</th><th> </th><th>pris</th></thead>';
+		string += "</table>";
+		tableString.html(string);
+
 		
 
-		this.dish = model.getDish(dishId);
+		
 
-		nrOfGuests = model.getNumberOfGuests();
-
-		headlineDish.html(this.dish.title);
+/*
+		
 		picDish.html('<img src="https://spoonacular.com/recipeImages/' + this.dish.image + ' ">');
 	 
 		description.html(this.dish.description);
@@ -44,7 +68,7 @@ var OneDishView = function (container, model) {
 		summa= '<td >SEK</td><td> ' + ' ' + sum + '</td>';
 		string += "</table>";
 		tableString.html(string);
-		sumString.html(summa);
+		sumString.html(summa);*/
 
 	}
 
@@ -55,7 +79,7 @@ var OneDishView = function (container, model) {
 	// load/update view.
 	//this.loadView();
 	//attach as listener
-	model.addObserver(this);
+	//model.addObserver(this);
 	this.updateView = function(args) {
 		switch(args) {
 		    case "guestsChanged":

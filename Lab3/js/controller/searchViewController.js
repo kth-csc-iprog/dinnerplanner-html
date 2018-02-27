@@ -13,6 +13,7 @@ var SearchViewController = function(view, model, sControl) {
 
 	view.picBox.on("click", ".thumbnail", function(){
 		model.selectDishRecipe(this.id);
+		
 		//textInput.value = ""; // nollställer keywordsfönstret när man tryckt sök. 
 		sControl.oneDish();	
 	});	

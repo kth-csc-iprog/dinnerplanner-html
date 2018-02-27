@@ -39,7 +39,7 @@ var SearchView = function (container, model) {
 		model.getAllDishes(type, filter, loadDishes); // stoppain filter och type i funktionen. 
 		
 
-		this.picBox.html(string);
+		//this.picBox.html(string);
 
 
 		
