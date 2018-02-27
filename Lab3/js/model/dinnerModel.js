@@ -148,7 +148,8 @@ var DinnerModel = function() {
 				found = true;
 			}
 		}
-	  	return dish.type == type && found;
+	  	return dish.type == type || type =="all" && found;
+	  	//för att få alla dishes. 
 	  });	
 	  this.notifyObservers("newTypeSelected");
 	}

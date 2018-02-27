@@ -22,8 +22,10 @@ $(function() {
 	// 5. fullMenuView -overviewView
 	var overviewView = new OverviewView($("#overview"), model);
 
+
 	// 6. printView
 	var printView = new PrintView($("#printView"), model);
+
 
 	// Controllers
 	var searchViewController = new SearchViewController(searchView, model, this); 
