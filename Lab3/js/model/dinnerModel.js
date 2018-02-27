@@ -132,8 +132,32 @@ var DinnerModel = function() {
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
 	//you can use the filter argument to filter out the dish by name or ingredient (use for search)
 	//if you don't pass any filter all the dishes will be returned
-	this.getAllDishes = function (type,filter) {
-	  return dishes.filter(function(dish) {
+	this.getAllDishes = function (type,filter, loadDishes) {
+
+		$.ajax( {
+		   url: "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?type=" + type,
+
+		   headers: {
+		     'X-Mashape-Key': "Qu9grxVNWpmshA4Kl9pTwyiJxVGUp1lKzrZjsnghQMkFkfA4LB"
+		   },
+		   success: function(data) {
+		   	var dishes = data.results;
+		   	console.log("type: " + type);
+		    console.log(dishes);
+		    //callback(data)
+
+		    loadDishes(dishes);
+
+		   },
+		   error: function(error) {
+		     alert("fungerade ej");
+		     //errorCallback(error)
+		   }
+		 }); 
+
+
+
+	  /*return dishes.filter(function(dish) {
 		var found = true;
 		if(filter){
 			found = false;
@@ -149,8 +173,8 @@ var DinnerModel = function() {
 		}
 	  	return dish.type == type || type == "all" && found;
 	  	//för att få alla dishes. 
-	  });	
-	  this.notifyObservers("newTypeSelected");
+	  });*/	
+	  //this.notifyObservers("newTypeSelected"); //Behövs inte längre pga använder API istället för att ändra i modellen.
 	}
 
 	//function that returns a dish of specific ID

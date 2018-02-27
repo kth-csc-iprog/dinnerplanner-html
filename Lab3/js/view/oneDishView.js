@@ -23,8 +23,8 @@ var OneDishView = function (container, model) {
 
 		nrOfGuests = model.getNumberOfGuests();
 
-		headlineDish.html(this.dish.name);
-		picDish.html('<img src="images/' + this.dish.image + ' ">');
+		headlineDish.html(this.dish.title);
+		picDish.html('<img src="https://spoonacular.com/recipeImages/' + this.dish.image + ' ">');
 	 
 		description.html(this.dish.description);
 
