@@ -7,19 +7,6 @@ var SearchView = function (container, model) {
 	var self = this;
 	var string = '';
 
-	/*var loadDishes = function(dishes) {
-		string = "";
-		var menu = dishes;
-
-		//lägg in rätterna
-		for(i in menu){
-			string += '<div class="col-md-3 col-sm-4"><div class="thumbnail picture" id="' + menu[i].id + '"><img src="https://spoonacular.com/recipeImages/' + menu[i].image + '" ><div class="caption"><h3>' + menu[i].title + '</h3></div></div></div>';	
-		}
-		//console.log(string);
-		self.picBox.html(string);
-	}*/
-
-	//load view
 	this.loadView = function() {
 
 		//var type = hämta type 
@@ -40,11 +27,7 @@ var SearchView = function (container, model) {
 		}); 
 		
 	}
-
-
-		
-		
-
+	
 	// load/update view.
 	this.loadView();
 
