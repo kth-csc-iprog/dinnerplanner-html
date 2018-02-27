@@ -2,7 +2,8 @@ var SearchView = function (container, model) {
 	this.container = container;
 	this.searchButton = container.find("#searchButton"); // knappen ska bara göra loadView(), i den funktionen finns resten av isntruktionerna
 	
-	this.picBox = container.find("#template"); //this, app adds eventlistener
+	this.picBox = container.find("#template"); //this, controller adds eventlistener
+	//console.log(picBox);
 
 	//load view
 	this.loadView = function() {
