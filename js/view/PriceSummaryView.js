@@ -119,7 +119,7 @@ const createPriceSummaryView = (container, model) => {
       }
     })
 
-    _totalPrice.innerHTML = `${totalPriceValue}.00`
+    _totalPrice.innerHTML = `${totalPriceValue}`
   }
   const update = _createUpdate(model)
 

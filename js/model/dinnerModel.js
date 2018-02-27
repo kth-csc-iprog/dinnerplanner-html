@@ -78,69 +78,59 @@ const createDinnerModel = () => {
 	// you can use the filter argument to filter out the dish by name or ingredient (use for search)
 	// if you don't pass any filter all the dishes will be returned
 	const getAllDishes = (type, filter) => {
-		return new Promise((resolve, reject) => {
-			let options = {
-				headers: {
-					'X-Mashape-Key': apiConfig.apiKey
-				}
-			};
-
-			let queryParams = [`instructionsRequired=true`];
-
-			if (type !== undefined && type !== 'all') {
-				queryParams.push(`type=${encodeURIComponent(type)}`);
+		let options = {
+			headers: {
+				'X-Mashape-Key': apiConfig.apiKey
 			}
+		};
 
-			if (filter !== undefined && filter !== "") {
-				queryParams.push(`query=${encodeURIComponent(filter)}`);
-			}
+		let queryParams = [`instructionsRequired=true`];
 
-			fetch(`https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?${queryParams.join('&')}`, options)
-				.then(res => res.json())
-				.then(({ results }) => {
-					resolve(results);
-				})
-				.catch(err => {
-					reject(err);
-				});
-		});
+		if (type !== undefined && type !== 'all') {
+			queryParams.push(`type=${encodeURIComponent(type)}`);
+		}
+
+		if (filter !== undefined && filter !== "") {
+			queryParams.push(`query=${encodeURIComponent(filter)}`);
+		}
+
+		return fetch(`https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?${queryParams.join('&')}`, options)
+			.then(res => res.json())
+			.then(({ results }) => {
+				return results
+			})
 	}
 
 	//function that returns a dish of specific ID
 	const getDish = id => {
-		return new Promise((resolve, reject) => {
-			let options = {
-				headers: {
-					'X-Mashape-Key': apiConfig.apiKey
-				}
-			};
+		let options = {
+			headers: {
+				'X-Mashape-Key': apiConfig.apiKey
+			}
+		};
 
-			let queryParams = [`includeNutrition=true`];
+		let queryParams = [`includeNutrition=true`];
 
-			let recognizedDishTypes = [
-				"appetizer",
-				"mainCourse",
-				"sideDish",
-				"dessert",
-				"salad",
-				"bread",
-				"breakfast",
-				"soup",
-				"beverage",
-				"sauce",
-				"drink"
-			];
+		let recognizedDishTypes = [
+			"appetizer",
+			"mainCourse",
+			"sideDish",
+			"dessert",
+			"salad",
+			"bread",
+			"breakfast",
+			"soup",
+			"beverage",
+			"sauce",
+			"drink"
+		];
 
-			fetch(`https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/${id}/information?${queryParams.join('&')}`, options)
-				.then(res => res.json())
-				.then(result => {
-					result.dishType = result.dishTypes.find(dishType => recognizedDishTypes.includes(dishType)) || 'main course';
-					resolve(result);
-				})
-				.catch(err => {
-					reject(err);
-				});
-		});
+		return fetch(`https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/${id}/information?${queryParams.join('&')}`, options)
+			.then(res => res.json())
+			.then(result => {
+				result.dishType = result.dishTypes.find(dishType => recognizedDishTypes.includes(dishType)) || 'main course';
+				return result
+			})
 	};
 
 	return ({

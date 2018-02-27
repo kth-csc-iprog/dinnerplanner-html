@@ -60,11 +60,13 @@ const createDishSearchView = (container, model) => {
         return;
       }
 
+      console.log(dishes)
       dishes.map(dish => {
         dishSearchResultsElement.append(createDishResultElement(dish))
       })
-    }).catch(error => {
-      loadingAlert.innerHTML = error;
+    })
+    .catch(error => {
+      loadingAlert.innerHTML = `There was a problem with loading the dishes. ${error}`;
     });
   }
 
