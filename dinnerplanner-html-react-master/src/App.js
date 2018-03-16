@@ -4,6 +4,7 @@ import { Route } from 'react-router-dom';
 import Welcome from './Welcome/Welcome';
 import { modelInstance } from './data/DinnerModel'
 import SelectDish from "./SelectDish/SelectDish";
+//import OneDish from "./OneDish/OneDish";
 
 class App extends Component {
   constructor(props) {
@@ -17,7 +18,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">{this.state.title}</h1>
+          <h1 className="App-title" class="jumbotron">{this.state.title}</h1>
           
           {/* We rended diffrent component based on the path */}
           <Route exact path="/" component={Welcome}/>

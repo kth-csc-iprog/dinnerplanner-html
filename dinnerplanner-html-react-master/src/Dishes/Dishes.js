@@ -45,7 +45,14 @@ class Dishes extends Component {
         break;
       case 'LOADED':
         dishesList = this.state.dishes.map((dish) =>
-          <li key={dish.id}>{dish.title}</li>
+          <div class="col-md-3 col-sm-4">
+            <div class="thumbnail">
+              <h3 key={dish.id}>{dish.title}</h3>
+              <img src={`https://spoonacular.com/recipeImages/${dish.image}`}/>
+            </div>
+          </div>
+
+          
         )
         break;
       default:
