@@ -11,9 +11,11 @@ class Dishes extends Component {
     // We create the state to store the various statuses
     // e.g. API data loading or error 
     this.state = {
-      status: 'INITIAL'
+      status: 'INITIAL',
     }
   }
+
+
 
   // this methods is called by React lifecycle when the 
   // component is actually shown to the user (mounted to DOM)
@@ -21,7 +23,7 @@ class Dishes extends Component {
   componentDidMount = () => {
     // when data is retrieved we update the state
     // this will cause the component to re-render
-    modelInstance.getAllDishes().then(dishes => {
+    modelInstance.getAllDishes(this.state.search).then(dishes => {
       this.setState({
         status: 'LOADED',
         dishes: dishes.results
@@ -47,7 +49,7 @@ class Dishes extends Component {
         dishesList = this.state.dishes.map((dish) =>
           <div key={dish.id} class="col-md-3 col-sm-4">
             <div class="thumbnail">
-              <img src={`https://spoonacular.com/recipeImages/${dish.image}`}/>
+              <img src={`https://spoonacular.com/recipeImages/${dish.image}`} alt=""/>
               <div class="caption">
                 <h3>{dish.title}</h3>
               </div>
@@ -63,6 +65,7 @@ class Dishes extends Component {
 
     return (
       <div className="Dishes">
+        <h4>här finns {this.props.searchTerm}</h4>
         <h3>Dishes</h3>
         <ul>
           {dishesList}

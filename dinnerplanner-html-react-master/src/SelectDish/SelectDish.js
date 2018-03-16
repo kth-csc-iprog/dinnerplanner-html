@@ -4,7 +4,45 @@ import Sidebar from '../Sidebar/Sidebar';
 import Dishes from '../Dishes/Dishes';
 
 class SelectDish extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      filter: '',
+      type: 'dessert'
+    };
+
+
+
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleSelectChange = this.handleSelectChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  
+
+  handleInputChange(event){
+    this.setState({filter: event.target.value})
+
+  }
+
+  handleSelectChange(event) {
+    this.setState({type: event.target.value});
+  }
+
+  handleSubmit(event){
+    const st = this.state.type + '&query=' + this.state.filter;
+    alert("SearchTerm: " + st);
+    event.preventDefault();
+    
+
+  }
+
+
+
+
   render() {
+    const searchTerm = this.state.type + '&query=' + this.state.filter;
     return (
       <div className="SelectDish">
         <div class="row">
@@ -16,14 +54,12 @@ class SelectDish extends Component {
             <div class="row">
               <div>
                 <h2>Find a dish</h2>
-              
-              
-                <form class="form-inline">
+                <form onSubmit={this.handleSubmit} class="form-inline">
                   <div class="form-group">
-                    <input class="form-control" type="text" id="keywords" placeholder="Enter key words" value=""/>
+                    <input class="form-control" type="text" onChange={this.handleInputChange} value={this.state.filter} id="keywords" placeholder="Enter key words"/>
                   </div>
                   <div class="form-group">
-                    <select id="selectOption" class="form-control">
+                    <select id="selectOption" class="form-control" onChange={this.handleSelectChange} value={this.state.type}>
                       <option value="">All</option>
                       <option value="main+dish">Main Course</option>
                       <option value="side+dish">Side Dish</option>
@@ -40,7 +76,7 @@ class SelectDish extends Component {
                   </div>
 
                   <div class="form-group">
-                    <button type="button" id="searchButton" class="form-control btn btn-default">Search</button>
+                    <button type="submit" id="searchButton" value="submit" class="form-control btn btn-default">Search</button>
                   </div>                  
                 </form>
               </div>
@@ -48,7 +84,7 @@ class SelectDish extends Component {
 
             <div class="row">
               <h2>This is the Select Dish screen</h2>
-              <Dishes/>
+              <Dishes searchTerm={searchTerm}/>
             </div>
           </div>
         </div>  
