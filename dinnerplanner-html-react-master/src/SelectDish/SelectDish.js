@@ -42,24 +42,24 @@ class SelectDish extends Component {
 
 
   render() {
-    const searchTerm = this.state.type + '&query=' + this.state.filter;
+    //const searchTerm = this.state.type + '&query=' + this.state.filter;
     return (
       <div className="SelectDish">
-        <div class="row">
-          <div class="col-md-3">
+        <div className="row">
+          <div className="col-md-3">
             {/* We pass the model as property to the Sidebar component */}
             <Sidebar model={this.props.model}/>
           </div>
-          <div class="col-md-9">
-            <div class="row">
+          <div className="col-md-9">
+            <div className="row">
               <div>
                 <h2>Find a dish</h2>
-                <form onSubmit={this.handleSubmit} class="form-inline">
-                  <div class="form-group">
-                    <input class="form-control" type="text" onChange={this.handleInputChange} value={this.state.filter} id="keywords" placeholder="Enter key words"/>
+                <form onSubmit={this.handleSubmit} className="form-inline">
+                  <div className="form-group">
+                    <input className="form-control" type="text" onChange={this.handleInputChange} value={this.state.filter} id="keywords" placeholder="Enter key words"/>
                   </div>
-                  <div class="form-group">
-                    <select id="selectOption" class="form-control" onChange={this.handleSelectChange} value={this.state.type}>
+                  <div className="form-group">
+                    <select id="selectOption" className="form-control" onChange={this.handleSelectChange} value={this.state.type}>
                       <option value="">All</option>
                       <option value="main+dish">Main Course</option>
                       <option value="side+dish">Side Dish</option>
@@ -75,16 +75,16 @@ class SelectDish extends Component {
                     </select>
                   </div>
 
-                  <div class="form-group">
-                    <button type="submit" id="searchButton" value="submit" class="form-control btn btn-default">Search</button>
+                  <div className="form-group">
+                    <button type="submit" id="searchButton" value="submit" className="form-control btn btn-default">Search</button>
                   </div>                  
                 </form>
               </div>
             </div>
 
-            <div class="row">
+            <div className="row">
               <h2>This is the Select Dish screen</h2>
-              <Dishes searchTerm={searchTerm}/>
+              <Dishes/>
             </div>
           </div>
         </div>  

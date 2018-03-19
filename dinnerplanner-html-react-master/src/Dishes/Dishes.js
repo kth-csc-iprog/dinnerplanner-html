@@ -23,7 +23,7 @@ class Dishes extends Component {
   componentDidMount = () => {
     // when data is retrieved we update the state
     // this will cause the component to re-render
-    modelInstance.getAllDishes(this.state.search).then(dishes => {
+    modelInstance.getAllDishes().then(dishes => {   //this.state.search
       this.setState({
         status: 'LOADED',
         dishes: dishes.results
@@ -47,10 +47,10 @@ class Dishes extends Component {
         break;
       case 'LOADED':
         dishesList = this.state.dishes.map((dish) =>
-          <div key={dish.id} class="col-md-3 col-sm-4">
-            <div class="thumbnail">
+          <div key={dish.id} className="col-md-3 col-sm-4">
+            <div className="thumbnail">
               <img src={`https://spoonacular.com/recipeImages/${dish.image}`} alt=""/>
-              <div class="caption">
+              <div className="caption">
                 <h3>{dish.title}</h3>
               </div>
             </div>

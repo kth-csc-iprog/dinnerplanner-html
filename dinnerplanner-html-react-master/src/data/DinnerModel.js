@@ -19,11 +19,11 @@ const DinnerModel = function () {
 
   // API Calls
 
-  this.getAllDishes = function (data) {
+  this.getAllDishes = function () {
     //kom ihåg att lägga till filter och type som input. 
-    alert("getAllDishes - searchTerm: " + data);
-    const url = 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?type=' + 
-    data;
+    alert("getAllDishes - searchTerm: "); // + data);
+    const url = 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search';
+    //?type=' + data;
     return fetch(url, httpOptions)
       .then(processResponse)
       .catch(handleError)

@@ -47,8 +47,8 @@ class Sidebar extends Component {
         Total number of guests: {this.state.numberOfGuests}
         </p>
 
-        <div class="sidebar-module">
-          <table class="table">
+        <div className="sidebar-module">
+          <table className="table">
             <thead>
               <tr>
                 <th>Dish Name</th>
@@ -62,7 +62,7 @@ class Sidebar extends Component {
 
           <table>
           <tbody>
-            <tr class="Sum">
+            <tr className="Sum">
               <td> </td>
               <td id="sum"></td>
             </tr>
@@ -71,7 +71,7 @@ class Sidebar extends Component {
 
 
       
-          <button id="confirm" class="btn btn-success">Confirm Dinner</button>  
+          <button id="confirm" className="btn btn-success">Confirm Dinner</button>  
         </div>
       </div>
     );
