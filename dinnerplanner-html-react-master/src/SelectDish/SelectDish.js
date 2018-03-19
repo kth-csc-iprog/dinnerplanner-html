@@ -16,7 +16,7 @@ class SelectDish extends Component {
 
 
 
-    this.fetchDishes = this.fetchDishes.bind(this)
+    //this.fetchDishes = this.fetchDishes.bind(this)
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSelectChange = this.handleSelectChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -45,7 +45,7 @@ class SelectDish extends Component {
   // that's a good place to setup model observer
   componentDidMount() {
     this.props.model.addObserver(this);
-    //this.fetchDishes();
+    this.fetchDishes();
   }
 
   // this is called when component is removed from the DOM
@@ -60,7 +60,7 @@ class SelectDish extends Component {
     this.setState({
       uppdatering: 'yes'
     });
-    //this.fetchDishes();
+    this.fetchDishes();
   }
 
   
@@ -89,13 +89,11 @@ class SelectDish extends Component {
     alert("this.state.type: " + this.state.type);
 
     event.preventDefault();
-    this.fetchDishes()
+    //this.fetchDishes()
 
   }
 
   
-
-
 
 
   render() {
@@ -143,7 +141,7 @@ class SelectDish extends Component {
 
             <div className="row">
               <h2>This is the Select Dish screen</h2>
-              <Dishes dishes={this.state.dishes} searchType={this.state.type}/>
+              <Dishes dishes={this.state.dishes} status={this.state.status}/>
             </div>
           </div>
         </div>  

@@ -16,7 +16,7 @@ class Dishes extends Component {
       searchType: '',
       filter: '',
     }
-    this.doSearch = this.doSearch.bind(this)
+    //this.doSearch = this.doSearch.bind(this)
   }
 
   // componentDidUpdate borde kunna användas för att uppdatera listan. 
@@ -40,18 +40,18 @@ class Dishes extends Component {
 
 
 
-  doSearch() {
-     modelInstance.getAllDishes(this.state.searchType).then(dishes => {   //this.state.search
-      this.setState({
-        status: 'LOADED',
-        dishes: dishes.results
-      })
-    }).catch(() => {
-      this.setState({
-        status: 'ERROR'
-      })
-    })
-  }
+  // doSearch() {
+  //    modelInstance.getAllDishes(this.state.searchType).then(dishes => {   //this.state.search
+  //     this.setState({
+  //       status: 'LOADED',
+  //       dishes: dishes.results
+  //     })
+  //   }).catch(() => {
+  //     this.setState({
+  //       status: 'ERROR'
+  //     })
+  //   })
+  // }
 
 
   componentDidMount = () => {
@@ -63,7 +63,7 @@ class Dishes extends Component {
     this.setState({
       type: this.props.searchType
     })
-    this.doSearch();
+    //this.doSearch();
 
   }
 
@@ -81,7 +81,7 @@ class Dishes extends Component {
       type: this.props.searchType,
       // filter: this.props.searchFilter,
     });
-    this.doSearch();
+    //this.doSearch();
   }
 
 
@@ -96,12 +96,12 @@ class Dishes extends Component {
     // depending on the state we either generate
     // useful message to the user or show the list
     // of returned dishes
-    switch (this.state.status) {
+    switch (this.props.status) {
       case 'INITIAL':
         dishesList = <em>Loading...</em>
         break;
       case 'LOADED':
-        dishesList = this.state.dishes.map((dish) =>
+        dishesList = this.props.dishes.map((dish) =>
           <a  key={dish.id} href={"/showdish/" + dish.id}>
             <div className="col-md-3 col-sm-4">
               <div className="thumbnail">
@@ -122,7 +122,7 @@ class Dishes extends Component {
 
     return (
       <div className="Dishes">
-        <h4>här finns {this.props.type}</h4>
+        <h4>här finns {this.props.status}</h4>
         <h3>Dishes</h3>
         <ul>
           {dishesList}

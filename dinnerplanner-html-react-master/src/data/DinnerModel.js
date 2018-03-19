@@ -23,7 +23,7 @@ const DinnerModel = function () {
 
   this.setSearchType = function(type) {
     searchType = type;
-    alert("inti setSEarchType: " + type);
+    alert("inuti setSearchType: " + type);
     notifyObservers();
   }
 
