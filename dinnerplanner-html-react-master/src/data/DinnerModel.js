@@ -5,8 +5,9 @@ const httpOptions = {
 
 const DinnerModel = function () {
 
-  let numberOfGuests = 4;
+  let numberOfGuests = 6;
   let observers = [];
+  let menu = [];
 
   this.setNumberOfGuests = function (num) {
     numberOfGuests = num;
@@ -16,6 +17,11 @@ const DinnerModel = function () {
   this.getNumberOfGuests = function () {
     return numberOfGuests;
   };
+
+
+
+
+
 
   // API Calls
 
@@ -69,6 +75,7 @@ const DinnerModel = function () {
   };
 
   const notifyObservers = function () {
+    alert("inuti notifyobservers");
     observers.forEach(o => o.update());
   };
 };

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './ShowDish.css';
-// import { Link } from 'react-router-dom';
-import {modelInstance} from '../data/DinnerModel';
+import { Link } from 'react-router-dom';
+//import {modelInstance} from '../data/DinnerModel';
 import Sidebar from '../Sidebar/Sidebar';
 
 class ShowDish extends Component {
@@ -11,9 +11,33 @@ class ShowDish extends Component {
     super(props);
     // We create the state to store the various statuses
     // e.g. API data loading or error 
+    //alert("inuti consructor");
     this.state = {
       status: 'INITIAL',
+      numberOfGuests: this.props.model.getNumberOfGuests(),
     }
+
+  }
+
+
+  // this methods is called by React lifecycle when the 
+  // component is actually shown to the user (mounted to DOM)
+  // that's a good place to setup model observer
+  
+
+  // this is called when component is removed from the DOM
+  // good place to remove observer
+  componentWillUnmount() {
+     this.props.model.removeObserver(this)
+  }
+
+  // in our update function we modify the state which will
+  // cause the component to re-render
+  update() {
+    alert("inuti update()");
+    this.setState({
+      numberOfGuests: this.props.model.getNumberOfGuests()
+    })
   }
 
   // componentDidUpdate borde kunna användas för att uppdatera listan. 
@@ -24,7 +48,8 @@ class ShowDish extends Component {
   componentDidMount = () => {
     // when data is retrieved we update the state
     // this will cause the component to re-render
-    modelInstance.getDish(this.props.id).then(dishResult => {   //this.state.search
+    this.props.model.addObserver(this);
+    this.props.model.getDish(this.props.id).then(dishResult => {   //this.state.search
       this.setState({
         status: 'LOADED',
         dish: dishResult,
@@ -38,10 +63,12 @@ class ShowDish extends Component {
 
 
   getIngredients = () => {
+    //const noGuest = modelInstance.getNumberOfGuests();
+    //alert("Gäster: " +this.state.numberOfGuests);
     const ingredients = this.state.dish.extendedIngredients.map((ingredient) => 
       <tr key={ingredient.id}>
         <td>
-          {ingredient.amount + ' ' + ingredient.unit}
+          {ingredient.amount * this.state.numberOfGuests + ' ' + ingredient.unit}
         </td>
         <td>
           {ingredient.name}
@@ -77,7 +104,9 @@ class ShowDish extends Component {
             </div>
             <div className="col-sm-4 col-xs-12">
               <div className="col-sm-6">
-                <button id="backButton" className="btn btn-default knapp">Back to search</button>
+                <Link to="/search">
+                  <button id="backButton" className="btn btn-default knapp">Back to search</button>
+                </Link>
               </div>
               <div className="col-sm-6">
                 <button id="add" className="btn btn-success">Add to menu</button>
