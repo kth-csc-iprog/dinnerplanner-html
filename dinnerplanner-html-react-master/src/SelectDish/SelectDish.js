@@ -10,34 +10,90 @@ class SelectDish extends Component {
     super(props);
     this.state = {
       filter: '',
-      type: 'dessert'
+      type: 'dessert',
+      dishes: '',
     };
 
 
 
+    this.fetchDishes = this.fetchDishes.bind(this)
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSelectChange = this.handleSelectChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  fetchDishes() {
+    this.props.model.getAllDishes(this.state.type).then(dishes => {   //this.state.search
+      this.setState({
+        status: 'LOADED',
+        dishes: dishes.results
+      })
+    }).catch(() => {
+      this.setState({
+        status: 'ERROR'
+      })
+    })
+
+    // this.setState({
+    //   dishes: resultat
+    // })
+  }
+
+
+  // this methods is called by React lifecycle when the 
+  // component is actually shown to the user (mounted to DOM)
+  // that's a good place to setup model observer
+  componentDidMount() {
+    this.props.model.addObserver(this);
+    //this.fetchDishes();
+  }
+
+  // this is called when component is removed from the DOM
+  // good place to remove observer
+  componentWillUnmount() {
+    this.props.model.removeObserver(this)
+  }
+
+  // in our update function we modify the state which will
+  // cause the component to re-render
+  update() {
+    this.setState({
+      uppdatering: 'yes'
+    });
+    //this.fetchDishes();
+  }
+
   
 
   handleInputChange(event){
-    this.setState({filter: event.target.value})
-
+    this.setState({
+      filter: event.target.value,
+    });
+    
   }
 
   handleSelectChange(event) {
-    this.setState({type: event.target.value});
+    this.setState({
+      type: event.target.value
+    });
   }
 
   handleSubmit(event){
-    const st = this.state.type + '&query=' + this.state.filter;
-    alert("SearchTerm: " + st);
+
+    let st = this.state.type + '&query=' + this.state.filter;
+    this.props.model.setSearchType(this.state.type);
+    this.setState({
+
+    });
+    alert("SearchTerm: " + this.state.searchTerm);
+    alert("this.state.type: " + this.state.type);
+
     event.preventDefault();
-    
+    this.fetchDishes()
 
   }
+
+  
 
 
 
@@ -47,10 +103,12 @@ class SelectDish extends Component {
     return (
       <div className="SelectDish">
         <div className="row">
+
           <div className="col-md-3">
             {/* We pass the model as property to the Sidebar component */}
             <Sidebar model={this.props.model}/>
           </div>
+
           <div className="col-md-9">
             <div className="row">
               <div>
@@ -85,7 +143,7 @@ class SelectDish extends Component {
 
             <div className="row">
               <h2>This is the Select Dish screen</h2>
-              <Dishes/>
+              <Dishes dishes={this.state.dishes} searchType={this.state.type}/>
             </div>
           </div>
         </div>  

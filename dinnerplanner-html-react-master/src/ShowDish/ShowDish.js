@@ -34,7 +34,6 @@ class ShowDish extends Component {
   // in our update function we modify the state which will
   // cause the component to re-render
   update() {
-    alert("inuti update()");
     this.setState({
       numberOfGuests: this.props.model.getNumberOfGuests()
     })
