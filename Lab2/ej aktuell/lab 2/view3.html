@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>View 3</title>
+
+	 <!-- Our Custom CSS -->
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="style2D.css">
+</head>
+<body>
+
+
+	<div class="container-fluid">
+		    <div class="row-fluid">
+      <div class="col-xs-12 header jumbotron">
+        <h1>Dinner Planner</h1>
+      </div>
+    </div>
+		<!-- <div class="jumbotron"><h1>Dinner Planner</h1> </div>
+		<div class="container-fluid"> -->
+			<div class="row" id="sideView">
+				<div class="col-sm-3 col-xs-12 sidebar">
+          <div class="sidebar-module sidebar-module-inset">
+            <h4>My Dinner</h4>
+            <form class="form-inline">
+              People: <span id="numberOfGuests"></span>
+              <input type="number" min="1" id="Guests" >
+            </form>
+          </div>
+          <div class="sidebar-module">
+            <table class="table">
+              <thead>
+                <th>Dish Name</th>
+                <th>Cost</th>
+              </thead>
+              <tbody>
+                <!--<tr>
+                  <td>Lasagne</td>
+                  <td>77.20</td>
+                </tr>-->
+              </tbody>
+            </table>
+            <table>
+              <tr class="sum">
+                <td>SEK</td>
+                <td>00.0</td>
+              </tr>
+            </table>
+          </div>
+          <div class="sidebar-module">
+            <button class="btn btn-default">Confirm Dinner</button>
+          </div>
+        </div><!-- /.sidebar -->
+			<!-- </div>
+		</div> -->
+
+
+  <div class="col-sm-9" id="mainView3">
+    <div class="row">
+      <div class="col-md-6 col-xs-12">
+          <h2 id="headlineDish"></h2>
+          <div id="imgDish">
+            
+          </div> <!--imgdish end-->
+          <button class="btn btn-default knapp">Back to search</button>
+
+      </div> <!--column end-->
+
+      <div class="col-md-6 col-xs-12">
+        <!-- Lägg ingredienslista här -->
+        <h3 id="ingrFor"></h3>
+        <div id="table"></div>
+
+      </div><!--column end-->
+    </div> <!--row end-->
+
+      <div class="row">
+        <div class="col-lg-6 col-xs-12 text">
+          <h2>Preparation</h2>
+          <p id="description"></p>
+        </div>
+    </div>
+  </div>
+
+      </div> <!-- /row -->
+    </div>
+
+    
+
+
+
+
+<!-- jQuery CDN -->
+        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+        <!-- Bootstrap Js CDN -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <!-- Custom Scroller Js CDN -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+
+  <script src="js/model/dinnerModel.js"></script>
+  <script src="js/view/sideView.js"></script>
+  <script src="js/view/mainPic.js"></script>
+  <script src="js/view/mainView3.js"></script>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

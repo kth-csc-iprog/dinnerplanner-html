@@ -1,0 +1,28 @@
+.startPage {
+	width: 80%;
+	max-width: 700px
+}
+
+.row {
+	border: 1px solid black;
+}
+
+.col {
+	border: 1px solid black;
+}
+
+.viprovar {
+	border: 1px solid black;
+	height: 50px;
+
+}
+
+.hojd {
+	height: 500px;
+}
+
+img	{
+	width: 200px;
+	float: left;
+	margin: 1.66%;
+}
