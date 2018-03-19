@@ -22,8 +22,18 @@ const DinnerModel = function () {
   this.getAllDishes = function () {
     //kom ihåg att lägga till filter och type som input. 
     alert("getAllDishes - searchTerm: "); // + data);
-    const url = 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search';
-    //?type=' + data;
+    const url = 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search'; //?type=' + data;
+    return fetch(url, httpOptions)
+      .then(processResponse)
+      .catch(handleError)
+  }
+
+
+  //function that returns a dish of specific ID
+  this.getDish = function (id) {
+    console.log("Dish id innan ajax: " + id);
+    //alert("getDish - id: " + id); // + data);
+    const url = 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/' + id + '/information';
     return fetch(url, httpOptions)
       .then(processResponse)
       .catch(handleError)
