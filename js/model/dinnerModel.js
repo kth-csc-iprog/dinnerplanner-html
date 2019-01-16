@@ -339,3 +339,4 @@ var DinnerModel = function () {
 	}];
 
 }
+
