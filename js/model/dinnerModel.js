@@ -68,6 +68,10 @@ var DinnerModel = function () {
 		});
 	}
 
+	this.getEveryDish = function () {
+		return dishes;
+	}
+
 	//function that returns a dish of specific ID
 	this.getDish = function (id) {
 		for (key in dishes) {
