@@ -13,6 +13,7 @@
  * @param {Object} model - the reference to the Dinner Model
  */
 var WelcomeView = function (container, model) {
+    welcomeContainer = container.find('#welcomeView');
 
     const description = "asdasdasdasdasd";
     const btnText = "Create new dinner"
@@ -32,7 +33,7 @@ var WelcomeView = function (container, model) {
     btn.innerHTML = btnText;
     bottomRow.appendChild(btn);
 
-    container.append(topRow);
-    container.append(bottomRow);
+    welcomeContainer.append(topRow);
+    welcomeContainer.append(bottomRow);
 
 }
