@@ -1,0 +1,33 @@
+.title {
+    background-color: green;
+}
+
+
+.sidebar table {
+    margin: 10px auto;
+    width: 100%;
+}
+
+.sidebar table th {
+    background-color: grey;
+}
+
+#toggle-btn {
+    display: none;
+    float: right;
+}
+
+@media only screen and (max-width: 768px) {
+    .sidebar {
+        background-color: blue;
+    }
+
+    #toggle-btn {
+        display: initial;
+    }
+}
+
+
+#content {
+    background-color: red;
+}

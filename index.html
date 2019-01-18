@@ -7,26 +7,52 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Dinner planner</title>
 
+	<link rel="stylesheet" href="./styles.css">
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
 	 crossorigin="anonymous">
+
 
 </head>
 
 <body>
 	<div class="container">
-		<h1>Dinner planner</h1>
-		<div id="exampleView">
-			<div>
-				Number of guests: <span id="numberOfGuests"></span>
+		<h1 class="title col-sm-12 col-md-12 col-lg-12">Dinner planner</h1>
+		<div class="row">
+			<div class="sidebar col-sm-12 col-md-3 col-lg-3">
+				<div>
+					<h4>My Dinner</h4>
+					<button id="toggle-btn">I'm small</button>
+				</div>
+				People:
+				<input type="number" min="1">
+				<table>
+					<tr>
+						<th>Dish Name</th>
+						<th>Cost</th>
+					</tr>
+					<tr>
+						<td>ABC</td>
+						<td>$100</td>
+					</tr>
+				</table>
+				<h5>Total: $75</h5>
+				<button>Confirm order</button>
 			</div>
-			<div>
-				<button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
-				<button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
-			</div>
-		</div>
-		<div id="welcomeView">
+			<div class="col-sm col-md col-lg" id="content">
+				<div id="exampleView">
+					<div>
+						Number of guests: <span id="numberOfGuests"></span>
+					</div>
+					<div>
+						<button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
+						<button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
+					</div>
+				</div>
+				<div id="welcomeView">
 
+				</div>
+			</div>
 		</div>
 	</div>
 
