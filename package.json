@@ -1,0 +1,19 @@
+{
+  "name": "dinnerplanner-html",
+  "version": "1.0.0",
+  "description": "Lab assignment template",
+  "main": "js/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/perssonsimon1/dinnerplanner-html.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/perssonsimon1/dinnerplanner-html/issues"
+  },
+  "homepage": "https://github.com/perssonsimon1/dinnerplanner-html#readme"
+}
