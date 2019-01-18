@@ -19,50 +19,51 @@
 </head>
 
 <body>
-  <div class="container tile is-ancestor">
-    <div class="tile is-6 is-vertical is-parent">
-      <div class="tile is-child">
-        <h1>Dinner planner</h1>
-        <div id="sideBar" class="tile is-child">
-          <div>Number of guests: <span id="numberOfGuests"></span></div>
-          <button id="minusGuest" class="btn">
-            <i class="fas fa-minus"></i>
-          </button>
-          <button id="plusGuest" class="btn">
-            <i class="fas fa-plus"></i>
-          </button>
+  <div class="container">
+    <div id="sideBar">
+      <div id="dishPlanner">
+        <div>Number of guests: <span id="numberOfGuests"></span></div>
+        <button id="minusGuest" class="btn">
+          <i class="fas fa-minus"></i>
+        </button>
+        <button id="plusGuest" class="btn">
+          <i class="fas fa-plus"></i>
+        </button>
+      </div>
 
-          <div class="menuPlanner tile is-child">
-            <ul class="menuLabels">
-              <li>Dish Name</li>
-              <li>Cost</li>
-            </ul>
-            <ul class="menuDish tile is-child">
-            </ul>
-          </div>
-        </div>
+
+      <div class="menuPlanner">
+        <ul class="menuLabels">
+          <li>Dish Name</li>
+          <li>Cost</li>
+        </ul>
+        <ul class="menuDish">
+        </ul>
       </div>
     </div>
+ 
 
 
-    <div id="dishSearch" class="tile is-parent">
-      <div id=dishList class="tile is-child">
 
-      </div>
+  <div id="dishSearch">
+    <div id="dishList">
+
     </div>
+  </div>
+</div>
 
 
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery.js"></script>
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery.js"></script>
 
-    <!-- The application JavaScript code -->
-    <script src="js/app.js"></script>
-    <script src="js/model/dinnerModel.js"></script>
+  <!-- The application JavaScript code -->
+  <script src="js/app.js"></script>
+  <script src="js/model/dinnerModel.js"></script>
 
-    <!-- TODO: Here you should include JS code for your other views -->
-    <script src="js/view/sideBarView.js"></script>
-    <script src="js/view/dishSearchView.js"></script>
-    <script src="js/view/dishItemView.js"></script>
+  <!-- TODO: Here you should include JS code for your other views -->
+  <script src="js/view/sideBarView.js"></script>
+  <script src="js/view/dishSearchView.js"></script>
+  <script src="js/view/dishItemView.js"></script>
 </body>
 
 </html>
