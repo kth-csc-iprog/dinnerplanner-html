@@ -12,6 +12,10 @@
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
     crossorigin="anonymous" />
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+
 </head>
 
 <body>
@@ -27,19 +31,34 @@
           <i class="fas fa-plus"></i>
         </button>
       </div>
+      <div class="menuPlanner">
+        <ul class="menuLabels">
+          <li>Dish Name</li>
+          <li>Cost</li>
+        </ul>
+        <ul class="menuDish">
+        </ul>
+
+      </div>
+    </div>
+    <div id="dishSearch">
+      <div id="dishList">
+
+      </div>
     </div>
   </div>
 
   <!-- jQuery -->
   <script src="https://code.jquery.com/jquery.js"></script>
-  <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
-  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 
   <!-- The application JavaScript code -->
   <script src="js/app.js"></script>
   <script src="js/model/dinnerModel.js"></script>
-  <script src="js/view/sideBarView.js"></script>
+
   <!-- TODO: Here you should include JS code for your other views -->
+  <script src="js/view/sideBarView.js"></script>
+  <script src="js/view/dishSearchView.js"></script>
+  <script src="js/view/dishItemView.js"></script>
 </body>
 
 </html>
