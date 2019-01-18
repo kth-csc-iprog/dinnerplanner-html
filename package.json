@@ -1,0 +1,26 @@
+{
+  "name": "dinnerplanner-html",
+  "version": "1.0.0",
+  "description": "Dinnerplanner lab",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bt-s/dinnerplanner-html.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bt-s/dinnerplanner-html/issues"
+  },
+  "homepage": "https://github.com/bt-s/dinnerplanner-html#readme",
+  "dependencies": {
+    "gulp": "^3.9.1"
+  },
+  "devDependencies": {
+    "gulp-sass": "^4.0.2",
+    "node-sass": "^4.11.0"
+  }
+}
