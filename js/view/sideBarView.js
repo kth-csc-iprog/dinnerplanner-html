@@ -1,4 +1,4 @@
-var SideBarView = function (container, model, dishItem) {
+var SideBarView = function (container, model) {
 
     const numberOfGuests = container.find('#numberOfGuests');
 
