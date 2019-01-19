@@ -1,3 +1,4 @@
+
 // DinnerModel Object constructor
 var DinnerModel = function() {
 
@@ -131,12 +132,14 @@ var DinnerModel = function() {
 
     var dishAlreadyInMenu = false;
     for (var i=0; i<this.selectedDishes.length; i++) {
-      if (this.selectedDishes[i]["id"] === id) {
+      if(this.selectedDishes[i].type===this.getDish(id).type){
         dishAlreadyInMenu = true;
         this.selectedDishes.splice(i, 1);
         this.selectedDishes.push(dishToAdd);
       }
+      
     };
+ 
 
     if (dishAlreadyInMenu === false) {
       this.selectedDishes.push(dishToAdd);
