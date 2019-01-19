@@ -4,7 +4,7 @@ var DinnerModel = function () {
 	//TODO Lab 1 implement the data structure that will hold number of guest
 	// and selected dishes for the dinner menu
 
-	const data = { numberOfGuests: 3 };
+	const data = { numberOfGuests: 3 , menu: {'starter': null, 'main dish': null, 'dessert': null}};
 
 	this.setNumberOfGuests = function (num) {
 		//TODO Lab 1
@@ -39,12 +39,16 @@ var DinnerModel = function () {
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function (id) {
-		//TODO Lab 1 
+		//TODO Lab 1
+		
+
 	}
 
 	//Removes dish from menu
 	this.removeDishFromMenu = function (id) {
 		//TODO Lab 1
+		const type = getDish(id).type;
+		data.menu[type] = null;
 	}
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
