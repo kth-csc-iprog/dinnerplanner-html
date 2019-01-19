@@ -52,7 +52,7 @@ var ExampleView = function (container, model) {
    * Here we use @var {jQuery object} numberOfGuests that is a reference to <span>
    * in our view to dynamically set it's value to "Hello World".
    */
-  numberOfGuests.html("Hello World");
+  numberOfGuests.html(model.getNumberOfGuests());
 
 }
 
