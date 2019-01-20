@@ -17,9 +17,11 @@
 </head>
 
 <body>
+  <!-- CONTAINER WITH ALL CONTENT -->
   <div class="container">
+    <!-- SIDE BAR -->
     <div id="sideBar">
-      <div id="dishPlanner">
+      <div class="guestPlanner">
         <div>Number of guests: <span id="numberOfGuests"></span></div>
         <button id="minusGuest" class="btn">
           <i class="fas fa-minus"></i>
@@ -37,8 +39,21 @@
         </ul>
       </div>
     </div>
-    <div id="dishSearch">
-      <div id="dishList">
+
+    <!-- DISH SEARCH -->
+    <div class="dishSearch">
+      <div class="findDish">
+        <input class="input" type="text" placeholder="Enter key words">
+        <div class="select">
+          <select>
+            <option>All</option>
+            <option>Starter</option>
+            <option>Main dish</option>
+            <option>Dessert</option>
+          </select>
+        </div>
+      </div>
+      <div class="dishList">
       </div>
     </div>
   </div>
