@@ -8,6 +8,6 @@ var DishItemView = function (container, dish, model) {
     $dishDiv.append('<p class="dishName">' + dish.name + '</p>');
 
     $dishDiv.on('click', function () {
-        model.addDishToMenu(dish.id);
+        model.addDishToMenu(dish);
     })
 }
