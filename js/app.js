@@ -4,6 +4,8 @@ $(function () {
 
 	var exampleView = new ExampleView($("#content"), model);
 	var welcomeView = new WelcomeView($("#content"), model);
+	var sidebarView = new SidebarView($("#sidebar"), model);
+	var dishSearchView = new DishSearchView($("#content"), model);
 
 	/**
 	 * IMPORTANT: app.js is the only place where you are allowed to

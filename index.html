@@ -19,13 +19,13 @@
 	<div class="container">
 		<h1 class="title col-sm-12 col-md-12 col-lg-12">Dinner planner</h1>
 		<div class="row">
-			<div class="sidebar col-sm-12 col-md-3 col-lg-3">
+			<div class="sidebar col-sm-12 col-md-3 col-lg-3" id="sidebar">
 				<div>
 					<h4>My Dinner</h4>
 					<button id="toggle-btn">I'm small</button>
 				</div>
 				People:
-				<input type="number" min="1">
+				<input type="number" min="0" id="people">
 				<table>
 					<tr>
 						<th>Dish Name</th>
@@ -52,6 +52,29 @@
 				<div id="welcomeView">
 
 				</div>
+				<div id="dishSearchView">
+						<p>Find a dish</p>
+
+						<div class="row">
+								<div class="col-md-auto">
+									<input type="text"  id="dish">
+								</div>
+								<div class="col-md-auto">
+												<select name="category" id="options">
+													<option value="dinner">All</option>
+												</select>
+								</div>
+								<div class="col-md-auto">
+									<button id="search">search</button>
+								</div>
+						</div>
+						<div id="dishcontainer" class = "row border border-dark justify-content-center	">
+							<div id="dishItemview" class="row">
+								<button id="test">pizza</button>
+							</div>
+						</div>
+						
+				</div>
 			</div>
 		</div>
 	</div>
@@ -66,6 +89,8 @@
 	<script src="js/model/dinnerModel.js"></script>
 	<script src="js/view/exampleView.js"></script>
 	<script src="js/view/welcomeView.js"></script>
+	<script src="js/view/sidebarView.js"></script>
+	<script src="js/view/dishSearchView.js"></script>
 	<!-- TODO: Here you should include JS code for your other views -->
 </body>
 
