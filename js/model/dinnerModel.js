@@ -1,52 +1,161 @@
-//DinnerModel Object constructor
+// DinnerModel Object constructor
 var DinnerModel = function() {
 
-  //TODO Lab 1 implement the data structure that will hold number of guest
+  // TODO Lab 1 implement the data structure that will hold number of guest
   // and selected dishes for the dinner menu
 
+  // For test purposes
+  this.numberOfGuests = 2; // should be changed to 0
 
   this.setNumberOfGuests = function(num) {
-    //TODO Lab 1
+    this.numberOfGuests = num;
   }
 
   this.getNumberOfGuests = function() {
-    //TODO Lab 1
+    return this.numberOfGuests;
   }
 
-  //Returns the dish that is on the menu for selected type
+  // For test purposes
+  this.selectedDishes = [{ // should be changed to []
+    'id':3,
+    'name':'Baked Brie with Peaches',
+    'type':'starter',
+    'image':'bakedbrie.jpg',
+    'description':"Here is how you make it... Lore ipsum...",
+    'ingredients':[{
+      'name':'round Brie cheese',
+      'quantity':10,
+      'unit':'g',
+      'price':8
+    },{
+      'name':'raspberry preserves',
+      'quantity':15,
+      'unit':'g',
+      'price':10
+    },{
+      'name':'peaches',
+      'quantity':1,
+      'unit':'',
+      'price':4
+    }]
+  },{
+    'id':101,
+    'name':'MD 2',
+    'type':'main dish',
+    'image':'bakedbrie.jpg',
+    'description':"Here is how you make it... Lore ipsum...",
+    'ingredients':[{
+      'name':'ingredient 1',
+      'quantity':1,
+      'unit':'pieces',
+      'price':8
+    },{
+      'name':'ingredient 2',
+      'quantity':15,
+      'unit':'g',
+      'price':7
+    },{
+      'name':'ingredient 3',
+      'quantity':10,
+      'unit':'ml',
+      'price':4
+    }]
+  },{
+    'id':200,
+    'name':'Chocolat Ice cream',
+    'type':'dessert',
+    'image':'icecream.jpg',
+    'description':"Here is how you make it... Lore ipsum...",
+    'ingredients':[{
+      'name':'ice cream',
+      'quantity':100,
+      'unit':'ml',
+      'price':6
+    }]
+  }]
+
+  // Returns the dish that is(/are) on the (selected) menu for type
   this.getSelectedDish = function(type) {
-    //TODO Lab 1
+    var dishType;
+    this.selectedDishes.forEach(function(dish) {
+      if (dish["type"] === type) {
+        dishType = dish;
+      }
+    });
+    return dishType;
   }
 
-  //Returns all the dishes on the menu.
+  // Returns all the dishes on the (selected) menu.
   this.getFullMenu = function() {
-    //TODO Lab 1
+    return this.selectedDishes;
   }
 
-  //Returns all ingredients for all the dishes on the menu.
+  // Returns all ingredients for all the dishes on the (selected) menu.
   this.getAllIngredients = function() {
-    //TODO Lab 1
+    var ingredients = [];
+
+    this.selectedDishes.forEach(function(dish) {
+      dish["ingredients"].forEach(function(ingredient) {
+        ingredients.push(ingredient);
+      });
+    });
+
+    return ingredients;
   }
 
-  //Returns the total price of the menu (all the ingredients multiplied by number of guests).
+  // Returns the total price of the (selected) menu (all the ingredients
+  // multiplied by number of guests).
   this.getTotalMenuPrice = function() {
-    //TODO Lab 1
+    var totalPrice = 0;
+
+    this.selectedDishes.forEach(function(dish) {
+      dish["ingredients"].forEach(function(ingredient) {
+        totalPrice += ingredient["price"];
+      });
+    });
+
+    return totalPrice * this.getNumberOfGuests();
   }
 
-  //Adds the passed dish to the menu. If the dish of that type already exists on the menu
-  //it is removed from the menu and the new one added.
+  // Adds the passed dish to the (selected) menu. If the dish of that type
+  // already exists on the (selected) menu it is removed from the (selected)
+  // menu and the new one is added.
   this.addDishToMenu = function(id) {
-    //TODO Lab 1
+    var dishToAdd;
+    dishes.forEach(function(dish) {
+      if (dish["id"] === id) {
+        dishToAdd = dish;
+      }
+    });
+
+    var dishAlreadyInMenu = false;
+    for (var i=0; i<this.selectedDishes.length; i++) {
+      if(this.selectedDishes[i].type===this.getDish(id).type){
+        dishAlreadyInMenu = true;
+        this.selectedDishes.splice(i, 1);
+        this.selectedDishes.push(dishToAdd);
+      }
+
+    };
+
+    if (dishAlreadyInMenu === false) {
+      this.selectedDishes.push(dishToAdd);
+    }
   }
 
-  //Removes dish from menu
+  // Removes dish from (selected) menu
   this.removeDishFromMenu = function(id) {
-    //TODO Lab 1
+    for (var i=0; i<this.selectedDishes.length; i++) {
+      if (this.selectedDishes[i]["id"] === id) {
+        this.selectedDishes.splice(i, 1);
+      }
+    }
   }
 
-  //function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
-  //you can use the filter argument to filter out the dish by name or ingredient (use for search)
-  //if you don't pass any filter all the dishes will be returned
+  // Function that returns all dishes of specific type (i.e. "starter",
+  // "main dish" or "dessert"). You can use the filter argument to filter out
+  // the dish by name or ingredient (use for search). If you don't pass any
+  // filter all the dishes will be returned
   this.getAllDishes = function (type,filter) {
     return dishes.filter(function(dish) {
       var found = true;
@@ -66,7 +175,7 @@ var DinnerModel = function() {
     });
   }
 
-  //function that returns a dish of specific ID
+  // Function that returns a dish of specific ID
   this.getDish = function (id) {
     for(key in dishes){
       if(dishes[key].id == id) {
@@ -77,7 +186,7 @@ var DinnerModel = function() {
 
 
   // the dishes variable contains an array of all the
-  // dishes in the database. each dish has id, name, type,
+  // dishes in the database. Each dish has id, name, type,
   // image (name of the image file), description and
   // array of ingredients. Each ingredient has name,
   // quantity (a number), price (a number) and unit (string
@@ -326,5 +435,4 @@ var DinnerModel = function() {
     }]
   }
   ];
-
 }
