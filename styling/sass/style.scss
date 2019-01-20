@@ -1,16 +1,4 @@
-// Modules and Variables
-@import "partials/base";
-
-// Partials
-@import "partials/buttons";
-@import "partials/dish-details";
-@import "partials/dish-item";
-@import "partials/dish-overview";
-@import "partials/dish-search-bar";
-@import "partials/header";
-@import "partials/menu-overview";
-@import "partials/preparation-page";
-@import "partials/recipe-page";
-@import "partials/typography";
-@import "partials/welcome-page";
-
+@import "includes/base";
+@import "includes/vendor";
+@import "includes/variables";
+@import "includes/components";
