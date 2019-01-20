@@ -45,12 +45,13 @@
           </button>
         </div>
 
-        <div id="dinnerSearchView">
+        <div id="dishSearchView">
           <div class="search-bar">
-          </div>
-          <div class="dish-items-container">
-            <div id="dishItemView"></div>
-            <div>
+              <h2>Find a dish</h2>
+              <div class="search-bar-container">
+                <input id="keywordInput" placeholder="Enter key word"></input>
+                <select id="dishTypeSelect"></select>
+                <button type="submit" id="searchDishButton">Search</button>
             </div>
           </div>
           <div class="dish-items-container" id="dishItemsView">
@@ -71,6 +72,7 @@
     <script src="../js/view/exampleView.js"></script>
     <script src="../js/view/welcomeView.js"></script>
     <script src="../js/view/dinnerOverviewView.js"></script>
+    <script src="../js/view/dishSearchView.js"></script>
     <script src="../js/view/dishItemsView.js"></script>
   </body>
 </html>
