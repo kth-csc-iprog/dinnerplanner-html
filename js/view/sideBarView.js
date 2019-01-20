@@ -1,4 +1,4 @@
-var DinnerOverviewView = function (container, model) {
+var SideBarView = function (container, model) {
   var numberOfGuests = container.find("#numberOfGuests");
   numberOfGuests.html(model.getNumberOfGuests());
 
