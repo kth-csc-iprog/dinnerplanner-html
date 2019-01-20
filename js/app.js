@@ -1,4 +1,4 @@
-$(function() {
+$(function () {
   // We instantiate our model
   var model = new DinnerModel();
 
@@ -6,7 +6,7 @@ $(function() {
   var exampleView = new ExampleView($("#exampleView"), model);
   var welcomeView = new WelcomeView($("#welcomeView"), model);
   var dinnerOverviewView = new DinnerOverviewView($("#dinnerOverviewView"), model);
-
+  var dishDetailView = new DishDetailView($("#dishDetailsView"), model);
   /**
    * IMPORTANT: app.js is the only place where you are allowed to
    * use the $('someSelector') to search for elements in the whole HTML.

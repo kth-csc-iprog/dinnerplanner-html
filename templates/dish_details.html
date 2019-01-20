@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
 
   </head>
+
   <body>
     <div class="container">
       <h1>Dinner planner</h1>
@@ -46,8 +47,26 @@
 
         <div id="dishDetailsView">
           <div class="image-and-description">
+            <h2 id="dishTitle"></h2>
+            <img id="detailImg" src="" alt="THE IMAGE FOR DISH">
+            <p id="detailDescription"></p>
+            <button id="back2searchButton" class="btn">back to search</button>
           </div>
           <div class="ingredients">
+            <div>
+              <span>INGREDIENTS FOR </span>
+              <span class="numberOfGuests"></span>
+              <span> PEOPLE</span><br>
+            </div>
+            <!-- cutting line should be modified -->
+            <span class="cuttingLine">----------------</span><br>
+            <ul id="listOfIngredients"></ul>
+            <span class="cuttingLine">----------------</span><br>
+            <div id="ingredientTotal">
+              <button id="add2menuButton" class="btn">Add to menu</button>
+              <span>SEK</span>
+              <span id="dishPrice"></span>
+            </div>
           </div>
         </div>
       </div>
@@ -64,6 +83,7 @@
     <script src="../js/view/exampleView.js"></script>
     <script src="../js/view/welcomeView.js"></script>
     <script src="../js/view/dinnerOverviewView.js"></script>
+    <script src="../js/view/dishDetailView.js"></script>
     <!-- TODO: Here you should include JS code for your other views -->
   </body>
 </html>
