@@ -9,7 +9,7 @@ var DinnerOverviewView = function (container, model) {
 
   var loadSelectedDishes = function () {
     selectedDishes.html("");
-    for (var i =0; i < model.selectedDishes.length; i++) {
+    for (var i=0; i < model.selectedDishes.length; i++) {
       var dishSpan = $("<span/>");
       var priceSpan = $("<span/>");
       var dish = model.selectedDishes[i];
