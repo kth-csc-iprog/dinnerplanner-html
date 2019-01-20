@@ -17,12 +17,14 @@
 <body>
   <div class="container">
     <h1>Dinner planner</h1>
-    <div class="inner-container">
+    <div id="printView">
       <div class="title-bar">
-        My Dinner:<span class="number-of-guests"></span>people
-        <button id="backToEditButton" class="btn">Go back and edit dinner</button>
+        <h2>My Dinner: <span id="numberOfGuests"></span> people</h2>
+        <button id="backButton" class="btn">
+          <span>Go back and edit dinner</span>
+        </button>
       </div>
-      <ul id="orderedItemsContainer"></ul>
+      <ul id="orderedItemsList"></ul>
     </div>
   </div>
 
@@ -44,21 +46,9 @@
   <script src="../js/view/sideBarView.js"></script>
   <script src="../js/view/dishSearchView.js"></script>
   <script src="../js/view/dishItemsView.js"></script>
+  <script src="../js/view/dishDetailView.js"></script>
+  <script src="../js/view/dinnerOverviewView.js"></script>
+  <script src="../js/view/printView.js"></script>
 </body>
 
-<<<<<<< HEAD
 </html>
-=======
-    <!-- The application JavaScript code -->
-    <script src="../js/app.js"></script>
-    <script src="../js/model/dinnerModel.js"></script>
-    <script src="../js/view/exampleView.js"></script>
-    <script src="../js/view/welcomeView.js"></script>
-    <script src="../js/view/sideBarView.js"></script>
-    <script src="../js/view/dishSearchView.js"></script>
-    <script src="../js/view/dishItemsView.js"></script>
-    <script src="../js/view/dishDetailView.js"></script>
-    <script src="../js/view/dinnerOverviewView.js"></script>
-  </body>
-</html>
->>>>>>> master
