@@ -13,13 +13,42 @@
   <body>
     <div class="container">
       <h1>Dinner planner</h1>
-      <div id="exampleView">
-        <div>
-          Number of guests: <span id="numberOfGuests"></span>
+      <div class="inner-container">
+        <div id="dinnerOverviewView">
+          <h2>My Dinner</h2>
+          <div>
+            <span>People</span>
+            <div class="people-selector-button">
+              <span id="numberOfGuests"></span>
+              <div class="up-down-buttons">
+                <button id="minusGuest" class="btn">
+                  <span class="glyphicon glyphicon-minus"></span>
+                </button>
+                <button id="plusGuest" class="btn">
+                  <span class="glyphicon glyphicon-plus"></span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <span>Dish Name</span>
+            <span>Cost</span>
+          </div>
+
+          <ul id="selectedDishes"></ul>
+          <div id="totalPrice"></div>
+
+          <button id="confirmationButton" class="btn">
+            <span>Confirm Dinner</span>
+          </button>
         </div>
-        <div>
-          <button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
-          <button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
+
+        <div id="dishDetailsView">
+          <div class="image-and-description">
+          </div>
+          <div class="ingredients">
+          </div>
         </div>
       </div>
     </div>
@@ -33,6 +62,8 @@
     <script src="../js/app.js"></script>
     <script src="../js/model/dinnerModel.js"></script>
     <script src="../js/view/exampleView.js"></script>
+    <script src="../js/view/welcomeView.js"></script>
+    <script src="../js/view/dinnerOverviewView.js"></script>
     <!-- TODO: Here you should include JS code for your other views -->
   </body>
 </html>
