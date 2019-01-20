@@ -1,4 +1,3 @@
-
 // DinnerModel Object constructor
 var DinnerModel = function() {
 
@@ -79,9 +78,9 @@ var DinnerModel = function() {
   this.getSelectedDish = function(type) {
     var dishType;
     this.selectedDishes.forEach(function(dish) {
-        if (dish["type"] === type) {
-           dishType = dish;
-        }
+      if (dish["type"] === type) {
+        dishType = dish;
+      }
     });
     return dishType;
   }
@@ -137,9 +136,9 @@ var DinnerModel = function() {
         this.selectedDishes.splice(i, 1);
         this.selectedDishes.push(dishToAdd);
       }
-      
+
     };
- 
+
 
     if (dishAlreadyInMenu === false) {
       this.selectedDishes.push(dishToAdd);
