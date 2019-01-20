@@ -209,7 +209,7 @@ var DinnerModel = function() {
     for(key in dishes){
       if(dishes[key].id == id) {
         return dishes[key];
-        
+
       }
     }
   }
