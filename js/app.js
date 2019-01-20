@@ -5,9 +5,9 @@ $(function () {
 	// And create the instance of ExampleView
 	//var exampleView = new ExampleView($("#exampleView"));
 
-	var sideBar = new SideBarView($("#dishPlanner"), model);
+	var sideBar = new SideBarView($(".guestPlanner"), model);
 
-	var dishSearch = new DishSearchView($("#dishSearch"), model);
+	var dishSearch = new DishSearchView($(".dishSearch"), model);
 
 	/**
 	 * IMPORTANT: app.js is the only place where you are allowed to
