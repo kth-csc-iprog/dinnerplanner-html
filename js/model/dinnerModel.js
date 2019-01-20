@@ -73,7 +73,7 @@ var DinnerModel = function() {
       'price':6
     }]
   }]
-
+  this.currentViewingDish;
   // Returns the dish that is(/are) on the (selected) menu for type
   this.getSelectedDish = function(type) {
     var dishType;
@@ -192,6 +192,7 @@ var DinnerModel = function() {
     for(key in dishes){
       if(dishes[key].id == id) {
         return dishes[key];
+        
       }
     }
   }

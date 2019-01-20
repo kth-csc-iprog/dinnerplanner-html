@@ -1,69 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Dinner planner</title>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dinner planner</title>
 
-  </head>
-  <body>
-    <div class="container">
-      <h1>Dinner planner</h1>
-      <div class="inner-container">
-        <div id="dinnerOverviewView">
-          <h2>My Dinner</h2>
-          <div>
-            <span>People</span>
-            <div class="people-selector-button">
-              <span id="numberOfGuests"></span>
-              <div class="up-down-buttons">
-                <button id="minusGuest" class="btn">
-                  <span class="glyphicon glyphicon-minus"></span>
-                </button>
-                <button id="plusGuest" class="btn">
-                  <span class="glyphicon glyphicon-plus"></span>
-                </button>
-              </div>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+
+</head>
+
+<body>
+  <div class="container">
+    <h1>Dinner planner</h1>
+    <div class="inner-container">
+      <div id="dinnerOverviewView">
+        <h2>My Dinner</h2>
+        <div>
+          <span>People</span>
+          <div class="people-selector-button">
+            <span id="numberOfGuests"></span>
+            <div class="up-down-buttons">
+              <button id="minusGuest" class="btn">
+                <span class="glyphicon glyphicon-minus"></span>
+              </button>
+              <button id="plusGuest" class="btn">
+                <span class="glyphicon glyphicon-plus"></span>
+              </button>
             </div>
           </div>
-
-          <div>
-            <span>Dish Name</span>
-            <span>Cost</span>
-          </div>
-
-          <ul id="selectedDishes"></ul>
-          <div id="totalPrice"></div>
-
-          <button id="confirmationButton" class="btn">
-            <span>Confirm Dinner</span>
-          </button>
         </div>
 
-        <div id="dishDetailsView">
-          <div class="image-and-description">
+        <div>
+          <span>Dish Name</span>
+          <span>Cost</span>
+        </div>
+
+        <ul id="selectedDishes"></ul>
+        <div id="totalPrice"></div>
+
+        <button id="confirmationButton" class="btn">
+          <span>Confirm Dinner</span>
+        </button>
+      </div>
+
+      <div id="dishDetailsView">
+        <div class="image-and-description">
+          <h2 id="dishTitle"></h2>
+          <img id="detailImg" src="" alt="THE IMAGE FOR DISH">
+          <p id="detailDescription"></p>
+          <button id="back2searchButton" class="btn">back to search</button>
+        </div>
+        <div class="ingredients">
+          <div>
+            <span>INGREDIENTS FOR </span>
+            <span class="numberOfGuests"></span>
+            <span> PEOPLE</span><br>
           </div>
-          <div class="ingredients">
+          <!-- cutting line should be modified -->
+          <span class="cuttingLine">----------------</span><br>
+          <ul id="listOfIngredients"></ul>
+          <span class="cuttingLine">----------------</span><br>
+          <div id="ingredientTotal">
+            <button id="add2menuButton" class="btn">Add to menu</button>
+            <span>SEK</span>
+            <span id="dishPrice"></span>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 
-    <!-- The application JavaScript code -->
-    <script src="../js/app.js"></script>
-    <script src="../js/model/dinnerModel.js"></script>
-    <script src="../js/view/exampleView.js"></script>
-    <script src="../js/view/welcomeView.js"></script>
-    <script src="../js/view/dinnerOverviewView.js"></script>
-    <!-- TODO: Here you should include JS code for your other views -->
-  </body>
+  <!-- The application JavaScript code -->
+  <script src="../js/app.js"></script>
+  <script src="../js/model/dinnerModel.js"></script>
+  <script src="../js/view/exampleView.js"></script>
+  <script src="../js/view/welcomeView.js"></script>
+  <script src="../js/view/dinnerOverviewView.js"></script>
+  <script src="../js/view/dishDetailView.js"></script>
+  <!-- TODO: Here you should include JS code for your other views -->
+</body>
+
 </html>
