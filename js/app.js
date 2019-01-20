@@ -6,6 +6,7 @@ $(function() {
   var exampleView = new ExampleView($("#exampleView"), model);
   var welcomeView = new WelcomeView($("#welcomeView"), model);
   var dinnerOverviewView = new DinnerOverviewView($("#dinnerOverviewView"), model);
+  var dishItemsView = new DishItemsView($("#dishItemsView"), model);
 
   /**
    * IMPORTANT: app.js is the only place where you are allowed to
