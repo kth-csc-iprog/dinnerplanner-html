@@ -14,14 +14,25 @@
   <body>
     <div class="container">
       <h1>Dinner planner</h1>
-      <div id="exampleView">
+      <div id="dinnerOverviewView">
         <div>
-          Number of guests: <span id="numberOfGuests"></span>
+          <h2>My Dinner: <span id="numberOfGuests"></span> people</h2>
+          <button id="backButton" class="btn">
+            <span>Go back and edit dinner</span>
+          </button>
         </div>
+
         <div>
-          <button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
-          <button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
+          <div id="selectedDishesOverview"></div>
+          <div>
+            <span>Total:</span>
+            <span id="totalCost"></span>
+          </div>
         </div>
+
+        <button id="printRecipeButton" class="btn">
+          <span>Print Full Recipe</span>
+        </button>
       </div>
     </div>
 
@@ -41,5 +52,6 @@
     <script src="../js/view/dishSearchView.js"></script>
     <script src="../js/view/dishItemsView.js"></script>
     <script src="../js/view/dishDetailView.js"></script>
+    <script src="../js/view/dinnerOverviewView.js"></script>
   </body>
 </html>
