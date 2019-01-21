@@ -2,7 +2,6 @@
 class DinnerModel {
 
     constructor(){
-	this.numberOfGuests=0;
 	this.dishes=dishesConst; // to be replaced in lab 3
 	
 	//TODO Lab 1 implement the data structure that will hold number of guest
