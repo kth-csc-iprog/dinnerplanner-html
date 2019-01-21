@@ -73,9 +73,9 @@ class DinnerModel {
 
 	//function that returns a dish of specific ID
 	getDish (id) {
-	    for(let key in this.dishes){
-		if(this.dishes[key].id == id) {
-		    return this.dishes[key];
+	    for(let dsh of this.dishes){
+		if(dsh.id == id) {
+		    return dsh;
 		}
 	    }
 	    return undefined;
