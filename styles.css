@@ -36,6 +36,14 @@
     margin: 10px;
 }
 
+.dinner-text {
+    float: left;
+}
+
+.go-back-btn {
+    float: right;
+}
+
 #dishSearchView {
     margin: 10px;
 }
