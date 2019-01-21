@@ -4,12 +4,17 @@
     margin-bottom: 0;
 
 }
-
+/*
 .row {
     margin-left: 0;
     margin-right: 0;
 }
+*/
 
+
+#sidebar{
+    padding: 30px;
+}
 
 .sidebar table {
     padding: 15px auto;

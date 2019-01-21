@@ -1,7 +1,7 @@
 var DishItemView = function (container, model) {
 
     var images = ['bakedbrie.jpg', 'icecream.jpg', 'meatballs.jpg', 'sourdough.jpg', 'toast.jpg'];
-
+    var rows = container.find("#dishrows");
     function createItem(dish) {
         var div = document.createElement('div');
         ['dish-item','col-auto', 'col-sm-auto', 'col-lg-auto','text-center', 'border','border-dark','px-0','py-0','d-inline-flex-colum'].forEach(cssClass => div.classList.add(cssClass));
@@ -18,5 +18,5 @@ var DishItemView = function (container, model) {
         return div;
     }
 
-    container.append(model.getDishes().map(createItem))
+    rows.append(model.getDishes().map(createItem))
 }
