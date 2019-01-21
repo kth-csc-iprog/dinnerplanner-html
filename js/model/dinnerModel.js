@@ -1,7 +1,7 @@
 //DinnerModel Object constructor
 var DinnerModel = function () {
 	var numberOfGuests = 0;
-
+	var menu = [];
 
 	//TODO Lab 1 implement the data structure that will hold number of guest
 	// and selected dishes for the dinner menu
@@ -17,23 +17,24 @@ var DinnerModel = function () {
 
 	//Returns the dish that is on the menu for selected type 
 	this.getSelectedDish = function (type) {
-		return this.getAllDishes(type);
+		var theDish = menu.find(dish => dish.type = type);
+		return theDish;
 	}
 
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function () {
-		return this.dishes;
+		return this.menu;
 	}
 
 	//Returns all ingredients for all the dishes on the menu.
 	this.getAllIngredients = function () {
-		return dishes
+		return menu
 			.flatMap(dish => dish.ingredients);
 	}
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	this.getTotalMenuPrice = function () {
-		return dishes
+		return menu
 			.flatMap(dish => dish.ingredients)
 			.reduce((acc, val) => {
 				const pricePerGuest = val.quantity * val.price;
@@ -44,17 +45,17 @@ var DinnerModel = function () {
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function (id) {
-		var existingDishes = this.getSelectedDish(id.type);
-		if (existingDishes.length > 0) {
+		var existingDishes = menu.find(dish => dish.type == getDish(id).type);
+		if (existingDishes !=  undefined) {
 			existingDishes.forEach(dish => removeDishFromMenu(dish));
 		}
-		dishes.push(id);
+		menu.push(getDish(id));
 	}
 
 	//Removes dish from menu
 	this.removeDishFromMenu = function (id) {
-		var index = dishes.findIndex(dish => dish.id == id);
-		if (index != -1) delete dishes[index];
+		var index = menu.findIndex(dish => dish.id == id);
+		if (index != -1) delete menu[index];
 	}
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
