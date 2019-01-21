@@ -8,8 +8,7 @@ var DishItemView = function (container, model) {
         var paragraph = document.createElement('p');
         paragraph.innerHTML = dish.name;
         var image = document.createElement('img');
-        const index = Math.floor(Math.random() * 5)
-        image.src = './images/' + images[index];
+        image.src = './images/' + dish.image;
         image.height = 50;
         image.classList.add('center-image');
         div.appendChild(image);
