@@ -1,9 +1,9 @@
 window.onload= function() {
 	//We instantiate our model
-	var model = new DinnerModel();
+	const model = new DinnerModel();
 	
 	// And create the instance of ExampleView
-	var exampleView = new ExampleView(document.querySelector("#exampleView"));
+	const exampleView = new ExampleView(document.querySelector("#exampleView"));
 
 	/**
 	 * IMPORTANT: app.js is the only place where you are allowed to
