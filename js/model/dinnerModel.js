@@ -1,6 +1,6 @@
 //DinnerModel Object constructor
 var DinnerModel = function () {
-	var numberOfGuests = 0;
+	var numberOfGuests = 2;
 
 
 	//TODO Lab 1 implement the data structure that will hold number of guest
@@ -22,7 +22,7 @@ var DinnerModel = function () {
 
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function () {
-		return this.dishes;
+		return dishes;
 	}
 
 	//Returns all ingredients for all the dishes on the menu.
@@ -38,7 +38,7 @@ var DinnerModel = function () {
 			.reduce((acc, val) => {
 				const pricePerGuest = val.quantity * val.price;
 				return acc + pricePerGuest * numberOfGuests;
-			});
+			}, 0);
 	}
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
@@ -339,4 +339,3 @@ var DinnerModel = function () {
 	}];
 
 }
-
