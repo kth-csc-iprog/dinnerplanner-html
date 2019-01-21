@@ -30,7 +30,7 @@ var PrintView = function (container, model) {
       rightPart.append(prepText);
       // a dish consists of 3 parts
       listItem.append(imgAtLeft);
-      listItedish.append(midPart);
+      listItem.append(midPart);
       listItem.append(rightPart);
       orderedItems.append(listItem);
     });
