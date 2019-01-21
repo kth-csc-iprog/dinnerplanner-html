@@ -65,6 +65,20 @@
     min-width: 150px;
     margin-bottom: 15px;
   }
+
+.dinner-text {
+    float: left;
+    margin: 10px;
+}
+
+.go-back-btn {
+    float: right;
+    margin: 10px;
+}
+
+#dishSearchView {
+    margin: 10px;
+}
 /*
 .full-pagee{
     position: fixed;
