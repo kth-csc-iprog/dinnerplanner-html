@@ -36,45 +36,32 @@
 						<td>$100</td>
 					</tr>
 				</table>
-				<h5>Total: $75</h5>
+				<h5 id="total-due">Total: $75</h5>
 				<button>Confirm order</button>
 			</div>
 			<div class="col-sm col-md col-lg" id="content">
-				<div id="exampleView">
-					<div>
-						Number of guests: <span id="numberOfGuests"></span>
-					</div>
-					<div>
-						<button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
-						<button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
-					</div>
-				</div>
 				<div id="welcomeView">
 
 				</div>
 				<div id="dishSearchView">
-						<p>Find a dish</p>
+					<p>Find a dish</p>
 
-						<div class="row">
-								<div class="col-md-auto">
-									<input type="text"  id="dish">
-								</div>
-								<div class="col-md-auto">
-												<select name="category" id="options">
-													<option value="dinner">All</option>
-												</select>
-								</div>
-								<div class="col-md-auto">
-									<button id="search">search</button>
-								</div>
+					<div class="row">
+						<div class="col-md-auto">
+							<input type="text" id="dish">
 						</div>
-						<div id="dishcontainer" class = "row border border-dark justify-content-center	">
-							<div id="dishItemview" class="row">
-								<button id="test">pizza</button>
-							</div>
+						<div class="col-md-auto">
+							<select name="category" id="options">
+								<option value="dinner">All</option>
+							</select>
 						</div>
-						
+						<div class="col-md-auto">
+							<button id="search">search</button>
+						</div>
+					</div>
 				</div>
+				<div id="dishItemView" class="row border border-dark justify-content-center"></div>
+				<div id="dinnerPrintoutView"></div>
 			</div>
 		</div>
 	</div>
@@ -91,6 +78,7 @@
 	<script src="js/view/welcomeView.js"></script>
 	<script src="js/view/sidebarView.js"></script>
 	<script src="js/view/dishSearchView.js"></script>
+	<script src="js/view/dishItemView.js"></script>
 	<!-- TODO: Here you should include JS code for your other views -->
 </body>
 

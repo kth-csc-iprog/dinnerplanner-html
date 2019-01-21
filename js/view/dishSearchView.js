@@ -15,8 +15,7 @@
 var DishSearchView = function (container, model) {
     dishSearchContainer = container.find('#dishSearchView');
 
-    const optionsMenu =  dishSearchContainer.find("#options");
-    optionsMenu.append( new Option("Side dish","Tasty"));
+    const optionsMenu = dishSearchContainer.find("#options");
+    optionsMenu.append(new Option("Side dish", "Tasty"));
     const btnText = "search"
-
 }

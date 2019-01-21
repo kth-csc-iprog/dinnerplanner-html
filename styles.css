@@ -17,6 +17,10 @@
     float: right;
 }
 
+.center-image {
+    margin: 5px auto;
+}
+
 @media only screen and (max-width: 768px) {
     .sidebar {
         background-color: blue;
@@ -27,7 +31,11 @@
     }
 }
 
+.dish-item {
+    background-color: grey;
+    margin: 10px;
+}
 
-#content {
-    background-color: red;
+#dishSearchView {
+    margin: 10px;
 }

@@ -2,10 +2,19 @@ $(function () {
 	//We instantiate our model
 	var model = new DinnerModel();
 
-	var exampleView = new ExampleView($("#content"), model);
-	var welcomeView = new WelcomeView($("#content"), model);
-	var sidebarView = new SidebarView($("#sidebar"), model);
-	var dishSearchView = new DishSearchView($("#content"), model);
+	var sidebarContainer = $("#sidebar");
+	var welcomeContainer = $("#welcomeView");
+	var dishSearchContainer = $("#dishSearchView");
+	var dishItemContainer = $("#dishItemView");
+
+	var welcomeView = new WelcomeView(welcomeContainer, model);
+	var sidebarView = new SidebarView(sidebarContainer, model);
+	var dishSearchView = new DishSearchView(dishSearchContainer, model);
+	var dishItemView = new DishItemView(dishItemContainer, model);
+
+	function showWelcome() {
+
+	}
 
 	/**
 	 * IMPORTANT: app.js is the only place where you are allowed to
