@@ -3,7 +3,7 @@ var DinnerPrintoutView = function (container, model) {
         const box = document.createElement('div');
         box.classList.add('row');
 
-        const imageCss = ['col-sm-12', 'col-lg-3', 'col-md-3'];
+        const imageCss = ['col-sm-12', 'col-lg-1', 'col-md-1'];
         const image = document.createElement('img');
         imageCss.forEach(css => image.classList.add(css));
         image.src = './images/' + dish.image;

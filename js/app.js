@@ -18,7 +18,7 @@ $(function () {
 	var goBackView = new GoBackView(goBackContainer, model);
 
 	// showWelcome();
-	showDishSearch();
+	 showDishSearch();
 	// showDinnerPrintout();
 
 	function showWelcome() {
