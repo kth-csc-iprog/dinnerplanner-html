@@ -18,8 +18,8 @@ $(function () {
 	var goBackView = new GoBackView(goBackContainer, model);
 
 	// showWelcome();
-	// showDishSearch();
-	 showDinnerPrintout();
+	 showDishSearch();
+	// showDinnerPrintout();
 
 	function showWelcome() {
 		sidebarContainer.hide();

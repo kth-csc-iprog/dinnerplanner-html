@@ -1,6 +1,7 @@
 .title {
     background-color: #c4ffd1;
     padding: 50px;
+    width: 100%;
     margin-bottom: 0;
 
 }
@@ -10,10 +11,17 @@
     margin-right: 0;
 }
 */
-
+/*
+body{
+    overflow: hidden;
+    height: 100vh;
+}
+*/
 
 #sidebar{
     padding: 30px;
+    width: 100%;
+    margin: 0;
 }
 
 .sidebar table {
@@ -56,8 +64,14 @@
 }
 */
 #dishSearchView {
-    padding: 15px;
+    /*padding-bottom: 15px;
+    padding-top: :15px;*/
     background-color: #fff291;
+}
+
+#dishItemView{
+    height: 100%;
+    overflow: scroll;
 }
 
 
@@ -75,10 +89,11 @@
     float: right;
     margin: 10px;
 }
-
+/*
 #dishSearchView {
     margin: 10px;
 }
+*/
 /*
 .full-pagee{
     position: fixed;
