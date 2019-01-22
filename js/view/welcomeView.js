@@ -14,7 +14,7 @@
  */
 var WelcomeView = function (container, model) {
 
-    const description = "asdasdasdasdasd";
+    const description = "asdasdasdasdasdasdasdasdasdasdasdasdasdasd";
     const btnText = "Create new dinner"
 
     const topRow = document.createElement('div');
