@@ -22,7 +22,7 @@ var DishDetailsView = function (container, model) {
     overviewBox.appendChild(goBackBtn);
 
     const ingredientsBox = document.createElement('div');
-    ['col-sm-12', 'col-md-6', 'ingr-table'].forEach(css => ingredientsBox.classList.add(css));
+    ['col-sm-12', 'col-md-6', 'ingr-table','my-0','py-2'].forEach(css => ingredientsBox.classList.add(css));
 
     const ingredientsTitle = document.createElement('h5');
     ingredientsTitle.innerHTML = 'Ingredients for ' + model.getNumberOfGuests() + ' people';

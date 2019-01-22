@@ -25,7 +25,7 @@ $(function () {
 	var dinnerOverView = new DinnerOverView(dinnerOverContainer, model);
 
 	// showWelcome();
-	//showDishSearch();
+	// showDishSearch();
 	// showDinnerPrintout();
 	// showDishDetails();
 	  showDinnerOver();
