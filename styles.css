@@ -50,14 +50,13 @@
     #sidebar {
         margin: 0px 10px;
     }
-
-
-}
-@media only screen and (max-width: 576px) {
     .avdelare{
-        visibility: hidden;
+        display: none;
     }
+
+
 }
+
 .dish-item {
     background-color: #dbdde0;
     margin: 15px;
@@ -101,7 +100,7 @@
 }
 
 .lyft{
-    margin-bottom: 0px;
+    margin-bottom: 6px;
 }
 
 #dishDetailsView .ingr-table {

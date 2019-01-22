@@ -40,8 +40,8 @@ var DinnerOverView = function (container, model) {
     nydiv.classList.add("align-self-end");
     nydiv.classList.add("lyft");
     hallare.classList.add("row");
-    //nydiv.classList.add("col-12");
-    //nydiv.classList.add("col-sm-1");
+    hallare.classList.add("col-md-1");
+    hallare.classList.add("col-sm-12");
     hallare.append(avdelare);
     hallare.append(nydiv);
     rows.append(hallare);
