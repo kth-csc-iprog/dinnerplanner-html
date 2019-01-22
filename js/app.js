@@ -2,6 +2,7 @@ $(function () {
 	//We instantiate our model
 	var model = new DinnerModel();
 	model.addDishToMenu(1);
+	model.addDishToMenu(100);
 
 	var sidebarContainer = $("#sidebar");
 	var welcomeContainer = $("#welcomeView");
