@@ -1,6 +1,7 @@
 $(function () {
 	//We instantiate our model
 	var model = new DinnerModel();
+	model.addDishToMenu(1);
 
 	var sidebarContainer = $("#sidebar");
 	var welcomeContainer = $("#welcomeView");
@@ -8,6 +9,7 @@ $(function () {
 	var dishItemContainer = $("#dishItemView");
 	var dinnerPrintoutContainer = $("#dinnerPrintoutView");
 	var goBackContainer = $("#goBackView");
+	var dishDetailsContainer = $("#dishDetailsView");
 
 
 	var sidebarView = new SidebarView(sidebarContainer, model);
@@ -16,10 +18,12 @@ $(function () {
 	var welcomeView = new WelcomeView(welcomeContainer, model);
 	var dinnerPrintoutView = new DinnerPrintoutView(dinnerPrintoutContainer, model);
 	var goBackView = new GoBackView(goBackContainer, model);
+	var dishDetailsView = new DishDetailsView(dishDetailsContainer, model);
 
 	// showWelcome();
-	// showDishSearch();
-	 showDinnerPrintout();
+	showDishSearch();
+	// showDinnerPrintout();
+	// showDishDetails();
 
 	function showWelcome() {
 		sidebarContainer.hide();
@@ -28,6 +32,7 @@ $(function () {
 		dishItemContainer.hide();
 		goBackContainer.hide();
 		dinnerPrintoutContainer.hide();
+		dishDetailsContainer.hide();
 	}
 
 	function showDishSearch() {
@@ -37,6 +42,8 @@ $(function () {
 		dishItemContainer.show();
 		dinnerPrintoutContainer.hide();
 		goBackContainer.hide();
+		dishDetailsContainer.hide();
+
 	}
 
 	function showDinnerPrintout() {
@@ -46,6 +53,17 @@ $(function () {
 		dishItemContainer.hide();
 		dinnerPrintoutContainer.show();
 		goBackContainer.show();
+		dishDetailsContainer.hide();
+	}
+
+	function showDishDetails() {
+		sidebarContainer.show();
+		welcomeContainer.hide();
+		dishSearchContainer.hide();
+		dishItemContainer.hide();
+		dishDetailsContainer.show();
+		dinnerPrintoutContainer.hide();
+		goBackContainer.hide();
 	}
 
 

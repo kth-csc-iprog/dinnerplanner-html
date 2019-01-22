@@ -1,9 +1,14 @@
 .title {
-    background-color: #c4ffd1;
-    padding: 50px;
-    margin-bottom: 0;
-
+    background-color: lightgray;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 35px;
+    margin-bottom: 10px;
 }
+
+.go-back-box {
+    background-color: grey;
+}
+
 /*
 .row {
     margin-left: 0;
@@ -11,8 +16,11 @@
 }
 */
 
+.container li {
+    background-color: blue;
+}
 
-#sidebar{
+#sidebar {
     padding: 30px;
 }
 
@@ -29,6 +37,7 @@
     display: none;
     float: right;
 }
+
 /*
 .center-image {
     margin: 5px auto;
@@ -50,6 +59,7 @@
     padding: 0;
     max-width: 150px;
 }
+
 /*
 #dishItemView{
     overflow: auto;
@@ -64,21 +74,39 @@
 .food [class*='col-'] {
     min-width: 150px;
     margin-bottom: 15px;
-  }
+}
 
 .dinner-text {
     float: left;
     margin: 10px;
 }
 
+.media-body {
+    width: 100%;
+}
+
 .go-back-btn {
-    float: right;
     margin: 10px;
+}
+
+#dinnerPrintoutView .media {
+    margin: 10px 0px;
+}
+
+#dinnerPrintoutView img {
+    padding: 10px 10px;
+    width: 100px;
 }
 
 #dishSearchView {
     margin: 10px;
 }
+
+#dishDetailsView .ingr-table {
+    background-color: lightyellow;
+    margin: 10px 0px;
+}
+
 /*
 .full-pagee{
     position: fixed;
