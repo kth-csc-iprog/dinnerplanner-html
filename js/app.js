@@ -2,6 +2,7 @@ $(function () {
 	//We instantiate our model
 	var model = new DinnerModel();
 	model.addDishToMenu(1);
+	model.addDishToMenu(2);
 	model.addDishToMenu(100);
 
 	var sidebarContainer = $("#sidebar");
@@ -27,9 +28,10 @@ $(function () {
 	//showDishSearch();
 	// showDinnerPrintout();
 	// showDishDetails();
-	   showDinnerOver();
+	  showDinnerOver();
 
 	function showWelcome() {
+		dinnerOverContainer.hide();
 		sidebarContainer.hide();
 		welcomeContainer.show();
 		dishSearchContainer.hide();
@@ -40,6 +42,7 @@ $(function () {
 	}
 
 	function showDishSearch() {
+		dinnerOverContainer.hide();
 		sidebarContainer.show();
 		welcomeContainer.hide();
 		dishSearchContainer.show();
@@ -51,6 +54,7 @@ $(function () {
 	}
 
 	function showDinnerPrintout() {
+		dinnerOverContainer.hide();
 		sidebarContainer.hide();
 		welcomeContainer.hide();
 		dishSearchContainer.hide();
@@ -72,6 +76,7 @@ $(function () {
 	}
 
 	function showDishDetails() {
+		dinnerOverContainer.hide();
 		sidebarContainer.show();
 		welcomeContainer.hide();
 		dishSearchContainer.hide();

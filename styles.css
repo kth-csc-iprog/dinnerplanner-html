@@ -50,8 +50,14 @@
     #sidebar {
         margin: 0px 10px;
     }
-}
 
+
+}
+@media only screen and (max-width: 576px) {
+    .avdelare{
+        visibility: hidden;
+    }
+}
 .dish-item {
     background-color: #dbdde0;
     margin: 15px;
@@ -92,6 +98,10 @@
 #dinnerPrintoutView img {
     padding: 10px 10px;
     width: 100px;
+}
+
+.lyft{
+    margin-bottom: 0px;
 }
 
 #dishDetailsView .ingr-table {

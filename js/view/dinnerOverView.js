@@ -30,14 +30,20 @@ var DinnerOverView = function (container, model) {
     }
 
     rows.append(model.getFullMenu().map(createItem));
-    total.innerHTML = ' Total: \n' + "<br>" +  model.getTotalMenuPrice() + ' SEK' ;
+    total.innerHTML = ' Total:' + "<br>" +  model.getTotalMenuPrice() + ' SEK' ;
+    var hallare = document.createElement('div');
     var avdelare = document.createElement('div');
     var nydiv = document.createElement('div');
     nydiv.appendChild(total);
     avdelare.classList.add("avdelare");
     nydiv.classList.add("d-flex")
     nydiv.classList.add("align-self-end");
-    rows.append(avdelare);
-    rows.append(nydiv);
+    nydiv.classList.add("lyft");
+    hallare.classList.add("row");
+    //nydiv.classList.add("col-12");
+    //nydiv.classList.add("col-sm-1");
+    hallare.append(avdelare);
+    hallare.append(nydiv);
+    rows.append(hallare);
     
 }
