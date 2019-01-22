@@ -1,6 +1,6 @@
 //DinnerModel Object constructor
 var DinnerModel = function () {
-	var numberOfGuests = 0;
+	var numberOfGuests = 3;
 	var menu = [];
 
 
@@ -42,20 +42,18 @@ var DinnerModel = function () {
 	this.getTotalMenuPrice = function () {
 		return menu
 			.flatMap(dish => dish.ingredients)
-			.reduce((acc, val) => {
-				const pricePerGuest = val.quantity * val.price;
-				return acc + pricePerGuest * numberOfGuests;
-			}, 0);
+			.reduce((acc, val) => acc + val.price * numberOfGuests, 0);
 	}
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function (id) {
-		var existingDishes = menu.find(dish => dish.type == getDish(id).type);
+		var existingDishes = menu.find(dish => dish.type == this.getDish(id).type);
 		if (existingDishes != undefined) {
 			existingDishes.forEach(dish => removeDishFromMenu(dish));
 		}
-		menu.push(getDish(id));
+		menu.push(this.getDish(id));
+		console.log(menu);
 	}
 
 	//Removes dish from menu
