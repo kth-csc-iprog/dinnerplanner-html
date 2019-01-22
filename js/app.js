@@ -10,6 +10,7 @@ $(function () {
 	var dinnerPrintoutContainer = $("#dinnerPrintoutView");
 	var goBackContainer = $("#goBackView");
 	var dishDetailsContainer = $("#dishDetailsView");
+	var dinnerOverContainer = $("#dinnerOverView")
 
 
 	var sidebarView = new SidebarView(sidebarContainer, model);
@@ -19,11 +20,13 @@ $(function () {
 	var dinnerPrintoutView = new DinnerPrintoutView(dinnerPrintoutContainer, model);
 	var goBackView = new GoBackView(goBackContainer, model);
 	var dishDetailsView = new DishDetailsView(dishDetailsContainer, model);
+	var dinnerOverView = new DinnerOverView(dinnerOverContainer, model);
 
 	// showWelcome();
-	showDishSearch();
+	//showDishSearch();
 	// showDinnerPrintout();
 	// showDishDetails();
+	   showDinnerOver();
 
 	function showWelcome() {
 		sidebarContainer.hide();
@@ -52,6 +55,17 @@ $(function () {
 		dishSearchContainer.hide();
 		dishItemContainer.hide();
 		dinnerPrintoutContainer.show();
+		goBackContainer.show();
+		dishDetailsContainer.hide();
+	}
+
+	function showDinnerOver() {
+		sidebarContainer.hide();
+		welcomeContainer.hide();
+		dishSearchContainer.hide();
+		dishItemContainer.hide();
+		dinnerOverContainer.show();
+		dinnerPrintoutContainer.hide();
 		goBackContainer.show();
 		dishDetailsContainer.hide();
 	}
