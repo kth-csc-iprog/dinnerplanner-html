@@ -10,7 +10,7 @@ var DinnerOverView = function (container, model) {
         dish.ingredients
         .map(ingr => ingr.price)
         .reduce((acc, val) => acc + val) * model.getNumberOfGuests();
-        totalint += price;
+        totalint += price.innerHTML;
         var div = document.createElement('div');
         ['dish-item','col-auto', 'col-sm-auto', 'col-lg-auto','text-center', 'border','border-dark','px-0','py-0','d-inline-flex-colum'].forEach(cssClass => div.classList.add(cssClass));
         var paragraph = document.createElement('p');
@@ -34,11 +34,12 @@ var DinnerOverView = function (container, model) {
     total.innerHTML = totalint;
     var avdelare = document.createElement('div');
     var nydiv = document.createElement('div');
-    var nydiv.add(p)
+    nydiv.appendChild(total);
     avdelare.classList.add("border");
     avdelare.classList.add("w-1");
     avdelare.classList.add("fuck");
     
     rows.append(avdelare);
+    rows.append(nydiv);
     
 }

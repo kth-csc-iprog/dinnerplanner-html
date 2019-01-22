@@ -62,7 +62,7 @@ $(function () {
 	function showDinnerOver() {
 		sidebarContainer.hide();
 		welcomeContainer.hide();
-		dishSearchContainer.hide();
+		dishSearchContainer.hide();	
 		dishItemContainer.hide();
 		dinnerOverContainer.show();
 		dinnerPrintoutContainer.hide();
