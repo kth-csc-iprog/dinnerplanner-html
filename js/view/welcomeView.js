@@ -30,6 +30,7 @@ var WelcomeView = function (container, model) {
 
     const btn = document.createElement('button');
     btn.innerHTML = btnText;
+    ['btn', 'btn-light'].forEach(cssClass => btn.classList.add(cssClass));
     bottomRow.appendChild(btn);
 
     container.append(topRow);

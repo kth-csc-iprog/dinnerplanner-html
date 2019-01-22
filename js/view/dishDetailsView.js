@@ -15,6 +15,7 @@ var DishDetailsView = function (container, model) {
 
     const goBackBtn = document.createElement('button');
     goBackBtn.innerHTML = "Back to search";
+    ['btn', 'btn-light'].forEach(cssClass => goBackBtn.classList.add(cssClass));
 
     overviewBox.appendChild(title);
     overviewBox.appendChild(image);
@@ -22,7 +23,7 @@ var DishDetailsView = function (container, model) {
     overviewBox.appendChild(goBackBtn);
 
     const ingredientsBox = document.createElement('div');
-    ['col-sm-12', 'col-md-6', 'ingr-table'].forEach(css => ingredientsBox.classList.add(css));
+    ['col-sm-12', 'col-md-6', 'ingr-table', 'my-0', 'py-2'].forEach(css => ingredientsBox.classList.add(css));
 
     const ingredientsTitle = document.createElement('h5');
     ingredientsTitle.innerHTML = 'Ingredients for ' + model.getNumberOfGuests() + ' people';
@@ -53,6 +54,7 @@ var DishDetailsView = function (container, model) {
 
     const addToMenuBtn = document.createElement('button');
     addToMenuBtn.innerHTML = 'Add to menu';
+    ['btn', 'btn-light'].forEach(cssClass => addToMenuBtn.classList.add(cssClass));
 
     ingredientsBox.appendChild(ingredientsTitle);
     ingredientsBox.appendChild(table);

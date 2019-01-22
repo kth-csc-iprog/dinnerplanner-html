@@ -35,6 +35,10 @@
     background-color: grey;
 }
 
+#sidebar-toggle {
+    display: none;
+}
+
 
 /*
 .center-image {
@@ -50,6 +54,16 @@
     #sidebar {
         margin: 0px 10px;
     }
+
+    .avdelare {
+        display: none;
+    }
+
+    #sidebar-toggle {
+        display: initial;
+    }
+
+
 }
 
 .dish-item {
@@ -80,14 +94,22 @@
     margin: 10px 0px;
 }
 
-.fuck{
+.avdelare {
     height: 180px;
-    margin-top: 25px;
+    width: 1px;
+    margin: 25px;
+    /*border: black;*/
+    background-color: #969696;
+    /*margin-top: 25px;*/
 }
 
 #dinnerPrintoutView img {
     padding: 10px 10px;
     width: 100px;
+}
+
+.lyft {
+    margin-bottom: 6px;
 }
 
 #dishDetailsView .ingr-table {

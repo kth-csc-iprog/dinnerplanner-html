@@ -50,7 +50,8 @@ var DinnerModel = function () {
 	this.addDishToMenu = function (id) {
 		var existingDishes = menu.find(dish => dish.type == this.getDish(id).type);
 		if (existingDishes != undefined) {
-			existingDishes.forEach(dish => removeDishFromMenu(dish));
+			this.removeDishFromMenu(existingDishes.id);
+		// ändrade så existing dishes kan vara vara en rätt
 		}
 		menu.push(this.getDish(id));
 		console.log(menu);
@@ -59,7 +60,7 @@ var DinnerModel = function () {
 	//Removes dish from menu
 	this.removeDishFromMenu = function (id) {
 		var index = menu.findIndex(dish => dish.id == id);
-		if (index != -1) delete menu[index];
+		if (index != -1) menu.splice(index,1);
 	}
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
