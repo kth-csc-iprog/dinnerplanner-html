@@ -1,45 +1,40 @@
 .title {
     background-color: lightgray;
     font-family: Arial, Helvetica, sans-serif;
-    padding: 35px;
-    
-    /*margin-bottom: 10px;*/
+    width: 100%;
+    padding: 30px;
 }
 
-.go-back-box {
+#goBackView {
     background-color: grey;
+    height: 100px;
 }
 
-/*
-.row {
-    margin-left: 0;
-    margin-right: 0;
-}
-*/
 
-.container li {
-    background-color: blue;
+.content {
+    margin: 0;
+    padding: 0;
+}
+
+#total-due {
+    margin: 10px 10px;
 }
 
 #sidebar {
     padding: 30px;
-    width: 100%;
     margin: 0;
+    border: 1px solid black;
 }
 
-.sidebar table {
+#sidebar table {
     padding: 15px auto;
     width: 100%;
 }
 
-.sidebar table th {
+#sidebar table th {
     background-color: grey;
 }
 
-#toggle-btn {
-    display: none;
-    float: right;
-}
 
 /*
 .center-image {
@@ -47,12 +42,13 @@
 }
 */
 @media only screen and (max-width: 768px) {
-    .sidebar {
-        background-color: #9e94f7;
+
+    #sidebar-hidden-part {
+        display: none;
     }
 
-    #toggle-btn {
-        display: initial;
+    #sidebar {
+        margin: 0px 10px;
     }
 }
 
@@ -63,21 +59,9 @@
     max-width: 150px;
 }
 
-/*
-#dishItemView{
-    overflow: auto;
-}
-*/
-#dishSearchView {
-    /*padding-bottom: 15px;
-    padding-top: :15px;*/
-    background-color: #fff291;
-    margin: 0;
-}
 
-#dishItemView{
+#dishItemView {
     height: 100%;
-    overflow: auto;
 }
 
 
@@ -86,18 +70,11 @@
     margin-bottom: 15px;
 }
 
-.dinner-text {
-    float: left;
-    margin: 10px;
+#dishSearchView {
+    padding: 15px;
+    border: 1px solid black;
 }
 
-.media-body {
-    width: 100%;
-}
-
-.go-back-btn {
-    margin: 10px;
-}
 
 #dinnerPrintoutView .media {
     margin: 10px 0px;
@@ -113,10 +90,12 @@
     width: 100px;
 }
 
-
-
 #dishDetailsView .ingr-table {
     background-color: lightyellow;
+    margin: 10px 0px;
+}
+
+#sidebarTable {
     margin: 10px 0px;
 }
 

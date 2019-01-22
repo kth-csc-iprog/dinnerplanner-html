@@ -16,56 +16,52 @@
 </head>
 
 <body>
-	<div class="container-fluid  px-0 ">
-		<h1 class="title col-12 flex-fill">Dinner planner</h1>
+	<h1 class="title">Dinner planner</h1>
+	<div class="container">
 		<div class="row">
-			<div class="sidebar col-sm-12 col-md-4 col-lg-3 " id="sidebar">
+			<div id="sidebar" class="col-sm-12 col-md-4 col-lg-3">
 				<div>
 					<h4>My Dinner</h4>
-					<button id="toggle-btn">I'm small</button>
 				</div>
-				<div>People</div>
-				<input type="number" min="0" id="people">
-				<table id="sidebarTable">
-					<tr class="border">
-						<th>Dish Name</th>
-						<th>Cost</th>
-					</tr>
-				</table>
-				<h5 id="total-due">Total: $75</h5>
-				<button>Confirm order</button>
-			</div>
-			<div class="col-sm col-md col-lg px-0" id="content">
-				<div id="welcomeView">
+				<div id="sidebar-hidden-part">
+					<div>People</div>
+					<input type="number" min="0" id="people">
+					<table id="sidebarTable">
+						<tr class="border">
+							<th>Dish Name</th>
+							<th>Cost</th>
+						</tr>
+					</table>
 
+					<button>Confirm order</button>
 				</div>
-				<div id="goBackView" class="go-back-box col-12"></div>
-				<div id="dishSearchView" class="w-100">
-					<p>Find a dish</p>
+				<h5 id="total-due">Total: $75</h5>
+			</div>
+
+			<div class="col-sm-12 col-md col-lg">
+				<div id="welcomeView" class="col-12"></div>
+				<div id="goBackView" class="col-12"></div>
+				<div id="dishSearchView" class="col-12">
+					<h5>Find a dish</h5>
 
 					<div class="row">
-						<div class="col">
+						<div class="col-12">
 							<input type="text" id="dish">
 						</div>
-						<div class="col-md-auto">
+						<div class="col-12">
 							<select name="category" id="options">
 								<option value="dinner">All</option>
 							</select>
 						</div>
-						<div class="col-md-auto">
-							<button id="search">search</button>
+						<div class="col-12">
+							<button id="search">Search</button>
 						</div>
 					</div>
 				</div>
-				<div id="dishItemView">
-					<div id="dishrows" class="row food border border-dark justify-content-center mx-auto">
-
-					</div>
-
+				<div id="dishItemView" class="col-12">
+					<div id="dishrows" class="row food border border-dark justify-content-center mx-auto"></div>
 				</div>
-				<div id="dinnerPrintoutView" class="container">
-				</div>
-
+				<div id="dinnerPrintoutView" class="col-12"></div>
 				<div id="dishDetailsView" class="row"></div>
 				<div id="dinnerOverView" class="row">
 						<div>
