@@ -1,4 +1,3 @@
-
 var ExampleView = function (container, model) {
 	
 	var numberOfGuests = container.find("#numberOfGuests");

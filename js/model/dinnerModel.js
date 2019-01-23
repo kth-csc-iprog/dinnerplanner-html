@@ -3,10 +3,8 @@ var DinnerModel = function () {
 	var numberOfGuests = 3;
 	var menu = [];
 
-
 	//TODO Lab 1 implement the data structure that will hold number of guest
 	// and selected dishes for the dinner menu
-
 
 	this.setNumberOfGuests = function (num) {
 		if (num >= 0) numberOfGuests = num;
@@ -63,6 +61,7 @@ var DinnerModel = function () {
 		if (index != -1) menu.splice(index,1);
 	}
 
+    
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
 	//you can use the filter argument to filter out the dish by name or ingredient (use for search)
 	//if you don't pass any filter all the dishes will be returned
@@ -90,12 +89,12 @@ var DinnerModel = function () {
 			if (dishes[key].id == id) {
 				return dishes[key];
 			}
-		}
-	}
+    }
+	  return undefined;
+  }
 
-
-	// the dishes variable contains an array of all the 
-	// dishes in the database. each dish has id, name, type,
+	// the dishes constant contains an array of all the 
+	// dishes in the database. Each dish has id, name, type,
 	// image (name of the image file), description and
 	// array of ingredients. Each ingredient has name, 
 	// quantity (a number), price (a number) and unit (string 
