@@ -2,7 +2,7 @@ var DishDetailsView = function (container, model) {
     const dish = model.getDishes()[0];
 
     const overviewBox = document.createElement('div');
-    ['col-sm-12', 'col-md-6'].forEach(css => overviewBox.classList.add(css));
+    ['col-sm-12', 'col-md-6', 'p-3'].forEach(css => overviewBox.classList.add(css));
 
     const title = document.createElement('h4');
     title.innerHTML = dish.name;
@@ -23,7 +23,7 @@ var DishDetailsView = function (container, model) {
     overviewBox.appendChild(goBackBtn);
 
     const ingredientsBox = document.createElement('div');
-    ['col-sm-12', 'col-md-6', 'ingr-table', 'my-0', 'py-2'].forEach(css => ingredientsBox.classList.add(css));
+    ['col-sm-12', 'col-md-6', 'ingr-table', 'p-3'].forEach(css => ingredientsBox.classList.add(css));
 
     const ingredientsTitle = document.createElement('h5');
     ingredientsTitle.innerHTML = 'Ingredients for ' + model.getNumberOfGuests() + ' people';

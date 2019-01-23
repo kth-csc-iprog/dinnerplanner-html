@@ -26,9 +26,9 @@ $(function () {
 
 	// showWelcome();
 	// showDishSearch();
-	// showDinnerPrintout();
+    // showDinnerPrintout();
 	showDishDetails();
-	// showDinnerOver();
+    //	showDinnerOver();
 
 	function showWelcome() {
 		dinnerOverContainer.hide();
