@@ -5,7 +5,8 @@ var DinnerModel = function() {
 	// and selected dishes for the dinner menu
 	
 	var GuestNum = 3;
-	var dishMenu = [{
+	var dishMenu = [
+		{
 		'id':1,
 		'name':'Frenched toast',
 		'type':'starter',
@@ -248,7 +249,7 @@ var DinnerModel = function() {
 		}];
 
 	this.setGuestNum = function(num) {
-		GuestNum += num;
+		GuestNum = num;
 		//finito
 	}
 	
