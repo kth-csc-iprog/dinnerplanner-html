@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en">
+<head>
+    <style>
+        div {
+            text-align: center;
+        }
+        h1 {
+
+            text-align: center;
+            font-size: 50px;
+            background-color: lightblue
+        }
+        .container {
+            display: inline;
+            position: relative;
+            width: 10%;
+        }
+
+            /* Make the image responsive */
+            .container img {
+                width: 15%;
+                height: auto;
+            }
+
+            /* Style the button and place it in the middle of the container/image */
+            .container .btn {
+                position: absolute;
+                top: 100%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                -ms-transform: translate(-50%, -50%);
+                background-color: #555;
+                color: white;
+                font-size: 12px;
+                padding: 10px 14px;
+                border: none;
+                cursor: pointer;
+                border-radius: 5px;
+            }
+
+                .container .btn:hover {
+                    background-color: black;
+                }
+        .inline-block {
+            display: inline-block;
+        }
+        div.item {
+            vertical-align: top;
+            display: inline-block;
+            text-align: center;
+            width: 120px;
+        }
+
+        img {
+            width: 100px;
+            height: 100px;
+            background-color: grey;
+        }
+
+        .caption {
+            display: block;
+        }
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+</head>
+<body>
+    <div class="row">
+        <div class="col-sm-12"><div  style=" border: solid; font-size: 50px; background-color: lightblue">Dinner planner</div> </div>
+    </div>
+    <div class="row">
+        <div style=" border: solid"class="col-sm-3">
+            <header> My Dinner</header>
+            <div style="display: inline">People: </div> <select>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+            </select>
+                <div >
+                    <div style="display: inline; text-align: left;">
+                        Dish
+                    </div>
+                    <div style="display: inline; text-align: right;">
+                        Cost
+                    </div>
+                </div>
+                <div>
+
+                    <div style="display: inline; text-align: right;">
+                        SEK 0.00
+                    </div>
+                    <div class="col-sm-12"><ourbutton><button style="background-color: gray; box-shadow: 20" type="button">Confirm Dinner</button></ourbutton></div>
+                </div>
+        </div>
+            <div class="col-sm-9">
+                <div style=" border: solid" class="row">
+                    <div>Find a dish</div>
+                    <div style="display: inline"> </div> <select>
+                        <option value="All">All</option>
+                        <option value="Main Coures">Main Coures</option>
+                        <option value="Side Dish">Side Dish</option>
+                        <option value="Dessert">Dessert</option>
+                        <option value="Appetizer">Appetizer</option>
+                    </select>
+                    <ourbutton><button style="background-color: orange; box-shadow: 20" type="button">Search</button></ourbutton>
+                </div>
+                <div class="inline-block">
+                    <div class="item" >
+                        <img src="images/toast.jpg" />
+                        <span class="caption">Toast is burnt bread.</span>
+                        <ourbutton><button style="background-color: orange; box-shadow: 20" type="button">Back to search</button></ourbutton>
+                    </div>
+
+                    <div class="inline-block" style=" border: solid; font-size: 30px; background-color: lightcoral">
+                        <div>Toast ingredients: bread and heat </div>
+                        <ourbutton><button style="background-color: orange; box-shadow: 20" type="button">Add to menu</button></ourbutton>
+                    </div>
+                </div>
+
+
+
+
+
+</body>
+</html>
+
+    <!-- jQuery, only for use by Bootstrap -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+	<!-- The application JavaScript code -->
+	<script src="js/app.js"></script>
+	<script src="js/model/dinnerModel.js"></script>
+	<script src="js/view/exampleView.js"></script>
+	<!-- TODO: Here you should include JS code for your other views -->
+  </body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en">
+<head>
+    <style>
+        div {
+            text-align: center;
+        }
+        h1 {
+            text-align: center;
+            font-size: 50px;
+            background-color: lightblue
+        }
+        .inline-block {
+            display: inline-block;
+        }
+        .container {
+            display: inline-block;
+            position: relative;
+            width: 10%;
+        }
+
+
+
+            /* Make the image responsive */
+            .container img {
+                width: 15%;
+                height: auto;
+            }
+
+            /* Style the button and place it in the middle of the container/image */
+            .container .btn {
+                position: absolute;
+                top: 100%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                -ms-transform: translate(-50%, -50%);
+                background-color: #555;
+                color: white;
+                font-size: 12px;
+                padding: 10px 14px;
+                border: none;
+                cursor: pointer;
+                border-radius: 5px;
+            }
+
+                .container .btn:hover {
+                    background-color: black;
+                }
+        .caption {
+            display: block;
+        }
+        .column {
+            padding: 1px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+</head>
+<body>
+    <div class="row">
+        <div class="col-sm-12"><div style="font-size: 50px; background-color: lightblue">Dinner planner</div> </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div style="font-size: 20px; text-align: left">My dinner: 3 people</div> 
+        </div>
+        <div class="col-sm-6">
+            <div style="font-size: 20px; text-align: right">
+                <ourbutton><button style="background-color: orange; box-shadow: 20" type="button">Go back!</button></ourbutton>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-1"> </div>
+        <div class="col-sm-10">
+            <div class="row">
+                <div class="column">
+                    <div style="display: inline-block" class="container">
+                        <img src="images/bakedbrie.jpg" alt="Snow">
+                        <span class="caption">3444SEK.</span>
+                    </div>
+                </div>
+                <div class="column">
+                    <div style="display: inline-block" class="container">
+                        <img src="images/meatballs.jpg" alt="Snow">
+                        <span class="caption">3444SEK.</span>
+                    </div>
+                </div>
+                <div class="column">
+                    <div style="display: inline-block" class="container">
+                        <img src="images/icecream.jpg" alt="Snow">
+                        <span class="caption">3444SEK.</span>
+                    </div>
+                </div>
+                <div style="border-left-style: dashed; text-align: end" class="column">
+                    <div style="display: inline-block" class="container">
+                        TOTAL: 1 031 SEK
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    <div class="col-sm-1"> </div>
+
+    <div class="row">
+        <div class="col-sm-12"><ourbutton><button style="background-color: orange; box-shadow: 20" type="button">Print full receipt</button></ourbutton></div>
+    </div>
+</body>
+</html>
+
+    <!-- jQuery, only for use by Bootstrap -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+	<!-- The application JavaScript code -->
+	<script src="js/app.js"></script>
+	<script src="js/model/dinnerModel.js"></script>
+	<script src="js/view/exampleView.js"></script>
+	<!-- TODO: Here you should include JS code for your other views -->
+  </body>
+</html>
