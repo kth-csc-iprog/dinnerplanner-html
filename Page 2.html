@@ -1,59 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-<html lang="en">
 <head>
-    <style>
-        div {
-            text-align: center;
-        }
-        h1 {
-
-            text-align: center;
-            font-size: 50px;
-            background-color: lightblue
-        }
-        .container {
-            display: inline;
-            position: relative;
-            width: 10%;
-        }
-
-            /* Make the image responsive */
-            .container img {
-                width: 15%;
-                height: auto;
-            }
-
-            /* Style the button and place it in the middle of the container/image */
-            .container .btn {
-                position: absolute;
-                top: 100%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                -ms-transform: translate(-50%, -50%);
-                background-color: #555;
-                color: white;
-                font-size: 12px;
-                padding: 10px 14px;
-                border: none;
-                cursor: pointer;
-                border-radius: 5px;
-            }
-
-                .container .btn:hover {
-                    background-color: black;
-                }
-    </style>
+    <link rel="stylesheet" type="text/css" href="CSS/Stylesheet.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
 </head>
 <body>
     <div class="row">
-        <div class="col-sm-12"><div  style=" border: solid; font-size: 50px; background-color: lightblue">Dinner planner</div> </div>
+        <div id="Head" class="col-sm-12"><div>Dinner planner</div></div>
     </div>
     <div class="row">
         <div style=" border: solid"class="col-sm-3">
-            <header> My Dinner</header>
-            <div style="display: inline">People: </div> <select>
+            <header>My Dinner</header>
+            <div id="Sidebarview" style="display: inline">People: <span id="numberOfGuests"> </span>
+             <select>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -63,21 +22,18 @@
                 <option value="7">7</option>
                 <option value="8">8</option>
             </select>
-                <div >
+                <div>
                     <div style="display: inline; text-align: left;">
-                        Dish
+                        Dish Name
                     </div>
                     <div style="display: inline; text-align: right;">
                         Cost
                     </div>
                 </div>
-                <div>
 
-                    <div style="display: inline; text-align: right;">
-                        SEK 0.00
+                    <p id="TotalPrice" style="display: inline; text-align: right;"></p>
+                    <div class="col-sm-12"><ourbutton><button style="background-color: orange; box-shadow: 20" type="button">Confirm Purchase</button></ourbutton></div>
                     </div>
-                    <div class="col-sm-12"><ourbutton><button style="background-color: gray; box-shadow: 20" type="button">Confirm Dinner</button></ourbutton></div>
-                </div>
         </div>
         <div class="col-sm-9">
             <div style=" border: solid" class="row">
@@ -91,7 +47,7 @@
                 </select>
                 <ourbutton><button style="background-color: orange; box-shadow: 20" type="button">Search</button></ourbutton>
             </div>
-            <div class="col-sm-9">
+            <div id="Image" class="col-sm-9" class="col-xs-12" >
                 <div class="container">
                     <img src="images/bakedbrie.jpg" alt="Snow">
                     <button class="btn">Button</button>
@@ -113,9 +69,6 @@
                     <button class="btn">Button</button>
                 </div>
             </div>
-
-
-
 </body>
 </html>
 
@@ -128,6 +81,7 @@
 	<script src="js/app.js"></script>
 	<script src="js/model/dinnerModel.js"></script>
 	<script src="js/view/exampleView.js"></script>
+  <script src="js/view/Sidebarview.js"></script>
 	<!-- TODO: Here you should include JS code for your other views -->
   </body>
 </html>

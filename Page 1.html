@@ -1,31 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <style>
-        div {
-            text-align: center;
-        }
-        h1 {
-            text-align: center;
-            font-size: 50px;
-            background-color: lightblue
-        }
-    </style>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="/CSS/Stylesheet.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
 </head>
 <body>
-  <p id = "guests"></p>
     <div class="row">
-        <div class="col-sm-12"><div style="font-size: 50px; background-color: lightblue">Dinner planner</div> </div>
+        <div class="col-sm-12"><div style="font-size: 50px; background-color: lightblue">Dinner Planner</div> </div>
     </div>
     <div class="row">
         <div class="col-sm-1"> </div>
-            <div class="col-sm-10">ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Mauris ante ligula, facilisis sed ornare eu, lobortis in odio... </div>
+            <div class="col-sm-10"> </div>
         </div>
     <div class="col-sm-1"> </div>
-
-    <div class="row">
-        <div class="col-sm-12"><ourbutton><button style="background-color: orange; box-shadow: 20" type="button">Create new dinner!</button></ourbutton></div>
+    <br><br><br>
+    <div id="welcome" class="row">
+        <div class="col-sm-12"><button id="button" style="background-color: orange; box-shadow: 20" type="button">Click here for your dinner-adventure!</button></div>
     </div>
 </body>
 </html>
@@ -36,9 +26,9 @@
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 
 	<!-- The application JavaScript code -->
-	<script src="js/app.js"></script>
-	<script src="js/model/dinnerModel.js"></script>
 	<script src="js/view/exampleView.js"></script>
+	<script src="js/model/dinnerModel.js"></script>
+	<script src="js/app.js"></script>
 	<!-- TODO: Here you should include JS code for your other views -->
   </body>
 </html>

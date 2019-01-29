@@ -1,0 +1,74 @@
+html {
+   margin: 0px;
+   height: 100%;
+   width: 100%;
+}
+
+body {
+   margin: 0px;
+   min-height: 100%;
+   width: 100%;
+}
+
+#Head {
+  background-color: lightblue;
+  text-align: center;
+  font-size: 40px;
+}
+
+h1 {
+
+    text-align: center;
+    font-size: 50px;
+    background-color: lightblue
+}
+.container {
+    display: inline;
+    position: relative;
+    width: 10%;
+}
+
+    /* Make the image responsive */
+    .container img {
+        width: 15%;
+        height: auto;
+    }
+
+    /* Style the button and place it in the middle of the container/image */
+    .container .btn {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        background-color: #555;
+        color: white;
+        font-size: 12px;
+        padding: 10px 14px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+        .container .btn:hover {
+            background-color: black;
+        }
+.inline-block {
+    display: inline-block;
+}
+div.item {
+    vertical-align: top;
+    display: inline-block;
+    text-align: center;
+    width: 120px;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+    background-color: grey;
+}
+
+.caption {
+    display: block;
+}
