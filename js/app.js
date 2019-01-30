@@ -3,13 +3,15 @@ window.onload= function() {
 	var model = new DinnerModel();
 	model.setGuestNum(5);
 
-	var guestNum = new People($("#Sidebarview"), model);
+	//var guestNum = new People($("#Sidebarview"), model);
 
-	var price = new Price($("#Sidebarview"), model);
+	//var price = new Price($("#Sidebarview"), model);
 
 	// And create the instance of ExampleView
 	//const exampleView = new ExampleView(document.querySelector("#exampleView"));
-	//const welcomeView = new WelcomeView(document.querySelector("#welcome"), model);
+	const mealsView = new MealsView(document.querySelector("#Image"), model);
+    mealsView.addMealButtons();
+
 	/**
 	 * IMPORTANT: app.js is the only place where you are allowed to
 	 * query for elements in the whole document.

@@ -21,10 +21,38 @@ class WelcomeView {
   constructor (container, model){
     this.container = container;
   	this.model = model;
-    this.button = container.querySelector("#button");
-    this.button.innerHTML = "Create a tasty menu!"
+    this.button = container.querySelector("#test");
+    this.button.innerHTML = "Create a TESTy menu!"
   }
 }
+
+class MealsView {
+  constructor (container, model){
+    this.container = container;
+    this.model = model;
+  }
+
+
+addMealButtons(){
+    var menu = this.model.getFullMenu()
+    for (var idx in menu){
+        console.log(menu[idx]['name'])
+        var newCont = document.createElement("DIV")
+        var newButt = document.createElement("BUTTON")
+        var newImg = document.createElement("img")
+        newCont.className = "container"
+        newButt.className = "btn"
+        newImg.src = "images/" + String(menu[idx]['image'])
+        newImg.alt = String(menu[idx]['name'])
+        newButt.innerHTML = String(menu[idx]['name'])
+        newCont.appendChild(newImg)
+        newCont.appendChild(newButt)
+        this.container.appendChild(newCont)
+    }
+}
+}
+
+
 class ExampleView {
     constructor (container, model) {
 	this.container=container;
