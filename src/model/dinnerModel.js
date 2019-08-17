@@ -52,6 +52,7 @@ class DinnerModel {
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
 	//you can use the filter argument to filter out the dish by name or ingredient (use for search)
 	//if you don't pass any filter all the dishes will be returned
+  //TODO freese returns?
 	getAllDishes(type,filter) {
 	  return this.dishes.filter(function(dish) {
 		let found = true;
@@ -72,6 +73,7 @@ class DinnerModel {
 	}
 
 	//function that returns a dish of specific ID
+  //TODO freese returns?
 	getDish (id) {
 	    for(let dsh of this.dishes){
 		if(dsh.id == id) {
