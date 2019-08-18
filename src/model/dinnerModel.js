@@ -335,4 +335,18 @@ const dishesConst = [{
 }
 ];
 
+// Deepfreeze
+// https://github.com/substack/deep-freeze/blob/master/index.js
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze
+Object.freeze(dishesConst);
+Object.getOwnPropertyNames(dishesConse).forEach(function (prop) {
+  if (dishesConst.hasOwnProperty(prop)
+  && dishesConst[prop] !== null
+  && (typeof dishesConst[prop] === "object" || typeof dishesConst[prop] === "function")
+  && !Object.isFrozen(dishesConst[prop])) {
+    deepFreeze(dishesConst[prop]);
+  }
+});
+
+
 
