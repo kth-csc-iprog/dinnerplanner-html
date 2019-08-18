@@ -28,92 +28,73 @@ describe("DinnerModel", () => {
   });
 
   describe("getting individual dishes", () => {
-    it("gets the correct dish", () => {
-      const dish1 = model.getDish(1);
-      expect(dish1.id).to.equal(1);
-      expect(dish1.name).to.equal("French toast");
+    it("gets the correct dish", (done) => {
+      model.getDish(559251)
+        .then((data) => {
+          expect(data.title).to.equal("Breakfast Pizza");
+          done();
+        });
+    }).timeout(10000);
 
-      const dish100 = model.getDish(100);
-      expect(dish100.id).to.equal(100);
-      expect(dish100.name).to.equal("Meat balls");
-    });
-
-    it("returns undefined if dish is not found", () => {
-      const result1 = model.getDish(-1);
-      expect(result1).to.equal(undefined);
-
-      const result2 = model.getDish();
-      expect(result2).to.equal(undefined);
-    });
+    it("returns undefined if dish is not found", (done) => {
+      model.getDish(-1)
+        .then((data) => {
+          expect(data.code).to.equal(404);
+          done();
+        });
+    }).timeout(10000);
   });
 
   describe("filtering for dishes", () => {
-    it("returns all dishes if no args are specified", () => {
-      const allDishes = model.getAllDishes();
-      expect(allDishes.length).to.equal(10);
-    });
+    it("returns all dishes if no args are specified", (done) => {
+      model.getAllDishes()
+        .then((data) => {
+          console.log("data length", data.length);
+          expect(data.length).to.equal(10);
+          done();
+        });
+    }).timeout(10000);
 
-    it("returns the correct dish type", () => {
-      let dishes = model.getAllDishes("starter");
-      const onlyHasStarters = dishes.every(dish => dish.type === "starter");
-      expect(onlyHasStarters).to.equal(true);
-
-      dishes = model.getAllDishes("main dish");
-      const onlyHasMain = dishes.every(dish => dish.type === "main dish");
-      expect(onlyHasMain).to.equal(true);
-    });
-
-    it("filters with keywords", () => {
-      let dishes = model.getAllDishes("", "French");
-      let allDishesMatch = dishes.every(dish => dish.name.includes("French"));
-      expect(dishes.length).to.be.above(0);
-      expect(allDishesMatch).to.equal(true);
-
-      dishes = model.getAllDishes("", "Meat");
-      allDishesMatch = dishes.every(dish => dish.name.includes("Meat"));
-      expect(dishes.length).to.be.above(0);
-      expect(allDishesMatch).to.equal(true);
-    });
-
-    it("returns correct dishes with filter and type", () => {
-      const dishes = model.getAllDishes("starter", "Sour");
-      const allDishesMatch = dishes.every(
-        dish => dish.name.includes("Sour") && dish.type === "starter"
-      );
-      expect(dishes.length).to.be.above(0);
-      expect(allDishesMatch).to.equal(true);
-    });
+    it("returns the correct dish type of main course and pizza", (done) => {
+      model.getAllDishes("main course", "pizza")
+        .then((data) => {
+          console.log("filtered", data);
+          const onlyHasPizzas = data.every(dish => dish.title.toLowerCase().indexOf("pizza") > -1);
+          expect(onlyHasPizzas).to.equal(true);
+          done();
+        });
+    }).timeout(10000);
   });
 
   describe("menu", () => {
-    it("can add dishes", () => {
-      model.addDishToMenu(1);
-      expect(model.getFullMenu()).to.include(model.getDish(1));
+    it("can add dishes", (done) => {
+      model.getDish(559251)
+        .then((data) => {
+          model.addDishToMenu(data);
+          expect(model.getFullMenu().length).to.equal(1);
+          expect(model.getFullMenu()[0].id).to.equal(559251);
+          done();
+        });
+    }).timeout(10000);
 
-      model.addDishToMenu(100);
-      expect(model.getFullMenu()).to.include(model.getDish(1));
-      expect(model.getFullMenu()).to.include(model.getDish(100));
-    });
+    it("can remove dishes", (done) => {
+      model.getDish(559251)
+        .then((data) => {
+          model.addDishToMenu(data);
+          expect(model.getFullMenu().length).to.equal(1);
+          expect(model.getFullMenu()[0].id).to.equal(559251);
 
-    it("overwrites dishes of the same type when adding", () => {
-      model.addDishToMenu(1);
-      expect(model.getFullMenu()).to.include(model.getDish(1));
+          model.removeDishFromMenu(559251);
+          expect(model.getFullMenu().length).to.equal(0);
+          expect(model.getFullMenu()).to.not.include(data);
+          done();
+        });
+    }).timeout(10000);
+  });
 
-      model.addDishToMenu(2);
-      // the old starter dish should no longer exist
-      expect(model.getFullMenu()).to.not.include(model.getDish(1));
-      // the new dish should exist
-      expect(model.getFullMenu()).to.include(model.getDish(2));
-    });
-
-    it("can remove dishes", () => {
-      model.addDishToMenu(1);
-      // dish 1 should be in the menu
-      expect(model.getFullMenu()).to.include(model.getDish(1));
-
-      model.removeDishFromMenu(1);
-      // should now be removed
-      expect(model.getFullMenu()).to.not.include(model.getDish(1));
+  describe("loading indicator", () => {
+    it("checks if the loading indicator is still visible on the page", () => {
+      expect(document.getElementById("loader").style.display).to.equal("none");
     });
   });
 });
