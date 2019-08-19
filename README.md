@@ -3,6 +3,8 @@
 
 This branch contains new tests for lab 1. For more details on how to complete the assignment follow the instructions on the [course website](https://www.kth.se/social/course/DH2642).
 
+You only need to modify dinnerModel.js. If you modify the other files, merging might be a bit more tricky for you when moving to the next lab.
+
 ## Testing
 
 Open `index.html` in the browser and tests should run automatically
