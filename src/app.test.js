@@ -18,13 +18,13 @@ describe("DinnerPlanner App", () => {
     it("has the start button", () => {
       homeView.render();
       const button = document.getElementById("startBtn");
-      console.log(button);
       expect(button).to.not.be.a("null");
     });
   });
 
   describe("Search view", () => {
     beforeEach(() => {
+      model.addDishToMenu(559251);
       searchView.render();
     });
 
@@ -49,15 +49,42 @@ describe("DinnerPlanner App", () => {
 
     it("displays dishes", (done) => {
       const dishes = document.getElementById("dishItems");
-      console.log("dishes", dishes);
       expect(dishes).to.not.be.a("null");
       done();
       // done();
     }).timeout(3000);
+
+    it("Has a number of guests value", () => {
+      const valueHolders = document.getElementsByClassName("value-num-guests");
+      expect(valueHolders.length).to.be.above(0);
+      for (let v of valueHolders) {
+        expect(v).to.not.be.a("null");
+        expect(v.innerHTML).to.equal(""+model.getNumberOfGuests());
+      }
+    });
+
+    it("Has data on current dishes", () => {
+      const valueHolders = document.getElementsByClassName("value-main-course-name");
+      expect(valueHolders.length).to.be.above(0);
+      for (let v of valueHolders) {
+        expect(v).to.not.be.a("null");
+        expect(v.innerHTML).to.equal("Breakfast Pizza");
+      }
+    });
+
+    it("Displays the total price correctly", () => {
+      const valueHolders = document.getElementsByClassName("value-total-price");
+      expect(valueHolders.length).to.be.above(0);
+      for (let v of valueHolders) {
+        expect(v).to.not.be.a("null");
+        expect(v.innerHTML).to.equal(""+model.getTotalMenuPrice());
+      }
+    });
   });
 
   describe("Confirmation page", () => {
     beforeEach(() => {
+      model.addDishToMenu(559251);
       overviewView.render();
     });
 
@@ -71,12 +98,31 @@ describe("DinnerPlanner App", () => {
       expect(printBtn).to.not.be.a("null");
     });
 
+
     it("Has a number of guests value", () => {
       const valueHolders = document.getElementsByClassName("value-num-guests");
       expect(valueHolders.length).to.be.above(0);
       for (let v of valueHolders) {
         expect(v).to.not.be.a("null");
         expect(v.innerHTML).to.equal(""+model.getNumberOfGuests());
+      }
+    });
+
+    it("Has data on current dishes", () => {
+      const valueHolders = document.getElementsByClassName("value-main-course-name");
+      expect(valueHolders.length).to.be.above(0);
+      for (let v of valueHolders) {
+        expect(v).to.not.be.a("null");
+        expect(v.innerHTML).to.equal("Breakfast Pizza");
+      }
+    });
+
+    it("Displays the total price correctly", () => {
+      const valueHolders = document.getElementsByClassName("value-total-price");
+      expect(valueHolders.length).to.be.above(0);
+      for (let v of valueHolders) {
+        expect(v).to.not.be.a("null");
+        expect(v.innerHTML).to.equal(""+model.getTotalMenuPrice());
       }
     });
   });
