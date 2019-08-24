@@ -1,7 +1,7 @@
 var assert = chai.assert;
 var expect = chai.expect;
 
-describe("DinnerModel", () => {
+describe("DinnerPlanner App", () => {
   let model = null;
   let homeView = null;
   let searchView = null;
