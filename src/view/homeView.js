@@ -2,7 +2,6 @@ class HomeView {
   constructor(container) {
     this.container = container;
     this.startBtn = null;
-    console.log("Homeview constructor container", container);
   }
   
   render() {
@@ -22,7 +21,6 @@ class HomeView {
         </a>
       </div>
     `;
-    console.log("Homeview container", this.container);
     this.container.html(content);
     this.afterRender();
   }
