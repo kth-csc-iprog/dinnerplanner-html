@@ -76,7 +76,7 @@ describe("DinnerPlanner App", () => {
       expect(valueHolders.length).to.be.above(0);
       for (let v of valueHolders) {
         expect(v).to.not.be.a("null");
-        expect(v.innerHTML).to.equal("3");
+        expect(v.innerHTML).to.equal(""+model.getNumberOfGuests());
       }
     });
   });
