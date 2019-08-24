@@ -9,9 +9,9 @@ describe("DinnerModel", () => {
 
   beforeEach(() => {
     model = new DinnerModel();
-    homeView = new HomeView($("#page-content"));
-    mainView = new MainView($("#page-content"), model);
-    overviewView = new OverviewView($("#page-content"), model);
+    homeView = new HomeView(document.querySelector("#page-content"));
+    mainView = new MainView(document.querySelector("#page-content"), model);
+    overviewView = new OverviewView(document.querySelector("#page-content"), model);
   });
 
   describe("Home View", () => {
