@@ -2,33 +2,21 @@ var assert = chai.assert;
 var expect = chai.expect;
 
 describe("DinnerModel", () => {
-  let model = new DinnerModel();
-
-  let homeView = new HomeView($("#page-content"));
-  let homeController = new HomeController(homeView);
-
-  let mainView = new MainView($("#page-content"), model);
-  let mainController = new MainController(mainView, model);
-
-  let overviewView = new OverviewView($("#page-content"), model);
-  let overviewController = new OverviewController(overviewView, model);
+  let model = null;
+  let homeView = null;
+  let mainView = null;
+  let overviewView = null;
 
   beforeEach(() => {
     model = new DinnerModel();
-
     homeView = new HomeView($("#page-content"));
-    homeController = new HomeController(homeView);
-
     mainView = new MainView($("#page-content"), model);
-    mainController = new MainController(mainView, model);
-
     overviewView = new OverviewView($("#page-content"), model);
-    overviewController = new OverviewController(overviewView, model);
   });
 
   describe("Home View", () => {
     it("has the start button", () => {
-      homeController.renderView();
+      homeView.render();
       const button = document.getElementById("startBtn");
       console.log(button);
       expect(button).to.not.be.a("null");
@@ -37,7 +25,7 @@ describe("DinnerModel", () => {
 
   describe("Search view", () => {
     beforeEach(() => {
-      mainController.renderView();
+      mainView.render();
     });
 
     it("has a sidebar", () => {
@@ -68,33 +56,9 @@ describe("DinnerModel", () => {
     }).timeout(3000);
   });
 
-  describe("Dish Detail View", () => {
-    beforeEach(() => {
-      mainController.renderView(592479);
-    });
-
-    it("exists", (done) => {
-      const detailContainer = document.getElementById("dishDetailView");
-      expect(detailContainer).to.not.be.a("null");
-      done();
-    }).timeout(1000);
-
-    it("has an addToMenu button", (done) => {
-      const detailContainer = document.getElementById("dishDetailView");
-      const buttons = detailContainer.getElementsByTagName("a");
-      let addBtn;
-      for (let i=0; i < buttons.length; i++) {
-        if (buttons[i].id === "addToMenuBtn") addBtn = buttons[i];
-      }
-
-      expect(addBtn).to.not.be.a("null");
-      done();
-    }).timeout(1000);
-  });
-
   describe("Confirmation page", () => {
     beforeEach(() => {
-      overviewController.renderView(false);
+      overviewView.render();
     });
 
     it("exists", () => {
