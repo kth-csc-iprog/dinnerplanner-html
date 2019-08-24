@@ -4,13 +4,13 @@ var expect = chai.expect;
 describe("DinnerModel", () => {
   let model = null;
   let homeView = null;
-  let mainView = null;
+  let searchView = null;
   let overviewView = null;
 
   beforeEach(() => {
     model = new DinnerModel();
     homeView = new HomeView(document.querySelector("#page-content"));
-    mainView = new MainView(document.querySelector("#page-content"), model);
+    searchView = new SearchView(document.querySelector("#page-content"), model);
     overviewView = new OverviewView(document.querySelector("#page-content"), model);
   });
 
@@ -25,7 +25,7 @@ describe("DinnerModel", () => {
 
   describe("Search view", () => {
     beforeEach(() => {
-      mainView.render();
+      searchView.render();
     });
 
     it("has a sidebar", () => {

@@ -1,4 +1,4 @@
-class MainView {
+class SearchView {
   constructor(container, model) {
     this.container = container;
     this.model = model;
