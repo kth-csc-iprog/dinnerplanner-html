@@ -68,15 +68,14 @@ class DinnerModel {
           found = true;
         }
       }
-      return dish.type == type && found;
+      return dish.type === type && found;
     });	
   }
 
   //Returns a dish of specific ID
-  //TODO freese returns?
   getDish (id) {
     for(let dsh of this.dishes){
-      if(dsh.id == id) {
+      if(dsh.id === id) {
         return dsh;
       }
     }
