@@ -21,7 +21,7 @@ class HomeView {
         </a>
       </div>
     `;
-    this.container.html(content);
+    this.container.innerHTML = content;
     this.afterRender();
   }
 
