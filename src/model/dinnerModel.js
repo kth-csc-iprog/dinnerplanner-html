@@ -59,11 +59,11 @@ class DinnerModel {
       if(query){
         found = false;
         dish.ingredients.forEach(function(ingredient) {
-          if(ingredient.name.indexOf(query)!=-1) {
+          if(ingredient.name.indexOf(query) !== -1) {
             found = true;
           }
         });
-        if(dish.name.indexOf(query) != -1)
+        if(dish.name.indexOf(query) !== -1)
         {
           found = true;
         }
