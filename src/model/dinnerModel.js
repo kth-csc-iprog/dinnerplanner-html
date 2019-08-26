@@ -1,4 +1,4 @@
-//DinnerModel Object constructor
+//DinnerModel class
 class DinnerModel {
 
   constructor() {
