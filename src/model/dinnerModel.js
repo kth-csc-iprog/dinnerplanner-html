@@ -3,7 +3,6 @@ class DinnerModel {
 
     constructor() {
         this.dishes = dishesConst;
-
         //TODO Lab 0
         // implement the data structure that will hold number of guests
         // and selected dishes for the dinner menu
@@ -26,10 +25,7 @@ class DinnerModel {
     //Returns the dish that is on the menu for selected type
     getSelectedDish(type) {
         //TODO Lab 0
-
         return this.getAllDishes();
-
-
     }
 
     //Returns all the dishes on the menu.
@@ -73,11 +69,7 @@ class DinnerModel {
                 }
                 this.menu.push(dishObject);
             }
-
-
         }
-
-
     }
 
     //Removes dish from menu
@@ -85,9 +77,7 @@ class DinnerModel {
         //TODO Lab 0
         var dishObjectID = this.getDish(id).id;
         this.menu.pop(dishObjectID,1);
-
     }
-
 
     //Returns all dishes of specific type (i.e. "starter", "main dish" or "dessert").
     //query argument, text, if passed only returns dishes that contain the query in name or one of the ingredients.
@@ -106,14 +96,9 @@ class DinnerModel {
                         found = true;
                     }
                 });
-                /*          if (dish.name.indexOf(query) !== -1) {
-                 found = true;
-                 return dish.name;
-                 }*/
                 if (dish.name.indexOf(query) !== -1) {
                     found = true;
                     return dish.name;
-
                 }
             }
             return dish.type === type && found;
