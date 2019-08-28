@@ -65,15 +65,12 @@ class DinnerModel {
                 this.menu.push(dishObject);
             }
             else{
-
-                this.menu.forEach(function(singleItem){
-                    if(singleItem.type == dishObject.type){
-                        removeDishFromMenu(singleItem.id);
-                        this.menu.pop(singleItem.id);
-
-                    }
-
+                var item = this.menu.find(function(Item){
+                    return Item.type == dishObject.type;
                 });
+                if (item != null){
+                    this.removeDishFromMenu(item.id);
+                }
                 this.menu.push(dishObject);
             }
 
@@ -86,10 +83,9 @@ class DinnerModel {
     //Removes dish from menu
     removeDishFromMenu(id) {
         //TODO Lab 0
-        //var dishObject = this.getDish(id).id;
-        //this.menu.pop(dishObject);
+        var dishObjectID = this.getDish(id).id;
+        this.menu.pop(dishObjectID,1);
 
-        this.menu.pop(id);
     }
 
 
