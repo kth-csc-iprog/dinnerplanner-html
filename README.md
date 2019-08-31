@@ -20,3 +20,5 @@ Open `index.html` in the browser and tests should run automatically
 * [src/app.js](/src/app.js) - this is the overall code of the application. It is responsible for initial setup of the app (when the page loads for the first time). You will find it more relevant when you start working with views in future labs.
 * [images/](/images) - folder contains some pictures you can use for your dishes.
 
+
+
