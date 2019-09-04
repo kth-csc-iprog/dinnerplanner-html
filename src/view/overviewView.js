@@ -4,6 +4,7 @@ class OverviewView {
         this.model = model;
     }
 
+    // An example of creating HTML procedurally. Think about the pros and cons of this approach.
     render() {
       const paragraph = this.container.appendChild(document.createElement('P'))
       paragraph.innerHTML = "This dinner will be Awesome!";
