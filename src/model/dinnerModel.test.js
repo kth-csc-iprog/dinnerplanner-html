@@ -28,6 +28,10 @@ describe("DinnerModel", () => {
   });
 
   describe("getting individual dishes", () => {
+    it("returns a promise", done => {
+      expect(typeof(model.getDish(559251).then)).to.equal("function");
+      done();
+    });
     it("gets the correct dish", (done) => {
       model.getDish(559251)
       .then((data) => {
