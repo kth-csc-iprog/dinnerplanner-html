@@ -68,27 +68,21 @@ describe("DinnerModel", () => {
 
   describe("menu", () => {
     it("can add dishes", (done) => {
-      model.getDish(559251)
-      .then((data) => {
-        model.addDishToMenu(data);
-        expect(model.getFullMenu().length).to.equal(1);
-        expect(model.getFullMenu()[0].id).to.equal(559251);
-        done();
-      });
+      model.addDishToMenu(559251);
+      expect(model.getFullMenu().length).to.equal(1);
+      expect(model.getFullMenu()[0].id).to.equal(559251);
+      done();
     }).timeout(10000);
 
     it("can remove dishes", (done) => {
-      model.getDish(559251)
-      .then((data) => {
-        model.addDishToMenu(data);
-        expect(model.getFullMenu().length).to.equal(1);
-        expect(model.getFullMenu()[0].id).to.equal(559251);
+      model.addDishToMenu(559251);
+      expect(model.getFullMenu().length).to.equal(1);
+      expect(model.getFullMenu()[0].id).to.equal(559251);
 
-        model.removeDishFromMenu(559251);
-        expect(model.getFullMenu().length).to.equal(0);
-        expect(model.getFullMenu()).to.not.include(data);
-        done();
-      });
+      model.removeDishFromMenu(559251);
+      expect(model.getFullMenu().length).to.equal(0);
+      expect(model.getFullMenu()).to.not.include(data);
+      done();
     }).timeout(10000);
   });
 });
