@@ -41,17 +41,13 @@ describe("DinnerPlanner App", () => {
     it("displays a loading message", (done) => {
       const loader = document.getElementById("loader");
       expect(loader).to.not.be.a("null");
-
-      // setTimeout(() => {
         done();
-      // }, 3000);
     }).timeout(3000);
 
     it("displays dishes", (done) => {
       const dishes = document.getElementById("dishItems");
       expect(dishes).to.not.be.a("null");
       done();
-      // done();
     }).timeout(3000);
 
     it("Has a number of guests value", () => {
