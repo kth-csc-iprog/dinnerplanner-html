@@ -6,12 +6,22 @@ describe("DinnerPlanner App", () => {
   let homeView = null;
   let searchView = null;
   let overviewView = null;
+  let sidebarView = null;
+  let sidebarController = null;
 
   beforeEach(() => {
     model = new DinnerModel();
     homeView = new HomeView(document.querySelector("#page-content"));
     searchView = new SearchView(document.querySelector("#page-content"), model);
     overviewView = new OverviewView(document.querySelector("#page-content"), model);
+    sidebarView = new SidebarView(document.querySelector("#page-content"), model);
+  });
+
+  describe("Home View", () => {
+    it("has the start button", () => {
+      homeView.render();
+      const button = document.getElementById("startBtn");
+    });
   });
 
   describe("Home View", () => {
@@ -120,6 +130,35 @@ describe("DinnerPlanner App", () => {
         expect(v).to.not.be.a("null");
         expect(v.innerHTML).to.equal(""+model.getTotalMenuPrice());
       }
+    });
+  });
+
+  describe("Sidebar view", () => {
+    beforeEach(() => {
+      model = new DinnerModel();
+      sidebarView = new SidebarView(document.getElementById("page-content"), model);
+      sidebarController = new SidebarController(sidebarView, model);
+      sidebarController.renderView();
+    });
+
+    it("Has a number of guests input", () => {
+      const input = document.getElementsByClassName("input-num-guests")[0];
+      expect(input).to.not.be.a("null");
+      expect(input.tagName).to.equal("INPUT");
+      expect(input.value).to.equal("1");
+    });
+
+    it("Controller modifies the model", () => {
+      const input = document.getElementsByClassName("input-num-guests")[0];
+      input.value = 5;
+      input.dispatchEvent(new Event("input"));
+      expect(""+model.getNumberOfGuests()).to.equal("5");
+    });
+
+    it("Observer updates the view", () => {
+      model.setNumberOfGuests(6);
+      const input = document.getElementsByClassName("input-num-guests")[0];
+      expect(""+input.value).to.equal("6");
     });
   });
 });
