@@ -11,9 +11,5 @@ class SidebarController {
         // TODO lab 3
     }
 
-    update(payload) {
-        // TODO Lab 3
-    }
-
     // TODO Lab 3
 }

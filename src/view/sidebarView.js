@@ -19,4 +19,8 @@ class SidebarView {
   afterRender() {
     this.startBtn = this.container.getElementsByClassName("value-num-guests");
   }
+
+  update(payload) {
+    // TODO Lab3
+  }
 }
