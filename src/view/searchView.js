@@ -9,4 +9,8 @@ class SearchView {
   
   afterRender() {
   }
+
+  update(payload) {
+    // TODO lab3
+  }
 }
