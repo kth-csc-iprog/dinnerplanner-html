@@ -1,2 +1,2 @@
-export const BASE_URL = ;
+export const ENDPOINT = ;
 export const API_KEY = ;
