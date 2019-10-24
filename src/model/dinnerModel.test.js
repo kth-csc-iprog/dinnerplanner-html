@@ -73,11 +73,11 @@ describe("DinnerModel", () => {
 
     it("returns the correct dish type", () => {
       let dishes = model.getAllDishes("starter");
-      const onlyHasStarters = dishes.every(dish => dish.type === "starter");
+      const onlyHasStarters = dishes.every(dish => dish.dishTypes.includes("starter"));
       expect(onlyHasStarters).to.equal(true);
 
       dishes = model.getAllDishes("main dish");
-      const onlyHasMain = dishes.every(dish => dish.type === "main dish");
+      const onlyHasMain = dishes.every(dish => dish.dishTypes.includes("main dish"));
       expect(onlyHasMain).to.equal(true);
     });
 
@@ -96,7 +96,7 @@ describe("DinnerModel", () => {
     it("returns correct dishes with filter and type", () => {
       const dishes = model.getAllDishes("starter", "Sour");
       const allDishesMatch = dishes.every(
-          dish => dish.name.includes("Sour") && dish.type === "starter"
+          dish => dish.name.includes("Sour") && dish.dishTypes.includes("starter")
       );
       expect(dishes.length).to.be.above(0);
       expect(allDishesMatch).to.equal(true);
@@ -112,17 +112,6 @@ describe("DinnerModel", () => {
       model.addDishToMenu(100);
       expect(model.getFullMenu()).to.include(model.getDish(1));
       expect(model.getFullMenu()).to.include(model.getDish(100));
-    });
-
-    it("overwrites dishes of the same type when adding", () => {
-      model.addDishToMenu(1);
-      expect(model.getFullMenu()).to.include(model.getDish(1));
-
-      model.addDishToMenu(2);
-      // the old starter dish should no longer exist
-      expect(model.getFullMenu()).to.not.include(model.getDish(1));
-      // the new dish should exist
-      expect(model.getFullMenu()).to.include(model.getDish(2));
     });
 
     it("can remove dishes", () => {

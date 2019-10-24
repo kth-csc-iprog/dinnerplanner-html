@@ -9,7 +9,7 @@ class DinnerModel {
     // and selected dishes for the dinner menu
 
   }
-    //TODO Lab 1
+
   setNumberOfGuests(num) {
     //TODO Lab 1
   }
@@ -18,7 +18,7 @@ class DinnerModel {
     //TODO Lab 1
   }
 
-  //Returns the dish that is on the menu for selected type 
+  //Returns the dish that is on the menu for selected type
   getSelectedDish(type) {
     //TODO Lab 1
   }
@@ -58,7 +58,7 @@ class DinnerModel {
       let found = true;
       if (query) {
         found = false;
-        dish.ingredients.forEach(function (ingredient) {
+        dish.extendedIngredients.forEach(function (ingredient) {
           if (ingredient.name.indexOf(query) !== -1) {
             found = true;
           }
@@ -67,25 +67,26 @@ class DinnerModel {
           found = true;
         }
       }
-      return dish.type === type && found;
+      return dish.dishTypes.includes(type) && found;
     });
   }
 
   //Returns a dish of specific ID
   getDish(id) {
-    for (let dsh of this.dishes) {
-      if (dsh.id === id) {
-        return dsh;
+    for (let dish of this.dishes) {
+      if (dish.id === id) {
+        return dish;
       }
     }
     return undefined;
   }
 }
 
-// the dishes constant contains an array of all the 
+
+// the dishes constant contains an array of all the
 // dishes in the database. Each dish has id, name, array of dishTypes,
 // image (name of the image file), instructions and
-// array of ingredients. Each ingredient has name, 
+// array of ingredients. Each ingredient has name,
 // amount (a number) and unit (string
 // defining the unit i.e. "g", "slices", "ml". Unit
 // can sometimes be empty like in the example of eggs where
@@ -97,7 +98,7 @@ const dishesConst = [{
   'image': 'toast.jpg',
   'instructions': "In a large mixing bowl, beat the eggs. Add the milk, brown sugar and nutmeg; stir well to combine. Soak bread slices in the egg mixture until saturated. Heat a lightly oiled griddle or frying pan over medium high heat. Brown slices on both sides, sprinkle with cinnamon and serve hot.",
   'pricePerServing': 32.5,
-  'extendedIngredient': [{
+  'extendedIngredients': [{
     'name': 'eggs',
     'amount': 0.5,
     'unit': '',
@@ -125,7 +126,7 @@ const dishesConst = [{
   'image': 'sourdough.jpg',
   'instructions': "Here is how you make it... Lore ipsum...",
   'pricePerServing': 43.2,
-  'extendedIngredient': [{
+  'extendedIngredients': [{
     'name': 'active dry yeast',
     'amount': 0.5,
     'unit': 'g',
@@ -145,7 +146,7 @@ const dishesConst = [{
   'image': 'bakedbrie.jpg',
   'instructions': "Here is how you make it... Lore ipsum...",
   'pricePerServing': 52.8,
-  'extendedIngredient': [{
+  'extendedIngredients': [{
     'name': 'round Brie cheese',
     'amount': 10,
     'unit': 'g',
@@ -165,7 +166,7 @@ const dishesConst = [{
   'image': 'meatballs.jpg',
   'instructions': "Preheat an oven to 400 degrees F (200 degrees C). Place the beef into a mixing bowl, and season with salt, onion, garlic salt, Italian seasoning, oregano, red pepper flakes, hot pepper sauce, and Worcestershire sauce; mix well. Add the milk, Parmesan cheese, and bread crumbs. Mix until evenly blended, then form into 1 1/2-inch meatballs, and place onto a baking sheet. Bake in the preheated oven until no longer pink in the center, 20 to 25 minutes.",
   'pricePerServing': 33.5,
-  'extendedIngredient': [{
+  'extendedIngredients': [{
     'name': 'extra lean ground beef',
     'amount': 115,
     'unit': 'g',
@@ -217,7 +218,7 @@ const dishesConst = [{
   'image': 'bakedbrie.jpg',
   'instructions': "Here is how you make it... Lore ipsum...",
   'pricePerServing': 43.2,
-  'extendedIngredient': [{
+  'extendedIngredients': [{
     'name': 'ingredient 1',
     'amount': 1,
     'unit': 'pieces',
@@ -237,7 +238,7 @@ const dishesConst = [{
   'image': 'meatballs.jpg',
   'instructions': "Here is how you make it... Lore ipsum...",
   'pricePerServing': 25.2,
-  'extendedIngredient': [{
+  'extendedIngredients': [{
     'name': 'ingredient 1',
     'amount': 2,
     'unit': 'pieces',
@@ -257,7 +258,7 @@ const dishesConst = [{
   'image': 'meatballs.jpg',
   'instructions': "Here is how you make it... Lore ipsum...",
   'pricePerServing': 52.0,
-  'extendedIngredient': [{
+  'extendedIngredients': [{
     'name': 'ingredient 1',
     'amount': 1,
     'unit': 'pieces',
@@ -277,7 +278,7 @@ const dishesConst = [{
   'image': 'icecream.jpg',
   'instructions': "Here is how you make it... Lore ipsum...",
   'pricePerServing': 12.2,
-  'extendedIngredient': [{
+  'extendedIngredients': [{
     'name': 'ice cream',
     'amount': 100,
     'unit': 'ml',
@@ -289,7 +290,7 @@ const dishesConst = [{
   'image': 'icecream.jpg',
   'instructions': "Here is how you make it... Lore ipsum...",
   'pricePerServing': 21.2,
-  'extendedIngredient': [{
+  'extendedIngredients': [{
     'name': 'ice cream',
     'amount': 100,
     'unit': 'ml',
@@ -301,7 +302,7 @@ const dishesConst = [{
   'image': 'icecream.jpg',
   'instructions': "Here is how you make it... Lore ipsum...",
   'pricePerServing': 15.0,
-  'extendedIngredient': [{
+  'extendedIngredients': [{
     'name': 'ice cream',
     'amount': 100,
     'unit': 'ml',
@@ -316,9 +317,9 @@ function deepFreeze(o) {
   Object.freeze(o);
   Object.getOwnPropertyNames(o).forEach(function (prop) {
     if (o.hasOwnProperty(prop)
-      && o[prop] !== null
-      && (typeof o[prop] === "object" || typeof o[prop] === "function")
-      && !Object.isFrozen(o[prop])) {
+        && o[prop] !== null
+        && (typeof o[prop] === "object" || typeof o[prop] === "function")
+        && !Object.isFrozen(o[prop])) {
       deepFreeze(o[prop]);
     }
   });
