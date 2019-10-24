@@ -4,49 +4,49 @@ class DinnerModel {
   constructor() {
     this.dishes = dishesConst;
 
-    //TODO Lab 0
+    //TODO Lab 1
     // implement the data structure that will hold number of guests
     // and selected dishes for the dinner menu
 
   }
-    //TODO Lab 0
+    //TODO Lab 1
   setNumberOfGuests(num) {
-    //TODO Lab 0
+    //TODO Lab 1
   }
 
   getNumberOfGuests() {
-    //TODO Lab 0
+    //TODO Lab 1
   }
 
   //Returns the dish that is on the menu for selected type 
   getSelectedDish(type) {
-    //TODO Lab 0
+    //TODO Lab 1
   }
 
   //Returns all the dishes on the menu.
   getFullMenu() {
-    //TODO Lab 0
+    //TODO Lab 1
   }
 
   //Returns all ingredients for all the dishes on the menu.
   getAllIngredients() {
-    //TODO Lab 0
+    //TODO Lab 1
   }
 
   //Returns the total price of the menu (all the ingredients multiplied by number of guests).
   getTotalMenuPrice() {
-    //TODO Lab 0
+    //TODO Lab 1
   }
 
   //Adds the passed dish to the menu. If the dish of that type already exists on the menu
   //it is removed from the menu and the new one added.
   addDishToMenu(id) {
-    //TODO Lab 0 
+    //TODO Lab 1
   }
 
   //Removes dish from menu
   removeDishFromMenu(id) {
-    //TODO Lab 0
+    //TODO Lab 1
   }
 
 

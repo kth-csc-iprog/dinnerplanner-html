@@ -8,6 +8,25 @@ describe("DinnerModel", () => {
     model = new DinnerModel();
   });
 
+  describe("all the functions are present", () => {
+    it("contains all the default functions", () => {
+      let functions = [
+          model.setNumberOfGuests,
+          model.getNumberOfGuests,
+          model.getSelectedDish,
+          model.getFullMenu,
+          model.getAllIngredients,
+          model.getTotalMenuPrice,
+          model.addDishToMenu,
+          model.removeDishFromMenu,
+          model.getAllDishes,
+          model.getDish
+      ];
+      functions.forEach(func => expect(typeof func).to.equal('function'));
+    })
+
+  });
+
   describe("number of guests", () => {
     it("can set and get number of guests", () => {
       model.setNumberOfGuests(0);
