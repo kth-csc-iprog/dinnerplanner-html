@@ -15,6 +15,10 @@
 <body>
 <div class="container">
     <h1>Dinner planner</h1>
+    <div id="loader" class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+
     <div id="mocha"></div>
 </div>
 
@@ -34,10 +38,10 @@
 <script src="https://unpkg.com/mocha/mocha.js"></script>
 
 <script class="mocha-init">
-  mocha.setup({
-    ui: 'bdd'
-  });
-  mocha.checkLeaks();
+    mocha.setup({
+        ui: 'bdd'
+    });
+    mocha.checkLeaks();
 </script>
 
 <!-- The application JavaScript code -->
@@ -46,7 +50,7 @@
 <script src="src/model/dinnerModel.test.js"></script>
 
 <script class="mocha-exec">
-  mocha.run();
+    mocha.run();
 </script>
 
 </body>
