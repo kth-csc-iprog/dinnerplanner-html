@@ -11,20 +11,19 @@ describe("DinnerModel", () => {
   describe("all the functions are present", () => {
     it("contains all the default functions", () => {
       let functions = [
-          model.setNumberOfGuests,
-          model.getNumberOfGuests,
-          model.getSelectedDish,
-          model.getFullMenu,
-          model.getAllIngredients,
-          model.getTotalMenuPrice,
-          model.addDishToMenu,
-          model.removeDishFromMenu,
-          model.getAllDishes,
-          model.getDish
+        model.setNumberOfGuests,
+        model.getNumberOfGuests,
+        model.getSelectedDish,
+        model.getFullMenu,
+        model.getAllIngredients,
+        model.getTotalMenuPrice,
+        model.addDishToMenu,
+        model.removeDishFromMenu,
+        model.getAllDishes,
+        model.getDish
       ];
       functions.forEach(func => expect(typeof func).to.equal('function'));
     })
-
   });
 
   describe("number of guests", () => {
@@ -46,7 +45,7 @@ describe("DinnerModel", () => {
     });
   });
 
-  describe("getting individual dishes", () => {
+  describe("dishesConst: getting individual dishes", () => {
     it("gets the correct dish", () => {
       const dish1 = model.getDish(1);
       expect(dish1.id).to.equal(1);
@@ -66,7 +65,7 @@ describe("DinnerModel", () => {
     });
   });
 
-  describe("filtering for dishes", () => {
+  describe("dishesConst: filtering for dishes", () => {
     it("returns all dishes if no args are specified", () => {
       const allDishes = model.getAllDishes();
       expect(allDishes.length).to.equal(10);
@@ -97,14 +96,15 @@ describe("DinnerModel", () => {
     it("returns correct dishes with filter and type", () => {
       const dishes = model.getAllDishes("starter", "Sour");
       const allDishesMatch = dishes.every(
-        dish => dish.name.includes("Sour") && dish.type === "starter"
+          dish => dish.name.includes("Sour") && dish.type === "starter"
       );
       expect(dishes.length).to.be.above(0);
       expect(allDishesMatch).to.equal(true);
     });
   });
 
-  describe("menu", () => {
+
+  describe("dishesConst: menu", () => {
     it("can add dishes", () => {
       model.addDishToMenu(1);
       expect(model.getFullMenu()).to.include(model.getDish(1));
@@ -133,6 +133,81 @@ describe("DinnerModel", () => {
       model.removeDishFromMenu(1);
       // should now be removed
       expect(model.getFullMenu()).to.not.include(model.getDish(1));
+    });
+  });
+
+  describe("spoonacular api: getting individual dishes", () => {
+    it("returns a promise", done => {
+      expect(model.getDish(559251) instanceof Promise).to.equal(true);
+      done();
+    });
+    it("gets the correct dish", (done) => {
+      model.getDish(559251)
+          .then((data) => {
+            expect(data.title).to.equal("Breakfast Pizza");
+            done();
+          });
+    }).timeout(10000);
+
+    it("returns undefined if dish is not found", (done) => {
+      model.getDish(-1)
+          .then((data) => {
+            expect(data.code).to.equal(404);
+            done();
+          });
+    }).timeout(10000);
+  });
+
+  describe("spoonacular api: filtering for dishes", () => {
+    it("returns all dishes if no args are specified", (done) => {
+      model.getAllDishes()
+          .then((data) => {
+            console.log("data length", data.length);
+            expect(data.length).to.equal(10);
+            done();
+          });
+    }).timeout(10000);
+
+    it("returns the correct dish type of main course and pizza", (done) => {
+      model.getAllDishes("main course", "pizza")
+          .then((data) => {
+            console.log("filtered", data);
+            const onlyHasPizzas = data.every(dish => dish.title.toLowerCase().indexOf("pizza") > -1);
+            expect(onlyHasPizzas).to.equal(true);
+            done();
+          });
+    }).timeout(10000);
+  });
+
+  describe("spoonacular api: menu", () => {
+    it("can add dishes", (done) => {
+      model.getDish(559251)
+          .then((data) => {
+            model.addDishToMenu(data);
+            expect(model.getFullMenu().length).to.equal(1);
+            expect(model.getFullMenu()[0].id).to.equal(559251);
+            done();
+          });
+    }).timeout(10000);
+
+    it("can remove dishes", (done) => {
+      model.getDish(559251)
+          .then((data) => {
+            model.addDishToMenu(data);
+            expect(model.getFullMenu().length).to.equal(1);
+            expect(model.getFullMenu()[0].id).to.equal(559251);
+
+            model.removeDishFromMenu(559251);
+            expect(model.getFullMenu().length).to.equal(0);
+            expect(model.getFullMenu()).to.not.include(data);
+            done();
+          });
+    }).timeout(10000);
+  });
+
+  describe("spoonacular api: loading indicator", () => {
+    it("checks if the loading indicator is still visible on the page", () => {
+      expect(document.getElementById("loader").style.display).to.equal("none");
     });
   });
 });
