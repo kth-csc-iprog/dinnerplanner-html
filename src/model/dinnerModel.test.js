@@ -8,6 +8,9 @@ describe("DinnerModel", () => {
     model = new DinnerModel();
   });
 
+    // TODO Lab 1: write a test to verify that the number of guests cannot be less than 1.
+    // If setNumberOfGuests(num) is called with num <= 0, then then number of guests should be set to 1.
+
   describe("all the functions are present", () => {
     it("contains all the default functions", () => {
       let functions = [
@@ -32,15 +35,6 @@ describe("DinnerModel", () => {
       expect(model.getNumberOfGuests()).to.equal(500);
 
       model.setNumberOfGuests(1);
-      expect(model.getNumberOfGuests()).to.equal(1);
-    });
-
-    it("won't allow fewer than 1 guest", () => {
-      model.setNumberOfGuests(1);
-      expect(model.getNumberOfGuests()).to.equal(1);
-
-      // this should not change the value
-      model.setNumberOfGuests(-1);
       expect(model.getNumberOfGuests()).to.equal(1);
     });
   });
