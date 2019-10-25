@@ -13,7 +13,7 @@ describe("DinnerModel", () => {
       let functions = [
         model.setNumberOfGuests,
         model.getNumberOfGuests,
-        model.getSelectedDish,
+        model.getSelectedDishes,
         model.getFullMenu,
         model.getAllIngredients,
         model.getTotalMenuPrice,
@@ -48,15 +48,10 @@ describe("DinnerModel", () => {
   describe("getting individual dishes", () => {
     let getDishReturnsPromise = model.getDish(1) instanceof Promise;
     let getDishReturnsObject = model.getDish(1) instanceof Object;
-    console.log(getDishReturnsPromise, getDishReturnsObject);
     it("returns either an Object or a Promise", () => {
       expect(getDishReturnsObject || getDishReturnsPromise).to.equal(true);
     });
     if (getDishReturnsPromise) {  // if it uses the spoonacular api
-      it("returns a promise", done => {
-        expect(model.getDish(559251) instanceof Promise).to.equal(true);
-        done();
-      });
       it("gets the correct dish", (done) => {
         model.getDish(559251)
             .then((data) => {
@@ -94,8 +89,8 @@ describe("DinnerModel", () => {
   });
 
   describe("filtering for dishes", () => {
-    let getAllDishesReturnsPromise = model.getAllDishes(1) instanceof Promise;
-    let getAllDishReturnsArray = model.getAllDishes(1) instanceof Array;
+    let getAllDishesReturnsPromise = model.getAllDishes() instanceof Promise;
+    let getAllDishReturnsArray = model.getAllDishes() instanceof Array;
     it("returns either an Array or a Promise", () => {
       expect(getAllDishReturnsArray || getAllDishesReturnsPromise).to.equal(true);
     });
@@ -140,7 +135,6 @@ describe("DinnerModel", () => {
       it("returns all dishes if no args are specified", (done) => {
         model.getAllDishes()
             .then((data) => {
-              console.log("data length", data.length);
               expect(data.length).to.equal(10);
               done();
             });
@@ -149,7 +143,6 @@ describe("DinnerModel", () => {
       it("returns the correct dish type of main course and pizza", (done) => {
         model.getAllDishes("main course", "pizza")
             .then((data) => {
-              console.log("filtered", data);
               const onlyHasPizzas = data.every(dish => dish.title.toLowerCase().indexOf("pizza") > -1);
               expect(onlyHasPizzas).to.equal(true);
               done();
@@ -186,6 +179,21 @@ describe("DinnerModel", () => {
                         done();
                     });
             }).timeout(10000);
+
+            it("can find the dishes of a specific type on the menu", (done) => {
+                model.getDish(559251)
+                    .then((data) => {
+                        model.addDishToMenu(data);
+                        expect(model.getFullMenu().length).to.equal(1);
+                        expect(model.getFullMenu()[0].id).to.equal(559251);
+
+                        model.removeDishFromMenu(559251);
+                        expect(model.getFullMenu().length).to.equal(0);
+                        expect(model.getFullMenu()).to.not.include(data);
+                        done();
+                    });
+            }).timeout(10000);
+
         } else if (getDishReturnsObject) { // if it uses dishesConst
             it("can add dishes", () => {
                 model.addDishToMenu(model.getDish(1));
@@ -205,7 +213,19 @@ describe("DinnerModel", () => {
                 // should now be removed
                 expect(model.getFullMenu()).to.not.include(model.getDish(1));
             });
+
+            it("can find the dishes of a specific type on the menu", () => {
+                model.addDishToMenu(model.getDish(1)); // starter
+                model.addDishToMenu(model.getDish(2)); // starter
+                model.addDishToMenu(model.getDish(100)); // main dish
+
+                let starters = model.getSelectedDishes('starter');
+                expect(starters).to.include(model.getDish(1));
+                expect(starters).to.include(model.getDish(2));
+                expect(starters).to.not.include(model.getDish(100));
+            })
         }
+
     });
 
   describe("loading indicator", () => {
