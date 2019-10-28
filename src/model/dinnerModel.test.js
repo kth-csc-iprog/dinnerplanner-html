@@ -46,9 +46,16 @@ describe("DinnerModel", () => {
       expect(getDishReturnsObject || getDishReturnsPromise).to.equal(true);
     });
     if (getDishReturnsPromise) {  // if it uses the spoonacular api
-        it('dishesConst is removed', () => {
-            expect(typeof dishesConst).to.equal('undefined');
-        });
+      it('dishesConst is removed', () => {
+        expect(typeof dishesConst).to.equal('undefined');
+      });
+
+      it('the apiConfig is correctly configured', () => {
+        expect(typeof ENDPOINT).to.equal('string');
+        expect(ENDPOINT).to.not.equal('');
+        expect(typeof API_KEY).to.equal('string');
+        expect(API_KEY).to.not.equal('');
+      });
 
       it("gets the correct dish", (done) => {
         model.getDish(559251)
@@ -225,7 +232,7 @@ describe("DinnerModel", () => {
         }
 
     });
-  
+
   describe("loading indicator", () => {
     it("checks if the loading indicator is still visible on the page", () => {
       expect(document.querySelector("#loader").style.display).to.equal("none");
