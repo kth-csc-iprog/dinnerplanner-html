@@ -46,6 +46,10 @@ describe("DinnerModel", () => {
       expect(getDishReturnsObject || getDishReturnsPromise).to.equal(true);
     });
     if (getDishReturnsPromise) {  // if it uses the spoonacular api
+        it('dishesConst is removed', () => {
+            expect(typeof dishesConst).to.equal('undefined');
+        });
+
       it("gets the correct dish", (done) => {
         model.getDish(559251)
             .then((data) => {
