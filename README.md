@@ -4,14 +4,14 @@ assignment follow the instructions on the
 [course website](https://kth.instructure.com/courses/19629/assignments/100296).
 
 ## Setup instructions
-* You will need a GitHub or KTH Gits account. If you don’t already have one, create one here: 
+* You will need a KTH Gits account. If you don’t already have one, create one here: 
 https://github.com/
 Follow these steps in detail to be able to work with GitHub from your computer
     * Generate a new ssh key: 
     https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
     * Add the ssh key to GitHub: 
     https://help.github.com/en/articles/adding-a-new-ssh-key-to-your-github-account
-* Fork the startup code [KTH Gits](https://gits-15.sys.kth.se/iprog/dinnerplanner-html/tree/lab0-with-tests) ) - 
+* Fork the startup code ([KTH Gits](https://gits-15.sys.kth.se/iprog/dinnerplanner-html/tree/lab1-with-tests)) - 
 the button is in the upper right corner
 * Clone your new repository to the computer (either using GitHub Desktop App or terminal)
     * If you’re using the command line you will have to type “git clone <ssh_url>”
