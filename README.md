@@ -4,8 +4,7 @@ assignment follow the instructions on the
 [course website](https://kth.instructure.com/courses/19629/assignments/100296).
 
 ## Setup instructions
-* You will need a KTH Gits account. If you don’t already have one, create one here: 
-https://github.com/
+* You will need a KTH Gits account. You can access it by logging in with your KTH.se account credentials. The login button is placed to the right in the navigation bar.
 Follow these steps in detail to be able to work with GitHub from your computer
     * Generate a new ssh key: 
     https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
