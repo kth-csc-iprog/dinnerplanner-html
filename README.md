@@ -11,13 +11,12 @@ Follow these steps in detail to be able to work with GitHub from your computer
     https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
     * Add the ssh key to GitHub: 
     https://help.github.com/en/articles/adding-a-new-ssh-key-to-your-github-account
-* Fork the startup code ( [GitHub](https://github.com/kth-csc-iprog/dinnerplanner-html/tree/lab1-with-tests) or 
-[KTH Gits](https://gits-15.sys.kth.se/iprog/dinnerplanner-html/tree/lab0-with-tests) ) - 
+* Fork the startup code [KTH Gits](https://gits-15.sys.kth.se/iprog/dinnerplanner-html/tree/lab0-with-tests) ) - 
 the button is in the upper right corner
 * Clone your new repository to the computer (either using GitHub Desktop App or terminal)
     * If you’re using the command line you will have to type “git clone <ssh_url>”
     * Find the ssh_url here in your forked repository on GitHub
-    * tRemember to make sure you’re cloning with SSH, and not with HTTPS. 
+    * Remember to make sure you’re cloning with SSH, and not with HTTPS. 
 
 ## Configuring the API
 This application uses the [spoonacular API](https://rapidapi.com/spoonacular/api/recipe-food-nutrition). In order for 
