@@ -3,7 +3,7 @@ This project contains the startup code for Lab 1, which focuses on the model. Fo
 assignment follow the instructions on the 
 [course website](https://kth.instructure.com/courses/19629/assignments/100296).
 
-## Setup instructions
+## Git Setup instructions
 * You will need a KTH Gits account. You can access it by logging in with your KTH.se account credentials. The login button is placed to the right in the navigation bar. Click [here](https://intra.kth.se/en/it/programvara-o-system/system/kth-github/kth-github-1.500062) for more information about your KTH Gits account.
 Follow these steps in detail to be able to work with GitHub from your computer
     * Generate a new ssh key: 
