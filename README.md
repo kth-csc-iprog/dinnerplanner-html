@@ -1,7 +1,7 @@
-# Interaction Programing - Lab 1
-This project contains the startup code for Lab 1, which focuses on the model. For more details on how to complete the 
+# Interaction Programing - Lab 2
+This project contains the startup code for Lab 2, which focuses on the model. For more details on how to complete the 
 assignment follow the instructions on the 
-[course website](https://kth.instructure.com/courses/19629/assignments/100296).
+[course website](https://kth.instructure.com/courses/19629/assignments/100300).
 
 ## Git Setup instructions
 * You will need a KTH Gits account. You can access it by logging in with your KTH.se account credentials. The login button is placed to the right in the navigation bar. Click [here](https://intra.kth.se/en/it/programvara-o-system/system/kth-github/kth-github-1.500062) for more information about your KTH Gits account.
@@ -32,6 +32,7 @@ github. If you do rename the file to something other than *apiConfig.js*, then b
 Open `index.html` in the browser and tests should run automatically
 
 ## What's in this repo
+TODO: describe the view files here.
 * [index.html](/index.html) - open to run the tests. 
 * [src/model/dinnerModel.js](/src/model/dinnerModel.js) - write code here. This is a skeleton for the model of the 
 application, but it does not yet support the functionality needed (number of guests, selected dishes, et.c.). It also 

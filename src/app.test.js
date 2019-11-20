@@ -23,8 +23,9 @@ describe("DinnerPlanner App", () => {
   });
 
   describe("Search view", () => {
-    beforeEach(() => {
-      model.addDishToMenu(559251);
+    beforeEach(async () => {
+      let dish = await model.getDish(559251);
+      model.addDishToMenu(dish);
       searchView.render();
     });
 
@@ -79,8 +80,9 @@ describe("DinnerPlanner App", () => {
   });
 
   describe("Confirmation page", () => {
-    beforeEach(() => {
-      model.addDishToMenu(559251);
+    beforeEach(async () => {
+      let dish = model.getDish(559251);
+      model.addDishToMenu(dish);
       overviewView.render();
     });
 
