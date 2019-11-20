@@ -29,4 +29,8 @@ class HomeView {
   afterRender() {
     this.startBtn = this.container.getElementsByClassName("#startBtn");
   }
+
+  update(payload) {
+    // TODO Lab3
+  }
 }
