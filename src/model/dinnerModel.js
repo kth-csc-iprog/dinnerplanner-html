@@ -38,7 +38,8 @@ class DinnerModel {
     //TODO Lab 1
   }
 
-  //Adds the passed dish to the menu.
+  //Adds the passed dish to the menu. If the dish of that type already exists on the menu
+  //it is removed from the menu and the new one added.
   addDishToMenu(dish) {
     //TODO Lab 1
   }

@@ -1,5 +1,5 @@
-const assert = chai.assert;
-const expect = chai.expect;
+var assert = chai.assert;
+var expect = chai.expect;
 
 describe("DinnerModel", () => {
   let model = new DinnerModel();
@@ -159,6 +159,28 @@ describe("DinnerModel", () => {
         expect(dishes.length).to.be.above(0);
         expect(allDishesMatch).to.equal(true);
 
+    if (getAllDishReturnsArray) { // if it uses the dishesConst
+      it("returns all dishes if no args are specified", () => {
+        const allDishes = model.getAllDishes();
+        expect(allDishes.length).to.equal(10);
+      });
+
+      it("returns the correct dish type", () => {
+        let dishes = model.getAllDishes("starter");
+        const onlyHasStarters = dishes.every(dish => dish.dishTypes.includes("starter"));
+        expect(onlyHasStarters).to.equal(true);
+
+        dishes = model.getAllDishes("main dish");
+        const onlyHasMain = dishes.every(dish => dish.dishTypes.includes("main dish"));
+        expect(onlyHasMain).to.equal(true);
+      });
+
+      it("filters with keywords", () => {
+        let dishes = model.getAllDishes("", "French");
+        let allDishesMatch = dishes.every(dish => dish.name.includes("French"));
+        expect(dishes.length).to.be.above(0);
+        expect(allDishesMatch).to.equal(true);
+
         dishes = model.getAllDishes("", "Meat");
         allDishesMatch = dishes.every(dish => dish.name.includes("Meat"));
         expect(dishes.length).to.be.above(0);
@@ -173,7 +195,6 @@ describe("DinnerModel", () => {
         expect(dishes.length).to.be.above(0);
         expect(allDishesMatch).to.equal(true);
       });
-
     } else if (getAllDishesReturnsPromise) { // if it uses the spoonacular api
       it("returns all dishes if no args are specified", (done) => {
         model.getAllDishes()
@@ -191,7 +212,6 @@ describe("DinnerModel", () => {
               done();
             });
       }).timeout(10000);
-
       it("catches errors", (done) => {
         let oldFetch = fetch;
         fetch = () => Promise.reject(new Error('fetching failed'));
@@ -422,6 +442,83 @@ describe("DinnerModel", () => {
       it(`${methodName} is functional`, () => {
         testFunctional(model[methodName])
       })
+
+    if (getDishReturnsPromise) { // if it uses the spoonacular api
+      it("can add dishes", (done) => {
+        model.getDish(559251)
+            .then((data) => {
+              model.addDishToMenu(data);
+              expect(model.getFullMenu().length).to.equal(1);
+              expect(model.getFullMenu()[0].id).to.equal(559251);
+              done();
+            });
+      }).timeout(10000);
+
+      it("can remove dishes", (done) => {
+        model.getDish(559251)
+            .then((data) => {
+              model.addDishToMenu(data);
+              expect(model.getFullMenu().length).to.equal(1);
+              expect(model.getFullMenu()[0].id).to.equal(559251);
+
+              model.removeDishFromMenu(559251);
+              expect(model.getFullMenu().length).to.equal(0);
+              expect(model.getFullMenu()).to.not.include(data);
+              done();
+            });
+      }).timeout(10000);
+
+      it("can find the dishes of a specific type on the menu", (done) => {
+        model.getDish(559251)
+            .then((data) => {
+              model.addDishToMenu(data);
+              expect(model.getFullMenu().length).to.equal(1);
+              expect(model.getFullMenu()[0].id).to.equal(559251);
+
+              model.removeDishFromMenu(559251);
+              expect(model.getFullMenu().length).to.equal(0);
+              expect(model.getFullMenu()).to.not.include(data);
+              done();
+            });
+      }).timeout(10000);
+
+    } else if (getDishReturnsObject) { // if it uses dishesConst
+      it("can add dishes", () => {
+        model.addDishToMenu(model.getDish(1));
+        expect(model.getFullMenu()).to.include(model.getDish(1));
+
+        model.addDishToMenu(model.getDish(100));
+        expect(model.getFullMenu()).to.include(model.getDish(1));
+        expect(model.getFullMenu()).to.include(model.getDish(100));
+      });
+
+      it("can remove dishes", () => {
+        model.addDishToMenu(model.getDish(1));
+        // dish 1 should be in the menu
+        expect(model.getFullMenu()).to.include(model.getDish(1));
+
+        model.removeDishFromMenu(1);
+        // should now be removed
+        expect(model.getFullMenu()).to.not.include(model.getDish(1));
+      });
+
+      it("can find the dishes of a specific type on the menu", () => {
+        model.addDishToMenu(model.getDish(1)); // starter
+        model.addDishToMenu(model.getDish(2)); // starter
+        model.addDishToMenu(model.getDish(100)); // main dish
+
+        let starters = model.getSelectedDishes('starter');
+        expect(starters).to.include(model.getDish(1));
+        expect(starters).to.include(model.getDish(2));
+        expect(starters).to.not.include(model.getDish(100));
+      })
+    }
+
+  });
+
+  describe("loading indicator", () => {
+    it("checks if the loading indicator is still visible on the page", () => {
+      expect(document.querySelector("#loader").style.display).to.equal("none");
     });
   });
 });
