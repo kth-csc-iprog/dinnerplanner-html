@@ -1,3 +1,4 @@
+# This is a open source project.
 # Interaction Programing - Lab 1
 This project contains the startup code for Lab 1, which focuses on the model. For more details on how to complete the 
 assignment follow the instructions on the 
